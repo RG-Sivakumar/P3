@@ -1,0 +1,31 @@
+.moveLine-head{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  position: absolute;
+  top:3px;
+  right:-15px;
+  border:1px solid #002E5F;
+  width:30px;
+  height:50px;
+  border-radius: 7px;
+  background:#ffffff;
+  z-index: 99;
+}
+
+.moveLine-head:hover{
+  cursor: pointer;
+}
+
+.firstline-sidebar{
+  height:100%;
+  width:3px;
+  margin:0px 2px;
+  background-color: #f98e2c;
+}
+.secondline-sidebar{
+  height:100%;
+  width:3px;
+  margin:0px 2px;
+  background-color: #f98e2c;
+}

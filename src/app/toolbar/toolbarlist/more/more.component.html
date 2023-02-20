@@ -1,0 +1,49 @@
+<div class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading">{{toolbarName}}</h3>
+        <!-- <p class="created-date">Created : {{createdDate}}</p>
+        <p class="modified-date">Modified : {{modifiedDate}}</p>
+        <p class="tags">Tags : 
+            <span *ngFor="let toolbartagname of toolbarTagList; let i=index">{{toolbartagname['toolbar_tag_name']}}<span *ngIf="toolbarTagList.length-1!==i">, </span></span>
+        </p> -->
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-10">
+                <p class="content-heading" (click)="gotoToolbarDesign()">Edit</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-10">
+                <p class="content-heading" (click)="gotoRenameBox()">Rename</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-10">
+                <p class="content-heading" (click)="goToManageTags()">Manage Tags</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-10">
+                <p class="content-heading" (click)="goToMoreInformation()">More Information</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-10">
+                <p class="content-heading" (click)="Unhide()">UnHide</p>
+            </div>
+        </div>
+    </div>
+</div>

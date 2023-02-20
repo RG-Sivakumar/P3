@@ -1,0 +1,62 @@
+
+<div class="form">
+<form #form="ngForm" (submit)="onSubmit(form)">
+
+<div class="row fields">
+    
+<div class="col-lg-6 col-md-6 col-sm-6">
+    
+    <div class="owner">
+    <label for="owner">Owner_Name</label>
+    <input type="text" name="owner_name" #owner_name="ngModel" [(ngModel)]="service.formData.owner_name" class="own" placeholder="* Name ">
+</div>
+<div class="assign">
+    <label for="">Assignment_Name</label>
+    <input type="text" name="assignment_name" #assignment_name="ngModel" [(ngModel)]="service.formData.assignment_name" class="ass" placeholder="* Assignment">
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="project"> 
+    <label for="">Project_Name</label>
+    <input type="text" name="project_name" #project_name="ngModel" [(ngModel)]="service.formData.project_name" class="proj" placeholder="*Title">
+</div>
+<div class="UU"> 
+    <label for="">Project_UUID</label>
+    <input type="text" name="project_uuid" #project_uuid="ngModel" [(ngModel)]="service.formData.project_uuid" class="UUid" placeholder="*ID">
+</div>
+</div>
+ 
+<div class="pre">
+    <button class="prep"  type="submit">Prepare</button>
+</div>
+
+
+</div>
+</form>
+</div>
+
+<div class="server">
+<!-- 
+<ul>
+    <li *ngFor="let prep of prepare">
+     <p> {{prep.documents_name}}  {{prep.documents_status}} {{prep.documents_uuid}} </p>
+    </li>
+</ul> -->
+
+
+
+
+    <mat-form-field>
+        <mat-label>Select Server</mat-label>
+        <mat-select  [(ngModel)]="selectedLevel" (valueChange)="selectedValue($event)"  >
+           
+          <mat-option  *ngFor="let ipadd of apiData" [selected]="ipadd.ip" [value]="ipadd.ip">
+         {{ipadd.ip}}
+          </mat-option>         
+          
+        </mat-select>
+      </mat-form-field> 
+
+      <p *ngIf="iserr">{{errmsg}}</p>
+    
+    </div>

@@ -1,0 +1,87 @@
+<div class="app-project-head">
+  <div class="row header container-fluid">
+    <div class="col-lg-12">
+      <p class="content-heading-header">Link to URL</p>
+    </div>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="close()"
+      />
+    </div>
+  </div>
+  <div class="caption">
+    Please add a link including the prefix http:// or https://
+  </div>
+  <div class="content-area-annotation">
+    <div class="row search-area">
+      <div class="col-lg-12 sear-area-head" style="margin-bottom: 10px;">
+        <div class="input-group">
+          <div class="input-group-prepand prepand-head">
+            <img
+              src="assets/images/P3_SearchIcon _Grey.png"
+              class="search-img-section"
+              alt="search-icon"
+            />
+          </div>
+          <input
+            type="url"
+            [(ngModel)]="urls"
+            (ngModelChange)="getCorrectorNotURL(urls)"
+            pattern="https://.*"
+            class="form-control search-text-Pl"
+            placeholder="http://domain.com"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row buttons"
+    style="background-color: #e8e8e8; border-top: 1px solid grey;"
+  >
+    <div
+      class="col-6"
+      (click)="testUrl(urls)"
+      style="
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        height: 75px;
+        color: #002e5f;
+        cursor: pointer;
+        border-right: 1px solid grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      Test URL
+    </div>
+    <div
+      class="col-6"
+      (click)="addLink(urls)"
+      [ngClass]="{hiddenSector:urlNotMatch}"
+      style="
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        height: 75px;
+        color: #a4a426;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      Add Link
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="show" class="image_part1">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>

@@ -1,0 +1,489 @@
+<article class="docs-article" id="section-3">
+	<header class="docs-header">
+		<h1 class="docs-heading">3.0 Project Management
+			<span class="docs-time">Last updated:{{lastModifiedDate}}</span>
+		</h1>
+	
+		
+			<section class="docs-intro">
+				<p>The Project Management Dashboard is the entry point into a Plannotate project.  Users will see a list of the projects which they have access based upon their login credentials. </p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Project Management Dashboard','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/pm-dashboard.png')">
+					<a  data-title="Project Management Dashboard" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/pm-dashboard.png" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Project Management Dashboard</figcaption>
+				</figure>
+				
+				<ol>
+					<li><b>Title</b> –References where you are within the Project Management Dashboard, such as My Projects, Recent Projects.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-1" scrollTo scrollTargetSelector="#item-3-1" (click)="activeVistionSend('section-3','item-3-1')">My Projects</a> – Provides a list of all Plannotate Projects which you have access. </li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-3" scrollTo scrollTargetSelector="#item-3-3"  (click)="activeVistionSend('section-3','item-3-3')">Recent Projects</a> – Provides a list of the last several Plannotate Projects which you have accessed.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-4" scrollTo scrollTargetSelector="#item-3-4" (click)="activeVistionSend('section-3','item-3-4')">Favorite Projects</a> – Provides a list of all Plannotate Projects which you have marked as a favorite.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-5" scrollTo scrollTargetSelector="#item-3-5" (click)="activeVistionSend('section-3','item-3-5')">Hidden Projects</a> – Provides a list of all Plannotate Projects which you have marked as hidden.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-6" scrollTo scrollTargetSelector="#item-3-6" (click)="activeVistionSend('section-3','item-3-6')">Sidebar Expand / Collapse</a> – The Plannotate sidebar on the Project Dashboard screen can be expanded and collapsed to maximize real estate. </li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=section-4" class="anchorStyle" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','section-4')">Projects</a> – This is the space where the list of projects will be displayed based upon which tab you select from the left side toolbar.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" scrollTo scrollTargetSelector="#item-3-8" (click)="activeVistionSend('section-3','item-3-8')">Search</a> – Enables you to search the displayed list of projects based on several search criteria.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" scrollTo scrollTargetSelector="#item-3-9" (click)="activeVistionSend('section-3','item-3-9')">Sort</a> – Enables you to sort the displayed list of projects based on several sort options.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-10" scrollTo scrollTargetSelector="#item-3-10" (click)="activeVistionSend('section-3','item-3-10')">Manual Sync</a> – Initiates a synchronization of data with the Plannotate cloud, which uploads all new data since the last sync, and downloads any new data from the Plannotate cloud. This icon is available only on Plannotate for the iPad, as the web client version is communicating real time with the Plannotate cloud.  Plannotate on web client will have an Apple icon in the top right corner as discussed in the installation section.</li>
+					<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-7" scrollTo scrollTargetSelector="#item-3-7" (click)="activeVistionSend('section-3','item-3-7')">Add</a> – Provides the ability to add new projects.</li>
+				</ol>
+						
+			</section><!--//docs-intro-->
+			<section class="docs-section" id="item-3-1">
+				<h2 class="section-heading">3.1 My Projects</h2>
+				<p>The My Projects area of the Project Management Dashboard provides a list of all projects which you have access. Any new projects you create will automatically appear in this list, and as you are added to other projects, they will also display in the list.</p>
+				
+				<p>When you first log into Plannotate, you may not have any projects assigned to you or created. Once you are added to your first project, it will appear in a list view.</p>
+				
+				<div class="callout-block callout-block-info">
+										
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>Upon signing into Plannotate for the first time, it is advisable to click the <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-10"
+							scrollTo scrollTargetSelector="#item-3-10"
+							(click)="activeVistionSend('section-3','item-3-10')">manual sync button</a> in order to download any projects that you have been provided access to.  These will not appear in the list until you perform a synchronization.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Project Management Dashboard - No Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/pm-dashboard-orig.PNG')">
+					<a data-title="Project Management Dashboard - No Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/pm-dashboard-orig.PNG" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Project Management Dashboard - No Projects</figcaption>
+				</figure>
+				
+				<p>Once projects have been added, they will either show in a blue or orange color. The list will default in alphabetical order, and can be <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" scrollTo scrollTargetSelector="#item-3-8"
+					(click)="activeVistionSend('section-3','item-3-8')">searched</a> and <a  href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" scrollTo
+					scrollTargetSelector="#item-3-9" (click)="activeVistionSend('section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+				
+				<div class="callout-block callout-block-info">
+										
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<ul>
+							<li>Projects will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud. Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a href="/p3/userguide/chapter-2?id=section-2&target=item-2-3" class="anchorStyle"
+								(click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+							<li>Projects will show in a blue color if they have been fully synchronized to the Plannotate cloud.</li>
+					</ul>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Project Management Dashboard - Three Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/my-projects.png')">
+					<a  data-title="Project Management Dashboard - Three Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/my-projects.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Project Management Dashboard - Three Projects</figcaption>
+				</figure>
+			
+			
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-2">
+				<h2 class="section-heading">3.2 Project Options</h2>
+				<p>There are two actions that can be performed on a project.</p>
+				
+				<ul>
+					<li><b>Single tap</b> – Selects and opens the project.</li>
+					<li><b>Long hold</b> – Opens a menu of project options.</li>
+				</ul>
+				
+				<p>When a long hold is performed, a popup menu showing a variety of options will appear.</p>
+				
+				<div class="alert alert-success" role="alert">
+					On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+				</div>
+					
+				<figure class="figure docs-figure py-3" (click)="openImage('Project Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/options.png')">
+					<a  data-title="Project Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/options.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Project Options</figcaption>
+				</figure>
+					
+					<ol>
+						<li>The <b>title</b> of the project that was selected.</li>
+						<li><b>Cancels out</b> of this screen. You can also select anywhere off the menu to close the screen.</li>
+						<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-1" scrollTo scrollTargetSelector="#item-3-2-1"
+							(click)="activeVistionSend('section-3','item-3-2-1')">Add to Favorite</a> - Adds the selected project to the list of favorites. If the project is already a favorite, this option will read “Remove from Favorite”. See <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-4" scrollTo scrollTargetSelector="#item-3-4" (click)="activeVistionSend('section-3','item-3-4')">Favorite Projects</a>.</li>
+						<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-2" scrollTo scrollTargetSelector="#item-3-2-2"
+							(click)="activeVistionSend('section-3','item-3-2-2')">Rename Project</a> - Allows you to rename the project.</li>
+						<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-3" scrollTo scrollTargetSelector="#item-3-2-3"
+							(click)="activeVistionSend('section-3','item-3-2-3')">Manage Tags</a> - Opens the Manage Tags screen.</li>
+						<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-4" scrollTo scrollTargetSelector="#item-3-2-4"
+							(click)="activeVistionSend('section-3','item-3-2-4')">Project Information</a> - Displays project metadata / details.</li>
+						<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-5" scrollTo scrollTargetSelector="#item-3-2-5"
+							(click)="activeVistionSend('section-3','item-3-2-5')">Hide</a> - Enables the project to be hidden from the My Projects, Recent Projects, and Hidden Projects screens. See <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-5" scrollTo
+							scrollTargetSelector="#item-3-5" (click)="activeVistionSend('section-3','item-3-5')">Hidden Projects</a></li>
+						<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-6" scrollTo scrollTargetSelector="#item-3-2-6"
+							(click)="activeVistionSend('section-3','item-3-2-6')">Manage Users</a> - Opens the Manage Users area in order to establish access and security rights to the project.</li>
+					</ol>
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-2-1">
+				<h2 class="section-heading">3.2.1 Add to Favorites</h2>
+				<p>The Add to Favorite option designates the selected project as a personal favorite.  This means that the project will show up in the <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-4" scrollTo scrollTargetSelector="#item-3-4"
+					(click)="activeVistionSend('section-3','item-3-4')">Favorite Projects</a> section of the Project Management Dashboard, and will be denoted by a special icon.</p>
+				
+				<p>If the project options are selected on a project designated as a favorite, this option will change to read &quot;Remove from Favorite&quot;. If the Remove from Favorites option is selected, the project will remain in the My Projects and Recent Projects as applicable but will no longer appear in the Favorite Projects.  The icon will also change back to the default project icon.</p>
+			   
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-2-2">
+				<h2 class="section-heading">3.2.2 Rename a Project</h2>
+				<p>The user that initially creates a project will assign a name to the project.  In the event this name needs to change, this option can be selected.</p>
+				
+				<p>When the Rename Project option is selected, the current name of the project will appear, and by tapping on the data entry line, you will be able to modify or enter a new name.</p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Rename a Project','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/rename.png')">
+					<a  data-title="Rename a Project" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/rename.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Rename a Project</figcaption>
+				</figure>
+				
+					<ul>
+						<li>Select <b>Rename</b> to change the name of the project.</li>
+						<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the project name unchanged.</li>
+					</ul>
+			   
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-2-3">
+				<h2 class="section-heading">3.2.3 Manage Tags</h2>
+				<p>Tags are metadata assigned to a Plannotate object like a project, document, annotation, etc.  By adding meaningful tags, users will be able to search for content more effectively.</p>
+				
+				<p>When the Manage Tags option is selected, a popup will appear displaying any tags that have been assigned to the project, document, etc.  These will show up in orange, for example &quot;Concrete&quot;.</p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Manage Tags','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/tags.png')">
+					<a  data-title="Manage Tags" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/tags.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Manage Tags</figcaption>
+				</figure>
+				
+					<ul>
+						<li><b>Enter any number of tags</b> on the data entry line, separated by a comma, and hit the enter key on your iPad keyboard to record them.</li>
+						<li>Select the <b>X</b> next to any tags in orange to remove them.</li>
+						<li>Select <b>Save</b> to save all the changes that were made.</li>
+						<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the tags unchanged.</li>
+					</ul>
+			   
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-2-4">
+				<h2 class="section-heading">3.2.4 Project Information</h2>
+				<p>The project information screen shows metadata information associated with the project.</p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Project Information','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/information.png')">
+					<a  data-title="Project Information" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/information.png"  loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Project Information</figcaption>
+				</figure>
+				
+					<ul>
+						<li>The <b>top section</b> shows the project name, created data, last modification date and the tags associated with the project.</li>
+						<li>The <b>main body</b> of the screen shows how many occurrences of the various types of objects exist within the project.</li>
+						<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+					</ul>
+			   
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-2-5">
+				<h2 class="section-heading">3.2.5 Hide</h2>
+				<p>The Hide option designates the selected project to be hidden from My Projects, Recent Projects and Favorite Projects. This is a personal setting, and the selected project will only be hidden for the user that selects this option.  Other users of the project can choose to hide or show and are not impacted by the decision to hide by another user.  By selecting Hide, the project will show up in the <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-5" scrollTo
+					scrollTargetSelector="#item-3-5" (click)="activeVistionSend('section-3','item-3-5')">Hidden Projects</a> section of the Project Management Dashboard, and will be denoted by a special icon.</p>
+				
+				<p>If the project options are selected on a project designated as hidden, this option will change to read &quot;Unhide&quot;. If the Unhide option is selected, a project will move back to the My Projects and any of the other applicable views within the Project Management Dashboard.  The icon will also change back to the default project icon.</p>
+			   
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-2-6">
+				<h2 class="section-heading">3.2.6 Manage Users</h2>
+				<p>Once a project has been created, anyone with the proper security can add, modify, and remove user access to the project. </p>
+				
+				<div class="callout-block callout-block-info">
+										
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>The project must be synchronized at least once before users can be added so that the Plannotate Cloud is aware that the project exists. If a new project is created and not yet sync'd, your search for users will not generate any results.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Manage Users','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/manage-users.png')">
+					<a  data-title="Manage Users" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/manage-users.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Manage Users</figcaption>
+				</figure>
+				
+					<ol>
+						<li>The <b>title</b> of the project that was selected.</li>
+						<li>The <b>Add Users</b> search box allows you to search for any existing Plannotate user, including any active WJE employee and any external users that have been granted access to Plannotate. Type any portion of the desired email address or name and tap the search icon.</li>
+						<li>The <b>search results</b> will appear in this section, allowing you to select users to add to the project.</li>
+						<li>External users can be added to a project by entering their first name, last name and email and then selecting the <b>Add New User</b>.</li>
+						<li>All project members will appear in this section, and you can select on the various security columns to modify each individual’s security.</li>
+						<ul>
+							<li><b>View</b> – allows the user to view the project and contents but not make changes.</li>
+							<li><b>Edit</b> – allows the user to make additions, edits and deletions to the project.  They will not be allowed to add, remove or modify project security or users.</li>
+							<li><b>Admin</b> – grants full rights to the project, including security features.</li>
+						</ul>
+						<li><b>Cancels out</b> of this screen. You can also select anywhere off the window to close.</li>
+					</ol>
+					
+					<figure class="figure docs-figure py-3" (click)="openImage('Manage Users','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/managing-users.gif')">
+						<a  data-title="Manage Users" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/managing-users.gif" loading="lazy" alt="" style="width: 600px;"></a>
+						<figcaption class="figure-caption mt-3">Manage Users</figcaption>
+					</figure>
+			   
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-3">
+				<h2 class="section-heading">3.3 Recent Projects</h2>
+				<p>The Recent Projects area of the Project Management Dashboard provides a list of the last several projects which you have accessed.</p>
+				
+				<p>When you first log into Plannotate, you will not have any projects in the Recent Projects area. Once you open a project, it will appear in a list view.</p>
+				<figure class="figure docs-figure py-3" (click)="openImage('Recent Projects - No Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/recent-empty.png')">
+					<a  data-title="Recent Projects - No Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/recent-empty.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Recent Projects - No Projects</figcaption>
+				</figure>
+				<p>Once Projects have been opened, they will either show in a blue or orange color. The list will display the last 4 projects that were opened and default in descending modified date order, and can be <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" scrollTo scrollTargetSelector="#item-3-8"
+					(click)="activeVistionSend('section-3','item-3-8')">searched</a> and <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" scrollTo
+					scrollTargetSelector="#item-3-9" (click)="activeVistionSend('section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+					<ul>
+						<li>Projects will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3" (click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Projects will show in a blue color if they have been fully synchronized to the Plannotate cloud.</li>
+					</ul>
+						
+				
+					<figure class="figure docs-figure py-3"  (click)="openImage('Recent Projects Displaying Two Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/recent.png')">
+						<a  data-title="Recent Projects Displaying Two Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/recent.png" loading="lazy" alt="" style="width: 600px;"></a>
+						<figcaption class="figure-caption mt-3">Recent Projects Displaying Two Projects</figcaption>
+					</figure>
+			
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-4">
+				<h2 class="section-heading">3.4 Favorite Projects</h2>
+				<p>The Favorite Projects area of the Project Management Dashboard provides a list of projects which you have designated as favorites. Favorites are unique to each user, so the favorites of any one user are not automatically designated as a favorite of any other user. </p>
+				
+				<p>When you first log into Plannotate, you will not have any projects in the Favorite Projects area. Once you designate a project as a favorite project, it will appear in a list view.</p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Favorite Projects - No Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/favorite-empty.png')">
+					<a  data-title="Favorite Projects - No Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/favorite-empty.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Favorite Projects - No Projects</figcaption>
+				</figure>
+				
+				<p>Once Projects have been designated as favorites, they will be denoted with a special icon and will either show in a blue or orange color. The list defaults in descending modified date order, and can be <a  href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" scrollTo scrollTargetSelector="#item-3-8"
+					(click)="activeVistionSend('section-3','item-3-8')">searched</a> and <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" scrollTo
+					scrollTargetSelector="#item-3-9" (click)="activeVistionSend('section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+					<ul>
+						<li>Projects will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3" (click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Projects will show in a blue color if they have been fully synchronized to the Plannotate cloud.</li>
+					</ul>
+						
+				
+					<figure class="figure docs-figure py-3" (click)="openImage('Favorite Projects Displaying Two Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/favorite.png')">
+						<a  data-title="Favorite Projects Displaying Two Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/favorite.png"  loading="lazy" alt="" style="width: 600px;"></a>
+						<figcaption class="figure-caption mt-3">Favorite Projects Displaying Two Projects</figcaption>
+					</figure>
+					
+					<div class="callout-block callout-block-info">
+										
+						<div class="content">
+							<h4 class="callout-title">
+								<span class="callout-icon-holder mr-1">
+									<i class="fas fa-info-circle"></i>
+								</span><!--//icon-holder-->
+								Note
+							</h4>
+							<p>Projects are designated as Favorites on a per user basis, and therefore any projects marked as Favorite by one user will not automatically be marked as a favorite by any other user. </p>
+						</div><!--//content-->
+					</div><!--//callout-block-->
+					
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-5">
+				<h2 class="section-heading">3.5 Hidden Projects</h2>
+				<p>The Hidden Projects area of the Project Management Dashboard provides an area for users to place projects that they do not want included in the My Projects, Recent Projects or Favorite Projects area.  They are not deleted from the Plannotate cloud. Hidden projects are unique to each user, so the ones hidden by any one user are not automatically hidden by any other user. </p>
+				
+				<p>When you first log into Plannotate, you will not have any projects in the Hidden Projects area. Once you designate a project as a hidden project, it will appear in a list view.</p>
+				<figure class="figure docs-figure py-3" (click)="openImage('Hidden Projects - No Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/hidden-empty.png')">
+					<a  data-title="Hidden Projects - No Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/hidden-empty.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Hidden Projects - No Projects</figcaption>
+				</figure>
+				
+				<p>Once Projects have been designated as hidden, they will be denoted with a special icon and will either show in a blue or orange color. The list defaults in descending modified date order, and can be <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" scrollTo scrollTargetSelector="#item-3-8"
+					(click)="activeVistionSend('section-3','item-3-8')">searched</a> and <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" scrollTo
+					scrollTargetSelector="#item-3-9" (click)="activeVistionSend('section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+					<ul>
+						<li>Projects will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3" (click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Projects will show in a blue color if they have been fully syncrhonized to the Plannotate cloud.</li>
+					</ul>
+						
+				
+					
+    <figure class="figure docs-figure py-3" (click)="openImage('Hidden Projects Displaying One Project','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/hidden.png')">
+        <a  data-title="Hidden Projects Displaying One Project" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/hidden.png" loading="lazy" alt="" style="width: 600px;"></a>
+        <figcaption class="figure-caption mt-3">Hidden Projects Displaying One Projects</figcaption>
+    </figure>
+					
+					<div class="callout-block callout-block-info">
+										
+						<div class="content">
+							<h4 class="callout-title">
+								<span class="callout-icon-holder mr-1">
+									<i class="fas fa-info-circle"></i>
+								</span><!--//icon-holder-->
+								Note
+							</h4>
+							<p>Projects are hidden on a per user basis, and therefore any projects hidden by one user will not automatically be hidden by any other user.</p>
+						</div><!--//content-->
+					</div><!--//callout-block-->
+					
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-6">
+				<h2 class="section-heading">3.6 Project Management Dashboard Sidebar</h2>
+				<p>The sidebar on the Project Management Dashboard screen can be expanded and collapsed to maximize real estate. This is useful when looking at projects with long names.</p>
+				
+				<p>By default. the sidebar will be expanded, showing both an icon and text description.  Selecting the orange arrow icon will allow users to shink and expand the sidebar.</p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Project Management Dashboard Sidebar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/sidebar.gif')">
+					<a  data-title="Project Management Dashboard Sidebar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/sidebar.gif" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Project Management Dashboard Sidebar</figcaption>
+				</figure>
+					
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-7">
+				<h2 class="section-heading">3.7 Creating New Projects</h2>
+				<p>The Add New Project section of Project Management Dashboard allows users to create a new project.  Any user with access to Plannotate can create a new project, add content, and add other users. By default, the user who creates the project will have administrator rights to the project.</p>
+				<p>After tapping the <b>+</b> at the bottom right corner of the screen, a popup screen will appear allowing you to give the new project a name. </p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Creating New Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/add-project.png')">
+					<a  data-title="Creating New Projects" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/add-project.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Creating New Projects</figcaption>
+				</figure>
+				
+					<ul>
+						<li>Select <b>Add</b> to create the project.</li>
+						<li>Select the <b>X</b> in the top right corner to cancel out of this screen. You can also select anywhere off the popup screen to close.</li>
+					</ul>
+					
+					<div class="callout-block callout-block-info">
+										
+						<div class="content">
+							<h4 class="callout-title">
+								<span class="callout-icon-holder mr-1">
+									<i class="fas fa-info-circle"></i>
+								</span><!--//icon-holder-->
+								Note
+							</h4>
+							<p>If a project is created with the same name as an existing project, the name will be appended with a number, incremented by 1 each time this happens.  For example, if a project named &#34;2020.0000.1 – Project ABC&#34; exists and is created for a 2nd time, it will receive the name &#34;2020.0000.1 – Project ABC &#40;1&#41;&#34;.  If this were to be added again, it would be given a name &#34;2020.0000.1 – Project ABC &#40;2&#41;&#34; and so on.</p>
+						</div><!--//content-->
+					</div><!--//callout-block-->
+				
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-8">
+				<h2 class="section-heading">3.8 Search</h2>
+				<p>The project search feature works the same within the My Projects, Recent Projects, Favorite Projects, and Hidden Projects sections. </p>
+				<figure class="figure docs-figure py-3" (click)="openImage('Searching Projects','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/search.gif')">
+					<a data-title="Searching Projects" data-toggle="lightbox"><img
+							class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/search.gif"
+							loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Searching Projects</figcaption>
+				</figure>
+				
+				<ul>
+					<li>Tap on the <b>Search icon</b> in the top bar.</li>
+					<li><b>Type the text</b> to search for, which can include any part of the:</li>
+					
+					<ul>
+						<li>Text within the name of the project.</li>
+						<li>Text within the name of any of the project tags.</li>
+						<li>Create date.</li>
+						<li>Modified date.</li>
+					</ul>
+				</ul>
+				
+				<div class="callout-block callout-block-info">
+										
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>As you begin entering text into the search box, the list of projects will begin to filter based on the information you are entering.</p>
+						<p>When searching by create date or modified date, the syntax to search is &quot;mm/dd/yyyy&quot;.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+					
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-9">
+				<h2 class="section-heading">3.9 Sort</h2>
+				<p>The project sort feature works the same within the My Projects, Recent Projects, Favorite Projects and Hidden Projects sections. </p>
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Project Sort','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/sort.png')">
+					<a data-title="Project Sort" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/sort.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Project Sort</figcaption>
+				</figure>
+				
+				<ul>
+					<li><b>Tap on the Sort icon</b> in the top bar.</li>
+					<li><b>Select the desired sort option</b>.  This can include:</li>
+					
+					<ul>
+						<li>Text based on the name of the project, <b>sorted A to Z</b></li>
+						<li>Text based on the name of the project, <b>sorted Z to A</b></li>
+						<li>Date based on the project creation date and time, <b>sorted oldest to newest</b></li>
+						<li>Date based on the project creation date and time, <b>sorted newest to oldest</b></li>
+						<li>Date based on the project last modification date and time, <b>sorted oldest to newest</b></li>
+						<li>Date based on the project last modification date and time, <b>sorted newest to oldest</b></li>
+					</ul>
+					
+					<li>The list of projects will now be re-sorted, based upon your selection. In this example, Name &#40;Z to A&#41; was selected.</li>
+				</ul>
+				
+				<div class="callout-block callout-block-info">
+										
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>Sorting the list of projects will retain the display until the screen is changed, at which time it will return to the default sorting option, which is by name sorted A to Z.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+					
+			</section><!--//section-->
+			<section class="docs-section" id="item-3-10">
+				<h2 class="section-heading">3.10 Manual Synchronization</h2>
+				<p>Plannotate on the iPad can be used online or when offline and disconnected from a network. This is beneficial in instances where network connectivity is not available, slow or unstable. Anytime a user is connected to a network, whether on cellular or Wi-Fi, a manual synchronization can be started.  This will push any modifications on the iPad to the Plannotate cloud, and retrieve any modifications that were not previously downloaded to the iPad.</p>
+				
+				<p>Plannotate on web client communicates in real time with the Plannotate cloud and therefore does not have a manual synchronization feature.</p>
+				
+				<div class="callout-block callout-block-info">
+										
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>Users will always know what projects have and have not been synchronized with the Plannotate cloud based on the text color of the project name.</p>
+						<p>Any work that is completed locally and not synchronized to the Plannotate Cloud will remain on the iPad until the user signs out of Plannotate. It is highly recommended that users periodically synchronize throughout the duration of a project to avoid any data loss. Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. </p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+					
+<figure class="figure docs-figure py-3" (click)="openImage('Manual Project Synchronization','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/sync.gif')">
+    <a data-title="Manual Project Synchronization"
+        data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+            src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-3/sync.gif" loading="lazy" alt="" style="width: 600px;"></a>
+    <figcaption class="figure-caption mt-3">Manual Project Synchronization</figcaption>
+</figure>
+				
+					<ul>
+						<li>Blue text indicates that a project has been synchronized with the Plannotate cloud.</li>
+						<li>Orange text indicates a project has not been synchronized with the Plannotate cloud.</li>
+						<li>When the manual sync button is selected, the iPad will connect to the Plannotate cloud, determine any unsynchronized changes, and conduct a merge to ensure both the iPad and Plannotate cloud are in sync</li>
+					</ul>
+				
+			</section><!--//section-->
+		</header>
+		
+	</article>

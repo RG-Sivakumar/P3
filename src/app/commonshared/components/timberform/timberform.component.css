@@ -1,0 +1,257 @@
+.timber-form-head{
+    padding:0px 0px 30px 0px;
+    background-color: white;
+  }
+  .timber-form-table{
+    width: 100%;
+    height: 100;
+  }
+  .headerpart-elevation{
+    font-size: 14px;
+    color: #002e5f;
+    padding: 10px 10px 10px 10px;
+    background-color: #d9edf7;
+  }
+  .font-bold-500{
+    font-weight: 500;
+  }
+  .timber-header{
+    font-size: 11px;
+    line-height: 11px;
+  }
+  .table-part{
+    overflow-x: auto;
+  }
+  p{
+    margin-bottom: 0px;
+  }
+  .table-data-value{
+    font-size: 12px;
+    word-break: break-word;
+    line-height: 17px;
+  }
+  .edit-part{
+    padding:10px;
+    font-size: 13px;
+  }
+  .edit-field-header{
+    display: flex;
+  }
+  .left-label>p{
+    color:#002e5f;
+    font-weight: 500;
+  }
+  .hlvtcenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .input-fld-st-en{
+    width: 48%;
+  }
+  .bend-dropdown{
+    width: 48%;
+  }
+  .profile-dropdown{
+    width: 100%;
+  }
+  .comment-area{
+    width: 100%;
+    border:1.4px solid #807F83;
+    border-radius: 3px;
+  }
+  .mar-10{
+    margin-bottom: 10px;
+  }
+  .small-size{
+    font-size: 10px;
+  }
+  
+  .input-field-height{
+    height: 26px;
+    border:1.4px solid #807F83;
+    border-radius: 3px;
+  }
+  .radius-diameter{
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 11px;
+  }
+
+  .radius-success{
+    background: green;
+    color: #FFFFFF;
+  }
+
+  .radius-exceed{
+    background: red;
+    color: #FFFFFF;
+  }
+
+  .radius-less{
+    background:yellow;
+    color: #000000;
+  }
+  
+  textarea{
+    resize: none;
+  }
+  .add-button-head{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    border-top: 4px solid #e9edf2;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .add-pile-button, .pile-button-done{
+    background-color: #002e5f;
+    border-radius: 2px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 3px 3px;
+  }
+  .plus-char{
+    font-size: 18px;
+  }
+  .tick-mark-png{
+    width: 25px;
+    height: 21px;
+  }
+  
+  .bend{
+    border-radius: 10px;
+    min-width: 10px;
+    padding: 1px 7px;
+      /* text-align: center; */
+      display: inline-block;
+      /* align-items: center;
+      justify-content: center; */
+      font-weight: 500;
+      margin: auto;
+      font-size: 11px;
+      margin-bottom: 2px;
+      white-space: nowrap;
+  }
+  .bend-level-1, .diameter-radius-level-1{
+    background: green;
+    color: #FFFFFF;
+  }
+  .bend-level-2, .diameter-radius-level-2{
+    /* #FFFF00 */
+    background:yellow;
+    color: #000000;
+  }
+  .bend-level-3{
+    /* #FFA500  */
+    background: orange;
+    color: #FFFFFF;
+  }
+  .bend-level-4, .diameter-radius-level-3{
+    /* #FF0000 */
+    background: red;
+    color: #FFFFFF;
+  }
+  .bend-level-5{
+    background: purple;
+    color: #FFFFFF;
+  }
+  .bend-empty-level{
+    background: #777;
+    color: #FFFFFF;
+  }
+
+  .r-d{
+    border-radius: 20px;
+      width: 35px;
+      height: 18px;
+      /* text-align: center; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      margin: auto;
+      font-size: 11px;
+      margin-bottom: 2px;
+  }
+  .table th{
+    padding:12px 6px;
+    line-height: 14px;
+    text-align: center;
+  }
+  .table td{
+    padding:12px 6px;
+    text-align: center;
+  }
+  .width-set-10{
+    width:10%;
+  }
+  .width-set-12{
+    width:12%;
+  }
+
+  .edit-button, .delete-button, .drill-button{
+    background-color: #FFFFFF;
+    border: none;
+    width: 17px;
+    padding: 0px;
+  }
+  .edit-button, .drill-button{
+    background-image: linear-gradient(to bottom, #337ab7 0%, #265a88 100%);
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+  }
+  .delete-button{
+    width: 20px;
+    height: 20px;
+    background-image: linear-gradient(to bottom, #d9534f 0%, #c12e2a 100%);
+    border-radius: 2px;
+  }
+  .deletebuttonchanges{
+    height:23px;
+    width:23px;
+  }
+  .editbuttonchanges{
+    height:23px;
+    width:23px;
+  }
+  .drill-img{
+    max-width: 72%;
+  }
+  .edit-img{
+    max-width: 85%;
+  }
+  .delete-img{
+    max-width: 50%;
+  }
+  
+
+  .fontsizechange{
+    font-size: 13px;
+  }
+  .fontsizechange-bend-rd{
+    font-size: 12px;
+  }
+  .hideview{
+    display: none;
+  }
+  .opacity-handle{
+    opacity: 0.5;
+  }
+  
+  
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }

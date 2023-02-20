@@ -1,0 +1,46 @@
+.fotgot-head {
+  background-color: rgba(203, 214, 223, 0.5);
+  height: 300px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-none {
+  border: none;
+  background: none;
+}
+
+.txtclr {
+  color: #002e5f;
+  margin-bottom: 2rem;
+}
+
+.btn-lg {
+  background-color: #f98e2c;
+  border: none;
+  width: 100%;
+  border-radius: 1px;
+}
+button:focus {
+  outline: 0;
+}
+.btn-lg:active {
+  border: none;
+}
+.btn-lg:disabled {
+  cursor: not-allowed;
+  background-color: #f98e2cc2;
+}
+.bton-sing {
+  color: #fff;
+  font-weight:450;
+}
+mat-dialog-container {
+  border-radius: 0px !important;
+}
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+}

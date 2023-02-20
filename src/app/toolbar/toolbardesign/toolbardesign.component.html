@@ -1,0 +1,902 @@
+<div *ngIf="show" class="loader">
+  <img src="assets/images/spin.gif" class="loader-img" width="300px" alt="..." />
+</div>
+<div [ngClass]="{'my-class': permissionDisable}">
+  <div class="row toolbar-head">
+    <div *ngIf="overlay" id="overlay">
+      <div class="text-center" style="font-size: 21px; color: #fff;">
+        <b class="closeText">Your Toolbar is now available for use within the project</b><br><br><br>
+        <span>
+          <button class="button1" (click)="closeBoxOverlay()">OK</button></span>
+      </div>
+      <div class="text-center" style=" color: #fff">
+        <br>
+
+      </div>
+      <!-- <div class="image_close">
+        <img src="assets/images/P3_Close-Cancel_White.png" class="img_close" alt="close" (click)="closeBoxOverlay()" />
+      </div> -->
+    </div>
+    <div class="col-md-4 col-lg-4 shape-head" id="style-1" [ngClass]="{ 'disabled': isDisabled }">
+      <nav id="sidebar" class="navbar-white bg-white">
+        <div class="fields row" *ngFor="let item of groupbyVariable">
+          <div class="col-3 fields-in" *ngFor="let n of item">
+            <div class="shape-left-head field pointer shadow-bg" [dndDraggable]="this.userrole == 'view'?'':n"
+              [dndEffectAllowed]="'copy'" (dndEnd)="this.userrole == 'view'?'':onDragEnd($event)"
+              (click)="this.userrole == 'view'?'':toolbarIconClick(n)"
+              [ngClass]="{ 'disabled': isDisabled||this.userrole == 'view',eventNone: isReadonly }">
+              <div class="shape-img col-lg-12" [ngClass]="{ 'disabled': isDisabled }">
+                <img [src]="icon_object.geticon(n.element_id)" />
+              </div>
+              <div class="shape-title col-lg-12" [ngClass]="{ 'disabled': isDisabled }">
+                <h5 style="color: #00447c">{{ n.element_data.element_label }}</h5>
+              </div>
+            </div>
+          </div>
+          <hr class="hr-area col-lg-11" />
+        </div>
+        <div class="navigation-area">
+          <ul class="sidebar-area">
+            <li class="sidebar-btn sidebar-head row" (click)="supportPage()" [ngClass]="{ 'disabled': isDisabled }">
+              <div class="img-part-but col-lg-2">
+                <img class="img-part1" src="assets/images/icons/P3WebIcon_6Question.png" alt="support" />
+              </div>
+              <div class="side-title col-lg-10">
+                <span class="side-title1"> Support </span>
+              </div>
+            </li>
+            <li class="sidebar-btn sidebar-head row" (click)="exitPage()" [ngClass]="{ 'disabled': isDisabled }">
+              <div class="img-part-but col-lg-2">
+                <img class="img-exit" src="assets/images/P3_ArrowLeft.png" alt="support" />
+              </div>
+              <div class="side-title col-lg-10">
+                <span class="side-title1"> Exit </span>
+              </div>
+            </li>
+            <!-- <li class="sidebar-btn"><a href="#">
+                <img class="justify-content-center img-responsive" src="assets/images/P3_ArrowLeft.png">
+                <span class="hide-menu">
+                  Exit
+                </span>
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Dropzone -->
+    <div *ngIf="Builder" class="col-4 section2" id="style-1" cdkScrollable [ngClass]="{ 'disabled': isDisabled }">
+      <div class="col-lg-12" style="justify-content: center"  [ngClass]="{ 'disabled':this.userrole == 'view' || isReadonly}">
+        <div *ngIf="previewToolbarData.length==0" class="d-flex empty-area row" style="z-index: 100;" [ngClass]="{ 'hidePart':overlay}" >
+          <div class="col-12 img-part mb-2">
+            <img class="four-arrow-img" src="assets/images/document/P3_DragIcon_White.png" alt="empty-box" />
+          </div>
+          <div class="col-12 text-area">
+            <p class="noannotation-text">Tap on annotation icons to add</p>
+          </div>
+        </div>
+        <div [ngClass]="{'row centerShape-head example-boundary':!show||loader1}" #rowLayout cdkDropListGroup >
+          <section [ngClass]="{ 'disabled': isDisabled }" dndDropzone di class="row col-lg-12 dndDropArea checkboxed" *ngFor="
+                    let group of toolbar_content.toolbarGroup;
+                    let indexValue = index" fxLayout="row" cdkDropList  cdkDropListOrientation="horizontal"
+            [cdkDropListData]="group" (cdkDropListDropped)="reorderDroppedItem($event,indexValue)" 
+            [attr.data-loc]="'parent'+indexValue">
+            <div id="{{ '' + indexValue + '_' + innerIndex }}" class="field box col-lg-4 col-md-3 select_item active"
+              *ngFor="let item of group; let innerIndex = index" [cdkDrag]="userrole == 'view'?false:true" cdkDragBoundary=".example-boundary" (cdkDragStarted)="dragStarted($event,indexValue,innerIndex)"
+               [dndDraggable]="this.userrole == 'view'?'':item"
+              (click)="this.userrole == 'view'?'':toolbarClickMain(item, indexValue, innerIndex)" [ngClass]="{
+                      selectedBox:
+                        bgChangeIndex.outIndex == indexValue &&
+                        bgChangeIndex.innerIndex1 == innerIndex &&
+                        item.element_id != -1 &&
+                        bgSetClick
+                    }" draggable="true">
+              <div class="drag-placeholder" *cdkDragPlaceholder></div>
+              <div class="row" fxLayoutAlign="center center" >
+                <!-- *ngIf="item.element_id" -->
+                <div  dndHandle class="row form-group field field-box-head"
+                  id="{{ '' + indexValue + '_' + innerIndex }}">
+                  <div class="shape-img col-lg-12" [ngClass]="{ 'disabled':this.userrole == 'view'}">
+                    <img *ngIf="(item.element_id == 11 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                    (item.element_id == 11&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" id="{{ '' + indexValue + '_' + innerIndex }}" [src]="icon_object.geticon(item.element_id)" 
+                     />
+                    <svg
+                      *ngIf="(item.element_id == 8 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 8&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)"
+                      aria-hidden="true" focusable="false" width="50" height="50"
+                      style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                      <path
+                        d="M 10 8 a 3 3 0 1 0 0 6 a 3 3 0 0 0 0 -6 z m 8 -3 h -2.4 a 0.888 0.888 0 0 1 -0.789 -0.57 l -0.621 -1.861 A 0.89 0.89 0 0 0 13.4 2 H 6.6 c -0.33 0 -0.686 0.256 -0.789 0.568 L 5.189 4.43 A 0.889 0.889 0 0 1 4.4 5 H 2 C 0.9 5 0 5.9 0 7 v 9 c 0 1.1 0.9 2 2 2 h 16 c 1.1 0 2 -0.9 2 -2 V 7 c 0 -1.1 -0.9 -2 -2 -2 z m -8 11 a 5 5 0 0 1 -5 -5 a 5 5 0 1 1 10 0 a 5 5 0 0 1 -5 5 z m -8 -8 a 0.7 0.7 0 1 1 2 0 a 0.7 0.7 0 0 1 -2 0 z"
+                        [style.stroke]="
+                          getStrokeColor(item.element_data.stroke_color)
+                        " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity" />
+                    </svg>
+                    <svg
+                      *ngIf="(item.element_id == 1 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 1&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)"
+                      height="50" width="50">
+                      <circle cx="25" cy="25" r="20" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity">
+                      </circle>
+                    </svg>
+                    <svg
+                      *ngIf="(item.element_id == 15&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 15&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)"
+                      height="50" width="50">
+                      <line x1="5" y1="25" x2="45" y2="25" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" />
+                    </svg>
+                    <svg height="50" width="50"
+                      *ngIf="(item.element_id == 6&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 6&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <polygon points="25,5, 40,25, 25,45, 10,25,25,5" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)" />
+                    </svg>
+                    <svg height="50" width="50"
+                      *ngIf="(item.element_id == 3&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 3&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <rect x="5" y="5" width="40" height="40" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)" />
+                    </svg>
+                    <svg width="50" height="50"
+                      *ngIf="(item.element_id == 4&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 4&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <polygon points="25,5, 45,45,05,45" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg width="50" height="50"
+                      *ngIf="(item.element_id == 18&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 18&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <polygon points="8,25,26,11,50,31,5,50" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg height="50" width="50"
+                      *ngIf="(item.element_id == 19&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 19&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <ellipse cx="25" cy="25" rx="15" ry="20" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)" />
+                    </svg>
+                    <svg height="50" width="50"
+                      *ngIf="(item.element_id == 20&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 20&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <rect x="10" y="5" width="30" height="40" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)" />
+                    </svg>
+                    <svg width="50" height="50"
+                      *ngIf="(item.element_id == 2&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 2&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <polygon points="25,5, 40,11, 46,24, 41,39, 25,45, 10,40, 4,24, 10,11,25,5" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg width="50" height="50"
+                      *ngIf="(item.element_id == 7&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 7&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <polygon points="5,45,5,5 40,5 30,15 40,25 5,25" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg width="50" height="50"
+                      *ngIf="(item.element_id == 9&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 9&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <polygon points="5,21 25,21,25,10,40,25,25,40, 25,29,5,29,5,21" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg width="60" height="60" 
+                      *ngIf="(item.element_id == 5&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 5&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <!-- old value "30,5,35,19,50,19,38,29,45,48,30,33,16,48,22,29,10,19,25,19,30,5" -->
+                      <polygon points="32,5 39,20 51,20 42,31 47,46 32,38 17,47 22,31 13,20 25,20 32,5" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/2"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg height="50" width="60"
+                      *ngIf="(item.element_id == 14&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 14&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+                      <path d="M 4 27 l 8 17" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" />
+                      <path d="M 15 45 l 33 -40" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" />
+                      <path d="M 47 7 l 4 25" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" />
+                      <!-- Mark relevant points -->
+                      <g [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)">
+                        <circle id="pointB" cx="4" cy="27" r="2" />
+                        <circle id="pointB" cx="14" cy="45" r="2" />
+                        <circle id="pointC" cx="46" cy="7" r="2" />
+                        <circle id="pointC" cx="50" cy="30" r="2" />
+                      </g>
+                    </svg>
+                    <svg height="60" width="60"
+                      *ngIf="(item.element_id == 16&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 16&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)"
+                      viewbox="0 0 50 60">
+                      <defs>
+                        <marker [attr.id]="'mark1head'+indexValue+innerIndex" orient="auto" markerWidth="2" markerHeight="4" refX="0.1" refY="2">
+                          <!-- triangle pointing right (+x) -->
+                          <path d="M0,0 V4 L2,2 Z" [style.fill]="
+                                    getStrokeColor(item.element_data.stroke_color)
+                                  " />
+                        </marker>
+                        <marker [attr.id]="'mark1head'+indexValue+innerIndex" orient="auto" markerWidth="2" markerHeight="4" refX="0.1" refY="2">
+                          <!-- triangle pointing right (+x) -->
+                          <path d="M0,0 V4 L2,2 Z" [style.fill]="
+                                    getStrokeColor(item.element_data.stroke_color)
+                                  " />
+                        </marker>
+                      </defs>
+                      <path d="M 9 45 l 0 -35" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" [attr.marker-end]="geturlaxial(indexValue,innerIndex)" />
+                      <path d="M 8 45 l 40 0" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" [attr.marker-end]="geturlaxial(indexValue,innerIndex)" />
+                    </svg>
+                    <svg height="60" width="60" *ngIf="(item.element_id == 13&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                    (item.element_id == 13&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" viewbox="0 0 50 60">
+                      <defs>
+                        <marker [attr.id]="'head'+indexValue+innerIndex" orient="auto" markerWidth="4" markerHeight="4" refX="2.7" refY="2">
+                          <!-- triangle pointing right (+x) -->
+                          <path d="M0,0 V4 L3,2 Z" [style.fill]="
+                          getStrokeColor(item.element_data.stroke_color)" />
+                        </marker>
+                        <marker [attr.id]="'head'+indexValue+innerIndex" orient="auto" markerWidth="4" markerHeight="4" refX="0.1" refY="2">
+                          <!-- triangle pointing right (+x) -->
+                          <path d="M0,0 V4 L3,2 Z" [style.fill]="
+                          getStrokeColor(item.element_data.stroke_color)
+                                  " />
+                        </marker>
+                      </defs>
+                      <path d="M 4 30 l 12 16" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" [attr.marker-end]="geturl(indexValue,innerIndex)" />
+                      <path d="M 15 45 l 18 -20" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" [attr.marker-end]="geturl(indexValue,innerIndex)" />
+                      <path d="M 31 27 l 13 -14" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" [attr.marker-end]="geturl(indexValue,innerIndex)" />
+                      <path d="M 43 13 l 5 15" [style.stroke]="
+                                getStrokeColor(item.element_data.stroke_color)
+                              " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" fill="none" [attr.marker-end]="geturl(indexValue,innerIndex)" />
+                    </svg>
+                    <svg aria-hidden="true"
+                      *ngIf="(item.element_id == 12&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                      (item.element_id == 12&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)"
+                      focusable="false" width="50" height="50" viewBox="0 0 53.000000 58.000000"
+                      preserveAspectRatio="xMidYMid meet">
+                      <g transform="translate(0.000000,58.000000) scale(0.100000,-0.100000)" [style.stroke]="
+                          getStrokeColor(item.element_data.stroke_color)
+                        " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity">
+                        <path
+                          d="M80 565 c-18 -22 -5 -49 101 -200 54 -77 96 -142 93 -144 -2 -3 -19 9 -37 26 -79 75 -149 102 -177 68 -19 -23 -5 -72 44 -158 l44 -77 -26 0 c-84 0 -133 -26 -112 -60 6 -9 29 -12 80 -11 139 4 155 33 86 151 -25 44 -46 82 -46 85 0 9 45 -27 148 -121 95 -86 123 -99 142 -64 14 27 -19 97 -114 238 -39 59 -75 114 -80 122 -18 36 141 -141 193 -214 60 -85 83 -100 100 -68 24 45 -189 300 -327 392 -79 54 -93 58 -112 35z" />
+                      </g>
+                    </svg>
+                    <svg aria-hidden="true" *ngIf="(item.element_id == 17&&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+                    (item.element_id == 17&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" focusable="false"
+                      preserveAspectRatio="xMidYMid meet" width="50" height="50" viewBox="-13 -13 118 118"
+                      [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+                      [style.stroke-width]="item.element_data.line_width>30 ? item.element_data.line_width * 7 : item.element_data.line_width * 9"
+                      [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity">
+                      <g transform="translate(0.000000,79.000000) scale(0.100000,-0.100000)">
+                        <path
+                          d="M670 779 c-74 -30 -133 -104 -174 -219 -15 -41 -32 -80 -38 -87 -17 -21 -68 -15 -163 17 -106 36 -130 37 -149 8 -8 -13 -44 -96 -80 -186 -76 -188 -85 -244 -41 -287 21 -22 33 -25 95 -25 39 0 81 5 93 11 12 7 56 46 97 89 54 55 89 82 123 95 l48 18 67 -28 c40 -16 94 -30 133 -32 58 -5 68 -3 93 18 34 30 45 78 46 190 0 81 2 91 45 178 66 135 58 193 -29 235 -38 18 -127 20 -166 5z" />
+                      </g>
+                    </svg>
+                    <div *ngIf="item.element_id>-1&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp!=0" class="specialshape" #stampLabel
+                      [attr.id]="item.element_uuid">
+                      <!-- <canvas #stampLabel (load)="trigger1(item.element_uuid)" [attr.id]="item.element_uuid" height="10" width="10" style="background: red;" [style.stroke]="
+                            getStrokeColor(item.element_data.stroke_color)-
+                          " [style.stroke-width]="item.element_data.line_width/5"
+                                [style.fill]="getFillColor(item.element_data.fill_color)"></canvas> -->
+                    </div>
+                    <svg aria-hidden="true" width="50" height="50" *ngIf="item.element_id==2&&getShowing(item)">
+                      <polygon points="25,5, 40,11, 46,24, 41,39, 25,45, 10,40, 4,24, 10,11,25,5" [style.stroke]="
+                                  getStrokeColor(item.element_data.stroke_color)
+                                " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+        
+                    <svg *ngIf="item.element_id == 1&&getShowing(item)" height="50" width="50">
+                      <circle cx="25" cy="25" r="20" [style.stroke]="
+                                  getStrokeColor(item.element_data.stroke_color)
+                                " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity">
+                      </circle>
+                    </svg>
+                    <svg height="50" width="50" *ngIf="item.element_id == 3&&getShowing(item)">
+                      <rect x="5" y="5" width="40" height="40" [style.stroke]="
+                                              getStrokeColor(item.element_data.stroke_color)
+                                            " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)" />
+                    </svg>
+                    <svg width="50" height="50" *ngIf="item.element_id == 4&&getShowing(item)">
+                      <polygon points="25,5, 45,45,05,45" [style.stroke]="
+                                              getStrokeColor(item.element_data.stroke_color)
+                                            " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg width="60" height="60" *ngIf="item.element_id == 5&&getShowing(item)">
+                       <!-- old value "30,5,35,19,50,19,38,29,45,48,30,33,16,48,22,29,10,19,25,19,30,5" -->
+                      <polygon points="32,5 39,20 51,20 42,31 47,46 32,38 17,47 22,31 13,20 25,20 32,5" [style.stroke]="
+                                              getStrokeColor(item.element_data.stroke_color)
+                                            " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg height="50" width="50" *ngIf="item.element_id == 6&&getShowing(item)">
+                      <polygon points="25,5, 40,25, 25,45, 10,25,25,5" [style.stroke]="
+                                              getStrokeColor(item.element_data.stroke_color)
+                                            " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)" />
+                    </svg>
+                    <svg width="50" height="50" *ngIf="item.element_id == 7&&getShowing(item)">
+                      <polygon points="5,45,5,5 40,5 30,15 40,25 5,25" [style.stroke]="
+                                              getStrokeColor(item.element_data.stroke_color)
+                                            " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+                    <svg *ngIf="item.element_id == 8 &&getShowing(item)" aria-hidden="true" focusable="false" width="50"
+                      height="50"
+                      style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                      <path
+                        d="M10 8a3 3 0 1 0 0 6a3 3 0 0 0 0-6zm8-3h-2.4a.888.888 0 0 1-.789-.57l-.621-1.861A.89.89 0 0 0 13.4 2H6.6c-.33 0-.686.256-.789.568L5.189 4.43A.889.889 0 0 1 4.4 5H2C.9 5 0 5.9 0 7v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-8 11a5 5 0 0 1-5-5a5 5 0 1 1 10 0a5 5 0 0 1-5 5zm7.5-7.8a.7.7 0 1 1 0-1.4a.7.7 0 0 1 0 1.4z"
+                        [style.stroke]="
+                                        getStrokeColor(item.element_data.stroke_color)
+                                      " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity" />
+                    </svg>
+                    <svg width="50" height="50" *ngIf="item.element_id == 9&&getShowing(item)">
+                      <polygon points="5,21 25,21,25,10,40,25,25,40, 25,29,5,29,5,21" [style.stroke]="
+                                              getStrokeColor(item.element_data.stroke_color)
+                                            " [style.stroke-width]="item.element_data.line_width/5"
+                        [style.opacity]="item.element_data.opacity" [style.fill]="getFillColor(item.element_data.fill_color)"
+                        class="corner-round" />
+                    </svg>
+        
+                    
+        
+                  </div>
+                  <div class="shape-title col-lg-12">
+                    <label *ngIf="item.element_data != undefined&&(item.is_removed==false||item.is_removed=='false') && item.element_name!=''"
+                      class="shape-title-label" [ngClass]="{
+                            hColor:
+                              bgChangeIndex.outIndex == indexValue &&
+                              bgChangeIndex.innerIndex1 == innerIndex &&
+                              item.element_id != -1 &&
+                              bgSetClick
+                          }">{{ item.element_name }}</label>
+                          <label *ngIf="item.element_data != undefined&&(item.is_removed==false||item.is_removed=='false') && item.element_name==''"
+                          class="shape-title-label" [ngClass]="{
+                                hColor:
+                                  bgChangeIndex.outIndex == indexValue &&
+                                  bgChangeIndex.innerIndex1 == innerIndex &&
+                                  item.element_id != -1 &&
+                                  bgSetClick
+                              }">{{ item.element_type }}</label>
+                  </div>
+                </div>
+                <div *ngIf="item.placeholderNumber" style="
+                          font-size: 30px;
+                          font-weight: bold;
+                          margin-left: -10px;
+                          display: flex;
+                          align-items: center;
+                        ">
+                  {{ item.placeholderNumber }}
+                </div>
+              </div>
+            </div>
+            <!--optional placeholder element for dropzone-->
+            <!--will be removed from DOM on init-->
+            <div class="dndPlaceholder" dndPlaceholderRef></div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!settingsPageView && Builder" class="col-lg-4 col-md-4 dummy-setting-head"
+      [ngClass]="{ 'disabled': isDisabled }"></div>
+    <div class="col-4 settings-page-head" *ngIf="settingsPageView && Builder" [ngClass]="{ 'disabled': isDisabled }">
+      <div class="settings-page" *ngIf="settingAPIValue != undefined">
+        <div class="header container-fluid">
+          <h3 class="header-heading">Settings</h3>
+          <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" (click)="closeSetting()" alt="close" />
+          </div>
+        </div>
+        <div class="content-area" id="style-1">
+          <div class="form-group">
+            <label for="text-label" class="label-text">Name</label>
+            <!-- [(ngModel)]="labelText1" -->
+            <input type="text" class="form-control input-field placeholderColor" placeholder="Label Text"
+              (keyup)="valueupdateLabelText($event)" (change)="newUpdatedAuc(settingAPIValue)" (paste)="myFunction($event)"
+              placeholder="{{ labelText }}" [(ngModel)]="labelText" (ngModelChange)="firstLetterCapitalLabel(labelText)"
+              name="labe_text" />
+          </div>
+          <div>
+            <label for="stoke-label" class="label-text">Stroke</label>
+          </div>
+          <div class="row stroke-button-part">
+            <button *ngFor="let getColor of buttonColors" (click)="setColorStroke(getColor.color_code, settingAPIValue)"
+              class="btn-color stroke-btn-head" [style.backgroundColor]="getColor.color_code">
+              <img class="tick-area" *ngIf="
+                  getColor.color_code == settingAPIValue.element_data.stroke_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+              <img class="tick-area" *ngIf="
+                  getColor.color_code == settingAPIValue.element_data.stroke_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+              <img class="tick-area" *ngIf="
+                  getColor.color == settingAPIValue.element_data.stroke_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+              <img class="tick-area" *ngIf="
+                  getColor.color == settingAPIValue.element_data.stroke_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+            </button>
+          </div>
+          <div class="row stroke-button-part mb-4">
+            <button *ngFor="let getColor of buttonColors2"
+              (click)="setColorStroke(getColor.color_code, settingAPIValue)" class="btn-color stroke-btn-head"
+              [style.backgroundColor]="getColor.color_code" [ngClass]="{borderClass:getColor.color_code == '#FFFFFF'}">
+              <img class="tick-area" *ngIf="
+                  getColor.color_code == settingAPIValue.element_data.stroke_color
+                " [src]="
+                  getColor.color_code == 'white'
+                    ? 'assets/images/P3_CheckBoxTick_Blue.png'
+                    : 'assets/images/P3_CheckBoxTick_White.png'
+                " alt="tick" />
+              <img class="tick-area" *ngIf="
+                  getColor.color_code == settingAPIValue.element_data.stroke_color
+                " [src]="
+                  getColor.color_code == '#FFFFFF'
+                    ? 'assets/images/P3_CheckBoxTick_Blue.png'
+                    : 'assets/images/P3_CheckBoxTick_White.png'
+                " alt="tick" />
+            </button>
+
+            <button class="white-clr1 stroke-btn-head" (click)="setColorStroke('white-clr1', settingAPIValue)">
+              <img class="crossImage" src="assets/images/icons/P3WebIcon_NoFillIcon_DGrey_75x75.png"
+                (click)="setColorStroke('white-clr1', settingAPIValue)">
+              <!-- <span class="cross-line"></span> -->
+              <img class="tick-area" *ngIf="
+                  settingAPIValue.element_data.stroke_color == '#NNNNNN00'
+                " src="assets/images/P3_CheckBoxTick_Blue.png" alt="tick" />
+            </button>
+          </div>
+          <div [ngClass]="{ hideFillPart: settingAPIValue.element_id == 15||settingAPIValue.element_id == 14||settingAPIValue.element_id == 16||settingAPIValue.element_data.fill_color=='' }">
+            <label for="stoke-label" class="label-text">Fill</label>
+          </div>
+          <div class="row stroke-button-part" [ngClass]="{hideFillPart: settingAPIValue.element_id == 15||settingAPIValue.element_id == 14||settingAPIValue.element_id == 16||settingAPIValue.element_data.fill_color=='' }">
+            <button  *ngFor="let getColor of buttonColors" [disabled]="settingAPIValue.element_data.fill_color==''||settingAPIValue.element_id == 16" (click)="setColorFill(getColor.color_code, settingAPIValue)"
+              class="btn-color fill-btn-head {{ getColor.color }}">
+              <img class="tick-area" *ngIf="
+                  getColor.color_code == settingAPIValue.element_data.fill_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+              <img class="tick-area" *ngIf="
+                  getColor.color_code == settingAPIValue.element_data.fill_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+              <img class="tick-area" *ngIf="
+                  getColor.color == settingAPIValue.element_data.fill_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+              <img class="tick-area" *ngIf="
+                  getColor.color == settingAPIValue.element_data.fill_color
+                " src="assets/images/P3_CheckBoxTick_White.png" alt="tick" />
+                
+            </button>
+          </div>
+          <div class="row stroke-button-part mb-4" [ngClass]="{ hideFillPart: settingAPIValue.element_id == 15||settingAPIValue.element_id == 14||settingAPIValue.element_id == 16||settingAPIValue.element_data.fill_color=='' }">
+            <button   *ngFor="let getColor of buttonColors2" (click)="setColorFill(getColor.color_code, settingAPIValue)"
+              class="btn-color fill-btn-head" [style.backgroundColor]="getColor.color_code"
+              [ngClass]="{borderClass:getColor.color_code == '#FFFFFF'}">
+              <img class="tick-area" *ngIf="
+                  getColor.color_code == settingAPIValue.element_data.fill_color
+                " [src]="
+                  getColor.color_code == '#FFFFFF'
+                    ? 'assets/images/P3_CheckBoxTick_Blue.png'
+                    : 'assets/images/P3_CheckBoxTick_White.png'
+                " alt="tick" /><img class="tick-area" *ngIf="
+                  getColor.color == settingAPIValue.element_data.fill_color
+                " [src]="
+                  getColor.color_code == '#FFFFFF'
+                    ? 'assets/images/P3_CheckBoxTick_Blue.png'
+                    : 'assets/images/P3_CheckBoxTick_White.png'
+                " alt="tick" />
+            </button>
+
+            <button class="white-clr1 fill-btn-head"  (click)="setColorFill('white-clr1', settingAPIValue)">
+              <img class="crossImage" src="assets/images/icons/P3WebIcon_NoFillIcon_DGrey_75x75.png"
+                (click)="setColorFill('white-clr1', settingAPIValue)">
+                <img class="tick-area"   *ngIf="settingAPIValue.element_data.fill_color=='#0000FF'||settingAPIValue.element_data.fill_color=='#FF0000'||settingAPIValue.element_data.fill_color=='#FF7F00'||settingAPIValue.element_data.fill_color=='#808080'||settingAPIValue.element_data.fill_color=='#7F007F'||settingAPIValue.element_data.fill_color=='#7F007F'||settingAPIValue.element_data.fill_color=='#AAAAAA'||settingAPIValue.element_data.fill_color=='#7F7F7F'||settingAPIValue.element_data.fill_color=='#FF00FF'||settingAPIValue.element_data.fill_color=='#00FFFF'"  src="assets/images/P3_CheckBoxTick_Blue.png" 
+                alt="tick" />
+                
+                <img class="tick-area"  *ngIf="settingAPIValue.element_data.fill_color==''"  src="assets/images/P3_CheckBoxTick_Blue.png"
+                alt="tick" />
+              <img class="tick-area" src="assets/images/P3_CheckBoxTick_Blue.png"
+                *ngIf="colorNone == settingAPIValue.element_data.fill_color" alt="tick" /><img class="tick-area"
+                *ngIf="settingAPIValue.element_data.fill_color == '#NNNNNN00'"
+                src="assets/images/P3_CheckBoxTick_Blue.png" alt="tick" />
+            </button>
+          </div>
+          <div class="row mb-2">
+            <div class="col-lg-12 p-0">
+              <label class="col-lg-12 label-text">Opacity</label>
+            </div>
+            <div class="col-lg-9 slider-head">
+              <div class="col-lg-12 p-0">
+                <mat-slider min="0" step="0.01" max="1" (change)="changeOpacity1(opacityValue)"
+                  [(ngModel)]="opacityValue" class="slider" style="width: 275px" id="myRange"></mat-slider>
+              </div>
+            </div>
+            <div class="col-lg-3 input-part-opacity">
+              <input class="input-field opacity-area form-control" placeholder="0" min="0" max="1" name="opacity"
+                type="number" (keydown)="checkLimitNumber($event)" (keyup)="checkOpacity($event)"
+                [(ngModel)]="settingAPIValue.element_data.opacity" />
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-lg-12 p-0">
+              <label class="col-lg-12 label-text">Line Width</label>
+            </div>
+            <div class="col-lg-9 slider-head">
+              <div class="col-lg-12 p-0">
+
+                <!-- <mat-slider #linewidthslider type="range" min="1" max="50" class="slider col-lg-12 p-0"
+                    (change)="changeLinewidth(linewidthslider.value)" [(ngModel)]="lineWidth"></mat-slider> -->
+                <mat-slider #linewidthslider min="1.00" step="1.00" max="50.00" 
+                  [(ngModel)]="settingAPIValue.element_data.line_width" (change)="slide()"  class="slider" style="width: 275px" id="myRange"></mat-slider>
+              </div>
+            </div>
+            <div class="col-lg-3 input-part-opacity">
+              <input id="linemapping" name="linewidth" type="number" max="50"
+                class="input-field opacity-area form-control" [(ngModel)]="settingAPIValue.element_data.line_width"
+                (focusout)="novalueOut($event,settingAPIValue.element_data.line_width)" (keydown)="stop($event,linewidthslider.value)"
+                placeholder="0.00"  (ngModelChange)=checklineWidth($event,settingAPIValue.element_data.line_width) />
+            </div>
+
+            <!-- <div class="col-3 input-part-opacity" [ngClass]="{ eventNone: isReadonly}">
+                <input class="input-field opacity-area form-control property-input-field" placeholder="0"
+                  name="lineWidthInput" type="number" max="50" [(ngModel)]="linewidthslider.value"
+                  (keydown)="stop($event,linewidthslider.value)"
+                  (ngModelChange)="checklineWidth($event,linewidthslider.value)" />
+              </div> -->
+
+          </div>
+          <div class="default-area">
+
+            <label class="label-text">Default Form(s)</label>
+
+            <div class="row default-area-head" *ngIf="getformName != undefined || getformName != null">
+              <div class="col-lg-6 form-heading pl-0 mb-2" *ngFor="let form_name of getformName; let formIndex = index">
+                <div class="d-flex border-sector">
+                  <div class="col-lg-9">
+                    <p class="form-title" (click)="
+                        copyelement(form_name.form_id, form_name.form_name)
+                      ">
+                      {{ form_name.form_name }}
+                    </p>
+                  </div>
+                  <div class="col-lg-3 text-right">
+                    <img src="assets/images/P3_Close-Cancel_Blue.png"
+                      (click)="removeFormPopup(formIndex, settingAPIValue)" class="form-close-img" alt="close" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <button class="btn col-lg-6 btn-block add-form">
+                Add Form(s)
+              </button> -->
+
+          </div>
+          <div class="row">
+            <div class="default-head mb-3">
+            </div>
+            <div class="form-img-head">
+              <button class="btn col-lg-6 btn-block add-form" (click)="Addforms()">Add Form(s)</button>
+            </div>
+            <div class="copy-img-head">
+              <img *ngIf="copyimg" class="copy-img" src="assets/images/icons/P3WebIcon_29Copy.png"
+                (click)="copy(settingAPIValue)" />
+              <img *ngIf="copyimg1" class="copy-img" src="assets/images/icons/P3WebIcon_29Copy.png"
+                (click)="copy(settingAPIValue)" />
+            </div>
+            <div class="delete-img-head">
+              <img class="delete-img" src="assets/images/icons/P3WebIcon_15Trash.png" (click)="removeField()" />
+              <!-- <img
+                *ngIf="deleteimg1"
+                class="copy-img"
+                src="assets/images/P3_DeleteIcon_Grey.png"
+                (click)="copy()"
+              /> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8 support-head" *ngIf="support">
+      <app-support-option> </app-support-option>
+    </div>
+  </div>
+</div>
+
+<div [ngClass]="{'my-class': permissionDisable}" class="overlay-preview" *ngIf="previewToolbarOn" aria-disabled="true">
+</div>
+
+<div class="footer row col-12" [style.visibility]="previewToolbarOn ? 'visible' : 'hidden'"
+  [ngClass]="{'my-class': permissionDisable}">
+  <div class="col-1 default-btn-head">
+    <label class="default-btn-area">
+      {{ toolbarName }}
+    </label>
+  </div>
+  <div class="footerHead col-lg-9">
+    <img (click)="hidePrevious()" class="left-arrow-scroll" src="assets/images/P3_ArrowLeft_White.png"
+      alt="left-arrow" />
+    <!-- </div> -->
+    <!-- <div class="right-arrow-head"> -->
+    <img (click)="hideNext()" class="right-arrow-scroll" src="assets/images/P3_ArrowRight_White.png" alt="left-arrow" />
+    <!-- </div> -->
+    <div #widgetsContent class="col-12 footer_icon_images items" id="footerScroll"
+      *ngIf="previewToolbarData != undefined && previewToolbarData != null">
+      <div class="col-lg-1 field-preview slidePart sliderCheckElement"
+        *ngFor="let item of previewToolbarData; let i = index">
+        <div class="shape-img-preview" *ngIf="item.element_id!=-1&&item.element_data!=null" [attr.id]="'toolbarcanvasText'+item.element_uuid">
+          <img class="toolbar_icon" src="./assets/images/ProjectsScreen/P3_Toolbar_TextIcon_New.png"
+            *ngIf="(item.element_id == 11 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+            (item.element_id == 11&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" />
+
+          <svg aria-hidden="true" *ngIf="(item.element_id == 12 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 12&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" focusable="false" width="35" height="35"
+            viewBox="0 0 53.000000 58.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,58.000000) scale(0.100000,-0.100000)" [style.stroke]="
+         getStrokeColor(item.element_data.stroke_color)
+       " [style.stroke-width]="item.element_data.line_width/10"
+              [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity">
+              <path
+                d="M80 565 c-18 -22 -5 -49 101 -200 54 -77 96 -142 93 -144 -2 -3 -19 9 -37 26 -79 75 -149 102 -177 68 -19 -23 -5 -72 44 -158 l44 -77 -26 0 c-84 0 -133 -26 -112 -60 6 -9 29 -12 80 -11 139 4 155 33 86 151 -25 44 -46 82 -46 85 0 9 45 -27 148 -121 95 -86 123 -99 142 -64 14 27 -19 97 -114 238 -39 59 -75 114 -80 122 -18 36 141 -141 193 -214 60 -85 83 -100 100 -68 24 45 -189 300 -327 392 -79 54 -93 58 -112 35z" />
+            </g>
+          </svg>
+          <svg aria-hidden="true" *ngIf="(item.element_id == 17 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 17&&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" focusable="false" preserveAspectRatio="xMidYMid meet"
+            width="35" height="35" viewBox="0 0 91.000000 79.000000"
+            [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+            [style.stroke-width]="item.element_data.line_width/10"
+            [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity">
+            <g transform="translate(0.000000,79.000000) scale(0.100000,-0.100000)">
+              <path
+                d="M670 779 c-74 -30 -133 -104 -174 -219 -15 -41 -32 -80 -38 -87 -17 -21 -68 -15 -163 17 -106 36 -130 37 -149 8 -8 -13 -44 -96 -80 -186 -76 -188 -85 -244 -41 -287 21 -22 33 -25 95 -25 39 0 81 5 93 11 12 7 56 46 97 89 54 55 89 82 123 95 l48 18 67 -28 c40 -16 94 -30 133 -32 58 -5 68 -3 93 18 34 30 45 78 46 190 0 81 2 91 45 178 66 135 58 193 -29 235 -38 18 -127 20 -166 5z m151 -62 c19 -12 35 -31 37 -41 2 -11 -17 -63 -43 -118 -46 -95 -48 -102 -54 -214 -5 -99 -9 -118 -26 -130 -26 -19 -92 -10 -164 22 -108 48 -189 21 -312 -107 -73 -77 -77 -79 -123 -79 -99 0 -107 30 -47 173 22 50 52 124 68 162 34 82 30 81 167 39 84 -25 93 -26 130 -13 44 15 71 56 109 167 44 130 171 198 258 139z"
+                class="clr-i-outline clr-i-outline-path-1" />
+            </g>
+          </svg>
+          <svg *ngIf="(item.element_id == 8 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 8 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" aria-hidden="true" focusable="false" width="35" height="35"
+            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+            preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+            <path
+              d="M 10 8 a 3 3 0 1 0 0 6 a 3 3 0 0 0 0 -6 z m 8 -3 h -2.4 a 0.888 0.888 0 0 1 -0.789 -0.57 l -0.621 -1.861 A 0.89 0.89 0 0 0 13.4 2 H 6.6 c -0.33 0 -0.686 0.256 -0.789 0.568 L 5.189 4.43 A 0.889 0.889 0 0 1 4.4 5 H 2 C 0.9 5 0 5.9 0 7 v 9 c 0 1.1 0.9 2 2 2 h 16 c 1.1 0 2 -0.9 2 -2 V 7 c 0 -1.1 -0.9 -2 -2 -2 z m -8 11 a 5 5 0 0 1 -5 -5 a 5 5 0 1 1 10 0 a 5 5 0 0 1 -5 5 z m -8 -8 a 0.7 0.7 0 1 1 2 0 a 0.7 0.7 0 0 1 -2 0 z"
+              [style.stroke]="
+          getStrokeColor(item.element_data.stroke_color)
+        " [style.stroke-width]="item.element_data.line_width/10"
+              [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity" />
+          </svg>
+          <svg *ngIf="(item.element_id == 1 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 1 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" height="35" width="35">
+            <circle cx="17.5" cy="17.5" r="10" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10"
+              [style.fill]="getFillColor(item.element_data.fill_color)" [style.opacity]="item.element_data.opacity">
+            </circle>
+          </svg>
+          <svg *ngIf="(item.element_id == 15 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 15 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" height="35" width="35">
+            <line x1="5" y1="17.5" x2="30" y2="17.5" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity" />
+          </svg>
+          <svg height="35" width="35" *ngIf="(item.element_id == 6 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 6 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <polygon points="17,5, 27,17, 17,30, 7,17, 17,5"
+              [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" />
+          </svg>
+          <svg height="35" width="35" *ngIf="(item.element_id == 3 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 3 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <rect x="5" y="5" width="25" height="25" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" />
+          </svg>
+          <svg width="35" height="35" *ngIf="(item.element_id == 4 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 4 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <polygon points="17,7, 28,28,7,28,17,7" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" class="corner-round" />
+          </svg>
+          <svg height="35" width="35" *ngIf="(item.element_id == 19 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 19 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <ellipse cx="17" cy="17" rx="8" ry="13" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" />
+          </svg>
+          <svg height="35" width="35" *ngIf="(item.element_id == 20 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 20 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <rect x="9" y="5" width="16" height="25" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" />
+          </svg>
+          <svg height="35" width="35" *ngIf="(item.element_id == 18 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 18 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <polygon points="8,20,19,12,30,25,5,32,8,20" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" class="corner-round" />
+          </svg>
+          <svg width="35" height="35" *ngIf="(item.element_id == 7 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 7 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <polygon points="10,30,10,5 25,5 20,10 25,15 10,15"
+              [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" class="corner-round" />
+          </svg>
+          <svg width="35" height="35" *ngIf="(item.element_id == 9 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 9 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <polygon points="5,14 20,14,20,6,30,17,20,30,20,21,5,21,5,14"
+              [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" class="corner-round" />
+          </svg>
+          <svg height="35" width="40" *ngIf="(item.element_id == 14 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 14 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <defs>
+              <!-- simple dot marker definition -->
+              <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5">
+                <circle cx="5" cy="5" r="2" [style.fill]="getFillColor(item.element_data.fill_color)"
+                  [style.opacity]="item.element_data.opacity" style. />
+              </marker>
+            </defs>
+            <!-- Data line with polymarkers -->
+            <polyline points="4,20 10,30 28,5 32,16" [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width>30 ? item.element_data.line_width/10 : item.element_data.line_width/8" [style.opacity]="item.element_data.opacity"
+              fill="none" marker-start="url(#dot)" marker-mid="url(#dot)" marker-end="url(#dot)" />
+          </svg>
+          <svg height="35" width="35" *ngIf="(item.element_id == 16 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 16 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <defs>
+              <!-- arrowhead marker definition -->
+              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3" markerHeight="3"
+                orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" [style.fill]="getFillColor(item.element_data.fill_color)"
+                  class="corner-round" />
+              </marker>
+            </defs>
+            <!-- Coordinate axes with a arrowhead in both direction -->
+            <polyline points="5,5 5,30 30,30" marker-start="url(#arrow)" marker-end="url(#arrow)"
+              [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              fill="none" />
+          </svg>
+          <svg width="35" height="35" *ngIf="(item.element_id == 5 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 5 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+           <!-- old value points="17,3 22,12 32,12 25,21 28,33 17,24 7,33 9,21 2,12 12,12 17,3" -->
+            <polygon points="17,3 22,12 32,12 25,21 28,33 17,26 6,34 9,21 2,12 12,12 17,3"
+              [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" class="corner-round" />
+          </svg>
+          <svg width="35" height="35" *ngIf="(item.element_id == 2 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 2 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)">
+            <polygon points="17,2, 28,6, 32,17, 28,28, 17,32, 7,28, 3,17, 7,6,17,2"
+              [style.stroke]="getStrokeColor(item.element_data.stroke_color)"
+              [style.stroke-width]="item.element_data.line_width/10" [style.opacity]="item.element_data.opacity"
+              [style.fill]="getFillColor(item.element_data.fill_color)" class="corner-round" />
+          </svg>
+          <svg width="50" height="50" class="svgTrans7" *ngIf="(item.element_id == 13 &&(item.is_removed==0||item.is_removed=='false')&&item.element_data.shape==undefined) ||
+          (item.element_id == 13 &&item.element_data.shape!=undefined && item.element_data.shape.is_stamp==0)" viewbox="0 0 35 40">
+         
+          <defs>
+            <marker id="head" orient="auto" markerWidth="4" markerHeight="4" refX="2.7" refY="2">
+              <!-- triangle pointing right (+x) -->
+              <path d="M0,0 V4 L3,2 Z" [style.fill]="
+                    item.element_data.stroke_color=='blue'?'#002F5F':item.element_data.stroke_color
+                  " [ngClass]="{'transparentFill':item.element_data.fill_color=='#NNNNNN00'}" />
+            </marker>
+            <marker id="head1" orient="auto" markerWidth="4" markerHeight="4" refX="0.1" refY="2">
+              <!-- triangle pointing right (+x) -->
+              <path d="M0,0 V4 L3,2 Z" [style.fill]="
+                    item.element_data.stroke_color=='blue'?'#002F5F':item.element_data.stroke_color
+                  " [ngClass]="{'transparentFill':item.element_data.fill_color=='#NNNNNN00'}" />
+            </marker>
+          </defs>
+          <path d="M 4 30 l 12 16" [style.stroke]="
+                item.element_data.stroke_color=='blue'?'#002F5F':item.element_data.stroke_color
+              "
+            [style.stroke-width]="item.element_data.line_width>30 ? item.element_data.line_width/7 : item.element_data.line_width/5"
+            [style.opacity]="item.element_data.opacity" fill="none" marker-end="url(#head)"
+            [ngClass]="{'transparentStroke':item.element_data.stroke_color=='#NNNNNN00','transparentFill':item.element_data.fill_color=='#NNNNNN00'}" />
+          <path d="M 15 45 l 18 -20" [style.stroke]="
+                item.element_data.stroke_color=='blue'?'#002F5F':item.element_data.stroke_color
+              "
+            [style.stroke-width]="item.element_data.line_width>30 ? item.element_data.line_width/7 : item.element_data.line_width/5"
+            [style.opacity]="item.element_data.opacity" fill="none" marker-end="url(#head)"
+            [ngClass]="{'transparentStroke':item.element_data.stroke_color=='#NNNNNN00'}" />
+          <path d="M 31 27 l 13 -14" [style.stroke]="
+                item.element_data.stroke_color=='blue'?'#002F5F':item.element_data.stroke_color
+              "
+            [style.stroke-width]="item.element_data.line_width>30 ? item.element_data.line_width/7 : item.element_data.line_width/5"
+            [style.opacity]="item.element_data.opacity" fill="none" marker-end="url(#head)"
+            [ngClass]="{'transparentStroke':item.element_data.stroke_color=='#NNNNNN00'}" />
+          <path d="M 43 13 l 5 15" [style.stroke]="
+                item.element_data.stroke_color=='blue'?'#002F5F':item.element_data.stroke_color
+              "
+            [style.stroke-width]="item.element_data.line_width>30 ? item.element_data.line_width/7 : item.element_data.line_width/5"
+            [style.opacity]="item.element_data.opacity" fill="none" marker-end="url(#head1)"
+            [ngClass]="{'transparentStroke':item.element_data.stroke_color=='#NNNNNN00'}" />
+         
+          </svg>
+          <canvas #customeShapetoolbar [attr.id]="'preview'+item.element_uuid" [ngClass]="{'svgTrans7':item.element_id!=11 && item.element_data.shape.is_stamp!=4, 
+                                                          'svgTrans1-1':item.element_data.shape.is_stamp==4 }" height="35"
+          width="35" *ngIf="item.element_data.shape!=undefined && item.element_data.shape.is_stamp!=0"></canvas>
+        </div>
+        <div *ngIf="item.element_id != -1&&item.element_data!=null" class="toolbar-label">
+          <label *ngIf="item.element_data != undefined && (item.is_removed==false||item.is_removed=='false') && item.element_name!=''">{{
+            item.element_name
+            }}</label>
+            <label *ngIf="item.element_data != undefined && (item.is_removed==false||item.is_removed=='false') && item.element_name==''">{{
+              item.element_type
+              }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-1 four-arrow-head">
+    <img class="drag-icon" src="assets/images/document/P3_DragIcon_White.png" alt="Sync" />
+  </div>
+  <!-- <div class="left-arrow-head"> -->
+
+</div>
+<div [ngClass]="{'my-class': permissionDisable}" *ngIf="settingsPageView " class="overlay-setting"
+  (click)="closeSettingPage()"></div>

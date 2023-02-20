@@ -1,0 +1,284 @@
+<div class="timber-form-head">
+  <div class="timber-form-table" *ngFor="let timber_form of timber_form_table">
+    <div class="headerpart-elevation">
+      <!-- <p>Render View : <span class="font-bold-500">{{name}}</span></p> -->
+      <p>Start Elevation : <span class="font-bold-500">{{timber_form.startElevation_main}}</span></p>
+      <p>End Elevation : <span class="font-bold-500">{{timber_form.endElevation_main}}</span></p>
+      <p>Profile : <span class="font-bold-500">{{timber_form.profile_main}}</span></p>
+    </div>
+    <div class="table-part scroll-1 w-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="timber-header width-set-10" [ngClass]="{fontsizechange:name!='document','width-set-12':name!='document'}">Start Time</th>
+            <th class="timber-header width-set-10" [ngClass]="{fontsizechange:name!='document','width-set-12':name!='document'}">Bands (1-7)</th>
+            <th class="timber-header" [ngClass]="{fontsizechange:name!='document'}">R/D</th>
+            <th class="timber-header" [ngClass]="{fontsizechange:name!='document'}">Comments</th>
+            <th class="timber-header" [ngClass]="{fontsizechange:name!='document','width-set-10':name!='document'}"></th>
+            <th class="timber-header" [ngClass]="{fontsizechange:name!='document','width-set-10':name!='document'}"></th>
+            <th class="timber-header" [ngClass]="{fontsizechange:name!='document','width-set-10':name!='document'}"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-data-value" [ngClass]="{fontsizechange:name!='document'}"
+            *ngFor="let table_value of timber_form.timber_form_table;let row_index = index">
+            <td>{{table_value.startTime}}</td>
+            <td>
+              <span *ngIf="table_value.b1sd != ''" [className]="getColorstatus(table_value.b1c)">
+                {{table_value.b1sd}}
+              </span><br *ngIf="table_value.b1sd != ''">
+              <span *ngIf="table_value.b2sd != ''" [className]="getColorstatus(table_value.b2c)">{{table_value.b2sd}}</span><br *ngIf="table_value.b2sd != ''">
+              <span *ngIf="table_value.b3sd != ''" [className]="getColorstatus(table_value.b3c)">{{table_value.b3sd}}</span><br *ngIf="table_value.b3sd != ''">
+              <span *ngIf="table_value.b4sd != ''" [className]="getColorstatus(table_value.b4c)">{{table_value.b4sd}}</span><br *ngIf="table_value.b4sd != ''">
+              <span *ngIf="table_value.b5sd != ''" [className]="getColorstatus(table_value.b5c)">{{table_value.b5sd}}</span><br *ngIf="table_value.b5sd != ''">
+              <span *ngIf="table_value.b6sd != ''" [className]="getColorstatus(table_value.b6c)">{{table_value.b6sd}}</span><br *ngIf="table_value.b6sd != ''">
+              <span *ngIf="table_value.b7sd != ''" [className]="getColorstatus(table_value.b7c)">{{table_value.b7sd}}</span><br *ngIf="table_value.b7sd != ''">
+            </td>
+            <td>
+              <p *ngIf="table_value.bendtotal_count == radius" class="r-d diameter-radius-level-1" [ngClass]="{fontsizechangebendrd:name!='document',
+              'hideview':table_value.bendtotal_count != 0 && (table_value.bendtotal_count > diameter || table_value.bendtotal_count==diameter)}">=R</p>
+              <p *ngIf="radius > table_value.bendtotal_count" class="r-d diameter-radius-level-2" [ngClass]="{fontsizechangebendrd:name!='document',
+              'hideview':table_value.bendtotal_count != 0 && (table_value.bendtotal_count > diameter || table_value.bendtotal_count==diameter)}">&#60;R</p>
+              <!-- <p *ngIf="table_value.bendtotal_count > radius" class="r-d diameter-radius-level-3" [ngClass]="{fontsizechangebendrd:name!='document',
+              'hideview':table_value.bendtotal_count != 0 &&  (table_value.bendtotal_count > diameter || table_value.bendtotal_count==diameter)}">>R</p> -->
+              <p *ngIf="table_value.bendtotal_count==diameter" class="r-d diameter-radius-level-1" [ngClass]="{fontsizechangebendrd:name!='document'}">=D</p>
+              <p *ngIf="diameter > table_value.bendtotal_count" class="r-d diameter-radius-level-2" [ngClass]="{fontsizechangebendrd:name!='document'}">&#60;D</p>
+              <p *ngIf="table_value.bendtotal_count > diameter" class="r-d diameter-radius-level-3" [ngClass]="{fontsizechangebendrd:name!='document'}">>D</p>
+            </td>
+            <td>{{table_value.comments}}</td>
+            <td>
+              <button type="button" class="drill-button" [ngClass]="{editbuttonchanges:name!='document','opacity-handle':pileSegmentOn || multipleSelectOn_timber}" (click)="newDrillSection(timber_form)"
+              [disabled]="pileSegmentOn || multipleSelectOn_timber">
+                <img src="assets/images/icons/icons8-copy-100 white.png" class="drill-img"></button>
+            </td>
+            <td>
+              <button type="button" class="edit-button" [ngClass]="{editbuttonchanges:name!='document','opacity-handle':pileSegmentOn || multipleSelectOn_timber}" 
+                (click)="editElevationRow(timber_form,row_index,table_value.element_uuid)" [disabled]="pileSegmentOn || multipleSelectOn_timber">
+                <img src="assets/images/icons/icons8-edit-64.png" class="edit-img">
+              </button>
+            </td>
+            <td>
+              <button type="button" class="delete-button" [ngClass]="{deletebuttonchanges:name!='document','opacity-handle':pileSegmentOn || multipleSelectOn_timber}" 
+              (click)="delete_elevation_row(table_value.element_uuid)" [disabled]="pileSegmentOn || multipleSelectOn_timber">
+                <img src="assets/images/P3_DeleteIcon_White.png" class="delete-img">
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row add-button-head" *ngIf="!pileSegmentOn" id="editpart">
+    <div class="col-lg-12">
+      <button type="button" class="btn btn-block add-pile-button" (click)="addnewpilesegment()"><span
+          class="plus-char">+</span> Add Pile Segment</button>
+    </div>
+  </div>
+  <div class="edit-part" *ngIf="pileSegmentOn">
+    <form [formGroup]="new_pile_segment_form" (ngSubmit)="onSubmit(timber_form)" #timber_form="ngForm">
+      <div class="row edit-field-header mar-10">
+        <div class="col-lg-5 left-label">
+          <p>Start/End Elevation (ft)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" formControlName="startelavation" value="5" name="start-value"
+            class="input-fld-st-en input-field-height">
+          <input type="number" formControlName="endelavation" value="10" name="end-value"
+            class="input-fld-st-en input-field-height">
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10">
+        <div class="col-lg-5 left-label">
+          <p>Profile</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <select class="selectpicker show-tick profile-dropdown input-field-height" formControlName="profile">
+            <option *ngFor="let profilename of get_fields_profile" [value]="profilename">{{profilename}}</option>
+            
+            <!-- <option value="Cylinder (Hollow)">Cylinder (Hollow)</option>
+            <option value="Annular (Center Core)">Annular (Center Core)</option>
+            <option value="Solid">Solid</option>
+            <option value="Asymmetric">Asymmetric</option>
+            <option value="Exterior Decay">Exterior Decay</option> -->
+          </select>
+
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10">
+        <div class="col-lg-5 left-label">
+          <p>Drill Start Time</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <select class="selectpicker show-tick profile-dropdown input-field-height" formControlName="drillstarttime">
+            <option *ngFor="let starttimeone of get_fields_statTime" [value]="starttimeone.optionnumber">{{starttimeone.name}}</option>
+            <!-- <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option> -->
+          </select>
+
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10" formGroupName="bend1">
+        <div class="col-lg-5 left-label">
+          <p>Band 1 <span class="small-size">from exterior </span>(in)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" name="start-value" class="input-fld-st-en input-field-height"
+            formControlName="bend1value">
+          <select class="selectpicker show-tick bend-dropdown input-field-height" formControlName="bend1option">
+            <option value="1">1 - No Decay</option>
+            <option value="2">2 - Moderate</option>
+            <option value="3">3 - Advanced Decay</option>
+            <option value="4">4 - Hollow/Severe</option>
+            <option value="5">5 - N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10" formGroupName="bend2">
+        <div class="col-lg-5 left-label">
+          <p>Band 2 (in)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" name="start-value" class="input-fld-st-en input-field-height"
+            formControlName="bend2value">
+          <select class="selectpicker show-tick bend-dropdown input-field-height" formControlName="bend2option">
+            <option value="1">1 - No Decay</option>
+            <option value="2">2 - Moderate</option>
+            <option value="3">3 - Advanced Decay</option>
+            <option value="4">4 - Hollow/Severe</option>
+            <option value="5">5 - N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10" formGroupName="bend3">
+        <div class="col-lg-5 left-label">
+          <p>Band 3 (in)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" name="start-value" class="input-fld-st-en input-field-height"
+            formControlName="bend3value">
+          <select class="selectpicker show-tick bend-dropdown input-field-height" formControlName="bend3option">
+            <option value="1">1 - No Decay</option>
+            <option value="2">2 - Moderate</option>
+            <option value="3">3 - Advanced Decay</option>
+            <option value="4">4 - Hollow/Severe</option>
+            <option value="5">5 - N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10" formGroupName="bend4">
+        <div class="col-lg-5 left-label">
+          <p>Band 4 (in)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" name="start-value" class="input-fld-st-en input-field-height"
+            formControlName="bend4value">
+          <select class="selectpicker show-tick bend-dropdown input-field-height" formControlName="bend4option">
+            <option value="1">1 - No Decay</option>
+            <option value="2">2 - Moderate</option>
+            <option value="3">3 - Advanced Decay</option>
+            <option value="4">4 - Hollow/Severe</option>
+            <option value="5">5 - N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10" formGroupName="bend5">
+        <div class="col-lg-5 left-label">
+          <p>Band 5 (in)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" name="start-value" class="input-fld-st-en input-field-height"
+            formControlName="bend5value">
+          <select class="selectpicker show-tick bend-dropdown input-field-height" formControlName="bend5option">
+            <option value="1">1 - No Decay</option>
+            <option value="2">2 - Moderate</option>
+            <option value="3">3 - Advanced Decay</option>
+            <option value="4">4 - Hollow/Severe</option>
+            <option value="5">5 - N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10" formGroupName="bend6">
+        <div class="col-lg-5 left-label">
+          <p>Band 6 (in)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" name="start-value" class="input-fld-st-en input-field-height"
+            formControlName="bend6value">
+          <select class="selectpicker show-tick bend-dropdown input-field-height" formControlName="bend6option">
+            <option value="1">1 - No Decay</option>
+            <option value="2">2 - Moderate</option>
+            <option value="3">3 - Advanced Decay</option>
+            <option value="4">4 - Hollow/Severe</option>
+            <option value="5">5 - N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10" formGroupName="bend7">
+        <div class="col-lg-5 left-label">
+          <p>Band 7 (in)</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <input type="number" name="start-value" class="input-fld-st-en input-field-height"
+            formControlName="bend7value">
+          <select class="selectpicker show-tick bend-dropdown input-field-height" formControlName="bend7option">
+            <option value="1">1 - No Decay</option>
+            <option value="2">2 - Moderate</option>
+            <option value="3">3 - Advanced Decay</option>
+            <option value="4">4 - Hollow/Severe</option>
+            <option value="5">5 - N/A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10">
+        <div class="col-lg-5 left-label">
+          <p>Comments</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <textarea class="comment-area scroll-1" formControlName="comments"></textarea>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10">
+        <div class="col-lg-5 left-label">
+          <p>Radius Check</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter" [hidden]="diameter==0 && form_bend_total_counts!=0">
+          <p class="radius-diameter radius-less" *ngIf="radius > form_bend_total_counts ">{{(radius_difference)}} more
+            until radius</p>
+          <p class="radius-diameter radius-success" *ngIf="form_bend_total_counts == radius">Radius Measured</p>
+          <!-- <p class="radius-diameter radius-exceed">Radius Exceeded by {{(radius_difference)}}</p> -->
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10">
+        <div class="col-lg-5 left-label">
+          <p>Diameter Check</p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <p class="radius-diameter radius-less" *ngIf="diameter > form_bend_total_counts">{{diameter_difference}} more
+            until diameter</p>
+          <p class="radius-diameter radius-success" *ngIf="form_bend_total_counts == diameter">Diameter Measured</p>
+          <p class="radius-diameter radius-exceed" *ngIf="form_bend_total_counts > diameter">Diameter Exceeded by
+            {{diameter_difference}}</p>
+        </div>
+      </div>
+      <div class="row edit-field-header mar-10">
+        <div class="col-lg-5 left-label">
+          <p></p>
+        </div>
+        <div class="col-lg-7 right-input hlvtcenter">
+          <button type="submit" class="btn btn-block pile-button-done"><img class="tick-mark-png"
+              src="assets/images/icons8-approved-checkmark-symbol-to-verify-the-result-96.png">Done</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div>
+  <div style="background-color: #e8e8e8;">
+    <div
+      class="text-center headSec"
+      style="background-color: #e8e8e8; padding-top: 20px; padding-bottom: 4px;"
+    >
+      <span style="background-color: #e8e8e8; padding-left: 50px;"
+        >Delete Form Element</span
+      ><span
+        class="close"
+        style="float: right; padding-right: 24px;"
+        (click)="onClose()"
+        ><img src="assets/images/P3_Close-Cancel_Blue.png" width="25px"
+      /></span>
+    </div>
+    <hr style="background-color: #e8e8e8;" />
+  </div>
+
+  <div class="text-center txtclr">
+    <span style="color: #002e5f; font-size: 17px;"
+      >Please Confirm You want to delete<br />
+      this form element</span
+    >
+  </div>
+  <div style="background-color: #e8e8e8; padding-bottom: 28px;">
+    <hr
+      style="background-color: #e8e8e8; margin-bottom: 24px; margin-top: 24px;"
+    />
+    <div class="text-center">
+      <button
+        value="submit"
+        (click)="removeField()"
+        style="color: #bf4d27; font-size: 18px; font-weight: bold;"
+      >
+        Confirm
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div>
+  <div style="background-color: #e8e8e8">
+    <div class="text-center headSec" style="background-color: #e8e8e8; padding-top: 20px; padding-bottom: 4px">
+      <span style="background-color: #e8e8e8; padding-left: 50px">Add a New Form</span><span class="close"
+        style="float: right; padding-right: 24px" (click)="onclose()"><img src="assets/images/P3_Close-Cancel_Blue.png"
+          width="25px" /></span>
+    </div>
+    <hr style="background-color: #e8e8e8" />
+  </div>
+  <div class="text-center txtclr">
+    <span style="color: #002e5f; font-size: 17px">Please enter a new form name</span>
+  </div>
+  <div>
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="form">
+      <div class="input-group mb-12">
+        <div class="input-group-prepend">
+        </div>
+        <!-- /* color: #807f83; */ -->
+        <input class="form-control bg-none" aria-describedby="basic-addon1" style="
+            margin-left: 21px;
+            font-weight: 500;
+            color:black;                   
+          font-size: 16px;
+        " placeholder="Type Name" name="form_name" #form_name="ngModel" [(ngModel)]="service.formData.form_name"
+          (ngModelChange)="firstLetterCapital(service.formData.form_name)" required autocomplete="off" />
+        <!-- <input class="form-control bg-none"
+        aria-describedby="basic-addon1" style="margin-left: 2px;" placeholder="" name="project_name"  #project_name="ngModel" [(ngModel)]="this.namedefault" required autocomplete="off" /> -->
+      </div>
+      <hr style="width: 90%; background-color: #e8e8e8; margin-top: 0rem" />
+      <div class="radiosection">
+        <div>
+          <input type="radio" class="rbutton radio-select-option" id="single" (change)="radiofunction1()" name="fav_language"
+            [checked]="single">
+            <label for="single" class="text1"><span style="margin-top: 20px;">1-Column</span></label>
+        </div>
+        <div style="padding-right: 21px;">
+          <input type="radio" class="rbutton" id="double" name="fav_language" (change)="radiofunction2()" [checked]="!single">
+            <label for="doble" class="text1">2-Columns</label>
+        </div>
+      </div>
+      <div style="background-color: #e8e8e8; padding-bottom: 28px">
+        <hr style="
+            background-color: #e8e8e8;
+            margin-bottom: 24px;
+            margin-top: 24px;
+          " />
+        <div class="text-center">
+          <button [disabled]="form.invalid || disableds" value="submit"
+            style="color: #a4a426; font-size: 18px; font-weight: 500">
+            Create
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

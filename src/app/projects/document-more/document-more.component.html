@@ -1,0 +1,114 @@
+<div *ngIf="hidden==0" class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">{{folderName}}</h3>
+        <!-- <p class="created-date">Created : {{createdDate | date : 'MM/dd/yyyy'}}</p>
+        <p class="modified-date">Modified : {{modifiedDate | date : 'MM/dd/yyyy'}}</p>
+        <p class="tags">Tags : 
+            <span *ngFor="let foldertagname of foldertaglist; let i=index">{{foldertagname['folder_tag_name']}}<span *ngIf="foldertaglist.length-1!==i">,</span></span>
+        </p> -->
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="row content-head-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck():gotoRenameBox()">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" >Rename</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck():goToManageTags()">
+
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" >Manage Tags</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="goToMoreInformation()">
+
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" >More Information</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="this.userrole == 'admin'?selectHide():this.userRoleGlobal.permissionCheck()">
+
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" >Hide</p>
+            </div>
+        </div>
+        <hr class="hr-area" >
+        <div class="row content-head-section" (click)="this.userrole == 'admin'?copywithAnnotation():this.userRoleGlobal.permissionCheck()"> 
+
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" >Copy Document With Annotations</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="this.userrole == 'admin'?copywidthoutAnnotation():this.userRoleGlobal.permissionCheck()">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" >Copy Document Without Annotations</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="this.userrole == 'admin'?copytoAnotherProject():this.userRoleGlobal.permissionCheck()">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" >Copy Document to Another Project</p>
+            </div>
+        </div>
+        <hr class="hr-area"  >
+        <div class="row content-head-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :exportcsvforforms()">
+            <div class="col-lg-11">
+                <p class="content-heading">Export CSV for Pre-annotation</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="hidden==1" class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">{{folderName}}</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="row content-head-section">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :gotoRenameBox()">Rename</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :goToManageTags()">Manage Tags</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :goToMoreInformation()">More Information</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :selectunHide()">Unhide</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :copywithAnnotation()">Copy Document With Annotations</p>
+            </div>
+        </div>
+     
+        <hr class="hr-area">
+        <div class="row content-head-section">
+            <div class="col-lg-12 col-sm-12">
+                <p class="content-heading" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :copywidthoutAnnotation()">Copy Document Without Annotations</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-grand-loader *ngIf="show"></app-grand-loader>

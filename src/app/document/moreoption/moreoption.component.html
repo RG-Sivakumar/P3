@@ -1,0 +1,103 @@
+<div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading justify-content-center">Options</h3>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="row content-head-section"  (click)="userRoleGlobal.userRol=='view' || isReadonly?'':rename()">
+      <div class="col-lg-8 center-part center-part">
+        <p class="content-heading">Rename Page</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="documentSwitch()">
+     
+      <div class="col-lg-8 center-part">
+        <p class="content-heading">Switch Pages</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="userRoleGlobal.userRol=='view' || isReadonly?'':documentTag()">
+     
+      <div class="col-lg-8 center-part">
+        <p class="content-heading">Manage Tags</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="filterToolbr()">
+      
+      <div class="col-lg-8 center-part">
+        <p class="content-heading">Filter Toolbar Annotations</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section">
+      
+      <div class="col-lg-8 center-part">
+        <p class="content-heading">Hide Toolbar Annotation Names</p>
+      </div>
+      <div [hidden]="dateMdOtoR" class="col-lg-2 right-tick right-side-part">
+        <!-- [(ngModel)]="myProperty" -->
+        <input
+          type="checkbox"
+          class="checkbox customeCheckbox"
+          [checked]="labelView"
+          (change)="toggleVisibility($event)"
+        />
+      </div>
+    </div>
+    <hr class="hr-area" />
+      <div class="row content-head-section" (click)="groupAnnts()">
+        <div class="col-lg-8 center-part">
+          <p class="content-heading">Group Annotations</p>
+        </div>
+      </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="userRoleGlobal.userRol=='view' || multiselect==true || isReadonly?'':setScale()">
+
+      <div class="col-lg-8 center-part">
+        <p class="content-heading">Set Scale</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section">
+      
+      <div class="col-lg-8 center-part" >
+        <p class="content-heading">View Only Mode</p>
+      </div>
+      <div class="col-lg-2 right-tick right-side-part">
+        <!-- [(ngModel)]="myProperty" -->
+        <input
+          type="checkbox" 
+          class="customeCheckbox" [disabled]="userRoleGlobal.userRol=='view'"
+         [checked]="isReadonly || userRoleGlobal.userRol=='view'"
+         
+          (change)="readOnly($event)"
+        />
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section">
+      
+      <div class="col-lg-8 center-part" >
+        <p class="content-heading">Rapid Mode</p>
+      </div>
+      <div class="col-lg-2 right-tick right-side-part">
+        <!-- [(ngModel)]="myProperty" -->
+        <input
+          type="checkbox" 
+          class="customeCheckbox" [disabled]="userRoleGlobal.userRol=='view' || isReadonly"
+          [checked]="isRapidmode"
+          (change)="rapidShotMode($event)"
+        />
+      </div>
+    </div>
+  </div>
+</div>

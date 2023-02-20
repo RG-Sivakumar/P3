@@ -1,0 +1,258 @@
+<div class="header_section d-flex" [ngClass]="{'disabled':selection}">
+  <ul class="navbar-nav" style="z-index: 1215; margin-left: -66px" *ngIf="sorting">
+    <li class="nav-item d-none d-md-block">
+      <a [routerLink]="['/projectdashboard/myproject']" class="nav-link sidebartoggler waves-effect waves-light">
+        <img src="assets/images/icons/P3_Design_MainDashboard_TitleLogo.png" style="margin-left: 70px" width="200px"
+          alt="homepage" class="dark-logo" />
+      </a>
+    </li>
+  </ul>
+  <div class="col-lg-1 left-arrow-head" *ngIf="showdoc" [ngClass]="{'disabled':selected}">
+    <img *ngIf="showdoc" src="assets/images/P3_ArrowLeft_White.png" (click)="goToProjectDetails()" alt="homepage"
+      class="dark-logo goback-img" />
+  </div>
+  <ul *ngIf="!showdoc&&showTitle" [style.display]="showTitle ? 'flex' : 'none'" class="headertitle {{ setFormTitleCol }}"
+    style="display: flex; align-content: center; justify-content: center">
+    <li class="title-head">
+      <h3 class="header-heading">{{ title }}</h3>
+    </li>
+  </ul>
+  <div class="col-lg-5 pages-head" *ngIf="showdoc">
+    <p class="pages-text">{{ title }} : {{ pageName }}
+    </p>
+  </div>
+  <div class="col-lg-2 col-md-2 pages-head-number" *ngIf="showdoc" [ngClass]="{'disabled':rotateandresize || alignAnnotationEnable,'hiddenView':setScaleNav}">
+    <p class="pages-text"><span><img class="right-arrow" [ngClass]="{'disabled':totalPages==1}" src="assets/images/P3_ArrowLeft_White.png"
+          (click)="minusPage()" alt="homepage" /></span>
+          <span (click)="documentSwitch()"><span class="page-numberscount">{{ singlePageNumber }}</span> / <span class="page-numberscount1">{{ totalPages }}</span>
+        </span><span><img class="right-arrow" [ngClass]="{'disabled':totalPages==1}" src="assets/images/P3_ArrowRight_White.png" (click)="plusPage()"
+          alt="leftArrow" /></span>
+    </p>
+  </div>
+  <!-- <ul *ngIf="showdoc" class="headertitle col-lg-3 col-md-3">
+    <li class="title-head">
+      <img class="left-arrow" src="assets/images/P3_ArrowLeft_White.png" alt="leftArrow" />
+      
+      <img class="right-arrow" src="assets/images/P3_ArrowRight_White.png" alt="leftArrow" />
+    </li>
+  </ul> -->
+  <ul class="headertitle1 setMainTitleCol" *ngIf="showFilter && !showdoc">
+    <li class="title-head">
+      <h3 class="header-heading" style="text-align: center">{{ title }}</h3>
+    </li>
+  </ul>                              
+  <!-- <div class="col-lg-6 mainTitle1" *ngIf="showdoc">         
+    <h3 class="header-heading">{{ title }}</h3>
+  </div> -->
+  
+  <div>
+    <ul class="navbar-nav showsearchStyle"  *ngIf="showFilter && !showdoc" [ngClass]="{'flexUpdate':showUploadButton,'flexUpdateNormal':!showUploadButton}">
+      <li class="nav-item search-box search-edit box" [style.right]="searchIcon">
+      <a (click)="this.disable==true?'':showsearchBox()" class="nav-link waves-effect waves-dark" >
+        <img src="assets/images/header/P3_SearchIcon _White.png"  class="search-img" alt="Search" matTooltip="Search"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" />
+      </a>
+      <form class="app-search" [ngClass]="{ 'show-search': showSearch }">
+        <input type="text" (keyup)="applyFilter($event.target.value)" [(ngModel)]="searchWord"
+          (ngModelChange)="firstLetterCapital(searchWord)" [ngModelOptions]="{standalone: true}"
+          class="form-control input-field search-field pad" placeholder="Search" />
+        <a class="srh-btn" (click)="this.disable==true?'':showsearchBox()">
+          <img class="search-img" src="assets/images/P3_SearchIcon _Orange.png" alt="search-orange"  matTooltip="Search"
+          matTooltipHideDelay="300" matTooltipClass="tooltipstyle"  />
+        </a>
+      </form>
+    </li>
+    <li *ngIf="sorting" class="nav-item" placement="bottom-right" (click)="this.disable==true?'':openSort($event)"  >
+      <a class="nav-link waves-effect waves-dark" aria-haspopup="true" (update)="displayData($event)">
+        <img [src]="getImages()" class="sort-img" alt="Sort" matTooltip="Sort"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle"/>
+      </a>
+    </li>
+    <li *ngIf="showcsv" class="nav-item" placement="bottom-right" (click)="openShare1()">
+      <a class="nav-link waves-effect waves-dark" aria-haspopup="true" >
+        <img src="assets/images/icons/P3WebIcon_43Upload_White.png" class="share-img" alt="share"  matTooltip="Click here for Export options"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" />
+      </a>
+    </li>
+
+    <li *ngIf="showUploadButton" class="nav-item" placement="bottom-right" (click)="uploadStub()">
+      <a class="nav-link waves-effect waves-dark" aria-haspopup="true" style="padding-left: 0.3rem;">
+        <img class="stub-icon" src="assets/Arrow40x34.png" matTooltip="Click here to reconcile Stub"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle">
+      </a>
+    </li>
+    <li *ngIf="showUploadButtons" class="nav-item" placement="bottom-right" (click)="downloads()">
+    
+      <i class="fa-solid fa-file-arrow-down" matTooltip="Local Pdf"
+      matTooltipHideDelay="300" matTooltipClass="tooltipstyle"></i>
+
+
+<!-- <a class="nav-link waves-effect waves-dark" aria-haspopup="true" style="padding-left: 0.3rem;">
+        <img class="stub-icon" src="assets/Arrow40x34.png" matTooltip="Click here to reconcile Stub"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle"> -->
+      <!-- </a> -->
+    </li>
+    <li *ngIf="sorting" class="nav-item" placement="bottom-right" (click)="downloadLink()">
+      <a class="nav-link waves-effect waves-dark" aria-haspopup="true">
+        <img class="apple-icon" src="assets/images/ProjectsScreen/apple-512.png" matTooltip="Download iPad App"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle">
+      </a>
+    </li>
+    <li [appDisable]="true" *ngIf="showdoc" class="nav-item dropdown disabled" ngbDropdown placement="bottom-right" (click)="moveElementHeaderValue?'':undo()">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle waves-effect waves-dark" id="2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <img src="assets/images/header/P3_Documents_UndoIcon.png" width="25px" class="undo-img" alt="Undo"  matTooltip="Undo"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" />
+      </a>
+    </li>
+    <li [appDisable]="true" *ngIf="showdoc" class="nav-item dropdown disabled" ngbDropdown placement="bottom-right" (click)="moveElementHeaderValue?'':redo()">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle waves-effect waves-dark" id="2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <img src="assets/images/header/P3_Documents_RedoIcon.png" matTooltip="Redo"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" width="25px" class="reundo-img" alt="reundo" />
+      </a>
+    </li>
+    <li *ngIf="showdoc" class="nav-item dropdown" ngbDropdown placement="bottom-right" (click)="selectMultiIcons()">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle waves-effect waves-dark" href="javascript:void(0)" id="2"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img [src]="imgUrl" width="25px" class="multiicon-img" alt="Multiicon"  matTooltip="Multiselect Drawings"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" />
+      </a>
+      <!-- assets/images/document/P3_Documents_MultipleIcon-Orange.png -->
+    </li>
+    <li *ngIf="showdoc" class="nav-item" placement="bottom-right" (click)="openLayersDup()">
+      <a class="nav-link waves-effect waves-dark" aria-haspopup="true">
+        <img src="assets/images/header/P3_Documents_LayersIcon.png" matTooltip="Layer"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" width="25px" class="sort-img" alt="Sort" />
+      </a>
+    </li>
+    <li *ngIf="showdoc" class="nav-item mega-dropdown" ngbDropdown [autoClose]="false">
+      <a ngbDropdownToggle class="nav-link waves-effect waves-dark" href="javascript:void(0)" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false" (click)="moreOption()">
+        <img src="assets/images/header/P3_MoreIcon_White.png" style="height: 7px" class="syn-img" alt="Sync" />
+      </a>
+    </li>
+  </ul>
+  </div>
+  <ul class="doc-right-side col-lg-4" *ngIf="showdoc" [ngClass]="{hiddenView:(setScaleNav || rotateandresize),'disabled':selected}" >
+    <li class="show-doc-li">
+      <a href="javascript:void(0)" class="search-relative">
+        <img [src]="searchImage" (click)="opensearch()"  matTooltip="Search"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" class="search-img" alt="Search" />
+        <!-- <div class="search-part" *ngIf="showSearch">
+          <input type="text" class="form-control input-field-search" placeholder="Search"
+            (keyup)="applyFilter($event.target.value)" (focusout)="closeSearch()" />
+          <img class="show-search-img" src="assets/images/P3_SearchIcon _Orange.png" (click)="showSearch = !showSearch"
+            alt="search-orange" />
+        </div> -->
+      </a>
+    </li>
+    <!-- <li class="nav-item doc-search-box search-edit box">
+      <a (click)="showSearch = !showSearch" class="nav-link waves-effect waves-dark">
+        <img src="assets/images/header/P3_SearchIcon _White.png" class="search-img" alt="Search" />
+      </a>
+      <form class="app-search" [ngClass]="{ 'show-search': showSearch }">
+        <input type="text" (keyup)="applyFilter($event.target.value)" class="form-control input-field search-field"ws
+          placeholder="Search" (focusout)="closeSearch()" />
+        <a class="srh-btn" (click)="showSearch = !showSearch">
+          <img class="search-img" src="assets/images/P3_SearchIcon _Orange.png" alt="search-orange" />
+        </a>
+      </form>
+    </li> -->
+    <li [class.disabled]="userRoleGlobal.disableMode || userRoleGlobal.userRol=='view' || moveflag1 || copyMultipleEnable || alignAnnotationEnable || groupingEnable" class="show-doc-li" (click)="isReadonly || userrole == 'view' ?'':moveElementAccess()">
+      <a href="javascript:void(0)">
+        <img [src]="moveElementImg" width="25px" class="undo-img" alt="move"   matTooltip="Move"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle"  />
+      </a>
+    </li>
+    <li  [class.disabled]="userRoleGlobal.disableMode || copyMultipleEnable || alignAnnotationEnable" class="show-doc-li" (click)="moveElementHeaderValue || isReadonly || userrole == 'view' ?'':undo()">
+      <a href="javascript:void(0)">
+        <img src="assets/images/icons/P3WebIcon_AntiClockwise_White.png"   matTooltip="Undo"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" class="undo-img" alt="Undo" />
+      </a>
+    </li>
+    <li  [class.disabled]="userRoleGlobal.disableMode || copyMultipleEnable || alignAnnotationEnable" class="show-doc-li" (click)="moveElementHeaderValue || isReadonly || userrole == 'view' ?'':redo()">
+      <a href="javascript:void(0)">
+        <img src="assets/images/icons/P3WebIcon_Clockwise.png"  matTooltip="Redo"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" class="reundo-img" alt="reundo"  />
+      </a>
+    </li>
+    <li  [class.disabled]="userRoleGlobal.disableMode || userRoleGlobal.userRol=='view'|| copyMultipleEnable || groupingEnable" class="show-doc-li" (click)="isReadonly || userrole == 'view'?'':selectMultiIcons()">
+      <a href="javascript:void(0)">
+        <img [src]="imgUrl" class="multiicon-img" alt="Multiicon"  matTooltip="Multiselect Drawings"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" />
+      </a>
+    </li>
+  
+    <li [class.disabled]="alignAnnotationEnable || groupingEnable" class="show-doc-li" (click)="openLayersDup()">
+      <a href="javascript:void(0)">
+        <img [src]="layerImage" class="layer-img" alt="Sort"  matTooltip="Layer"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" /> 
+      </a>
+      <!-- src="assets/images/icons/P3WebIcon_42Layers_White.png" -->
+    </li>
+    <li class="show-doc-li" (click)="openShare()">
+      <a href="javascript:void(0)">
+        <img src="assets/images/icons/P3WebIcon_43Upload_White.png"   matTooltip="Click here for Export options"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" class="syn-img" alt="share" />
+      </a>
+    </li>
+    <li class="show-doc-li" (click)="pageSync()">
+      <a href="javascript:void(0)">
+        <img matTooltip="Sync"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle"[src]="synImage?'assets/images/icons/P3WebIcon_Sync_Orange.png':'assets/images/icons/P3WebIcon_Sync_White.png'" class="syn-img" alt="sync" />
+      </a>
+    </li>
+    <li class="show-doc-li" (click)="moreOption()">
+      <a href="javascript:void(0)" >
+        <img src="assets/images/header/P3_MoreIcon_White.png" matTooltip="Options"
+        matTooltipHideDelay="300" matTooltipClass="tooltipstyle" style="height: 7px" class="syn-img option-img"
+          alt="Sync" />
+      </a>
+    </li>
+  </ul>
+
+  <!--  forms buttons -->
+
+  <ul class="navbar-nav fb_buttons fomrbuilder-buttons"
+    >
+    <li class="nav-item" *ngIf="showbutton">
+      <button type="button" [ngClass]="{ activeRes: buildActive }" class="btn bton change-bg" (click)="Build()">
+        BUILD
+      </button>
+    </li>
+    <li class="nav-item" *ngIf="showbutton">
+      <button type="button" [ngClass]="{ activeRes: previewActive }" class="btn change-bg" (click)="Preview()">
+        PREVIEW
+      </button>
+    </li>
+    <li class="nav-item"  *ngIf="showbutton">
+      <button type="button" [ngClass]="{ activeRes: publishActive }" class="btn change-bg" (click)="Publish()">
+        PUBLISH
+      </button>
+    </li>
+  </ul>
+
+  <!--  toolbar buttons -->
+
+  <ul class="navbar-nav fb_buttons fomrbuilder-buttons" *ngIf="showbuttonToolbar">
+    <li class="nav-item">
+      <button type="button" [ngClass]="{ activeRes: buildActive }" class="btn bton change-bg" (click)="BuildToolbar()">
+        BUILD
+      </button>
+    </li>
+    <li class="nav-item">
+      <button type="button" [ngClass]="{ activeRes: previewActive }" class="btn change-bg" (click)="PreviewToolbar()">
+        PREVIEW
+      </button>
+    </li>
+    <li class="nav-item">
+      <button type="button" [ngClass]="{ activeRes: publishActive }" class="btn change-bg" (click)="PublishToolbar()">
+        PUBLISH
+      </button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="show" class="loader-backdrop">
+  <img class="loader-image" src="assets/images/spin.gif" alt="..." />
+</div>

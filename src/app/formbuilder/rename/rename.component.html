@@ -1,0 +1,43 @@
+<div>
+  <div style="background-color: #e8e8e8">
+    <div sclass="text-center headSec"
+      style="background-color: #e8e8e8; padding-top: 20px; padding-bottom: 4px;text-align: center;">
+      <span style="background-color: #e8e8e8; padding-left: 50px; color: #002e5f;text-align: center;font-size: 18px;
+      font-weight: 500;"> Rename</span><span class="close" style="float: right; padding-right: 24px"
+        (click)="onclose()"><img src="assets/images/P3_Close-Cancel_Blue.png" width="25px" /></span>
+    </div>
+    <hr style="background-color: #e8e8e8" />
+  </div>
+
+  <div class="text-center txtclr">
+    <span style="color: #807f83; font-size: 17px">Please enter a new form name</span>
+  </div>
+  <div>
+    <div class="input-group mb-12">
+      <div class="input-group-prepend">
+        <span class="text-center bg-none" id="basic-addon1"></span>
+      </div>
+      <input type="text" class="form-control bg-none" aria-describedby="basic-addon1" style="margin-left: 2px"
+        placeholder="{{ formname }}" name="formName" #form_name="ngModel" [(ngModel)]="formdefault"
+        (ngModelChange)="firstLetterCapital(formdefault)" required autocomplete="off"
+        style="color:#212721;font-weight: 500; padding-left: 30px;" />
+      <!-- <input class="form-control bg-none"
+        aria-describedby="basic-addon1" style="margin-left: 2px;" placeholder="" name="project_name"  #project_name="ngModel" [(ngModel)]="this.namedefault" required autocomplete="off" /> -->
+    </div>
+    <hr style="
+        margin-top: 1.5rem;
+        width: 90%;
+        background-color: #e8e8e8;
+        margin-top: 0.5rem;
+      " />
+    <div style="background-color: #e8e8e8; padding-bottom: 28px">
+      <hr style="background-color: #e8e8e8; margin-bottom: 24px; margin-top: 24px" />
+      <div class="text-center">
+        <button (click)="rename(form_name.value)" value="submit" [disabled]="form_name.value==''"
+          style="color: #a4a426; font-size: 18px; font-weight: 500">
+          Rename
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

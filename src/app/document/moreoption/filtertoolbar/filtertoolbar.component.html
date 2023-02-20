@@ -1,0 +1,98 @@
+<div class="more_information_section">
+    <div class="row header container-fluid">
+    <div class="col-lg-12 header-heading-part">
+      <h3 class="header-heading">Toolbar Filters</h3>
+    </div>
+    <div class="close-img-part">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="content-area" id="style-1">
+    <div class="row content-head-section">
+      <div class="col-lg-10">
+        <p class="content-heading">All</p>
+      </div>
+      <div class="col-lg-2 checkbox-part">
+        <input
+          type="checkbox"
+          name="all"
+          class="toolbar-selected multiple-checkbox"
+          [checked]="allChecked"
+          [(ngModel)]="allChecked"
+          [disabled]="allChecked"
+          (change)="checkAllFilter()"
+        />
+        <!-- (click)="toggleVisibility($event, toolbarvalue, indexValue)" -->
+      </div>
+    </div>
+    <div class="row content-head-section">
+      <div class="col-lg-10">
+        <p class="content-heading">Point</p>
+      </div>
+      <div class="col-lg-2 checkbox-part">
+        <input
+          type="checkbox"
+          name="points"
+          class="toolbar-selected multiple-checkbox"
+          [checked]="pointsChecked"
+          [(ngModel)]="pointsChecked"
+          (change)="checkFilter()"
+        />
+        <!-- (click)="toggleVisibility($event, toolbarvalue, indexValue)" -->
+      </div>
+    </div>
+    <div class="row content-head-section">
+      <div class="col-lg-10">
+        <p class="content-heading">Freehand</p>
+      </div>
+      <div class="col-lg-2 checkbox-part">
+        <input
+          type="checkbox"
+          name="freehand"
+          class="toolbar-selected multiple-checkbox"
+          [checked]="freehandChecked"
+          [(ngModel)]="freehandChecked"
+          (change)="checkFilter()"
+        />
+        <!-- (click)="toggleVisibility($event, toolbarvalue, indexValue)" -->
+      </div>
+    </div>
+    <div class="row content-head-section">
+      <div class="col-lg-10">
+        <p class="content-heading">Vertex</p>
+      </div>
+      <div class="col-lg-2 checkbox-part">
+        <input
+          type="checkbox"
+          name="Vertex"
+          class="toolbar-selected multiple-checkbox"
+          [checked]="vertexChecked"
+          [(ngModel)]="vertexChecked"
+          (change)="checkFilter()"
+        />
+        <!-- (click)="toggleVisibility($event, toolbarvalue, indexValue)" -->
+      </div>
+    </div>
+    <div class="row content-head-section">
+      <div class="col-lg-10">
+        <p class="content-heading">Rectangle / Ellipse</p>
+      </div>
+      <div class="col-lg-2 checkbox-part">
+        <input
+          type="checkbox"
+          [checked]="rectangleChecked"
+          name="Rectangle"
+          class="toolbar-selected multiple-checkbox"
+          [(ngModel)]="rectangleChecked"
+          (change)="checkFilter()"
+        />
+        <!-- (click)="toggleVisibility($event, toolbarvalue, indexValue)" -->
+      </div>
+    </div>
+  </div>
+</div>

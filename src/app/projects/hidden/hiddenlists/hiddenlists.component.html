@@ -1,0 +1,14 @@
+<div *ngFor="let option of formlist">
+  <div class="row col-lg-12 col-md-12 col-sm-12 box" (contextmenu)="onContextMenu($event,option.form_name,option.created_date,
+    option.last_updated_date,option.form_id,option.project_id,option.is_hidden,option.form_element_count)"
+    [longPress]="2000" (onRelease)="onVeryLongPress($event,option.form_name,option.created_date,
+    option.last_updated_date,option.form_id,option.project_id,option.is_hidden,option.form_element_count)">
+    <div class="top_head col-lg-9 col-md-9 col-sm-5 col-6 p-0">
+      <img style="margin-right:20px;margin-left:30px; width:28px" class="forms-img"
+        src="assets/images/icons/P3WebIcon_45List.png">
+      <span style="font-size:17px;font-weight:500;color:#00447c;"> {{option['form_name']}} </span>
+    </div>
+  </div>
+  <hr>
+</div>
+<app-grand-loader *ngIf="showLoader"></app-grand-loader>

@@ -1,0 +1,99 @@
+.bg-none {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+.linebox {
+  border-bottom: 2px solid #e8e8e8;
+  position: relative;
+  /* width: 450px; */
+}
+i {
+  font-size: 18px;
+}
+.txtclr {
+  font-size: 17px;
+  color: #807f83;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+::placeholder {
+  color: #807f83;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #807f83;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #807f83;
+}
+.headSec {
+  color: #002e5f;
+  font-weight: bold;
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .headSec {
+    min-width: 400px;
+  }
+}
+.btn-lg {
+  background-color: #f98e2c;
+  border: none;
+  width: 100%;
+  border-radius: 1px;
+}
+button:focus {
+  outline: 0;
+}
+.btn-lg:active {
+  border: none;
+}
+.btn-lg:disabled {
+  cursor: not-allowed;
+}
+.bton-sing {
+  color: #fff;
+  font-weight: 500;
+}
+.btnDiv {
+  margin: 0px !important;
+}
+.close {
+  line-height: 0.7 !important;
+  cursor: pointer;
+}
+.input-group-text {
+  background-color: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background-color: #e8e8e8;
+}
+button:disabled,
+button[disabled] {
+  cursor: not-allowed;
+  border: none;
+  background-color: #e8e8e8;
+}
+.input-field{
+  margin:10px 35px;
+  padding:10px 0px;
+  font-weight: 500;
+  border-bottom:1px solid #e8e8e8;
+}
+.image_part1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -135.5px;
+  margin-top: -135.5px;
+  z-index:9999;
+}

@@ -1,0 +1,543 @@
+<div id="docs-sidebar" class="docs-sidebar"
+    [ngClass]="{'sidebar-visible':visibilityKey,'sidebar-hidden':!visibilityKey}">
+    <!-- Include Search-->
+    <!-- <div class="top-search-box d-lg-none p-3">
+        <form class="search-form">
+            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+        </form>
+    </div> -->
+    <!-- <?php
+        include 'assets/php/search.php';
+    ?> -->
+    <!-- //Include Search-->
+
+    <!-- Include Sidebar Navigation-->
+    <nav id="docs-nav" class="docs-nav navbar">
+        <ul *ngIf="chapterCheck=='section-1'" class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title"><a class="nav-link scrollto" (click)="scrollToElement('section-1')" [ngClass]="{'active':activeOption=='section-1'}"
+                scrollTo scrollTargetSelector="#section-1"><span class="theme-icon-holder mr-2"><i
+                            class="fas fa-map-signs"></i></span>1.0 Introduction</a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-1-1" [ngClass]="{'active':activeOption=='item-1-1'}" (click)="scrollToElement('item-1-1')">1.1 Installation</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-1-2" [ngClass]="{'active':activeOption=='item-1-2'}" (click)="scrollToElement('item-1-2')">1.2 Sign In</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-1-3" [ngClass]="{'active':activeOption=='item-1-3'}" (click)="scrollToElement('item-1-3')">1.3 Tutorials</a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-1-4" [ngClass]="{'active':activeOption=='item-1-4'}" (click)="scrollToElement('item-1-4')">1.4 Popups</a></li>
+
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-2.php';
+                include 'assets/php/nav-3.php';
+                include 'assets/php/nav-4.php';
+                include 'assets/php/nav-5.php';
+                include 'assets/php/nav-6.php';
+                include 'assets/php/nav-7.php';
+                include 'assets/php/nav-8.php';
+                include 'assets/php/nav-9.php';
+            ?>
+            -->
+
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span
+                        class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span
+                        class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project
+                    Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span
+                        class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span
+                        class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a>
+            </li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span
+                        class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a>
+            </li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span
+                        class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span
+                        class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span
+                        class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+                        <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+                        <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+                        <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+        </ul>
+        <ul *ngIf="chapterCheck=='section-2'" class="section-items list-unstyled nav flex-column pb-3">
+				
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-1.php';
+            ?>
+            -->
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-2" (click)="scrollToElement('section-2')" [ngClass]="{'active':activeOption=='section-2'}"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-2-1" (click)="scrollToElement('item-2-1')" [ngClass]="{'active':activeOption=='item-2-1'}">2.1 My Profile</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-2-2" (click)="scrollToElement('item-2-2')" [ngClass]="{'active':activeOption=='item-2-2'}">2.2 Security</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-2-3" (click)="scrollToElement('item-2-3')" [ngClass]="{'active':activeOption=='item-2-3'}">2.3 Sync</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-2-4" (click)="scrollToElement('item-2-4')" [ngClass]="{'active':activeOption=='item-2-4'}">2.4 Support</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-2-5" (click)="scrollToElement('item-2-5')" [ngClass]="{'active':activeOption=='item-2-5'}">2.5 About</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-2-6" (click)="scrollToElement('item-2-6')" [ngClass]="{'active':activeOption=='item-2-6'}">2.6 Sign Out</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+            <!--Hide Navigation details and show only the main page 
+                                ?php
+                include 'assets/php/nav-3.php';
+                include 'assets/php/nav-4.php';
+                include 'assets/php/nav-5.php';
+                include 'assets/php/nav-6.php';
+                include 'assets/php/nav-7.php';
+                include 'assets/php/nav-8.php';
+                include 'assets/php/nav-9.php';
+            ?>
+            -->
+        </ul>
+        <ul *ngIf="chapterCheck=='section-3'" class="section-items list-unstyled nav flex-column pb-3">
+					
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-1.php';
+                include 'assets/php/nav-2.php';
+            ?>
+            -->
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-3" (click)="scrollToElement('section-3')" [ngClass]="{'active':activeOption=='section-3'}"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1" scrollTo scrollTargetSelector="#item-3-1" (click)="scrollToElement('item-3-1')" [ngClass]="{'active':activeOption=='item-3-1'}">3.1 My Projects</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2" scrollTo scrollTargetSelector="#item-3-2" (click)="scrollToElement('item-3-2')" [ngClass]="{'active':activeOption=='item-3-2'}">3.2 Project Options</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2-1" scrollTo scrollTargetSelector="#item-3-2-1" (click)="scrollToElement('item-3-2-1')" [ngClass]="{'active':activeOption=='item-3-2-1'}">3.2.1 Add to Favorites</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2-2" scrollTo scrollTargetSelector="#item-3-2-2" (click)="scrollToElement('item-3-2-2')" [ngClass]="{'active':activeOption=='item-3-2-2'}">3.2.2 Rename Project</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2-3" scrollTo scrollTargetSelector="#item-3-2-3" (click)="scrollToElement('item-3-2-3')" [ngClass]="{'active':activeOption=='item-3-2-3'}">3.2.3 Manage Tags</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2-4" scrollTo scrollTargetSelector="#item-3-2-4" (click)="scrollToElement('item-3-2-4')" [ngClass]="{'active':activeOption=='item-3-2-4'}">3.2.4 Project Information</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2-5" scrollTo scrollTargetSelector="#item-3-2-5" (click)="scrollToElement('item-3-2-5')" [ngClass]="{'active':activeOption=='item-3-2-5'}">3.2.5 Hide</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2-6" scrollTo scrollTargetSelector="#item-3-2-6" (click)="scrollToElement('item-3-2-6')" [ngClass]="{'active':activeOption=='item-3-2-6'}">3.2.6 Manage Users</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3" scrollTo scrollTargetSelector="#item-3-3" (click)="scrollToElement('item-3-3')" [ngClass]="{'active':activeOption=='item-3-3'}">3.3 Recent Projects</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4" scrollTo scrollTargetSelector="#item-3-4" (click)="scrollToElement('item-3-4')" [ngClass]="{'active':activeOption=='item-3-4'}">3.4 Favorite Projects</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-5" scrollTo scrollTargetSelector="#item-3-5" (click)="scrollToElement('item-3-5')" [ngClass]="{'active':activeOption=='item-3-5'}">3.5 Hidden Projects</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-6" scrollTo scrollTargetSelector="#item-3-6" (click)="scrollToElement('item-3-6')" [ngClass]="{'active':activeOption=='item-3-6'}">3.6 Sidebar</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-7" scrollTo scrollTargetSelector="#item-3-7" (click)="scrollToElement('item-3-7')" [ngClass]="{'active':activeOption=='item-3-7'}">3.7 Add Project</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-8" scrollTo scrollTargetSelector="#item-3-8" (click)="scrollToElement('item-3-8')" [ngClass]="{'active':activeOption=='item-3-8'}">3.8 Search</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-9" scrollTo scrollTargetSelector="#item-3-9" (click)="scrollToElement('item-3-9')" [ngClass]="{'active':activeOption=='item-3-9'}">3.9 Sort</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-10" scrollTo scrollTargetSelector="#item-3-10" (click)="scrollToElement('item-3-10')" [ngClass]="{'active':activeOption=='item-3-10'}">3.10 Synchronization</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+            
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-4.php';
+                include 'assets/php/nav-5.php';
+                include 'assets/php/nav-6.php';
+                include 'assets/php/nav-7.php';
+                include 'assets/php/nav-8.php';
+                include 'assets/php/nav-9.php';
+            ?>
+            -->
+        </ul>
+        <ul *ngIf="chapterCheck=='section-4'" class="section-items list-unstyled nav flex-column pb-3">
+					
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-1.php';
+                include 'assets/php/nav-2.php';
+                include 'assets/php/nav-3.php';
+            ?>
+            -->
+            
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-4" (click)="scrollToElement('section-4')" [ngClass]="{'active':activeOption=='section-4'}"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1" (click)="scrollToElement('item-4-1')" [ngClass]="{'active':activeOption=='item-4-1'}">4.1 Documents</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-1" (click)="scrollToElement('item-4-1-1')" [ngClass]="{'active':activeOption=='item-4-1-1'}">4.1.1 Folder Options</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-1-1" (click)="scrollToElement('item-4-1-1-1')" [ngClass]="{'active':activeOption=='item-4-1-1-1'}">4.1.1.1 Rename Folder</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-1-2" (click)="scrollToElement('item-4-1-1-2')" [ngClass]="{'active':activeOption=='item-4-1-1-2'}">4.1.1.2 Manage Tags</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-1-3" (click)="scrollToElement('item-4-1-1-3')" [ngClass]="{'active':activeOption=='item-4-1-1-3'}">4.1.1.3 Folder Information</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-2" (click)="scrollToElement('item-4-1-2')" [ngClass]="{'active':activeOption=='item-4-1-2'}">4.1.2 Document Options</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-2-1" (click)="scrollToElement('item-4-1-2-1')" [ngClass]="{'active':activeOption=='item-4-1-2-1'}">4.1.2.1 Rename Document</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-2-2" (click)="scrollToElement('item-4-1-2-2')" [ngClass]="{'active':activeOption=='item-4-1-2-2'}">4.1.2.2 Manage Tags</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-2-3" (click)="scrollToElement('item-4-1-2-3')" [ngClass]="{'active':activeOption=='item-4-1-2-3'}">4.1.2.3 Document Information</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-2-4" (click)="scrollToElement('item-4-1-2-4')" [ngClass]="{'active':activeOption=='item-4-1-2-4'}">4.1.2.4 Copy Document With Annotations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-2-5" (click)="scrollToElement('item-4-1-2-5')" [ngClass]="{'active':activeOption=='item-4-1-2-5'}">4.1.2.5 Copy Document Without Annotations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-1-3" (click)="scrollToElement('item-4-1-3')" [ngClass]="{'active':activeOption=='item-4-1-3'}">4.1.3 Moving Content</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-2" (click)="scrollToElement('item-4-2')" [ngClass]="{'active':activeOption=='item-4-2'}">4.2 Forms</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-3" (click)="scrollToElement('item-4-3')" [ngClass]="{'active':activeOption=='item-4-3'}">4.3 Toolbars</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-4" (click)="scrollToElement('item-4-4')" [ngClass]="{'active':activeOption=='item-4-4'}">4.4 Hidden Content</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-5" (click)="scrollToElement('item-4-5')" [ngClass]="{'active':activeOption=='item-4-5'}">4.5 Project Sidebar</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-6" (click)="scrollToElement('item-4-6')" [ngClass]="{'active':activeOption=='item-4-6'}">4.6 Support</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-7" (click)="scrollToElement('item-4-7')" [ngClass]="{'active':activeOption=='item-4-7'}">4.7 Add New Content</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-7-1" (click)="scrollToElement('item-4-7-1')" [ngClass]="{'active':activeOption=='item-4-7-1'}">4.7.1 Add a Folder</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-7-2" (click)="scrollToElement('item-4-7-2')" [ngClass]="{'active':activeOption=='item-4-7-2'}">4.7.2 Add a Document From Device</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-7-3" (click)="scrollToElement('item-4-7-3')" [ngClass]="{'active':activeOption=='item-4-7-3'}">4.7.3 Add a Document From Photo</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-7-4" (click)="scrollToElement('item-4-7-4')" [ngClass]="{'active':activeOption=='item-4-7-4'}">4.7.4 Add a Document From Camera Roll</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-7-5" (click)="scrollToElement('item-4-7-5')" [ngClass]="{'active':activeOption=='item-4-7-5'}">4.7.5 Add a Document From WJE Field Sheet</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-4-8" (click)="scrollToElement('item-4-8')" [ngClass]="{'active':activeOption=='item-4-8'}">4.8 Export</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-5.php';
+                include 'assets/php/nav-6.php';
+                include 'assets/php/nav-7.php';
+                include 'assets/php/nav-8.php';
+                include 'assets/php/nav-9.php';
+            ?>
+            -->
+        </ul>
+        <ul *ngIf="chapterCheck=='section-5'" class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-5" (click)="scrollToElement('section-5')" [ngClass]="{'active':activeOption=='section-5'}"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-1" (click)="scrollToElement('section-5.1')" [ngClass]="{'active':activeOption=='section-5.1'}">5.1 Form List</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-1-1" (click)="scrollToElement('section-5.1.1')" [ngClass]="{'active':activeOption=='section-5.1.1'}">5.1.1 Form Options</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-1-1-1" (click)="scrollToElement('section-5.1.1.1')" [ngClass]="{'active':activeOption=='section-5.1.1.1'}">5.1.1.1 Rename Form</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-1-1-2" (click)="scrollToElement('section-5.1.1.2')" [ngClass]="{'active':activeOption=='section-5.1.1.2'}">5.1.1.2 Manage Tags</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-1-1-3" (click)="scrollToElement('section-5.1.1.3')" [ngClass]="{'active':activeOption=='section-5.1.1.3'}">5.1.1.3 Form Information</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-2" (click)="scrollToElement('section-5.2')" [ngClass]="{'active':activeOption=='section-5.2'}">5.2 Add Forms</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-2-1" (click)="scrollToElement('section-5.2.1')" [ngClass]="{'active':activeOption=='section-5.2.1'}">5.2.1 New Form</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-2-2" (click)="scrollToElement('section-5.2.2')" [ngClass]="{'active':activeOption=='section-5.2.2'}">5.2.2 Duplicate Existing Form</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-2-3" (click)="scrollToElement('section-5.2.3')" [ngClass]="{'active':activeOption=='section-5.2.3'}">5.2.3 Import From Another Project</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-3" (click)="scrollToElement('section-5.3')" [ngClass]="{'active':activeOption=='section-5.3'}">5.3 Form Designer</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-3-1" (click)="scrollToElement('section-5.3.1')" [ngClass]="{'active':activeOption=='section-5.3.1'}">5.3.1 Add Fields</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-3-2" (click)="scrollToElement('section-5.3.2')" [ngClass]="{'active':activeOption=='section-5.3.2'}">5.3.2 Arrange Fields</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4" (click)="scrollToElement('section-5.4')" [ngClass]="{'active':activeOption=='section-5.4'}">5.4 Form Fields</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-1" (click)="scrollToElement('section-5.4.1')" [ngClass]="{'active':activeOption=='section-5.4.1'}">5.4.1 Properties</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-2" (click)="scrollToElement('section-5.4.2')" [ngClass]="{'active':activeOption=='section-5.4.2'}">5.4.2 Single Line Text</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-3" (click)="scrollToElement('section-5.4.3')" [ngClass]="{'active':activeOption=='section-5.4.3'}">5.4.3 Text Area</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-4" (click)="scrollToElement('section-5.4.4')" [ngClass]="{'active':activeOption=='section-5.4.4'}">5.4.4 Text Label</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-5" (click)="scrollToElement('section-5.4.5')" [ngClass]="{'active':activeOption=='section-5.4.5'}">5.4.5 Number</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-6" (click)="scrollToElement('section-5.4.6')" [ngClass]="{'active':activeOption=='section-5.4.6'}">5.4.6 Dropdown</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-7" (click)="scrollToElement('section-5.4.7')" [ngClass]="{'active':activeOption=='section-5.4.7'}">5.4.7 Single Choice</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-8" (click)="scrollToElement('section-5.4.8')" [ngClass]="{'active':activeOption=='section-5.4.8'}">5.4.8 Multiple Choice</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-9" (click)="scrollToElement('section-5.4.9')" [ngClass]="{'active':activeOption=='section-5.4.9'}">5.4.9 Date Picker</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-10" (click)="scrollToElement('section-5.4.10')" [ngClass]="{'active':activeOption=='section-5.4.10'}">5.4.10 Formula</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-11" (click)="scrollToElement('section-5.4.11')" [ngClass]="{'active':activeOption=='section-5.4.11'}">5.4.11 Address</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-12" (click)="scrollToElement('section-5.4.12')" [ngClass]="{'active':activeOption=='section-5.4.12'}">5.4.12 Divider</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-13" (click)="scrollToElement('section-5.4.13')" [ngClass]="{'active':activeOption=='section-5.4.13'}">5.4.13 Checkbox Fields</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-14" (click)="scrollToElement('section-5.4.14')" [ngClass]="{'active':activeOption=='section-5.4.14'}">5.4.14 Use Conditions</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-15" (click)="scrollToElement('section-5.4.15')" [ngClass]="{'active':activeOption=='section-5.4.15'}">5.4.15 Set Options</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-16" (click)="scrollToElement('section-5.4.16')" [ngClass]="{'active':activeOption=='section-5.4.16'}">5.4.16 Field Calculations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-17" (click)="scrollToElement('section-5.4.17')" [ngClass]="{'active':activeOption=='section-5.4.17'}">5.4.17 Copy Field</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-4-18" (click)="scrollToElement('section-5.4.18')" [ngClass]="{'active':activeOption=='section-5.4.18'}">5.4.18 Delete Field</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-5" (click)="scrollToElement('section-5.5')" [ngClass]="{'active':activeOption=='section-5.5'}">5.5 Preview Forms</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-5-6" (click)="scrollToElement('section-5.6')" [ngClass]="{'active':activeOption=='section-5.6'}">5.6 Publish Forms</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+
+        </ul>
+        <ul *ngIf="chapterCheck=='section-6'" class="section-items list-unstyled nav flex-column pb-3">
+					
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-1.php';
+                include 'assets/php/nav-2.php';
+                include 'assets/php/nav-3.php';
+                include 'assets/php/nav-4.php';
+                include 'assets/php/nav-5.php';
+            ?>
+            -->
+            
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-6" (click)="scrollToElement('section-6')" [ngClass]="{'active':activeOption=='section-6'}"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-1" (click)="scrollToElement('item-6-1')" [ngClass]="{'active':activeOption=='item-6-1'}">6.1 Toolbar Listing</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-1-1" (click)="scrollToElement('item-6-1-1')" [ngClass]="{'active':activeOption=='item-6-1-1'}">6.1.1 Toolbar Options</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-1-1-1" (click)="scrollToElement('item-6-1-1-1')" [ngClass]="{'active':activeOption=='item-6-1-1-1'}">6.1.1.1 Rename Toolbar</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-1-1-2" (click)="scrollToElement('item-6-1-1-2')" [ngClass]="{'active':activeOption=='item-6-1-1-2'}">6.1.1.2 Manage Tags</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-1-1-3" (click)="scrollToElement('item-6-1-1-3')" [ngClass]="{'active':activeOption=='item-6-1-1-3'}">6.1.1.3 Toolbar Information</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-2" (click)="scrollToElement('item-6-2')" [ngClass]="{'active':activeOption=='item-6-2'}">6.2 Add Toolbars</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-2-1" (click)="scrollToElement('item-6-2-1')" [ngClass]="{'active':activeOption=='item-6-2-1'}">6.2.1 New Toolbar</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-2-2" (click)="scrollToElement('item-6-2-2')" [ngClass]="{'active':activeOption=='item-6-2-2'}">6.2.2 Duplicate Existing Toolbar</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-2-3" (click)="scrollToElement('item-6-2-3')" [ngClass]="{'active':activeOption=='item-6-2-3'}">6.2.3 Import From Another Project</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-3" (click)="scrollToElement('item-6-3')" [ngClass]="{'active':activeOption=='item-6-3'}">6.3 Toolbar Designer</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-4" (click)="scrollToElement('item-6-4')" [ngClass]="{'active':activeOption=='item-6-4'}">6.4 Toolbar Annotations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-4-1" (click)="scrollToElement('item-6-4-1')" [ngClass]="{'active':activeOption=='item-6-4-1'}">6.4.1 Add Annotations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-4-2" (click)="scrollToElement('item-6-4-2')" [ngClass]="{'active':activeOption=='item-6-4-2'}">6.4.2 Arrange Annotations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-4-3" (click)="scrollToElement('item-6-4-3')" [ngClass]="{'active':activeOption=='item-6-4-3'}">6.4.3 Annotation Settings</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-4-4" (click)="scrollToElement('item-6-4-4')" [ngClass]="{'active':activeOption=='item-6-4-4'}">6.4.4 Default Form</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-4-5" (click)="scrollToElement('item-6-4-5')" [ngClass]="{'active':activeOption=='item-6-4-5'}">6.4.5 Duplicate Annotation</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-4-6" (click)="scrollToElement('item-6-4-6')" [ngClass]="{'active':activeOption=='item-6-4-6'}">6.4.6 Delete Annotation</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-5" (click)="scrollToElement('item-6-5')" [ngClass]="{'active':activeOption=='item-6-5'}">6.5 Preview Toolbars</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-6-6" (click)="scrollToElement('item-6-6')" [ngClass]="{'active':activeOption=='item-6-6'}">6.6 Publish Toolbars</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+            
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-7.php';
+                include 'assets/php/nav-8.php';
+                include 'assets/php/nav-9.php';
+            ?>
+            -->
+        </ul>
+        <ul *ngIf="chapterCheck=='section-7'" class="section-items list-unstyled nav flex-column pb-3">
+					
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-1.php';
+                include 'assets/php/nav-2.php';
+                include 'assets/php/nav-3.php';
+                include 'assets/php/nav-4.php';
+                include 'assets/php/nav-5.php';
+                include 'assets/php/nav-6.php';
+            ?>
+            -->
+            
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-7" (click)="scrollToElement('section-7')" [ngClass]="{'active':activeOption=='section-7'}"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-1" (click)="scrollToElement('item-7-1')" [ngClass]="{'active':activeOption=='item-7-1'}">7.1 Document Space</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-2" (click)="scrollToElement('item-7-2')" [ngClass]="{'active':activeOption=='item-7-2'}">7.2 Data Panel</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-3" (click)="scrollToElement('item-7-3')" [ngClass]="{'active':activeOption=='item-7-3'}">7.3 Search</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-4" (click)="scrollToElement('item-7-4')" [ngClass]="{'active':activeOption=='item-7-4'}">7.4 Move</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-5" (click)="scrollToElement('item-7-5')" [ngClass]="{'active':activeOption=='item-7-5'}">7.5 Undo</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-6" (click)="scrollToElement('item-7-6')" [ngClass]="{'active':activeOption=='item-7-6'}">7.6 Redo</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-7" (click)="scrollToElement('item-7-7')" [ngClass]="{'active':activeOption=='item-7-7'}">7.7 Multi-Select</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8" (click)="scrollToElement('item-7-8')" [ngClass]="{'active':activeOption=='item-7-8'}">7.8 Layers</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-1" (click)="scrollToElement('item-7-8-1')" [ngClass]="{'active':activeOption=='item-7-8-1'}">7.8.1 Show and Hide Layers</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-2" (click)="scrollToElement('item-7-8-2')" [ngClass]="{'active':activeOption=='item-7-8-2'}">7.8.2 More Options</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-2-1" (click)="scrollToElement('item-7-8-2-1')" [ngClass]="{'active':activeOption=='item-7-8-2-1'}">7.8.2.1 Lock Layers</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-2-2" (click)="scrollToElement('item-7-8-2-2')" [ngClass]="{'active':activeOption=='item-7-8-2-2'}">7.8.2.2 Rename Layers</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-2-3" (click)="scrollToElement('item-7-8-2-3')" [ngClass]="{'active':activeOption=='item-7-8-2-3'}">7.8.2.3 Delete Layers</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-3" (click)="scrollToElement('item-7-8-3')" [ngClass]="{'active':activeOption=='item-7-8-3'}">7.8.3 Default Layer</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-4" (click)="scrollToElement('item-7-8-4')" [ngClass]="{'active':activeOption=='item-7-8-4'}">7.8.4 Select Annotations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-5" (click)="scrollToElement('item-7-8-5')" [ngClass]="{'active':activeOption=='item-7-8-5'}">7.8.5 Add New Layer</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-8-5-1" (click)="scrollToElement('item-7-8-5-1')" [ngClass]="{'active':activeOption=='item-7-8-5-1'}">7.8.5.1 Adding a New Layer</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9" (click)="scrollToElement('item-7-9')" [ngClass]="{'active':activeOption=='item-7-9'}">7.9 Export</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-1" (click)="scrollToElement('item-7-9-1')" [ngClass]="{'active':activeOption=='item-7-9-1'}">7.9.1 Export Blank Page as PDF</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-2" (click)="scrollToElement('item-7-9-2')" [ngClass]="{'active':activeOption=='item-7-9-2'}">7.9.2 Export Page as PDF</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-3" (click)="scrollToElement('item-7-9-3')" [ngClass]="{'active':activeOption=='item-7-9-3'}">7.9.3 Export Blank Document as PDF</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-4" (click)="scrollToElement('item-7-9-4')" [ngClass]="{'active':activeOption=='item-7-9-4'}">7.9.4 Export Document as PDF</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-5" (click)="scrollToElement('item-7-9-5')" [ngClass]="{'active':activeOption=='item-7-9-5'}">7.9.5 Export Document as CSV</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-6" (click)="scrollToElement('item-7-9-6')" [ngClass]="{'active':activeOption=='item-7-9-6'}">7.9.6 Export Document as Reporting CSV</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-7" (click)="scrollToElement('item-7-9-7')" [ngClass]="{'active':activeOption=='item-7-9-7'}">7.9.7 Export Photos</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-8" (click)="scrollToElement('item-7-9-8')" [ngClass]="{'active':activeOption=='item-7-9-8'}">7.9.8 Export to AutoCAD</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-9-9" (click)="scrollToElement('item-7-9-9')" [ngClass]="{'active':activeOption=='item-7-9-9'}">7.9.9 Download Media</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-10" (click)="scrollToElement('item-7-10')" [ngClass]="{'active':activeOption=='item-7-10'}">7.10 More Options</a></li>
+			<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-10-1" (click)="scrollToElement('item-7-10-1')" [ngClass]="{'active':activeOption=='item-7-10-1'}">7.10.1 Rename Page</a></li>
+			<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-10-2" (click)="scrollToElement('item-7-10-2')" [ngClass]="{'active':activeOption=='item-7-10-2'}">7.10.2 Manage Tags</a></li>
+			<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-10-3" (click)="scrollToElement('item-7-10-3')" [ngClass]="{'active':activeOption=='item-7-10-3'}">7.10.3 Filter Toolbar Annotations</a></li>
+			<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-10-4" (click)="scrollToElement('item-7-10-4')" [ngClass]="{'active':activeOption=='item-7-10-4'}">7.10.4 Hide Toolbar Annotation Names</a></li>
+			<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-10-5" (click)="scrollToElement('item-7-10-5')" [ngClass]="{'active':activeOption=='item-7-10-5'}">7.10.5 Set Scale</a></li>
+		    <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-10-6" (click)="scrollToElement('item-7-10-6')" [ngClass]="{'active':activeOption=='item-7-10-6'}">7.10.6 View Only Mode</a></li>
+		    <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-7-11" (click)="scrollToElement('item-7-11')" [ngClass]="{'active':activeOption=='item-7-11'}">7.11 Copy Document to Plannotate</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+            
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-8.php';
+                include 'assets/php/nav-9.php';
+            ?>
+            -->
+        </ul>
+        <ul *ngIf="chapterCheck=='section-8'" class="section-items list-unstyled nav flex-column pb-3">
+					
+            <!--Hide Navigation details and show only the main page 
+            ?php
+                include 'assets/php/nav-1.php';
+                include 'assets/php/nav-2.php';
+                include 'assets/php/nav-3.php';
+                include 'assets/php/nav-4.php';
+                include 'assets/php/nav-5.php';
+                include 'assets/php/nav-6.php';
+                include 'assets/php/nav-7.php';
+            ?>
+            -->
+            
+            <!-- <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Product Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-8" (click)="scrollToElement('section-8')" [ngClass]="{'active':activeOption=='section-8'}"><span class="theme-icon-holder mr-2"><i class="fas fa-book-reader"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-1" (click)="scrollToElement('item-8-1')" [ngClass]="{'active':activeOption=='item-8-1'}">8.1 Release Notes</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-2" (click)="scrollToElement('item-8-2')" [ngClass]="{'active':activeOption=='item-8-2'}">8.2 Acknowledgements</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li> -->
+            
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+					<li class="nav-item section-title mt-3"><a  class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" class="nav-link scrollto" scrollTo scrollTargetSelector="#section-8" (click)="scrollToElement('section-8')" [ngClass]="{'active':activeOption=='section-8'}"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-1" (click)="scrollToElement('item-8-1')" [ngClass]="{'active':activeOption=='item-8-1'}">8.1 Toolbar Title Button</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-2" (click)="scrollToElement('item-8-2')" [ngClass]="{'active':activeOption=='item-8-2'}">8.2 Toolbar</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-3" (click)="scrollToElement('item-8-3')" [ngClass]="{'active':activeOption=='item-8-3'}">8.3 Move Toolbar</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-4" (click)="scrollToElement('item-8-4')" [ngClass]="{'active':activeOption=='item-8-4'}">8.4 Resize Data Panel</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-5" (click)="scrollToElement('item-8-5')" [ngClass]="{'active':activeOption=='item-8-5'}">8.5 Placing Annotations</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-5-1" (click)="scrollToElement('item-8-5-1')" [ngClass]="{'active':activeOption=='item-8-5-1'}">8.5.1 Simple Shapes</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-5-2" (click)="scrollToElement('item-8-5-2')" [ngClass]="{'active':activeOption=='item-8-5-2'}">8.5.2 Text</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-5-3" (click)="scrollToElement('item-8-5-3')" [ngClass]="{'active':activeOption=='item-8-5-3'}">8.5.3 Freehand</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-5-4" (click)="scrollToElement('item-8-5-4')" [ngClass]="{'active':activeOption=='item-8-5-4'}">8.5.4 Polyline / Polygon</a></li>
+					<li class="nav-item"><a  class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-5-5" (click)="scrollToElement('item-8-5-5')" [ngClass]="{'active':activeOption=='item-8-5-5'}">8.5.5 Drawn Shapes</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-5-6" (click)="scrollToElement('item-8-5-6')" [ngClass]="{'active':activeOption=='item-8-5-6'}">8.5.6 Lines</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6" (click)="scrollToElement('item-8-6')" [ngClass]="{'active':activeOption=='item-8-6'}">8.6 Annotation Options</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-1" (click)="scrollToElement('item-8-6-1')" [ngClass]="{'active':activeOption=='item-8-6-1'}">8.6.1 Delete</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-2" (click)="scrollToElement('item-8-6-2')" [ngClass]="{'active':activeOption=='item-8-6-2'}">8.6.2 Copy With Data</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-3" (click)="scrollToElement('item-8-6-3')" [ngClass]="{'active':activeOption=='item-8-6-3'}">8.6.3 Copy Without Data</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-4" (click)="scrollToElement('item-8-6-4')" [ngClass]="{'active':activeOption=='item-8-6-4'}">8.6.4 Move to Layer</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-5" (click)="scrollToElement('item-8-6-5')" [ngClass]="{'active':activeOption=='item-8-6-5'}">8.6.5 Use as Toolbar</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-6" (click)="scrollToElement('item-8-6-6')" [ngClass]="{'active':activeOption=='item-8-6-6'}">8.6.6 Add to Toolbar With Data</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-7" (click)="scrollToElement('item-8-6-7')" [ngClass]="{'active':activeOption=='item-8-6-7'}">8.6.7 Add to Toolbar Without Data</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-8" (click)="scrollToElement('item-8-6-8')" [ngClass]="{'active':activeOption=='item-8-6-8'}">8.6.8 Add to Toolbar as Template</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-9" (click)="scrollToElement('item-8-6-9')" [ngClass]="{'active':activeOption=='item-8-6-9'}">8.6.9 Resize and Rotate</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-6-10" (click)="scrollToElement('item-8-6-10')" [ngClass]="{'active':activeOption=='item-8-6-10'}">8.6.10 Set as Base Icon Size</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-7" (click)="scrollToElement('item-8-7')" [ngClass]="{'active':activeOption=='item-8-7'}">8.7 Forms Tab</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-8" (click)="scrollToElement('item-8-8')" [ngClass]="{'active':activeOption=='item-8-8'}">8.8 Media Tab</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-8-1" (click)="scrollToElement('item-8-8-1')" [ngClass]="{'active':activeOption=='item-8-8-1'}">8.8.1 Add From Camera</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-8-2" (click)="scrollToElement('item-8-8-2')" [ngClass]="{'active':activeOption=='item-8-8-2'}">8.8.2 Add From Camera Roll</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-8-3" (click)="scrollToElement('item-8-8-3')" [ngClass]="{'active':activeOption=='item-8-8-3'}">8.8.3 Add From Cloud Drive</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-8-4" (click)="scrollToElement('item-8-8-4')" [ngClass]="{'active':activeOption=='item-8-8-4'}">8.8.4 Add Stub Photos</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-8-4-1" (click)="scrollToElement('item-8-8-4-1')" [ngClass]="{'active':activeOption=='item-8-8-4-1'}">8.8.4.1 Reconcile Stub Photos</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-8-5" (click)="scrollToElement('item-8-8-5')" [ngClass]="{'active':activeOption=='item-8-8-5'}">8.8.5 Annotation Photo Actions</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-9" (click)="scrollToElement('item-8-9')" [ngClass]="{'active':activeOption=='item-8-9'}">8.9 Links Tab</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-9-1" (click)="scrollToElement('item-8-9-1')" [ngClass]="{'active':activeOption=='item-8-9-1'}">8.9.1 Link to Document</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-9-2" (click)="scrollToElement('item-8-9-2')" [ngClass]="{'active':activeOption=='item-8-9-2'}">8.9.2 Link to URL</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-10" (click)="scrollToElement('item-8-10')" [ngClass]="{'active':activeOption=='item-8-10'}">8.10 Tags Tab</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-11" (click)="scrollToElement('item-8-11')" [ngClass]="{'active':activeOption=='item-8-11'}">8.11 Properties Tab</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-8-12" (click)="scrollToElement('item-8-12')" [ngClass]="{'active':activeOption=='item-8-12'}">8.12 Page Navigation</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+					
+        </ul>
+        <ul *ngIf="chapterCheck=='section-9'" class="section-items list-unstyled nav flex-column pb-3">
+					<li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-9" (click)="scrollToElement('section-9')" [ngClass]="{'active':activeOption=='section-9'}"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto"  scrollTo scrollTargetSelector="#item-9-1" (click)="scrollToElement('item-9-1')" [ngClass]="{'active':activeOption=='item-9-1'}">9.1 Install / Config</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-9-2" (click)="scrollToElement('item-9-2')" [ngClass]="{'active':activeOption=='item-9-2'}">9.2 iPad / Web Differences</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+           </ul>
+           <ul *ngIf="chapterCheck=='section-10'" class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            
+            <li class="nav-item section-title mt-3"><a class="nav-link" class="nav-link scrollto" scrollTo scrollTargetSelector="#section-10" (click)="scrollToElement('section-10')" [ngClass]="{'active':activeOption=='section-10'}"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <!-- <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-10-1" (click)="scrollToElement('item-10-1')" [ngClass]="{'active':activeOption=='item-10-1'}">10.1 Exporting CSV</a></li> -->
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+           </ul>
+
+
+           <ul *ngIf="chapterCheck=='section-11'" class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" class="nav-link scrollto" scrollTo scrollTargetSelector="#section-11" (click)="scrollToElement('section-11')" [ngClass]="{'active':activeOption=='section-11'}"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-1" (click)="scrollToElement('item-11-1')" [ngClass]="{'active':activeOption=='item-11-1'}">11.1 Plannotate 3.0.0</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-2" (click)="scrollToElement('item-11-2')" [ngClass]="{'active':activeOption=='item-11-2'}">11.2 Plannotate 3.0.1</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-3" (click)="scrollToElement('item-11-3')" [ngClass]="{'active':activeOption=='item-11-3'}">11.3 Plannotate 3.0.2</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-4" (click)="scrollToElement('item-11-4')" [ngClass]="{'active':activeOption=='item-11-4'}">11.4 Plannotate 3.0.3</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-5" (click)="scrollToElement('item-11-5')" [ngClass]="{'active':activeOption=='item-11-5'}">11.5 Plannotate 3.0.3.1</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-6" (click)="scrollToElement('item-11-6')" [ngClass]="{'active':activeOption=='item-11-6'}">11.6 Plannotate 3.0.3.2</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-7" (click)="scrollToElement('item-11-7')" [ngClass]="{'active':activeOption=='item-11-7'}">11.7 Plannotate 3.0.3.3</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-8" (click)="scrollToElement('item-11-8')" [ngClass]="{'active':activeOption=='item-11-8'}">11.8 Plannotate 3.0.3.4</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-9" (click)="scrollToElement('item-11-9')" [ngClass]="{'active':activeOption=='item-11-9'}">11.9 Plannotate 3.0.3.5</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-10" (click)="scrollToElement('item-11-10')" [ngClass]="{'active':activeOption=='item-11-10'}">11.10 Plannotate 3.0.3.6</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-11" (click)="scrollToElement('item-11-11')" [ngClass]="{'active':activeOption=='item-11-11'}">11.11 Plannotate 3.0.3.7</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-12" (click)="scrollToElement('item-11-12')" [ngClass]="{'active':activeOption=='item-11-12'}">11.12 Plannotate 3.0.5</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-13" (click)="scrollToElement('item-11-13')" [ngClass]="{'active':activeOption=='item-11-13'}">11.13 Plannotate 3.0.6</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-14" (click)="scrollToElement('item-11-14')" [ngClass]="{'active':activeOption=='item-11-14'}">11.14 Plannotate 3.1.0</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-15" (click)="scrollToElement('item-11-15')" [ngClass]="{'active':activeOption=='item-11-15'}">11.15 Plannotate 3.1.1</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-16" (click)="scrollToElement('item-11-16')" [ngClass]="{'active':activeOption=='item-11-16'}">11.16 Plannotate 3.1.2</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-17" (click)="scrollToElement('item-11-17')" [ngClass]="{'active':activeOption=='item-11-17'}">11.17 Plannotate 3.1.2.1</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-18" (click)="scrollToElement('item-11-18')" [ngClass]="{'active':activeOption=='item-11-18'}">11.18 Plannotate 3.1.3</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-19" (click)="scrollToElement('item-11-19')" [ngClass]="{'active':activeOption=='item-11-19'}">11.19 Plannotate 3.1.4</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-20" (click)="scrollToElement('item-11-20')" [ngClass]="{'active':activeOption=='item-11-20'}">11.20 Plannotate 3.1.5</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-21" (click)="scrollToElement('item-11-21')" [ngClass]="{'active':activeOption=='item-11-21'}">11.21 Plannotate 3.2.1</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-22" (click)="scrollToElement('item-11-22')" [ngClass]="{'active':activeOption=='item-11-22'}">11.22 Plannotate 3.2.2</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-23" (click)="scrollToElement('item-11-23')" [ngClass]="{'active':activeOption=='item-11-23'}">11.23 Plannotate 3.2.3</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#item-11-24" (click)="scrollToElement('item-11-24')" [ngClass]="{'active':activeOption=='item-11-24'}">11.24 Plannotate 3.2.4</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-12','section-12')"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+           </ul>
+
+
+           <ul *ngIf="chapterCheck=='section-12'" class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-1','section-1')"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>1.0 Introduction</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-2','section-2')"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs fa-fw"></i></span>2.0 Application Settings</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-3','section-3')"><span class="theme-icon-holder mr-2"><i class="fas fa-clipboard-list"></i></span>3.0 Project Management</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-4','section-4')"><span class="theme-icon-holder mr-2"><i class="far fa-list-alt"></i></span>4.0 Projects</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-5','section-5')"><span class="theme-icon-holder mr-2"><i class="fas fa-list-ol"></i></span>5.0 Form Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-6','section-6')"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>6.0 Toolbar Builder</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-7','section-7')"><span class="theme-icon-holder mr-2"><i class="far fa-file-alt"></i></span>7.0 Documents</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-8','section-8')"><span class="theme-icon-holder mr-2"><i class="far fa-edit"></i></span>8.0 Annotations</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-9','section-9')"><span class="theme-icon-holder mr-2"><i class="fas fa-lightbulb"></i></span>9.0 FAQs</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-10','section-10')"><span class="theme-icon-holder mr-2"><i class="fas fa-code"></i></span>10.0 API</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link" (click)="goPickedchapterSidebar('chapter-11','section-11')"><span class="theme-icon-holder mr-2"><i class="fas fa-book-open"></i></span>11.0 Release Notes</a></li>
+            <li class="nav-item section-title mt-3"><a class="nav-link scrollto" scrollTo scrollTargetSelector="#section-12" (click)="scrollToElement('section-12')" [ngClass]="{'active':activeOption=='section-12'}"><span class="theme-icon-holder mr-2"><i class="fas fa-thumbs-up"></i></span>12.0 Acknowledgments</a></li>
+           </ul>
+    </nav>
+   
+
+</div>

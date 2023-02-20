@@ -1,0 +1,106 @@
+<div class="project-add-img" >
+  <img src="assets/images/P3_AddProject_bg.png" matTooltip="Click to add Project"
+  matTooltipHideDelay="300" matTooltipClass="tooltipstyle" matTooltipPosition="below" width="120px" (click)="onAdd()" class="justify-content-end hover n"
+    alt="..." />
+</div>
+<div *ngIf="change">
+  <mat-table [dataSource]="listData" class="table-head">
+    <ng-container matColumnDef="Name">
+      <mat-cell *matCellDef="let element"  (contextmenu)="
+          onContextMenu(
+            $event,
+            element.project_name,
+            element.last_updated_date,
+            element.created_date,
+            element.project_id,
+            element.project_status
+          )
+        " [longPress]="2000" (onRelease)="onVeryLongPress($event,
+        element.project_name,
+        element.last_updated_date,
+        element.created_date,
+        element.project_id,
+        element.project_status)" (click)="gotoprojectdetails(element.project_id, element.project_name)">
+        <div class="col-lg-11 col-md-11 col-xs-11 d-flex justify-content-start">
+        <span class="mobile-label">Name:</span>
+        <span style="font-size: 16px; font-weight: 500; color: #00447c;">
+          <img src="assets/images/icons/P3WebIcon_4EyeSlash.png" width="28px" style="margin-right: 15px;" />
+          {{ element.project_name }}</span></div>
+          <div class="col-lg-1 col-md-1 col-xs-1 d-flex justify-content-end">
+            <span  *ngIf="element.admin_permission_flag== 0 && element.edit_permission_flag==0">
+              <img src="assets/images/icons/readonly.png" matTooltip="Enabled view only mode"
+              matTooltipHideDelay="300" matTooltipClass="tooltipstyle" width="28px" />
+              <!-- <img src="assets/images/icons/P3WebIcon_3Star.png" width="30px" style="margin-right: 15px;" /> -->
+            
+            </span></div>
+      </mat-cell>
+    </ng-container>
+    <!-- <ng-container matColumnDef="Created">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="col-xl-2 col-md-2 col-lg-2 justify-content-start"
+        ><span style="padding-left: 10px;"> Created</span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="col-xl-2 col-md-2 col-lg-2">
+        <span class="mobile-label col-xs-3">Created:</span>
+        <span style="font-size: 18px; color: #a7a9ac;">
+          {{ element.created_date }}</span
+        >
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="LastModified">
+      <mat-header-cell
+        *matHeaderCellDef
+        class="col-xl-4 col-md-4 col-lg-3 justify-content-start"
+        ><span style="padding-left: -7px;"> Last Modified</span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="col-xl-2 col-md-2 col-lg-2">
+        <span class="mobile-label col-xs-3">Last Modified:</span>
+        <span
+          style="font-size: 18px; color: #a7a9ac;"
+          *ngIf="element.last_updated_date == null"
+          >{{ element.created_date }}</span
+        >
+        <span style="font-size: 18px; color: #a7a9ac;">{{
+          element.last_updated_date
+        }}</span>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dot">
+      <mat-header-cell *matHeaderCellDef class="col-md-1 justify-content-start">
+      </mat-header-cell>
+      <mat-cell
+        *matCellDef="let element"
+        class="col-xl-3 col-md-2 col-lg-1 col-xs-1 justify-content-start"
+      >
+        <span
+          class="pl hover"
+          (click)="
+            onMenu(
+              element.project_name,
+              element.last_updated_date,
+              element.created_date,
+              element.project_id,
+              element.project_status
+            )
+          "
+          >...
+        </span>
+      </mat-cell>
+    </ng-container> -->
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
+
+<div *ngIf="change1">
+  <div class="projectdetails_section">
+    <div class="image_part">
+      <img src="assets/images/icons/P3WebIcon_4EyeSlashGrey_400.png" class="center" width="200px" alt="..." />
+      <p class="text-center c">No Hidden Projects</p>
+      <p>Projects you have marked as hidden will appear here.</p>
+    </div>
+  </div>
+</div>
+
+<app-project-loader *ngIf="showLoader"></app-project-loader>

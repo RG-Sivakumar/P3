@@ -1,0 +1,45 @@
+<div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Manage Tags</h3>
+    <div class="image-close">
+      <img src="assets/images/Sort/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">
+      Please enter a comma separated list of tags, or click any tag to remove.
+    </p>
+  </div>
+  <div class="input-group input-field-head">
+    <div class="input-group-prepend">
+
+    </div>
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px"
+      placeholder="Tag 1, Tag 2, ..." name="tag_name" #toolbarTagName="ngModel" [(ngModel)]="toolbarTagNames"
+      (ngModelChange)="firstLetterCapital(toolbarTagNames)" (keyup.enter)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck():addTags(toolbarTagName.value,true)" required
+      autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="content-area" id="style-1">
+    <div class="tags-area">
+      <div *ngFor="let toolbartagname of toolbarTagList" class="tag-section-head bg">
+        <div class="text-part">
+          <p class="tag-name">{{ toolbartagname["toolbar_tag_name"] }}</p>
+        </div>
+        <div class="img-part">
+          <img src="assets/images/P3_Close-Cancel_Blue.png" class="tag-close" alt="close"
+            (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :removeTag(toolbartagname['toolbar_tag_id'])" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="loader"
+      (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :saveButtonTrigger(toolbarTagName.value,false)">
+      Save
+    </button>
+  </div>
+  <div *ngIf="loader" class="image_part">
+    <img src="assets/images/spin.gif" alt="..." />
+  </div>
+</div>

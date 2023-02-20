@@ -1,0 +1,33 @@
+<div>
+  <div style="background-color: #e8e8e8">
+    <div class="text-center headSec" style="background-color: #e8e8e8; padding-top: 20px; padding-bottom: 4px">
+      <span style="background-color: #e8e8e8; padding-left: 50px">Duplicate Element</span><span class="close"
+        style="float: right; padding-right: 24px" (click)="onClose()"><img src="assets/images/P3_Close-Cancel_Blue.png"
+          width="25px" /></span>
+    </div>
+    <hr style="background-color: #e8e8e8" />
+  </div>
+  <div class="text-center txtclr">
+    <span style="color: #002e5f; font-size: 17px">Please Confirm You want to <br />
+      duplicate this form element</span>
+  </div>
+  <div class="input-group mb-12">
+    <input style="color: black;" class="form-control bg-none capitalize" aria-describedby="basic-addon1"
+      style="margin-left: 20px ;font-weight: bold;" placeholder="New Form Field Name" [(ngModel)]="copytext" required
+      autocomplete="off" (ngModelChange)="firstLetterCapital(copytext)" />
+  </div>
+  <hr style="
+      margin-top: 1.5rem;
+      width: 90%;
+      background-color: #e8e8e8;
+      margin-top: 0.5rem;
+    " />
+  <div style="background-color: #e8e8e8; padding-bottom: 28px">
+    <hr style="background-color: #e8e8e8; margin-bottom: 24px; margin-top: 24px" />
+    <div class="text-center">
+      <button (click)="confirm()" value="submit" style="color: #a4a426; font-size: 18px; font-weight: bold">
+        Confirm
+      </button>
+    </div>
+  </div>
+</div>

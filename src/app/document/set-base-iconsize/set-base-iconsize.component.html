@@ -1,0 +1,50 @@
+<div *ngIf="show || loader" class="image_part">
+    <img src="assets/images/spin.gif" width="300px" alt="..." />
+</div>
+<div *ngIf="!show" class="app-project-head">
+    <div class="row header container-fluid">
+        <div class="col-lg-12">
+            <p class="content-heading-header">Select Page(s)</p>
+        </div>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+        </div>
+    </div>
+    <div class="content-area" id="style-1">
+        <div class="row content-head-section">
+            <div class="col-lg-10">
+                <p class="content-heading">All</p>
+                <p class="annotation-text">Annotations : {{total_annotation_count}} </p>
+            </div>
+            <div class="col-lg-2 text-center">
+                <input id="divIDer" class="layer-details-check multiple-checkbox" type="checkbox" name="layer-details"
+                    [checked]="allPages" (click)="allPagesSelected($event)" />
+            </div>
+        </div>
+        <div class="row content-head-section" *ngFor="let documentPage of documentPages">
+            <!-- <ng-container *ngIf="allowedPages.length>0"> -->
+                <!-- <div  class="row col-lg-12 p-0" *ngFor="let checkPageOnebyOne of allowedPages"> -->
+                    <div class="col-lg-10">
+                        <p class="content-heading">{{documentPage['page_name']}}</p>
+                        <p class="annotation-text">Annotations : {{documentPage.annotationCount }}</p>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                        <input class="layer-details-check multiple-checkbox" [attr.id]="documentPage['page_number']" 
+                        [checked]="selected_page_ids_check.includes(documentPage['page_id'])" type="checkbox" name="layer-details"
+                            (click)="checkTickorNot1(documentPage['page_id'],$event,documentPage['page_number'])" />
+                    </div>
+                <!-- </div> -->
+            <!-- </ng-container> -->
+            <!-- <ng-container class="row" *ngIf="allowedPages.length==0">
+                <div class="col-lg-10">
+                    <p class="content-heading">{{documentPage['page_name']}}</p>              
+                </div>
+                <div class="col-lg-2 text-center">
+                    <input class="layer-details-check multiple-checkbox" [attr.id]="documentPage['page_id']"
+                        type="checkbox" name="layer-details"
+                        (click)="checkTickorNot1(documentPage['page_id'],$event)" />
+                </div>
+            </ng-container> -->
+        </div>
+    </div>
+</div>

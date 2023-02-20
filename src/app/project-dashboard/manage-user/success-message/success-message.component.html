@@ -1,0 +1,53 @@
+<!-- Success Message section start -->
+<div class="delete-toolbar-head">
+    <div class="header container-fluid">
+      <h3  class="header-heading">{{title}}</h3>
+      <div class="image-close">
+        <img
+          src="assets/images/P3_Close-Cancel_Blue.png"
+          class="img-close"
+          alt="close"
+          (click)="closeDialog()"
+        />
+      </div>
+    </div>
+    <div class="heading-form">
+      <p class="heading_text">
+        {{message}}
+      </p>
+    </div>
+    <div class="footer">
+      <button type="button" class="confirm-button" (click)="closeDialogOK()">
+        OK
+      </button>
+    </div>
+  </div>
+  <!-- Success Message section End -->
+
+  <!-- Error Message section start -->
+
+  <!-- <div *ngIf="!successMessage" class="delete-toolbar-head">
+    <div class="header container-fluid">
+      <h3 class="header-heading">Error!</h3>
+      <div class="image-close">
+        <img
+          src="assets/images/P3_Close-Cancel_Blue.png"
+          class="img-close"
+          alt="close"
+          (click)="closeDialog()"
+        />
+      </div>
+    </div>
+    <div class="heading-form">
+      <p class="heading_text">
+        The user you have entered is an existing user. Please search and select them from the options above.
+      </p>
+    </div>
+    <div class="footer">
+      <button type="button" class="confirm-button" (click)="closeDialogOK()">
+        OK
+      </button>
+    </div>
+  </div> -->
+  <!-- Error Message section end -->
+

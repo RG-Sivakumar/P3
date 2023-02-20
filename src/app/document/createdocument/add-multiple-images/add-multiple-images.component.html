@@ -1,0 +1,65 @@
+<div class="file-upload-section">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">{{heading}}</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+        </div>
+    </div>
+    <div class="row add-file-area">
+        <!-- <div class="uploadfilecontainer" (click)="myInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+            <input #myInput hidden [multiple]="multipleCheck" type="file" accept=".jpg,.png,.jpeg,.bmp,.gif,.heic"
+                (change)="uploadFile($event.target.files)">
+            <div class="textBanner">Select your image file(s) or drag and drop them here.</div>
+        </div> -->
+        <ngx-file-drop #myInput class="uploadfilecontainer" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                 multiple="true" accept=".jpg,.png,.jpeg,.jpg,.bmp,.gif,.heic">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    <div class="textBanner">Select your image file(s) or drag and drop them here.</div>
+                    <div class="inside-selector" (click)="openFileSelector()"></div>
+                  </ng-template>
+        </ngx-file-drop>
+        <div class="oijku">
+            <div class="col-lg-12 row" *ngFor="let file of finalArray;let i=index">
+                <!-- <div class="col-lg-1"></div> -->
+                <div class="col-lg-6">
+                    <div class="files-list">
+                        <span class="FileNameText">{{ file.filename }}</span>
+                        <button *ngIf="!file.tick" class="delete-file" (click)="deleteAttachment(i)">
+                            <img src="assets/images/P3_Close-Cancel_Blue.png">
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="file.progressEnable" class="col-lg-4">
+                    <div class="meter">
+                        <span [style.width]="file.progress+'%'"></span>
+                    </div>
+                </div>
+                <div *ngIf="file.message" class="col-lg-4 message1">
+                    <span>{{message}}</span>
+                </div>
+                <div *ngIf="file.dbmessage" class="col-lg-4 message1">
+                    <span>{{message1}}</span>
+                </div>
+                <div *ngIf="file.tick" class="col-lg-1">
+                    <img class="imageTick" src="assets/tick markvalue.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!done" class="footer">
+        <button type="button" [disabled]="buttonValidate || errorMessage" class="add-button" (click)="uploadStubs()">
+            Upload File
+        </button>
+    </div>
+    <div *ngIf="done" class="footer">
+        <button type="button" [disabled]="errorMessage" class="add-button" (click)="closeBox()">
+            Done
+        </button>
+    </div>
+
+</div>
+
+<div *ngIf="show" class="image_part1">
+    <img src="assets/images/spin.gif" alt="..." />
+</div>

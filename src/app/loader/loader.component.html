@@ -1,0 +1,19 @@
+
+  <div *ngIf="annotationView" class="app-project-head">
+    <div class="header container-fluid">
+      <h3 class="header-heading1-WithoutAnnot">{{sourceAnnotationView.heading}}</h3>
+      <div class="image-close">
+        <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeDialog()" />
+      </div>
+    </div>
+    <div class="textInfo">
+      <p class="heading_text">{{sourceAnnotationView.info}}</p>
+    </div>
+    <div class="footer">
+      <button type="button" class="add-button" (click)="closeDialog()">
+        {{sourceAnnotationView.buttontext}}
+      </button>
+    </div>
+  </div>
+  
+  <!-- Copy with Annotation section End -->

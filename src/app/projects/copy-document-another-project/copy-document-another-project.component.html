@@ -1,0 +1,30 @@
+<div class="row header container-fluid">
+  <div class="col-lg-12">
+    <p class="content-heading-header">Projects</p>
+  </div>
+  <div class="image-close">
+    <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+  </div>
+</div>
+    <div class="content-area">
+      <div class="search-area">
+        <div class="col-lg-12 sear-area-head">
+          <div class="input-group">
+            <div class="input-group-prepand prepand-head">
+              <img src="assets/images/P3_SearchIcon _Grey.png" class="search-img-section" alt="search-icon" />
+            </div>
+            <input type="text" name="search-text" class="form-control search-text-Pl" placeholder="Search"
+              [(ngModel)]="selectedProjects" (ngModelChange)="firstLetterCapital(selectedProjects)" />
+          </div>
+        </div>
+      </div>
+      <div class="row content-head-section style-1">
+        <div *ngFor="let projectFolder of projectsList |filter:selectedProjects;let arrayindex = index" class="col-lg-12 details-section"
+          (click)="openProject(projectFolder,arrayindex)">
+          <p class="content-heading">{{ projectFolder["project_name"] }}
+          </p>
+          <hr class="hr-area" />
+        </div>
+      </div>
+    </div>
+  

@@ -1,0 +1,187 @@
+
+
+<div class="form" style="margin-bottom: 50px;">
+    <form #form="ngForm" (submit)="onSubmit(form)">
+    
+    <div class="row fields">  
+    <div class="col-lg-5 col-md-6 col-sm-6">
+        
+        <div class="owner">
+        <label for="owner">Owner_Name</label>
+        <input type="text" name="owner_name" #owner_name="ngModel" [(ngModel)]="service.formDataa.owner_name" class="own" placeholder="* Name ">
+    </div>
+    </div>
+    <div class="col-lg-5 col-md-6 col-sm-6">
+        <div class="assign">
+            <label for="">Assignment_Name</label>
+            <input type="text" name="assignment_name" #assignment_name="ngModel" [(ngModel)]="service.formDataa.assignment_name" class="ass" placeholder="* Assignment">
+        </div>
+    </div>
+     
+    <div class="col-lg-2 pre">
+        <button class="prep"  type="submit">Get Status</button>
+    </div>
+    
+    
+    </div>
+    </form>
+    </div>
+    <div  class="matmenu1">
+    <mat-accordion>
+     
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title >
+           Document Details :
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p *ngIf="!isdocument" >No More Details</p>
+       
+    <section class="list" *ngIf="isdocument">
+       
+      <table mat-table [dataSource]="document"  class="mat-elevation-z8 table">
+        <ng-container matColumnDef="document_name">
+          <th mat-header-cell *matHeaderCellDef>
+            <span class="table-header  text-center">Document_Name</span>
+          </th>
+          <td mat-cell *matCellDef="let documen">
+            <span class="table-value">{{documen.document_name}}</span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="document_uuid">
+          <th mat-header-cell *matHeaderCellDef>
+            <span class="table-header  text-center">UUID</span>
+          </th>
+          <td mat-cell *matCellDef="let documen">
+            <span  class="table-value">{{documen.document_uuid}}</span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="document_status">
+          <th mat-header-cell *matHeaderCellDef>
+            <span class="table-header  text-center">Status</span>
+          </th>
+          <td mat-cell *matCellDef="let documen" [ngStyle]="{color:documen.document_status == 'Completed' ? 'rgb(56, 228, 56)' : 'rgb(252, 40, 40)' }">
+            <span class="table-value">{{documen.document_status}}</span>
+          </td>
+        </ng-container>
+       
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+    </section>
+
+  </mat-expansion-panel>
+</mat-accordion>
+</div>
+<div  class="matmenu2">
+    <mat-accordion class="matmenu">
+     
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Forms Details :
+          </mat-panel-title>
+         
+        </mat-expansion-panel-header>
+        <p *ngIf="!isdocument" >No More Details</p>
+        <section class="list1" *ngIf="isform">
+       
+          <table mat-table [dataSource]="forms" class="mat-elevation-z8 table">
+            <ng-container matColumnDef="form_name">
+              <th mat-header-cell *matHeaderCellDef>
+                <span class="table-header  text-center">Form_Name</span>
+              </th>
+              <td mat-cell *matCellDef="let form">
+                <span class="table-value">{{form.form_name}}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="form_uuid">
+              <th mat-header-cell *matHeaderCellDef>
+                <span class="table-header  text-center">UUID</span>
+              </th>
+              <td mat-cell *matCellDef="let form">
+                <span class="table-value">{{form.form_uuid}}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="form_status">
+              <th mat-header-cell *matHeaderCellDef>
+                <span class="table-header  text-center">Status</span>
+              </th>
+              <td mat-cell *matCellDef="let form" [ngStyle]="{color:form.form_status == 'Completed' ? 'rgb(56, 228, 56)' : 'rgb(252, 40, 40)' }">
+                <span class="table-value">{{form.form_status}}</span>
+              </td>
+            </ng-container>
+            
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumn2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumn2;"></tr>
+          </table>
+          
+        </section>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+
+    <div  class="matmenu3">
+    <mat-accordion class="matmenu">
+     
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Toolbar Details :
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+
+        <p *ngIf="!istoolbar" >No More Details</p>
+        <section class="list2" *ngIf="isdocument">
+       
+          <table mat-table [dataSource]="toolbar" class="mat-elevation-z8 table">
+            <ng-container matColumnDef="toolbar_name">
+              <th mat-header-cell *matHeaderCellDef>
+                <span class="table-header text-center">Toolbar_Name</span>
+              </th>
+              <td mat-cell *matCellDef="let tool">
+                <span class="table-value">{{tool.toolbar_name}}</span>
+              </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="toolbar_uuid">
+              <th mat-header-cell *matHeaderCellDef>
+                <span class="table-header  text-center">UUID</span>
+              </th>
+              <td mat-cell *matCellDef="let tool">
+                <span class="table-value">{{tool.toolbar_uuid}}</span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="toolbar_status">
+              <th mat-header-cell *matHeaderCellDef>
+                <span class="table-header  text-center">Status</span>
+              </th>
+              <td mat-cell *matCellDef="let tool" [ngStyle]="{color:tool.toolbar_status == 'Completed' ? 'rgb(56, 228, 56)' : 'rgb(252, 40, 40)' }">
+                <span class="table-value">{{tool.toolbar_status}}</span>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumn3"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumn3;"></tr>
+          </table>
+          
+        </section>
+  
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+    
+
+
+      
+
+     
+    

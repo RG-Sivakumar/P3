@@ -1,0 +1,25 @@
+<div></div>
+<div class="head filter text-center col-md-12 col-lg-12 col-sm-12 col-xs-12 ">
+    <span class="head ">Add Form</span>
+    <span class="close hover" style="float: right; padding-right: 10px;" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck():onclose()"><img
+            src="assets/images/P3_Close-Cancel_Blue.png" width="25px"></span>
+</div>
+<hr style="margin-top:0rem">
+<div style="padding-left: 8px; padding-right: 8px;" class="padding">
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 whole-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :Createforms()">
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover">New Form</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 padding whole-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck():applyFilter()">
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover">Duplicate Existing Form</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 padding whole-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck():import()">
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover">Import Form From Other Projects</span>
+        </div>
+    </div>

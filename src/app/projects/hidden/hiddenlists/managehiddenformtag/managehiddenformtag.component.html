@@ -1,0 +1,70 @@
+<div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Tag Manager</h3>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <mat-dialog-content class="tags-adjust">
+    <div class="heading">
+      <p class="heading_text">
+        Please enter a comma seperated <br />list of tags, or click any tag to
+        <br />remove
+      </p>
+    </div>
+    <div class="input-group input-field-head">
+      <div class="input-group-prepend">
+        <span class="text-center bg-none" id="basic-addon1"
+          ><img
+            src="assets/images/projectdetails/P3_FolderTagsIcon.png"
+            width="35px"
+        /></span>
+      </div>
+      <input
+        class="form-control bg-none input-field"
+        aria-describedby="basic-addon1"
+        style="margin-left: 2px;"
+        placeholder="Tag 1, Tag 2, ..."
+        name="form_tag_name"
+        #form_tag_name
+        required
+        autocomplete="off"
+      />
+    </div>
+    <hr class="hr-area" />
+    <div class="tags-area">
+      <div *ngFor="let option of taglist" class="row tag-section-head">
+        <div class="col-lg-7 col-md-7 d-flex tag-bg">
+          <div class="col-lg-10 col-md-10">
+            <p class="tag-name">{{ option["form_tag_name"] }}</p>
+          </div>
+          <div class="col-lg-2 col-md-2">
+            <img
+              src="assets/images/P3_Close-Cancel_Blue.png"
+              class="tag-close"
+              alt="close"
+              (click)="RemoveTag(option.form_tag_id)"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <div class="footer">
+    <button
+      type="button"
+      class="add-button"
+      (click)="Addtag(form_tag_name.value)"
+    >
+      Add Tags
+    </button>
+  </div>
+  <div *ngIf="loader" class="image_part">
+    <img src="assets/images/spin.gif" alt="..." />
+  </div>
+</div>

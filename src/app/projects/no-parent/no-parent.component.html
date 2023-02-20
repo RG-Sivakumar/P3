@@ -1,0 +1,29 @@
+<div class="app-project-head" *ngIf="noparentIs">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">Warning!</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="heading">
+        <p class="heading_text">No parent folders available for this project.</p>
+    </div>
+    <div class="footer">
+        <p class="add-button" (click)="closeBox()">Ok</p>
+    </div>
+</div>
+
+<div class="app-project-head" *ngIf="documentIs">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">Information</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="heading">
+        <p class="heading_text">{{message}}</p>
+    </div>
+    <div class="footer">
+        <p class="add-button" (click)="closeBox()">Close</p>
+    </div>
+</div>

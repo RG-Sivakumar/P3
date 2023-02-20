@@ -1,0 +1,47 @@
+<div class="app-project-head">
+    <!-- <div class="header container-fluid">
+        <h3 class="header-heading1">Options</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div> -->
+    <div class="content-area">
+        <hr class="hr-area"  >
+        <div class="row content-head-section" (click)="exportnew()">
+            <div class="col-lg-11">
+                <p class="content-heading">Export Project as CSV</p>
+             
+            </div>
+        </div>
+        
+        <hr class="hr-area"  >
+        <div class="row content-head-section disabled" (click)="exportreportnew()">
+            <div class="col-lg-11" >
+                <p class="content-heading disabled">Export Project as Reporting CSV</p>
+            </div>
+        </div>
+        <hr class="hr-area"  >
+        <div class="row content-head-section disabled" (click)="pdfexport()">
+            <div class="col-lg-11" >
+                <p class="content-heading disabled">Export Project for Local Viewer</p>
+            </div>
+        </div>
+      
+        <hr class="hr-area">
+        <div class="row content-head-section disabled" (click)="exportphotosnew()">
+            <div class="col-lg-11" >
+                <p class="content-heading disabled">Export Photos</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="downloadPhotosnew()">
+            <div class="col-lg-11" >
+                <p class="content-heading">Download Media</p>
+            </div>
+        </div>
+
+</div>
+
+<div class="image_part" *ngIf="loader">
+    <img src="assets/images/spin.gif"  alt="..." />
+</div>

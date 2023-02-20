@@ -1,0 +1,89 @@
+<div class="color" style="padding:15px 10px 12px 10px;">
+  <div class="filter col-md-12 col-lg-12 col-sm-12 col-xs-12 single-line-text">
+    <span class="head" style="font-style: normal;">{{ projectname }}</span>
+  </div>
+  <div class="filter col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <span class="date-textglobal">Created: {{ date1 | date: "MM/dd/yyyy 'at' hh:mm a" }}</span><span class="close" style="float: right; padding-right: 10px;"
+      (click)="onClose()"><img src="assets/images/P3_Close-Cancel_Blue.png" width="23px" /></span>
+  </div>
+  <div class="filter col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <span class="date-textglobal">Last Modified: {{ date2 | date: "MM/dd/yyyy 'at' hh:mm a" }}</span>
+  </div>
+  <div class="row m-0 col-lg-12">
+    <div class="tag-name">
+      <p class="tags fnt-type">Tags: </p>
+    </div>
+    <div class="tag-list">
+      <span class="tags fnt-type" *ngFor="let tagname of tag;let indexvalue=index">{{tagname}}<span
+          *ngIf="tag.length-1>indexvalue">, </span></span>
+    </div>
+  </div>
+</div>
+<hr style="margin-top: 0rem;" />
+<div style="padding-left: 8px; padding-right: 8px;">
+  <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12" style="padding-bottom: 1%;">
+    <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+      <img src="assets/images/P3_ProjectsIcon_Blue.png" width="30px" />
+    </div> -->
+
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+      <span class="headSec hover">Folders</span>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 num">
+      <span style="text-align: end;font-size:16px;">{{ folderCount }}</span>
+    </div>
+  </div>
+  <hr />
+  <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+      <img src="assets/images/P3_DocumentsIcon_Blue.png" width="20px" />
+    </div> -->
+
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+      <span class="headSec hover">Documents</span>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 num">
+      <span style="text-align: end;font-size:16px">{{ documentCount }}</span>
+    </div>
+  </div>
+  <hr />
+  <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+      <img src="assets/images/P3_AnnotationsIcon_Blue.png" width="20px" />
+    </div> -->
+
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+      <span class="headSec hover">Annotations</span>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 num">
+      <span style="text-align: end;font-size:16px">{{ annotationCount }}</span>
+    </div>
+  </div>
+  <hr />
+
+  <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+      <img src="assets/images/icons/P3WebIcon_51Toolbar.png" width="20px" />
+    </div> -->
+
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+      <span class="headSec hover">Toolbars</span>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 num">
+      <span style="text-align: end;font-size:16px">{{ toolbarCount }}</span>
+    </div>
+  </div>
+  <hr />
+  <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+      <img src="assets/images/P3_FormsIcon_Blue.png" width="20px" />
+    </div> -->
+
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9" style="padding-bottom: 20px;">
+      <span class="headSec hover">Forms </span>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 num">
+      <span style="text-align: end;font-size:16px">{{ formCount }}</span>
+    </div>
+  </div>
+</div>

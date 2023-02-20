@@ -1,0 +1,71 @@
+<div class="more_information_section">
+    <div class="header container-fluid">
+        <h3 class="header-heading-info single-line-text">{{folderName}}</h3>
+        <p class="created-date date-textglobal">Created: {{createdDate | date : "MM/dd/yyyy 'at' hh:mm a"}}</p>
+        <p class="modified-date date-textglobal">Last Modified: {{modifiedDate | date : "MM/dd/yyyy 'at' hh:mm a"}}</p>
+        <div class="row">
+            <div class="tag-name">
+                <p class="tags">Tags:</p>
+            </div>
+            <div class="tag-list">
+                <span class="tags"
+                    *ngFor="let foldertagname of foldertaglist;let indexValue=index">{{foldertagname['folder_tag_name']}}<span
+                        *ngIf="foldertaglist.length-1>indexValue">, </span></span>
+            </div>
+        </div>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="content-area">
+        <div *ngIf="docOnly" class="row content-head-section">
+
+            <div class="col-lg-9 col-sm-9">
+                <p class="content-heading">Subfolders</p>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <p class="file-counts">{{subFolderCount}}</p>
+            </div>
+        </div>
+        <hr *ngIf="docOnly" class="hr-area">
+        <div *ngIf="docOnly" class="row content-head-section">
+
+            <div class="col-lg-9 col-sm-9">
+                <p class="content-heading">Documents</p>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <p class="file-counts">{{documentCount}}</p>
+            </div>
+        </div>
+        <hr *ngIf="docOnly" class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-9 col-sm-9">
+                <p class="content-heading">Annotations</p>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <p class="file-counts">{{annotationCount}}</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-9 col-sm-9">
+                <p class="content-heading">Images</p>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <p class="file-counts">{{imageCount}}</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-9 col-sm-9">
+                <p class="content-heading">Links</p>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <p class="file-counts">{{linksCount}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1122 @@
+<div class="app-project-head">
+  <div class="row header container-fluid">
+    <form class="col-lg-3 set-default-head">
+      <input type="checkbox" name="default_box" id="default_box" class="default_box_style" [checked]="data_allow_conditionT.includes(setformasdefault)" (change)="setdefaultform($event)">
+      <label for="default_box" class="mb-0">Set as Default</label>
+    </form>
+    <div class="col-lg-6">
+      <h3 class="header-heading" style="font-weight: bolder" *ngIf="editFlag==undefined">
+        Add Forms</h3>
+      <h3 class="header-heading" style="font-weight: bolder" *ngIf="editFlag==true">
+        Add Form</h3>
+    </div>
+    <div class="image-close col-lg-3">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div style="background-color: #f5f9ff" class="content-area" id="style-1">
+    <div class="fields">
+      <div class="form-element-sub" [ngClass]="{'col-lg-12': !extend,'col-lg-6':extend}">
+        <div *ngFor="let item of change;let headIndex=index;let last=last" 
+        [ngClass]="{'marginSetup':item.element_type == 'Divider'&& item.is_removed==false}" (click)="showProperties(item)">
+          <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'single_line_text'&&item.is_removed==false  && item.is_hidden== false"
+          [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+         }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          
+          <input type="text" class="form-control form-element-text" id="{{ item.name }}"
+            (keyup)="formatChange1(item,item.element_data.default_value)"
+            (change)="useConditionChange(item,item.element_uuid,item.element_data.default_value,'')"
+            value="{{ item.element_data.default_value }}" [(ngModel)]="item.element_data.default_value" placeholder="{{
+            item.element_data.default_value == ''
+              ? item.element_data.placeholder_text
+              : item.element_data.default_value
+          }}" />
+        
+         
+        </div>
+      
+      
+        
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'text_label'&&item.is_removed==false&& item.is_hidden== false">
+          <label class="form-text">{{ item.element_data.label_text }}</label>
+        
+        </div>
+        <!-- number  -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'number'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <input class="form-control form-element-text" [attr.id]="headIndex" type="text" (paste)="onPaste($event)" (click)="numbers(headIndex)" min="{{ item.min }}" max="{{ item.max }}"
+            value="{{ item.element_data.default_value }}"
+            (change)="useConditionChange(item,item.element_uuid,item.element_data.default_value,'')"
+            [(ngModel)]="item.element_data.default_value" placeholder="{{
+            item.element_data.default_value == ''
+              ? item.element_data.placeholder_text
+              : item.element_data.default_value
+          }}" />
+         
+        </div>
+        <!-- dropdown -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'dropdown'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <select class="form-control form-element-text"
+            (change)="updateAttributes(item,$event.target.value)">
+            <option class="dropdown-option form-element-text" value=''>Select an option</option>
+            <!-- blank option showing -->
+            <!-- <option style="color:black;" class="dropdown-option" value=''></option> -->
+            <ng-container *ngFor="let v of item.element_data.options; let k = index">
+              <option *ngIf="v.is_removed== false" class="dropdown-get form-element-text" [value]="v.element_uuid" [selected]="v.default">
+                {{ v.name }}
+              </option>
+            </ng-container>
+          </select>
+        
+        </div>
+        <!-- Grouping Field -->
+        <div [style.height]="item.height + 'px'"
+          *ngIf="item.element_type == 'group_field'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+                  alignment_header: item.element_data.label_align === 'Left'
+                }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <select disabled class="form-control form-element-text" (change)="updateAttributes(item,$event.target.value)">
+            <option class="dropdown-option form-element-text" value=''>Select an option</option>
+            <!-- blank option showing -->
+            <!-- <option style="color:black;" class="dropdown-option" value=''></option> -->
+            <ng-container *ngFor="let v of item.element_data.options; let k = index">
+              <option *ngIf="v.is_removed== false" class="dropdown-get form-element-text" [value]="v.element_uuid"
+                [selected]="v.default">
+                {{ v.name }}
+              </option>
+            </ng-container>
+          </select>
+        
+        </div>
+        <!--date-->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'date' && item.is_removed== false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <div class="dateDefault" style="width:100%;">
+            <div class="date-picker-part">
+              <!-- (dateChange)="changedateLocal(item,ref1.value)" -->
+              <input #ref1 readonly class="datepicker date-field form-element-text"  (click)="picker.open()" matInput [matDatepicker]="picker" (dateChange)="useConditionChange(item,item.element_uuid,ref1.value,'')"
+                placeholder="YYYY-MM-DD" [value]="assignDates(item.element_data.default_date_time)" />
+              <div matSuffix class="image-close">
+                <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close"
+                  (click)="clearDate(item)" />
+              </div>
+              
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </div>
+        
+        </div>
+        
+        <!-- textarea -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'text_area'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left' 
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <textarea class="form-control form-element-text" (keyup)="formatChange(item,item.element_data.default_value)"
+            value="{{ item.element_data.default_value }}"
+            (change)="useConditionChange(item,item.element_uuid,item.element_data.default_value,'')"
+            placeholder="{{ item.element_data.placeholder_text }}"
+            [(ngModel)]="item.element_data.default_value"></textarea>
+       
+        </div>
+        <!-- checkbox -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'multiple_choice'  && item.is_hidden==0 && item.is_removed==false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+        <label style="font-weight:500;" class=" {{
+            item.element_data.label_align === 'Left' ? 'col-5 padding_null' : 'col-lg-12 padding_null'
+          }}">{{ item.element_data.label_text }}</label>
+        <div [ngClass]="{
+            'text-center': item.element_data.label_align === 'Left'
+          }" (change)="updateAttributes(item,$event.target.value,'')">
+          <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+            <label class="multi-box-label" *ngIf="v.is_removed==false">
+              <input class="multiple-box form-element-text" [ngClass]="{
+                margin: item.element_data.label_align === 'Left'}" type="checkbox" [value]="v.element_uuid"  [checked]="v.default==true" />
+              {{ v.name }}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      
+      </div>
+
+      
+        <div [style.height]="item.height + 'px'" class="col-lg-12 padding_null" *ngIf="item.element_type == 'single_choice' && item.is_hidden==0 && item.is_removed== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left' 
+        }">
+        <label style="font-weight:500;" class=" {{
+            item.element_data.label_align === 'Left' ? 'col-5 padding_null' : 'col-lg-12 padding_null'
+          }}">{{ item.element_data.label_text }}</label>
+        <div [ngClass]="{
+            'text-center': item.element_data.label_align === 'Left'
+          }">
+          <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+            <label [ngClass]="{redred:v.is_removed}" *ngIf="v.is_removed==false">
+              <input [disabled]="v.is_removed" class="radio-select-option checkbox-get form-element-text" type="checkbox"
+                [(value)]="v.element_uuid" [checked]="v.default==true" name="optName+{{v.element_uuid}}"
+                (change)="updateAttributes(item,$event.target.value,$event)" />
+              {{ v.name }}
+              <!-- <span class="checkmark1"></span> -->
+            </label>
+          </div>
+        </div>
+      
+      </div>
+
+        <!-- Calculator -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'calculation'&&item.is_removed==false&& item.is_hidden== false"   [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label style="font-weight:500;" [ngClass]="{ alignment: item.element_data.label_align === 'Left' ? 'col-6 padding_null' : 'col-lg-12' }"
+           >{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <!-- <div class="dateDefault " style="width:100%;"> -->
+           <input  type="text" readonly class="form-control form-element-text" style="width:100%;"
+            placeholder="{{ item.element_data.placeholder_text }}" 
+            [ngModel]="getcalculationvalue(item.element_data)" (ngModelChange)="item.element_data.calculation=$event"/>
+            <!-- </div> -->
+        
+        </div>
+
+        <!-- Address -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'address'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label style="font-weight:500;" [ngClass]="{ alignment: item.element_data.label_align === 'Left' ? 'col-6 padding_null' : 'col-lg-12' }"
+            >{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <div>
+            <input type="text" (keyup)="formatChange(item,item.element_data.default_value)"
+              [(ngModel)]="item.element_data.street_address1" class="form-control form-element-text" placeholder="Street"  (change)="useConditionChange(item,item.element_uuid,item.element_data.street_address1,'street')"
+              />
+            <input type="text" class="form-control form-element-text" (keyup)="formatChange(item,item.element_data.city)"
+              placeholder="City" [(ngModel)]="item.element_data.city" style="margin-top: 10px" (change)="useConditionChange(item,item.element_uuid,item.element_data.city,'city')" />
+            <div class="row">
+              <div class="col-6" style="margin-top: 10px">
+                <input type="text" [(ngModel)]="item.element_data.state"
+                  (keyup)="formatChange(item,item.element_data.state)" class="form-control form-element-text" (change)="useConditionChange(item,item.element_uuid,item.element_data.state,'state')"
+                  placeholder="State" />
+              </div>
+              <div class="col-6" style="margin-top: 10px;">
+                <input type="text" [(ngModel)]="item.element_data.zip"
+                  (keyup)="formatChange(item,item.element_data.zip)" (change)="useConditionChange(item,item.element_uuid,item.element_data.zip,'zip')" class="form-control form-element-text" placeholder="Postal Code" />
+              </div>
+            </div>
+            <input type="text" (keyup)="formatChange(item,item.element_data.street_address2)"
+              [(ngModel)]="item.element_data.street_address2" class="form-control form-element-text"  (change)="useConditionChange(item,item.element_uuid,item.element_data.street_address2,'street_address2')" placeholder="Country" />
+            <!-- divider -->
+           
+          </div>
+        </div>
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'Divider'&& item.is_removed== false" class="divider-header">
+          <hr [style.opacity]="item.element_data.opacity==undefined ? 1 : item.element_data.opacity"
+                 [style.borderWidth.px]="item.element_data.line_width==undefined ? 2.5 : (item.element_data.line_width*2.5)" class="divider-hr"/>
+        </div>
+        <!---Single check box----->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'checkbox'  && item.is_hidden==0 && item.is_removed== false" [ngClass]="{
+        alignment_header: item.element_data.label_align === 'Left'
+      }">
+          <div [ngClass]="{
+          'text-center': item.element_data.label_align === 'Left'
+        }" (change)="updateAttributes(item,$event.target.value)">
+            <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+              <label class="padding_null single-checkbox-label" *ngIf="v.is_removed==false">
+                <input class="single-checkbox form-element-text" type="checkbox" [value]="v.element_uuid" [checked]="v.default" />
+                {{ v.name }}
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!---Html Forms----->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'uti-entry-field' && item.is_removed== false">
+          <div style="background-color: #fff; padding: 5px;">
+            <div class="row header-table-part1 mb-2">
+              <div *ngFor="let item of item.element_data.fields;let indexToolbar=index;"
+                class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.element_name}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="padding: 5px 0px;" *ngFor="let item of finalArray1;let j = index">
+              <!-- <ng-container *ngFor="let v of item.element_data.options; let k = index">
+              </ng-container> -->
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.condition_code}}</label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.cs}}</label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.quantity}}</label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <img *ngIf="item.not" src="assets/images/icons/P3_CheckBoxTick_Blue.png"
+                  style="margin-right: 15px;width:18px" />
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <img src="assets/images/icons/P3WebIcon_13Edit.png" (click)="EditHtml(item,j)"
+                  style="margin-right: 15px;width:18px" />
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <img src="assets/images/icons/P3WebIcon_15Trash.png" (click)="DeleteHtml(item,j)"
+                  style="margin-right: 15px;width:18px" />
+              </div>
+            </div>
+            <!-- section hidden -->
+            <div *ngIf="showHtmlFields" class="hideField">
+              <div *ngFor="let item of item.element_data.fields; let indexValue = index" class="form-group">
+                <div *ngIf="item.element_type == 'dropdown'  && item.is_hidden==0 && item.is_removed== false"
+                  class="alignment_header">
+                  <label class="col-4">{{ item.element_name }}</label>
+                  <select class="form-control form-element-text dropdown-select col-8" (change)="
+                  htmlFieldValue(item.element_uuid,'condition_code',$event.target.value,'')">
+                    <option class="dropdown-option">Select an option</option>
+                    <!-- blank option showing -->
+                    <!-- <option class="dropdown-option"></option> -->
+                    <ng-container *ngFor="let v of item.element_data.options; let k = index">
+                      <option *ngIf="v.is_removed==false" class="dropdown-get" [selected]="v.name == conditionSelected"
+                        [value]="v.element_uuid">
+                        {{ v.name }}
+                      </option>
+                    </ng-container>
+                  </select>
+                </div>
+                <div *ngIf="item.element_type == 'single_choice' && item.is_hidden==0 && item.is_removed== false">
+                  <div>
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label [ngClass]="{redred:v.is_removed}" *ngIf="v.is_removed==false">
+                        <input [disabled]="v.is_removed" class="radio-select-option checkbox-get" type="checkbox"
+                          [(value)]="v.element_uuid" [checked]="v.name==csSelected" name="optName" (change)="
+                  htmlFieldValue(item.element_uuid,'cs',$event.target.value,'')" />
+                        {{ v.name }}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="item.element_type == 'number'  && item.is_hidden==0 && item.is_removed== false"
+                  class="alignment_header">
+                  <label class="col-4">{{item.element_name }}</label>
+                  <input type="number" class="form-control col-8" [(ngModel)]="fieldQuantity" autocomplete="off"
+                    #inputText (change)="
+                  htmlFieldValue(item.element_uuid,'quantity',$event.target.value,'')"
+                    [ngModelOptions]="{ standalone: true }" />
+                </div>
+                <div *ngIf="item.element_type == 'multiple_choice'  && item.is_hidden==0 && item.is_removed== false">
+                  <div (change)="
+                  htmlFieldValue(item.element_uuid,'not',$event.target.value,$event.target.checked)">
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label class="container" *ngIf="v.is_removed==false">
+                        <input class="multiple-box" type="checkbox" [(value)]="v.element_uuid" [checked]="countedCheck" />
+                        {{ v.name }}
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- section hidden -->
+            <div style="padding: 10px 0px;">
+              <button *ngIf="!showHtmlFields" class="col-lg-12 htmlAddbtn" (click)="htmlAddClick()">Add</button>
+              <button *ngIf="showHtmlFields" class="col-lg-12 htmlAddbtn"
+                (click)="htmlDoneClick(item,item.element_data,itemIndexNumber)">Done</button>
+            </div>
+            <label style="padding:5px">Assigned Quantities</label>
+            <div class="LabelDis b-g">
+              <div *ngFor="let item2 of outputArray;" class="table-lable-head2">
+                <label class="label-cl1">{{item2.key}}</label>
+              </div>
+            </div>
+            <hr style="margin:3px 0px">
+            <div class="LabelDis">
+              <div *ngFor="let item2 of outputArray;" class="table-lable-head2">
+                <label *ngIf="item2.key=='CS1' && 0>item2.value" style="color: red;"
+                  class="label-cl1">{{item2.value}}</label>
+                <label *ngIf="item2.key=='CS1' && item2.value>=0" class="label-cl1">{{item2.value}}</label>
+                <label *ngIf="item2.key!='CS1'" class="label-cl1">{{item2.value}}</label>
+              </div>
+            </div>
+            <label style="padding:5px">Unrated Quantity :{{unratedQuantity}}</label>
+          </div>
+        </div>
+        <!-- Html elements WMATA -->
+        <div *ngIf="item.element_type == 'uti-entry-field-WMATA' && item.is_removed== false">
+          <div style="background-color: #fff; padding: 5px;">
+            <!-- <div class="row header-table-part1 mb-2">
+              <div *ngFor="let item of item.element_data.fields;let indexToolbar=index;"
+                [ngClass]="{'col-lg-1':item.element_name=='Decibels' || item.element_name=='Comment'  || item.element_name=='Flag for Review?' ,
+                            'col-lg-2':item.element_name=='Location Depth (inches)' || item.element_name=='Previous Condition?'|| item.element_name=='Condition'}"
+                class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.element_name}}</label>
+                </div>
+              </div>
+            </div> -->
+            <div class="row" style="padding: 5px 0px;" *ngFor="let custome_field of finalArray2;let cfIndex=index">
+              <div class="col-lg-12">
+                <div [ngClass]="{'disabled':true}">
+                <div class="row al-center fields-head">
+                  <div class="col-lg-6">
+                    <label class="alignment1">Location Depth (inches)</label>
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="number" class="location-field" [value]="custome_field.location" 
+                    (change)="updateAttributesform('Location',$event.target.value)">
+                  </div>
+                </div>
+                <div class="row al-center fields-head">
+                  <div class="col-lg-6">
+                    <label class="alignment1">Decibels</label>
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="text" class="decibles-field" [value]="custome_field.decibels"
+                    (change)="updateAttributesform('Decibels',$event.target.value)">
+                  </div>
+                </div>
+                <div class="row al-center fields-head">
+                 <div class="col-lg-6">
+                  <label class="alignment1">Previous Condition?</label>
+                 </div>
+                 <div class="col-lg-6">
+                  <input type="checkbox" style="height: 24px;width:21px;" [value]="custome_field.previouscondition"
+                  [checked]="custome_field.previouscondition=='Yes'"
+                    (change)="updateAttributesform('PC',$event.target.checked)" class="checkboxsize marginalign">
+                 </div>
+                </div>
+                <div class="row al-center fields-head">
+                  <div class="col-lg-6">
+                    <label class="alignment1">Flag for Review?</label>
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="checkbox" style="height: 24px;width:21px;" width="21px" height="24px" [value]="custome_field.flagforrReview"
+                    [checked]="custome_field.flagforrReview=='Yes'"
+                    (change)="updateAttributesform('Flag',$event.target.checked)" class="checkboxsize  marginalign">
+                  </div>
+                </div>
+                <div class="row al-center fields-head" class="row">
+                  <div class="col-lg-6">
+                    <label class="alignment1">Condition</label>
+                  </div>
+                  <div class="col-lg-6">
+                    <select id="ddlViewBy" class="form-control" (change)="
+                                  updateAttributesform('Condition',$event.target.value,item.element_data.fields[4])">
+                      <option [selected]="custome_field.Condition" class="dropdown-option form-element-text" style="color:#002e5f;" value="custome_field.Condition">{{custome_field.Condition}}
+                      </option>
+                      <ng-container style="color:#002e5f;" *ngFor="let v of conditionOptionss; let k = index">
+                        <option [selected]="custome_field.Condition==v.element_uuid" style="color:#002e5f;" class="dropdown-get form-element-text" [value]="v.element_uuid">
+                          {{ v.name }}
+                        </option>
+                      </ng-container>
+                    </select>
+                  </div>
+                </div>
+                <div class="row al-center fields-head">
+                  <div class="col-lg-12">
+                    <label>Comment</label>
+                  </div>
+                  <div class="col-lg-12">
+                    <textarea class="col-lg-12" [value]="custome_field.Comment" 
+                    (change)="updateAttributesform('Comment',$event.target.value)"
+                      ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex;place-content: space-evenly;">
+                <div class="col-lg-2 col-sm-2">
+                  <button  class="btn btn-primary"
+                    (click)="this.userrole == 'view' || multipleSelectOn ?'':EditHtml1(item,custome_field,cfIndex)" 
+                    style="margin-right: 15px;">Edit</button>
+                </div>
+                <div class="col-lg-1 col-sm-1">
+                  <button class="btn btn-primary"
+                    (click)="this.userrole == 'view' || multipleSelectOn ?'':DeleteHtml1(item,item.element_data,cfIndex)">Delete</button>
+                </div>
+              </div>
+              <hr>
+              </div>
+            </div>
+            <!-- section hidden -->
+            <!-- section hidden -->
+            <div style="padding: 10px 0px;">
+              <button *ngIf="!showHtmlFields" class="col-lg-12 htmlAddbtn"
+              (click)="htmlAddClick1()">+ ADD</button>
+            </div>
+        
+            <div *ngIf="showHtmlFields" class="LabelDis">
+              <div style="width:100%;">
+                <div *ngFor="let item of item.element_data.fields">
+                  <div class="col-lg-12">
+                    <div class="row al-center fields-head" *ngIf="item.element_name == 'Location Depth (inches)'">
+                      <div class="col-lg-6">
+                        <label class="alignment1">{{ item.element_name }}</label>
+                      </div>
+                      <div class="col-lg-6">
+                        <input type="number" class="location-field" placeholder="123" [value]="custome_form_object.location" 
+                        (change)="updateAttributesform('Location',$event.target.value)">
+                      </div>
+                    </div>
+                    <div class="row al-center fields-head" *ngIf="item.element_name == 'Decibels'">
+                      <div class="col-lg-6">
+                        <label class="alignment1">{{ item.element_name }}</label>
+                      </div>
+                      <div class="col-lg-6">
+                        <input type="text" class="decibles-field" placeholder="ABC" [value]="custome_form_object.decibels"
+                        (change)="updateAttributesform('Decibels',$event.target.value)">
+                      </div>
+                    </div>
+        
+                    <div class="row al-center fields-head" *ngIf="item.element_name == 'Previous Condition?'">
+                     <div class="col-lg-6">
+                      <label class="alignment1">{{ item.element_name }}</label>
+                     </div>
+                     <div class="col-lg-6">
+                      <input type="checkbox" style="height: 24px;width:21px;" [value]="custome_form_object.previouscondition"
+                      [checked]="custome_form_object.previouscondition=='Yes'"
+                        (change)="updateAttributesform('PC',$event.target.checked)" class="checkboxsize marginalign">
+                     </div>
+                    </div>
+        
+                    <div class="row al-center fields-head" *ngIf="item.element_name == 'Flag for Review?'">
+                      <div class="col-lg-6">
+                        <label class="alignment1">{{ item.element_name }}</label>
+                      </div>
+                      <div class="col-lg-6">
+                        <input type="checkbox" style="height: 24px;width:21px;" width="21px" height="24px" [value]="custome_form_object.flagforrReview"
+                        [checked]="custome_form_object.flagforrReview=='Yes'"
+                        (change)="updateAttributesform('Flag',$event.target.checked)" class="checkboxsize  marginalign">
+                      </div>
+                    </div>
+        
+        
+                    <div class="row al-center fields-head" class="row" *ngIf="item.element_name == 'Condition' && !editButton">
+                      <div class="col-lg-6">
+                        <label class="alignment1">{{ item.element_name }}</label>
+                      </div>
+                      <div class="col-lg-6">
+                        <select id="ddlViewBy" class="form-control" (change)="
+                                      updateAttributesform('Condition',$event.target.value,item)">
+                          <option [selected]="custome_form_object.Condition==''" class="dropdown-option form-element-text" style="color:#002e5f;" value="">Select an option
+                          </option>
+                          <ng-container style="color:#002e5f;" *ngFor="let v of item.element_data.options; let k = index">
+                            <option [selected]="custome_form_object.Condition==v.element_uuid" style="color:#002e5f;" class="dropdown-get form-element-text" [value]="v.element_uuid">
+                              {{ v.name }}
+                            </option>
+                          </ng-container>
+        
+                        </select>
+                      </div>
+        
+                    </div>
+
+                    <div class="row al-center fields-head" class="row" *ngIf="item.element_name == 'Condition' && editButton">
+                      <div class="col-lg-6">
+                        <label class="alignment1">{{ item.element_name }}</label>
+                      </div>
+                      <div class="col-lg-6">
+                        <select id="ddlViewBy" class="form-control" (change)="
+                                      updateAttributesform('Condition',$event.target.value,item)">
+                          <option [selected]="custome_form_object.Condition" class="dropdown-option form-element-text" style="color:#002e5f;" value="custome_form_object.Condition">{{custome_form_object.Condition}}
+                          </option>
+                          <ng-container style="color:#002e5f;" *ngFor="let v of item.element_data.options; let k = index">
+                            <option [selected]="custome_form_object.Condition==v.element_uuid" style="color:#002e5f;" class="dropdown-get form-element-text" [value]="v.element_uuid">
+                              {{ v.name }}
+                            </option>
+                          </ng-container>
+        
+                        </select>
+                      </div>
+        
+                    </div>
+        
+        
+                    <div class="row al-center fields-head" *ngIf="item.element_name == 'Comment'">
+                      <div class="col-lg-12">
+                        <label>{{ item.element_name }}</label>
+                      </div>
+                      <div class="col-lg-12">
+                        <textarea class="col-lg-12" [value]="custome_form_object.Comment" 
+                        (change)="updateAttributesform('Comment',$event.target.value)"
+                          ></textarea>
+                      </div>
+                      
+                      
+                    </div>
+                  </div>
+        
+                </div>
+              </div>
+            </div>
+
+            <div style="padding: 10px 0px;">
+              <button *ngIf="showHtmlFields" class="col-lg-12 htmlAddbtn"
+                (click)="!savebuttoncheck ?'':htmlDoneClick1(item,item.element_data,itemIndexNumber)">Save</button>
+            </div>
+        
+          </div>
+        </div>
+        <!-- HTML forms timber -->
+        <ng-container *ngIf="item.element_type == 'uti-entry-field-TIMBER' && item.is_removed== false" class="timber-form-head-parent">
+          <app-timberform name="toolbarbuilder" [custom_form_timber]="timber_form_datas"
+          (default_value_Changed)="timber_form_changes($event)"></app-timberform>
+        </ng-container>
+         <!-- HTML forms WMATA_WELD -->
+         <div *ngIf="item.element_type=='uti-entry-field-WMATA_WELD' && item.is_removed == false && item.is_hidden==0"
+         class="timber-form-head-parent">
+         <div style="padding-top: 10px;" class="row tableheadalignleft">
+           <div class="col-lg-12">
+             <table id="myList" class="leftSideTable">
+               <thead class="head">
+                 <tr>
+                   <th class="tablehead">Weld Id</th>
+                   <th class="tablehead">Repair Type</th>
+                   <th class="tablehead">Entire</th>
+                 </tr>
+               </thead>
+               <tbody class="body" id="left">
+                 <tr *ngFor="let item of formContentleft;let i = index" [attr.id]="idkey + i">
+                   <td>
+                     <p>
+                       {{item.Weld}}
+                     </p>
+                   </td>
+                   <td>
+                     <p>
+                       {{item.Repair}}
+                     </p>
+                   </td>
+                   <td>
+                     <p>
+                       {{item.Entire}}
+                     </p>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+         </div>
+         <div *ngIf="!formShow">
+           <button (click)="add()" class="col-lg-12 htmlAddbtn"> ADD</button>
+         </div>
+         <div *ngIf="formShow">
+           <form [formGroup]="weld_FormStructure" (ngSubmit)="onSubmit(weldform,item)" #weldform="ngForm">
+             <div class="row" style="margin-left: 0px">
+               <div class="form-row col-lg-12">
+                 <label class="weldlabel" style="font-size:14px" for="weld">(16)Weld ID</label>
+                 <br>
+                 <input type="text" class="col-lg-12 inputfield" id="weld" formControlName="weldId" name="weldname">
+               </div>
+               <div style="margin-left:1px;" class="form-row vertical-align">
+                 <label class="weldlabel" for="entire" class="col-lg-12">
+                   <input type="checkbox" id="entire" formControlName="areaEntire" name="areaEntire">
+                   (18A)Area Examined - Entire
+                 </label>
+               </div>
+               <div style="margin-left:6px;width: 100%;" class="form-row">
+                 <hr class="divider-hr-weld">
+               </div>
+               <div style="margin-left:-10px" class="form-row col-lg-12">
+                 <div class="mudiyala col-lg-12">
+                   <label class="weldlabel">(19) Interpretation</label>
+                   <select class="inputfield selectweld" formControlName="interpretation" name="intervalue">
+                    <option value="" disabled selected hidden >Select an Option</option> 
+                    <option value="Accept">Accept</option>
+                     <option value="Reject">Reject</option>
+                   </select>
+                 </div>
+               </div>
+               <button class="col-lg-12 htmlAddbtn"> Done</button>
+             </div>
+           </form>
+         </div>
+       
+       </div>
+        <!-- empty cell -->
+        <div  [style.height]="item.height + 'px'"  *ngIf="item.element_type == 'empty_cell' || item.element_type == 'empty_cell_useCase' && item.is_hidden!=1">
+            
+        </div>
+        <!-- <hr *ngIf="item.is_hidden== false && item.is_removed== false && item.element_type != 'uti-entry-field-WMATA_WELD'"> -->
+        </div>
+      </div>
+      <div *ngIf="extend" class="col-lg-6 form-element-sub">
+        <div *ngFor="let item of extend_model.attributes;let headIndex=index" 
+        [ngClass]="{'marginSetup':item.element_type == 'Divider'&& item.is_removed==false}" (click)="showProperties(item)">
+          <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'single_line_text'&&item.is_removed==false  && item.is_hidden== false"
+          [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+         }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          
+          <input type="text" class="form-control form-element-text" id="{{ item.name }}"
+            (keyup)="formatChange1(item,item.element_data.default_value)"
+            (change)="useConditionChange(item,item.element_uuid,item.element_data.default_value,'')"
+            value="{{ item.element_data.default_value }}" [(ngModel)]="item.element_data.default_value" placeholder="{{
+            item.element_data.default_value == ''
+              ? item.element_data.placeholder_text
+              : item.element_data.default_value
+          }}" />
+        
+         
+        </div>
+      
+      
+        
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'text_label'&&item.is_removed==false&& item.is_hidden== false">
+          <label class="form-text">{{ item.element_data.label_text }}</label>
+         
+        </div>
+        <!-- number  -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'number'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <input class="form-control form-element-text" [attr.id]="headIndex + 'ext'" type="text" (paste)="onPaste($event)" (click)="numbers(headIndex + 'ext')" min="{{ item.min }}" max="{{ item.max }}"
+            value="{{ item.element_data.default_value }}"
+            (change)="useConditionChange(item,item.element_uuid,item.element_data.default_value,'')"
+            [(ngModel)]="item.element_data.default_value" placeholder="{{
+            item.element_data.default_value == ''
+              ? item.element_data.placeholder_text
+              : item.element_data.default_value
+          }}" />
+         
+        </div>
+        <!-- dropdown -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'dropdown'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <select class="form-control form-element-text" 
+            (change)="updateAttributes(item,$event.target.value)">
+            <option class="dropdown-option form-element-text" value=''>Select an option</option>
+            <!-- blank option showing -->
+            <!-- <option style="color:black;" class="dropdown-option" value=''></option> -->
+            <ng-container *ngFor="let v of item.element_data.options; let k = index">
+              <option *ngIf="v.is_removed== false" class="dropdown-get form-element-text" [value]="v.element_uuid" [selected]="v.default">
+                {{ v.name }}
+              </option>
+            </ng-container>
+          </select>
+        
+        </div>
+        <!-- Grouping Field -->
+        <div [style.height]="item.height + 'px'"
+          *ngIf="item.element_type == 'group_field'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+                  alignment_header: item.element_data.label_align === 'Left'
+                }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <select disabled class="form-control form-element-text" (change)="updateAttributes(item,$event.target.value)">
+            <option class="dropdown-option form-element-text" value=''>Select an option</option>
+            <!-- blank option showing -->
+            <!-- <option style="color:black;" class="dropdown-option" value=''></option> -->
+            <ng-container *ngFor="let v of item.element_data.options; let k = index">
+              <option *ngIf="v.is_removed== false" class="dropdown-get form-element-text" [value]="v.element_uuid"
+                [selected]="v.default">
+                {{ v.name }}
+              </option>
+            </ng-container>
+          </select>
+        
+        </div>
+        <!--date-->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'date' && item.is_removed== false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <div class="dateDefault" style="width:100%;">
+            <div class="date-picker-part">
+              <!-- (dateChange)="changedateLocal(item,ref1.value)" -->
+              <input readonly #ref1 class="datepicker date-field form-element-text"  (click)="picker.open()" matInput [matDatepicker]="picker"  (dateChange)="useConditionChange(item,item.element_uuid,ref1.value,'')"
+                placeholder="YYYY-MM-DD" [value]="assignDates(item.element_data.default_date_time)" />
+              <div matSuffix class="image-close">
+                <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close"
+                  (click)="clearDate(item)" />
+              </div>
+              
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </div>
+      
+        </div>
+        
+        <!-- textarea -->
+        <div  [style.height]="item.height + 'px'" *ngIf="item.element_type == 'text_area'&&item.is_removed==false&& item.is_hidden== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left' 
+        }">
+          <label class="lebel-text-main" [ngClass]="{ alignment: item.element_data.label_align === 'Left' }">{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <textarea class="form-control form-element-text" (keyup)="formatChange(item,item.element_data.default_value)"
+            value="{{ item.element_data.default_value }}"
+            (change)="useConditionChange(item,item.element_uuid,item.element_data.default_value,'')"
+            placeholder="{{ item.element_data.placeholder_text }}"
+            [(ngModel)]="item.element_data.default_value"></textarea>
+       
+        </div>
+        <!-- checkbox -->
+        <div [style.height]="item.height + 'px'" class="col-lg-12" *ngIf="item.element_type == 'multiple_choice'  && item.is_hidden==0 && item.is_removed==false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+        <label style="font-weight:500;" class=" {{
+            item.element_data.label_align === 'Left' ? 'col-5 padding_null' : 'col-lg-12 padding_null'
+          }}">{{ item.element_data.label_text }}</label>
+        <div [ngClass]="{
+            'text-center': item.element_data.label_align === 'Left'
+          }" (change)="updateAttributes(item,$event.target.value,'')">
+          <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+            <label class="multi-box-label" *ngIf="v.is_removed==false">
+              <input class="multiple-box form-element-text" [ngClass]="{
+                margin: item.element_data.label_align === 'Left'}" type="checkbox" [value]="v.element_uuid"  [checked]="v.default==true" />
+              {{ v.name }}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+       
+      </div>
+
+      
+        <div [style.height]="item.height + 'px'" class="col-lg-12" *ngIf="item.element_type == 'single_choice' && item.is_hidden==0 && item.is_removed== false" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left' 
+        }">
+        <label style="font-weight:500;" class=" {{
+            item.element_data.label_align === 'Left' ? 'col-5 padding_null' : 'col-lg-12'
+          }}">{{ item.element_data.label_text }}</label>
+        <div [ngClass]="{
+            'text-center': item.element_data.label_align === 'Left'
+          }">
+          <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+            <label [ngClass]="{redred:v.is_removed}" *ngIf="v.is_removed==false">
+              <input [disabled]="v.is_removed" class="radio-select-option checkbox-get form-element-text" type="checkbox"
+                [(value)]="v.element_uuid" [checked]="v.default==true" name="optName+{{v.element_uuid}}"
+                (change)="updateAttributes(item,$event.target.value,$event)" />
+              {{ v.name }}
+              <!-- <span class="checkmark1"></span> -->
+            </label>
+          </div>
+        </div>
+        
+      </div>
+
+        <!-- Calculator -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'calculation'&&item.is_removed==false&& item.is_hidden== false"   [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label style="font-weight:500;" [ngClass]="{ alignment: item.element_data.label_align === 'Left' ? 'col-6 padding_null' : 'col-lg-12' }"
+           >{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <!-- <div class="dateDefault " style="width:100%;"> -->
+           <input  type="text" readonly class="form-control form-element-text" style="width:100%;"
+            placeholder="{{ item.element_data.placeholder_text }}" 
+            [ngModel]="getcalculationvalue(item.element_data)" (ngModelChange)="item.element_data.calculation=$event"
+            />
+            <!-- </div> -->
+        
+        </div>
+
+        <!-- Address -->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'address'&&item.is_removed==false&& item.is_hidden== false" [style.height]="item.height + 'px'" [ngClass]="{
+          alignment_header: item.element_data.label_align === 'Left'
+        }">
+          <label style="font-weight:500;" [ngClass]="{ alignment: item.element_data.label_align === 'Left' ? 'col-6 padding_null' : 'col-lg-12' }"
+            >{{
+            item.element_data.label_text }}</label>
+          <label *ngIf="item.required" class="text-danger">*</label>
+          <div>
+            <input type="text" (keyup)="formatChange(item,item.element_data.default_value)"
+              [(ngModel)]="item.element_data.street_address1" class="form-control form-element-text" placeholder="Street"  (change)="useConditionChange(item,item.element_uuid,item.element_data.street_address1,'street')"
+              />
+            <input type="text" class="form-control form-element-text" (keyup)="formatChange(item,item.element_data.city)"
+              placeholder="City" [(ngModel)]="item.element_data.city" style="margin-top: 10px" (change)="useConditionChange(item,item.element_uuid,item.element_data.city,'city')" />
+            <div class="row">
+              <div class="col-6" style="margin-top: 10px">
+                <input type="text" [(ngModel)]="item.element_data.state"
+                  (keyup)="formatChange(item,item.element_data.state)" class="form-control form-element-text" (change)="useConditionChange(item,item.element_uuid,item.element_data.state,'state')"
+                  placeholder="State" />
+              </div>
+              <div class="col-6" style="margin-top: 10px">
+                <input type="text" [(ngModel)]="item.element_data.zip"
+                  (keyup)="formatChange(item,item.element_data.zip)" (change)="useConditionChange(item,item.element_uuid,item.element_data.zip,'zip')" class="form-control form-element-text" placeholder="Postal Code" />
+              </div>
+            </div>
+            <input type="text" (keyup)="formatChange(item,item.element_data.street_address2)"
+              [(ngModel)]="item.element_data.street_address2" class="form-control form-element-text"  (change)="useConditionChange(item,item.element_uuid,item.element_data.street_address2,'street_address2')" placeholder="Country" />
+            <!-- divider -->
+           
+          </div>
+        </div>
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'Divider'&& item.is_removed== false" class="divider-header">
+          <hr [style.opacity]="item.element_data.opacity==undefined ? 1 : item.element_data.opacity"
+                 [style.borderWidth.px]="item.element_data.line_width==undefined ? 2.5 : (item.element_data.line_width*2.5)" class="divider-hr" />
+        </div>
+        <!---Single check box----->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'checkbox'  && item.is_hidden==0 && item.is_removed== false" [ngClass]="{
+        alignment_header: item.element_data.label_align === 'Left'
+      }">
+          <div [ngClass]="{
+          'text-center': item.element_data.label_align === 'Left'
+        }" (change)="updateAttributes(item,$event.target.value)">
+            <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+              <label class="padding_null single-checkbox-label" *ngIf="v.is_removed==false">
+                <input class="single-checkbox form-element-text" type="checkbox" [value]="v.element_uuid" [checked]="v.default" />
+                {{ v.name }}
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!---Html Forms----->
+        <div [style.height]="item.height + 'px'" *ngIf="item.element_type == 'uti-entry-field' && item.is_removed== false">
+          <div style="background-color: #fff; padding: 5px;">
+            <div class="row header-table-part1 mb-2">
+              <div *ngFor="let item of item.element_data.fields;let indexToolbar=index;"
+                class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.element_name}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="padding: 5px 0px;" *ngFor="let item of finalArray1;let j = index">
+              <!-- <ng-container *ngFor="let v of item.element_data.options; let k = index">
+              </ng-container> -->
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.condition_code}}</label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.cs}}</label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <div class="form-group mycontrol dropdown-label">
+                  <label class="label-cl">{{item.quantity}}</label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <img *ngIf="item.not" src="assets/images/icons/P3_CheckBoxTick_Blue.png"
+                  style="margin-right: 15px;width:18px" />
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <img src="assets/images/icons/P3WebIcon_13Edit.png" (click)="EditHtml(item,j)"
+                  style="margin-right: 15px;width:18px" />
+              </div>
+              <div class="col-lg-2 col-sm-2 table-lable-head">
+                <img src="assets/images/icons/P3WebIcon_15Trash.png" (click)="DeleteHtml(item,j)"
+                  style="margin-right: 15px;width:18px" />
+              </div>
+            </div>
+            <!-- section hidden -->
+            <div *ngIf="showHtmlFields" class="hideField">
+              <div *ngFor="let item of item.element_data.fields; let indexValue = index" class="form-group">
+                <div *ngIf="item.element_type == 'dropdown'  && item.is_hidden==0 && item.is_removed== false"
+                  class="alignment_header">
+                  <label class="col-4">{{ item.element_name }}</label>
+                  <select class="form-control form-element-text dropdown-select col-8" (change)="
+                  htmlFieldValue(item.element_uuid,'condition_code',$event.target.value,'')">
+                    <option class="dropdown-option">Select an option</option>
+                    <!-- blank option showing -->
+                    <!-- <option class="dropdown-option"></option> -->
+                    <ng-container *ngFor="let v of item.element_data.options; let k = index">
+                      <option *ngIf="v.is_removed==false" class="dropdown-get" [selected]="v.name == conditionSelected"
+                        [value]="v.element_uuid">
+                        {{ v.name }}
+                      </option>
+                    </ng-container>
+                  </select>
+                </div>
+                <div *ngIf="item.element_type == 'single_choice' && item.is_hidden==0 && item.is_removed== false">
+                  <div>
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label [ngClass]="{redred:v.is_removed}" *ngIf="v.is_removed==false">
+                        <input [disabled]="v.is_removed" class="radio-select-option checkbox-get" type="checkbox"
+                          [(value)]="v.element_uuid" [checked]="v.name==csSelected" name="optName" (change)="
+                  htmlFieldValue(item.element_uuid,'cs',$event.target.value,'')" />
+                        {{ v.name }}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="item.element_type == 'number'  && item.is_hidden==0 && item.is_removed== false"
+                  class="alignment_header">
+                  <label class="col-4">{{item.element_name }}</label>
+                  <input type="number" class="form-control col-8" [(ngModel)]="fieldQuantity" autocomplete="off"
+                    #inputText (change)="
+                  htmlFieldValue(item.element_uuid,'quantity',$event.target.value,'')"
+                    [ngModelOptions]="{ standalone: true }" />
+                </div>
+                <div *ngIf="item.element_type == 'multiple_choice'  && item.is_hidden==0 && item.is_removed== false">
+                  <div (change)="
+                  htmlFieldValue(item.element_uuid,'not',$event.target.value,$event.target.checked)">
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label class="container" *ngIf="v.is_removed==false">
+                        <input class="multiple-box" type="checkbox" [(value)]="v.element_uuid" [checked]="countedCheck" />
+                        {{ v.name }}
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- section hidden -->
+            <div style="padding: 10px 0px;">
+              <button *ngIf="!showHtmlFields" class="col-lg-12 htmlAddbtn" (click)="htmlAddClick()">Add</button>
+              <button *ngIf="showHtmlFields" class="col-lg-12 htmlAddbtn"
+                (click)="htmlDoneClick(item,item.element_data,itemIndexNumber)">Done</button>
+            </div>
+            <label style="padding:5px">Assigned Quantities</label>
+            <div class="LabelDis b-g">
+              <div *ngFor="let item2 of outputArray;" class="table-lable-head2">
+                <label class="label-cl1">{{item2.key}}</label>
+              </div>
+            </div>
+            <hr style="margin:3px 0px">
+            <div class="LabelDis">
+              <div *ngFor="let item2 of outputArray;" class="table-lable-head2">
+                <label *ngIf="item2.key=='CS1' && 0>item2.value" style="color: red;"
+                  class="label-cl1">{{item2.value}}</label>
+                <label *ngIf="item2.key=='CS1' && item2.value>=0" class="label-cl1">{{item2.value}}</label>
+                <label *ngIf="item2.key!='CS1'" class="label-cl1">{{item2.value}}</label>
+              </div>
+            </div>
+            <label style="padding:5px">Unrated Quantity :{{unratedQuantity}}</label>
+          </div>
+        </div>
+        <!-- HTML forms WMATA_WELD -->
+        <div *ngIf="item.element_type=='uti-entry-field-WMATA_WELD' && item.is_removed == false && item.is_hidden==0"
+                  class="timber-form-head-parent">
+                  <div class="row tableheadalignright">
+                    <div class="col-lg-12">
+                      <table id="right" class="rightSideTable">
+                        <thead class="head">
+                          <tr>
+                            <th class="tablehead">Specific</th>
+                            <th class="tablehead">Interpretation</th>
+                            <th class="tablehead">Remarks</th>
+                          </tr>
+                        </thead>
+                        <tbody class="body">
+                          <tr *ngFor="let item1 of formContentright; let i = index" [attr.id]="idkey + i">
+                            <td>
+                              <p>
+                                {{item1.Specific}}
+                              </p>
+                            </td>
+                            <td>
+                              <p>
+                                {{item1.Interpretation}}
+                              </p>
+                            </td>
+                            <td>
+                              <p>
+                                {{item1.Remarks}}
+                              </p>
+                            </td>
+                            <td style="background-color: #e8e8e8;border: none;">
+                              <img src="assets/images/P3_Close-Cancel_Blue.png" style="cursor: pointer;" class="imgclose" alt="close"
+                                (click)="deleterow(i,item)" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div style="margin-left: 4px;" *ngIf="formShow">
+                    <form [formGroup]="weld_FormStructure" (ngSubmit)="onSubmit(weldform,item)" #weldform="ngForm">
+                      <div class="row" style="margin-left: 0px">
+                        <div class="form-row col-lg-12">
+                          <label for="repair" class="weldlabel">(17)Repair Type</label>
+                          <br>
+                          <input type="text" class="col-lg-12 inputfield" id="repair" formControlName="repairType" name="repairname">
+                        </div>
+                        <div class="form-row col-lg-12">
+                          <label for="areaspec" class="weldlabel">(18B)Area Examined - Specific</label>
+                          <br>
+                          <input type="text" class="col-lg-12 inputfield" id="areaspec" formControlName="areaSpecific" name="specname">
+                        </div>
+                        <div class="form-row hrmargin" style="width: 100%;">
+                          <hr class="divider-hr-weld">
+                        </div>
+                        <div class="form-row col-lg-12">
+                          <label for="rem" class="weldlabel">(20) Remarks</label>
+                          <br>
+                          <input type="text" class="col-lg-12 inputfield" id="rem" formControlName="remarks" name="remname">
+                        </div>
+                        <!-- <button class="col-lg-12 htmlAddbtn"> Done</button> -->
+                      </div>
+                    </form>
+                  </div>
+                
+                </div>
+        <!-- empty cell -->
+        <div  [style.height]="item.height + 'px'"   *ngIf="item.element_type == 'empty_cell' || item.element_type == 'empty_cell_useCase' && item.is_hidden!=1">
+        </div>
+        <!-- <hr *ngIf="item.is_hidden== false && item.height!=0 && item.element_type != 'uti-entry-field-WMATA_WELD'" > -->
+      
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="footer" style="background-color: #f98e2c; padding-top: 15px; padding-bottom: 15px;cursor: pointer;"
+  (click)="publish1()">
+  <div class="text-center">
+    <button style="
+        color: #fff;
+        font-size: 18px;
+        background-color: #f98e2c;
+        border: none;
+      " *ngIf="editFlag==undefined">
+      Add Form
+    </button>
+    <button style="
+    color: #fff;
+    font-size: 18px;
+    background-color: #f98e2c;
+    border: none;
+  " (click)="publish1()" *ngIf="editFlag==true">
+      Update Form
+    </button>
+  </div>
+</div>

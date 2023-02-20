@@ -1,0 +1,10 @@
+.error-message{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text{
+    color:#002E5F;
+    font-weight: 500;
+}

@@ -1,0 +1,62 @@
+
+<div class="project-add-img">
+  <img src="assets/images/P3_AddProject_bg.png"  matTooltip="Click to add Project"
+  matTooltipHideDelay="300" matTooltipClass="tooltipstyle" width="120px" (click)="onAdd()" class="justify-content-end hover n"
+    alt="..." />
+</div>
+<div *ngIf="change1">
+  <div class="projectdetails_section">
+    <div class="image_part">
+      <img src="assets/images/icons/P3WebIcon_1BriefcaseGrey_400.png" class="center" width="200px" alt="..." />
+      <p class="text-center c">No Projects</p>
+      <p>Projects you have access to will appear here.</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="change">
+  <mdb-icon far icon="star"></mdb-icon>
+  <!-- <img src="https://img.icons8.com/fluent-systems-regular/24/000000/star.png"/> -->
+
+  <mat-table [dataSource]="listData" class="table-head">
+    <!-- <ng-container matColumnDef="Icon">
+      <mat-cell *matCellDef="let element" class="col-lg-1 col-md-1" style="padding-right: 0px;">
+        <span *ngIf=" element.project_status==3">
+          <img src="assets/images/icons/P3WebIcon_3Star.png" width="28px" />
+        </span>
+      </mat-cell> 
+    </ng-container>-->
+    <ng-container matColumnDef="Name">
+      <mat-cell *matCellDef="let element;let indexValue = index;" #button+indexValue long-press
+        (onLongPress)="onLongPress(button+indexValue,indexValue)" (onLongPressing)="onLongPressing()"
+        class="cursorPointer" (contextmenu)="onContextMenu($event, element.project_name,element.last_updated_date,element.created_date,element.project_id,
+      element.project_status)" [longPress]="2000" (onRelease)="onVeryLongPress($event, element.project_name,element.last_updated_date,element.created_date,element.project_id,
+      element.project_status)"
+        (click)="gotoprojectdetails(element.project_id, element.project_name,element.admin_permission_flag,element.edit_permission_flag,element.view_permission_flag)">
+      
+          <div class="col-lg-11 col-md-11 col-xs-11 d-flex justify-content-start">
+        <span style="font-size: 16px; font-weight: 550; color: #00447c;" *ngIf="element.project_status == 1">
+          <img style="margin-right: 15px;width:30px">
+          {{ element.project_name}}
+        </span>
+        <span style="font-size: 16px; font-weight: 550; color: #00447c;" *ngIf="element.project_status == 2">
+          <img style="margin-right: 15px;width:30px">
+          {{ element.project_name }}
+        </span>
+        <span style="font-size: 16px; font-weight: 550; color: #00447c;" *ngIf="element.project_status == 3">
+          <img src="assets/images/icons/P3WebIcon_3Star.png" width="28px" style="margin-right: 15px;" />
+          <!-- <img src="assets/images/icons/P3WebIcon_3Star.png" width="30px" style="margin-right: 15px;" /> -->
+          {{ element.project_name }}
+        </span></div>
+        <div class="col-lg-1 col-md-1 col-xs-1 d-flex justify-content-end"  >
+        <span  *ngIf="element.admin_permission_flag== 0 && element.edit_permission_flag==0">
+          <img src="assets/images/icons/readonly.png" matTooltip="Enabled view only mode"
+          matTooltipHideDelay="300" matTooltipClass="tooltipstyle" width="28px" />
+          <!-- <img src="assets/images/icons/P3WebIcon_3Star.png" width="30px" style="margin-right: 15px;" /> -->
+        
+        </span></div>
+      </mat-cell>
+    </ng-container>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
+<app-project-loader *ngIf="showLoader"></app-project-loader>

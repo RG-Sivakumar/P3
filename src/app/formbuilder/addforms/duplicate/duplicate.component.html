@@ -1,0 +1,44 @@
+<div>
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="form">
+    <div style="background-color: #e8e8e8">
+      <div class="text-center headSec" style="
+          background-color: #e8e8e8;
+          padding-top: 20px;
+          padding-bottom: 4px;
+        ">
+        <span style="background-color: #e8e8e8; padding-left: 50px">Duplicate Form</span><span class="close"
+          style="float: right; padding-right: 24px" (click)="onClose()"><img
+            src="assets/images/P3_Close-Cancel_Blue.png" width="25px" /></span>
+      </div>
+      <hr style="background-color: #e8e8e8" />
+    </div>
+    <div class="text-center txtclr">
+      <span class="heading_document">Please enter a new form name</span>
+    </div>
+    <div class="input-group mb-12 input-field-head">
+      <div class="input-group-prepend">
+        <span class="text-center bg-none" id="basic-addon1"><img style="margin-left: 24px" /></span>
+      </div>
+      <input class="form-control bg-none" aria-describedby="basic-addon1" style="margin-left: 20px"
+        placeholder="New Form Name" name="new_form_name" #new_form_name="ngModel"
+        [(ngModel)]="service.formData.new_form_name"
+        (ngModelChange)="firstLetterCapital(service.formData.new_form_name)" required autocomplete="off"
+        style="color: black;font-weight: 500;" />
+    </div>
+    <hr style="
+        margin-top: 1.5rem;
+        width: 90%;
+        background-color: #e8e8e8;
+        margin-top: 0.5rem;
+      " />
+    <div style="background-color: #e8e8e8; padding-bottom: 28px">
+      <hr style="background-color: #e8e8e8; margin-bottom: 24px; margin-top: 24px" />
+      <div class="text-center">
+        <button [disabled]="form.invalid||btnDisabled" value="submit"
+          style="color: #a4a426; font-size: 18px; font-weight: 500">
+          Create
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

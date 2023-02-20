@@ -1,0 +1,23 @@
+<div class="more_information_section">
+  <div class="row header container-fluid">
+    <div class="col-lg-10 header-heading-part">
+      <h3 class="header-heading">Add Media</h3>
+    </div>
+    <div class="col-lg-2 close-img-part">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="content-area" id="style-1">
+    <div class="row content-head-section">
+      <input #fileInput type="file" hidden multiple (change)="onSelectFile($event, fileInput, $event.target.files)" />
+      <div class="col-lg-12" (click)="fileInput.click()">
+        <p class="content-heading">Add form Device</p>
+      </div>
+    </div>
+    <div class="row content-head-section">
+      <div class="col-lg-12" (click)="AddStubPhotos()">
+        <p class="content-heading">Add Stub Photos</p>
+      </div>
+    </div>
+  </div>
+</div>

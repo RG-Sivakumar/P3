@@ -1,0 +1,16 @@
+.multi-select{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    width: 816px;
+    height: 1056px;
+    background-color: red;
+    opacity: 0.4;
+}
+.rectangle-svg{
+    stroke: black;
+    fill: yellow;
+    stroke-width: 5;
+    opacity: 1;
+}

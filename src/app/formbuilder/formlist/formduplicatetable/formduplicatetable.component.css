@@ -1,0 +1,254 @@
+mat-header-row {
+  min-height: 60px;
+}
+p {
+  font-size: 17px;
+  color: lightgray;
+  font-weight: 600;
+}
+.n {
+  bottom: 0;
+  
+  position: fixed;
+}
+ng-container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.image_part1 {
+  align-items: right;
+}
+.f {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}
+.hover {
+  cursor: pointer;
+}
+mat-header-cell {
+  background-color: #e8e8e8;
+  font-size: 17px;
+  font-weight: 500;
+  color: #404040;
+}
+mat-cell {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+mat-cell:hover{
+  cursor: pointer;
+}
+.pl {
+  color: #00447c;
+  margin-top: -30px;
+  font-size: 40px;
+  font-weight: 500;
+}
+.n {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+.mobile-label {
+  display: none;
+}
+@media (max-width: 500px) {
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12,
+  .col,
+  .col-auto,
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12,
+  .col-sm,
+  .col-sm-auto,
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12,
+  .col-md,
+  .col-md-auto,
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12,
+  .col-lg,
+  .col-lg-auto,
+  .col-xl-1,
+  .col-xl-2,
+  .col-xl-3,
+  .col-xl-4,
+  .col-xl-5,
+  .col-xl-6,
+  .col-xl-7,
+  .col-xl-8,
+  .col-xl-9,
+  .col-xl-10,
+  .col-xl-11,
+  .col-xl-12,
+  .col-xl,
+  .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .Buttons {
+    margin-left: -15px !important;
+  }
+  mat-cell {
+    padding-top: 0%;
+    padding-bottom: 0%;
+  }
+  .mobile-label {
+    width: 30%;
+    display: inline-block;
+    font-weight: bold;
+    box-sizing: 0px;
+  }
+
+  .mat-header-row {
+    display: none;
+    margin-top: -10px;
+  }
+  mat-cell:first-of-type,
+  mat-header-cell:first-of-type,
+  mat-footer-cell:first-of-type {
+    padding-left: 0px;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 20px 40px 0px;
+  }
+}
+.hover {
+  cursor: pointer;
+}
+.button {
+  padding: 10px 5px;
+  border: 1px solid #002e5f;
+  background-color: #f98e2c;
+  width: 55%;
+  color: white;
+  font-size: 18px;
+}
+/* input[type=checkbox]{
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    padding: 10px;
+    width:30px;
+    color:orange;
+    background-color: white;
+}
+input[type=checkbox]:hover{
+    cursor: pointer;   
+} */
+.image_part {
+  align-items: center;
+}
+.projectdetails_section {
+  align-items: center;
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+}
+.checked-section:hover {
+  cursor: pointer;
+}
+.formselectCheckbox {
+  position: relative;
+  cursor: pointer;
+}
+.formselectCheckbox:before {
+  content: "";
+    display: block;
+    position: absolute;
+    width: 25px !important;
+    height: 25px !important;
+    top: -6px;
+    left: 0px;
+    border: 2px solid #807F83;
+    border-radius: 1px;
+    background-color: white;
+}
+.formselectCheckbox:checked:after {
+  content: "";
+  display: block;
+  width: 10px !important;
+  height: 20px !important;
+  border: solid #002E5F;
+  border-width: 0 2px 2px 0;
+  transform: rotate(37deg);
+  position: absolute;
+  top: -6px;
+  left: 7px;
+}
+
+.buttons-head{
+  height:70px;
+  width:82.5%;
+  background-color: #FFFFFF;
+}
+.hv-center{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-col{
+  justify-content: space-around !important;
+}
+.btn-import:disabled{
+  opacity: 1;
+}
+.btn-import:disabled:hover{
+  cursor: auto;
+}
+.btn-import{
+  background-color: #F98E2C;
+  color:#fff;
+  border:1px solid #000000;
+  width:210px;
+  font-weight: 500;
+}

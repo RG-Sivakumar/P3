@@ -1,0 +1,146 @@
+<div class="file-upload-section ">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">Attachment Files</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+        </div>
+    </div>
+    <div class="row add-file-area">
+        <!-- <div class="userBorder">
+            <select class="form-control" (change)="userSelection($event.target.value)">
+                <option disabled selected class="dropdown-option">Please select user</option>
+                <ng-container *ngFor="let v of userlist; let k = index">
+                    <option class="dropdown-get" [value]="v.user_id">
+                        {{ v.first_name }} {{v.last_name}} ({{v.email_id}})
+                    </option>
+                </ng-container>
+            </select>
+        </div> -->
+        <!-- <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)"></div> -->
+        <ngx-file-drop class="uploadfilecontainer" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                 multiple="true" accept=".png,.jpeg,.jpg,.tiff,.heic,.mp4,.m4p,.m4v,.avi,.wmv,.mov,.webm,">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    <div class="textBanner">Select your image or video file(s) or drag and drop them here.</div>
+                    <div class="inside-selector" (click)="openFileSelector()"></div>
+                  </ng-template>
+        </ngx-file-drop>
+        <!-- <div class="uploadfilecontainer" (click)="fileInput.click()" (onFileDrop)="dropped($event)">
+            <input #myInput hidden multiple type="file" #fileInput accept="image/*,video/*"
+                (change)="uploadFile($event.target.files)">
+            <div class="textBanner">Select your image or video file(s) or drag and drop them here.</div>
+        </div> -->
+        <!-- <div [className]="dropZoneClassName" [class.ngx-file-drop__drop-zone--over]="isDraggingOverDropZone"
+            (drop)="dropFiles($event)">
+            <div [className]="contentClassName">
+                <input type="file" #fileSelector [accept]="accept" [attr.directory]="directory || undefined"
+                    [attr.webkitdirectory]="directory || undefined" [attr.mozdirectory]="directory || undefined"
+                    [attr.msdirectory]="directory || undefined" [attr.odirectory]="directory || undefined" [multiple]="multiple"
+                    (change)="uploadFiles($event)" class="ngx-file-drop__file-input" />
+        
+                <ng-template #defaultContentTemplate>
+                    <div *ngIf="dropZoneLabel" class="ngx-file-drop__drop-zone-label">{{dropZoneLabel}}</div>
+                    <div *ngIf="showBrowseBtn">
+                        <input type="button" [className]="browseBtnClassName" value="{{browseBtnLabel}}"
+                            (click)="openFileSelector($event)" />
+                    </div>
+                </ng-template>
+        
+                <ng-template [ngTemplateOutlet]="contentTemplate || defaultContentTemplate"
+                    [ngTemplateOutletContext]="{ openFileSelector: openFileSelector }">
+                </ng-template>
+            </div>
+        </div>
+        <ngx-file-drop class="uploadfilecontainer" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                 multiple="true" accept=".png,.jpeg,.tiff,.heic">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    <div class="textBanner">Select your image or video file(s) or drag and drop them here.</div>
+                    <div class="inside-selector" (click)="openFileSelector()"></div>
+                  </ng-template>
+        </ngx-file-drop> -->
+        <div class="row col-lg-12">
+            <div class="col-lg-1" style="padding: 0px;"></div>
+            <div class=" col-lg-12" style="padding: 0px;">
+                <div class="oijku col-lg-11">
+                    <div class="col-lg-12 row" *ngFor="let file of finalArray;let i=index">
+                        <!-- <div class="col-lg-1"></div> -->
+                        <div class="col-lg-7">
+                            <div class="files-list">
+                                <span class="FileNameText">{{ file.filename }}</span>
+                                <button class="delete-file" (click)="deleteAttachment(i)">
+                                    <img src="assets/images/P3_Close-Cancel_Blue.png">
+                                </button>
+                            </div>
+                        </div>
+                        <div *ngIf="file.progressEnable" class="col-lg-4">
+                            <div class="meter">
+                                <span [style.width]="file.progress+'%'"></span>
+                            </div>
+                        </div>
+                        <div *ngIf="file.message" class="col-lg-4 message1">
+                            <span>{{message}}</span>
+                        </div>
+                        <div *ngIf="file.dbmessage" class="col-lg-4 message1">
+                            <span>{{message1}}</span>
+                        </div>
+                        <div *ngIf="file.tick" class="col-lg-1">
+                            <img class="imageTick" src="assets/tick markvalue.png">
+                        </div>
+                        <!-- <div class="col-lg-1"></div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+    <div class="col-lg-12 message1 userError">
+        <span>{{userMessage}}</span>
+    </div>
+    <div class="footer">
+        <!-- <button type="button" [disabled]="buttonValidate || errorMessage" class="add-button" (click)="uploadStubs()">
+            Upload File
+        </button> -->
+        <button type="button" [disabled]="buttonValidate" class="add-button" (click)="uploadStubs()">
+            Upload File
+        </button>
+    </div>
+</div>
+
+<div id="openModal" class="modal fade {{ClassName}}" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="position: fixed;width: 500px;top: 0;">
+            <div class="modal-header">
+                <h4 class="modal-title">Plannotate says</h4>
+            </div>
+            <div class="modal-body">
+                One or more of the selected files does not have the proper file extension of .jpg.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary okButton" (click)="closeAlert()">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="false" class="center d-none">
+    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            Optional custom content that replaces the the entire default content.
+            <button type="button" (click)="openFileSelector()">Browse Files</button>
+        </ng-template>
+    </ngx-file-drop>
+    <div class="upload-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody class="upload-name-style">
+                <tr *ngFor="let item of files; let i=index">
+                    <td><strong>{{ item.relativePath }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

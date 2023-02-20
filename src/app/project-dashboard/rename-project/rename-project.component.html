@@ -1,0 +1,29 @@
+<div>
+  <div style="background-color:#E8E8E8">
+    <div class="text-center headSec" style="background-color:#E8E8E8;  padding-top:20px; padding-bottom: 4px; "><span
+        style="padding-left:50px; ">Rename</span><span class="close" style="float: right; padding-right: 24px;"
+        (click)=" onclose()"><img src="assets/images/P3_Close-Cancel_Blue.png" width="25px"></span></div>
+    <hr style="background-color:#E8E8E8">
+  </div>
+  <div class="text-center txtclr"><span style="color: #807F83; font-size:17px;">Please enter a new project name</span>
+  </div>
+  <div>
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="form">
+      <div class="input-group mb-12 ">
+        <div class="input-group-prepend">
+          <span class="text-center bg-none" id="basic-addon1"></span>
+        </div>
+        <input class="form-control bg-none" aria-describedby="basic-addon1" style="margin-left: 2px;" (paste)="myFunction($event)"
+          style="color: black;font-weight: 500; padding-left: 35px;" name="project_name" #project_name="ngModel"
+          [(ngModel)]="project" (ngModelChange)="firstLetterCapital(project)" required autocomplete="off" />
+        <!-- <input class="form-control bg-none"
+        aria-describedby="basic-addon1" style="margin-left: 2px;" placeholder="" name="project_name"  #project_name="ngModel" [(ngModel)]="this.namedefault" required autocomplete="off" /> -->
+      </div>
+      <hr style="margin-top:1.5rem; width:90%; background-color:#E8E8E8; margin-top:0.5rem;">
+      <div style="background-color:#E8E8E8; padding-bottom: 28px;">
+        <hr style="background-color:#E8E8E8; margin-bottom: 24px; margin-top: 24px;">
+        <div class="text-center"><button [disabled]="form.invalid" value="submit"
+            style="color:#A4A426; font-size:18px; font-weight:500;">Rename</button></div>
+      </div>
+    </form>
+  </div>

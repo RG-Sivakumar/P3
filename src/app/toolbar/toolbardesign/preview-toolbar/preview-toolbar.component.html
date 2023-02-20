@@ -1,0 +1,20 @@
+<section class="preview-head scrollbar" id="style-1">
+    <div class="row justify-content-center"
+        *ngFor="let group of groupby(toolbar_content.toolbarItem,3);let indexValue = index">
+        <div class="field box" *ngFor="let item of group">
+            <div class="row form-group shape-img field-box-head">
+                <img [src]="icon_object.geticon(item.element_id)" *ngIf="item.element_id != -1" />
+            </div>
+            <div class="shape-title col-lg-12">
+                <label *ngIf="item.element_data != undefined">{{
+                    item.element_data.element_label
+                    }}</label>
+            </div>
+        </div>
+        <!-- <div class="dndPlaceholder"></div> -->
+    </div>
+
+    <div class="img-part">
+        <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+    </div>
+</section>

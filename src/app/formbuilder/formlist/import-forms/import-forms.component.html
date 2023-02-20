@@ -1,0 +1,132 @@
+<div class="toolbar-list">
+    <div *ngIf="FormList" class="row">
+        <mat-table [dataSource]="dataSource" class="col-lg-12 col-md-12 matTable mat-elevation-z8">
+            <!-- Project Name Column -->
+            <ng-container matColumnDef="ProjectName">
+                <mat-header-cell *matHeaderCellDef class="header-title col-lg-3 col-md-3">
+                    Project Name
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="table-data col-lg-3 col-md-3">
+                    <div class="img-part-project">
+
+                    </div>
+                    {{ element.project_name }}
+                </mat-cell>
+            </ng-container>
+
+            <!-- Created Column -->
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Name">
+                <mat-header-cell *matHeaderCellDef class="header-title col-lg-3 col-md-3">
+                    Form Name
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="table-data col-lg-3 col-md-3">
+                    <div class="img-part">
+
+                    </div>
+                    {{ element.form_name }}
+                </mat-cell>
+            </ng-container>
+
+            <!-- Created Column -->
+            <ng-container matColumnDef="CreatedDate">
+                <mat-header-cell *matHeaderCellDef class="header-title Date-header-title col-lg-2 col-md-2">
+                    Created
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="table-date-data Date-table-data col-lg-2 col-md-2">
+                    {{ element.created_date | date : 'MM/dd/yyyy' }} at {{ element.created_date | date : 'hh:mm aa' }}
+                </mat-cell>
+            </ng-container>
+
+            <!-- Modified Column -->
+            <ng-container matColumnDef="LastModifiedDate">
+                <mat-header-cell *matHeaderCellDef class="header-title Date-header-title col-lg-3 col-md-3"> Modified
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="table-date-data Date-table-data col-lg-3 col-md-3">
+                    {{element.last_updated_date | date : 'MM/dd/yyyy'}} at {{element.last_updated_date | date : 'hh:mm aa'}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle($event) : null"
+                        [checked]="selection.hasValue() && isAllSelected()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
+            <!-- <ng-container matColumnDef="checkboxAll">
+                <mat-header-cell *matHeaderCellDef class="header-title col-lg-1 col-md-1 checkbox-header-cell"><input
+                        class="checkboxHead formselectCheckbox" type="checkbox"></mat-header-cell>
+                <mat-cell *matCellDef="let element"
+                    class="table-data checkbox-cell col-lg-1 col-md-1 checkboxchildhead">
+                    <input type="checkbox" class="checkboxchild formselectCheckbox"
+                        (change)="toggleVisibilityImport($event,element.form_id)">
+                </mat-cell>
+            </ng-container> -->
+
+
+            <!-- <ng-container matColumnDef="checkboxAll">
+                <mat-header-cell *matHeaderCellDef class="header-title col-lg-1 col-md-1 checkbox-header-cell"><input
+                        class="checkboxHead formselectCheckbox" type="checkbox" [checked]="isAllChecked()"
+                        (change)="checkAll($event)"></mat-header-cell>
+                <mat-cell *matCellDef="let element"
+                    class="table-data checkbox-cell col-lg-1 col-md-1 checkboxchildhead">
+                    <input type="checkbox" class="checkboxchild formselectCheckbox"
+                        (change)="toggleVisibilityImport($event,element.form_id)" value="{{element.form_id}}"
+                        [(ngModel)]="element.state">
+                </mat-cell>
+            </ng-container> -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns" class="header-row"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns" class="table-data-row"></mat-row>
+        </mat-table>
+    </div>
+    <!-- <div class="addToolbar">
+        <img src="assets/images/P3_AddProject_bg.png" style="pointer-events: none;" class="plus-img" alt="plusMark"
+            (click)="addFormProject()" />
+    </div> -->
+    <!-- <div class="img-partspin" *ngIf="slider">
+        <img src="assets/images/spin.gif" alt="..." />
+    </div> -->
+    <!-- <div *ngIf="FormList" class="col-lg-2 col-md-3 import-part">
+        <button class="btn btn-block btn-import" [disabled]="btnDisabled" (click)="importFormsAuc()">Import</button>
+    </div> -->
+
+    <!-- <div class="row col-xl-12 col-md-12 n">
+        <div class="col-xl-2 col-md-2"></div>
+      <div *ngIf="FormList" class="col-lg-4 col-md-4  d-flex justify-content-start" style="padding-bottom: 30px">
+        <button class="btn  btn-import" [disabled]="btnDisabled"  (click)="importFormsAuc()">
+          Import
+        </button>
+      </div>
+      <div class="col-xl-4 col-md-4  justify-content-start" style="padding-bottom: 30px">
+        <button class="btn  btn-import" (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+      <div class="col-xl-2 col-md-2"></div>
+    </div> -->
+
+    <div class="row buttons-head hv-center n">
+        <div class="col-lg-12 button-col hv-center">
+          <div class="cancel-part hv-center">
+            <button class="btn  btn-import" (click)="cancel()">
+              Cancel
+            </button>
+          </div>
+          <div class="import-part hv-center">
+            <button class="btn btn-import" [disabled]="btnDisabled" (click)="importFormsAuc()">
+              Import
+            </button>
+          </div>
+        </div>
+      </div>
+
+</div>
+<div *ngIf="slider" class="image_part">
+    <img src="assets/images/spin.gif" width="300px" alt="..." />
+</div>

@@ -1,0 +1,1370 @@
+<article class="docs-article" id="section-8">
+	<header class="docs-header">
+		<h1 class="docs-heading">8.0 Annotations
+			<span class="docs-time">Last updated:{{lastModifiedDate}}</span>
+		</h1>
+		<section class="docs-intro">
+			<p>Annotations allow users to add markups to a document. Subsequently, users can link document pages to annotations or record data such as form entries and photos. Users can also add new annotation icons that have been created within a document to an existing or new toolbar.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Document','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/annotating.png')">
+				<a  data-title="Project Document" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/annotating.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Document</figcaption>
+			</figure>
+			
+			<!-- <ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-1" scrollTo scrollTargetSelector="#item-8-1" (click)="activeVistionSend('section-8','item-8-1')">Toolbar Title Button</a> – Displays the title of the selected toolbar. Tap to switch to a different toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-2" scrollTo scrollTargetSelector="#item-8-2" (click)="activeVistionSend('section-8','item-8-2')">Toolbar</a> – List of annotations for the selected toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-3" scrollTo scrollTargetSelector="#item-8-3" (click)="activeVistionSend('section-8','item-8-3')">Move Toolbar</a> - Hold on the double line and then drag and drop the toolbar onto the top, bottom or right side of the screen.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-4" scrollTo scrollTargetSelector="#item-8-4" (click)="activeVistionSend('section-8','item-8-4')">Data Panel Size Adjuster</a> – Adjusts the size of the data panel by dragging. </li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-7" scrollTo scrollTargetSelector="#item-8-7" (click)="activeVistionSend('section-8','item-8-7')">Forms Tab</a> – Data Panel tab that displays forms and form data related to the selected annotation.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8" scrollTo scrollTargetSelector="#item-8-8" (click)="activeVistionSend('section-8','item-8-8')">Media Tab</a> – Data Panel tab that displays photos and stubs related to the selected annotation.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-9" scrollTo scrollTargetSelector="#item-8-9" (click)="activeVistionSend('section-8','item-8-9')">Links Tab</a> – Data Panel tab that displays linked documents and URLs related to the selected annotation.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-10" scrollTo scrollTargetSelector="#item-8-10" (click)="activeVistionSend('section-8','item-8-10')">Tags Tab</a> - Data Panel tab that displays the tags assigned to an annotation and allows for the adding and removing of tags.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-11" scrollTo scrollTargetSelector="#item-8-11" (click)="activeVistionSend('section-8','item-8-11')">Properties Tab</a> - Data Panel tab that displays and allows users to modify the annotation properties.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-12" scrollTo scrollTargetSelector="#item-8-12" (click)="activeVistionSend('section-8','item-8-12')">Page Navigation</a> - Navigate through the various pages within a document.</li>
+			</ol> -->
+			<ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-1" scrollTo scrollTargetSelector="#item-8-1" >Toolbar Title Button</a> – Displays the title of the selected toolbar. Tap to switch to a different toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-2" scrollTo scrollTargetSelector="#item-8-2" >Toolbar</a> – List of annotations for the selected toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-3" scrollTo scrollTargetSelector="#item-8-3" >Move Toolbar</a> - Hold on the double line and then drag and drop the toolbar onto the top, bottom or right side of the screen.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-4" scrollTo scrollTargetSelector="#item-8-4" >Data Panel Size Adjuster</a> – Adjusts the size of the data panel by dragging. </li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-7" scrollTo scrollTargetSelector="#item-8-7" >Forms Tab</a> – Data Panel tab that displays forms and form data related to the selected annotation.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8" scrollTo scrollTargetSelector="#item-8-8" >Media Tab</a> – Data Panel tab that displays photos and stubs related to the selected annotation.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-9" scrollTo scrollTargetSelector="#item-8-9" >Links Tab</a> – Data Panel tab that displays linked documents and URLs related to the selected annotation.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-10" scrollTo scrollTargetSelector="#item-8-10">Tags Tab</a> - Data Panel tab that displays the tags assigned to an annotation and allows for the adding and removing of tags.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-11" scrollTo scrollTargetSelector="#item-8-11">Properties Tab</a> - Data Panel tab that displays and allows users to modify the annotation properties.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-12" scrollTo scrollTargetSelector="#item-8-12">Page Navigation</a> - Navigate through the various pages within a document.</li>
+			</ol>
+					
+		</section><!--//docs-intro-->
+		<section class="docs-section" id="item-8-1">
+			<h2 class="section-heading">8.1 Toolbar Title Button</h2>
+			<p>The toolbar title button displays the title of the current / selected toolbar. Projects can have as many toolbars as required, and the display on the button will indicate which one is currently being used.</p>
+			
+			<p>As users begin annotating documents, they can switch toolbars at any time by tapping on the button.  This will bring up a dynamic list of other toolbars in the project, along with several action buttons.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Switching Toolbars','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/switch-toolbar.png')">
+				<a  data-title="Switching Toolbars" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/switch-toolbar.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Switching Toolbars</figcaption>
+			</figure>
+			
+			<ol>
+				<li><b>Select any of the rows</b> in the list in order to switch toolbars.</li>
+				<li><b>Click the Edit link</b> in order to open the <a class="anchorStyle" href="/p3/userguide/chapter-6?id=section-6&target=section-6" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','section-6')">Toolbar Builder</a> in order to make edits.</li>
+			</ol>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>The checkmark indicates the currently selected Toolbar.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-2">
+			<h2 class="section-heading">8.2 Toolbar</h2>
+			<p>Toolbars are discussed in detail in <a class="anchorStyle" href="/p3/userguide/chapter-6?id=section-6&target=section-6" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','section-6')">Chapter 6 - Toolbar Builder</a>. Projects can create as many toolbars as required.</p>
+			
+			<p>When you first open a document, the last used Toolbar will appear. Each toolbar contains 0 or more annotation icons, which are thumbnail representations of what the annotation will look like when placed upon a page.</p>
+			
+			<p>Toolbars are discussed in detail throughout the application documentation, including how to modify the toolbar annotations, hiding and showing the annotation names, etc.</p>
+			
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-3">
+			<h2 class="section-heading">8.3 Move Toolbar</h2>
+			<p>Toolbars can be placed in 3 areas within the documents user interface depending on each user's personal preference.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Moving the Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/move-toolbar.png')">
+		<a  data-title="Moving the Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/move-toolbar.png" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Moving the Toolbar</figcaption>
+		</figure>
+			
+			<p>In order to move the toolbar, hold on the triple line at the end of the toolbar and then drag and drop the toolbar. As you start to move the toolbar, three areas will appear in gray, indicating locations where you can drop the toolbar.</p>
+			
+			<ul>
+				<li>On the <b>top</b> of the current document.</li>
+				<li>To the <b>right</b> of the current document.</li>
+				<li>On the <b>bottom</b> of the current document.</li>
+			</ul>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-4">
+			<h2 class="section-heading">8.4 Resize Data Panel</h2>
+			<p>The data panel anchored to the left of the document user interface can be resized in order to minimize or maximize real estate on the document.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Moving the Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-data-panel.gif')">
+		<a  data-title="Moving the Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-data-panel.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Moving the Toolbar</figcaption>
+		</figure>
+			
+			<p>In order to resize the data panel, hold on the double line in the top right corner of the data panel, and then drag and drop the data panel. As you start to move the data panel, the document will adjust accordingly.</p>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-5">
+			<h2 class="section-heading">8.5 Placing Annotations on Documents</h2>
+			<p>Annotations can be placed onto a document by tapping on the desired annotation and then tapping on the location on the document where you wish to place the annotation. Depending on the type of annotation, additional steps may be required.</p>
+				
+			<p>The following sections discussion how to place each type of annotation onto a document page.</p>
+		
+			<!-- <ul>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-1" scrollTo scrollTargetSelector="#item-8-5-1" (click)="activeVistionSend('section-8','item-8-5-1')">Simple Shapes</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-2" scrollTo scrollTargetSelector="#item-8-5-2" (click)="activeVistionSend('section-8','item-8-5-2')">Text</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-3" scrollTo scrollTargetSelector="#item-8-5-3" (click)="activeVistionSend('section-8','item-8-5-3')">Freehand</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-4" scrollTo scrollTargetSelector="#item-8-5-4" (click)="activeVistionSend('section-8','item-8-5-4')">Polyline / Polygon</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-5" scrollTo scrollTargetSelector="#item-8-5-5" (click)="activeVistionSend('section-8','item-8-5-5')">Drawn Shapes</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-6" scrollTo scrollTargetSelector="#item-8-5-6" (click)="activeVistionSend('section-8','item-8-5-6')">Lines</a></li>
+			</ul> -->
+			<ul>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-1" scrollTo scrollTargetSelector="#item-8-5-1" >Simple Shapes</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-2" scrollTo scrollTargetSelector="#item-8-5-2" >Text</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-3" scrollTo scrollTargetSelector="#item-8-5-3" >Freehand</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-4" scrollTo scrollTargetSelector="#item-8-5-4" >Polyline / Polygon</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-5" scrollTo scrollTargetSelector="#item-8-5-5" >Drawn Shapes</a></li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-5-6" scrollTo scrollTargetSelector="#item-8-5-6" >Lines</a></li>
+			</ul>
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-5-1">
+			<h2 class="section-heading">8.5.1 Placing Simple Annotations</h2>
+			<p><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','item-6-4')">Simple Annotations</a> can be placed onto any document page by simply tapping on the shape on the toolbar and then tapping at the desired location on the page.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Simple Shape Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-simple-shapes.gif')">
+		<a  data-title="Add Simple Shape Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-simple-shapes.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Add Simple Shape Annotations</figcaption>
+		</figure>
+			
+			<ul>
+				<li><b>Tap on the annotation shape</b> on the toolbar.</li>
+				<li><b>Tap on the location</b> on the document page where the annotation shape is to be placed.</li>
+			</ul>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-5-2">
+			<h2 class="section-heading">8.5.2 Placing Text Annotations</h2>
+			<p><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','item-6-4')">Text Annotations</a> can be placed onto any document page by simply tapping on the shape on the toolbar and then tapping at the desired location on the page. Once placed onto the document, a window opens to allow users to type whatever text they desire.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Text Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-text-shapes.gif')">
+		<a  data-title="Add Text Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-text-shapes.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Add Text Annotations</figcaption>
+		</figure>
+		
+			<ul>
+				<li><b>Tap on the annotation shape</b> on the toolbar.</li>
+				<li><b>Tap on the location</b> on the document page where the annotation shape is to be placed.</li>
+				<li><b>Enter the desired text</b> to appear inside the text annotation.</li>
+			</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-5-3">
+			<h2 class="section-heading">8.5.3 Placing Freehand Annotations</h2>
+			<p><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','item-6-4')">Freehand Annotations</a> allow users to draw freely on a document, saving the drawing&#40;s&#41; as a single annotation or multiple annotations.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Freehand Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-freehand-shapes.gif')">
+				<a  data-title="Add Freehand Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-freehand-shapes.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add Freehand Annotations</figcaption>
+				</figure>
+		
+			<ul>
+				<li><b>Tap on the annotation shape</b> on the toolbar.</li>
+				<li><b>Tap on the location</b> on the document page where the annotation shape will be started.</li>
+				<li><b>Draw the desired shape&#40;s&#41;</b>.</li>
+				<li>Determine if the drawing&#40;s&#41; should be <b>saved as one shape or many shapes</b>.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>At any time you can select Undo in order to undo the last action&#40;s&#41; or the Cancel button to discard your drawings.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-5-4">
+			<h2 class="section-heading">8.5.4 Placing Polyline / Polygon Annotations</h2>
+			<p><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','item-6-4')">Polyline and Polygon Annotations</a> allow users to place simple line segments onto a document.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Polyline / Polygon Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-poly-shapes.gif')">
+				<a data-title="Add Polyline / Polygon Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-poly-shapes.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add Polyline / Polygon Annotations</figcaption>
+				</figure>
+		
+			<ul>
+				<li><b>Tap on the annotation shape</b> on the toolbar.</li>
+				<li><b>Tap on the location</b> on the document page where the annotation shape will be started.</li>
+				<li><b>Continue to tap</b> on the document page to place points that will form a line segment.</li>
+				<li>Select <b>Done</b> to save the annotation.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>At any time you can select Undo in order to undo the last action&#40;s&#41; or the Cancel button to discard your drawings.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-5-5">
+			<h2 class="section-heading">8.5.5 Placing Drawn Shape Annotations</h2>
+			<p><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','item-6-4')">Drawn Shape Annotations</a> allow users to place a pre-defined shape drawn onto a document using a dragging motion to determine the size.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Drawn Shape Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-drawn-shapes.gif')">
+		<a  data-title="Add Drawn Shape Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-drawn-shapes.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Add Drawn Shape Annotations</figcaption>
+		</figure>
+		
+			<ul>
+				<li><b>Tap on the annotation shape</b> on the toolbar.</li>
+				<li><b>Tap on the location</b> on the document page where the annotation shape will be started.</li>
+				<li><b>Drag</b> until you have achieved the desired shape and size.</li>
+			</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-5-6">
+			<h2 class="section-heading">8.5.6 Placing Line Annotations</h2>
+			<p><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','item-6-4')">Line Annotations</a> allow users to place simple line segments onto a document.</p>
+				
+			
+<figure class="figure docs-figure py-3" (click)="openImage('Add Line Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-line-shapes.gif')">
+	<a data-title="Add Line Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-line-shapes.gif" loading="lazy" alt="" style="width: 600px;"></a>
+	<figcaption class="figure-caption mt-3">Add Line Annotations</figcaption>
+	</figure>
+		
+			<ul>
+				<li><b>Tap on the annotation shape</b> on the toolbar.</li>
+				<li><b>Tap on the location</b> on the document page where the annotation shape will be started.</li>
+				<li><b>Drag</b> until you have achieved the desired shape and size.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>You may continue drawing lines until you are satisfied with the annotation drawing, and then select OK to save.  You can also the Cancel button to discard your drawing.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6">
+			<h2 class="section-heading">8.6 Annotation Options</h2>
+			<p>Once an annotation has been placed on a page, there are a number of options users have to take action on the shape itself.</p>
+				
+			
+<figure class="figure docs-figure py-3" (click)="openImage('Annotation Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/annotation-options.png')">
+	<a  data-title="Annotation Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/annotation-options.png" loading="lazy" alt="" style="width: 600px;"></a>
+	<figcaption class="figure-caption mt-3">Annotation Options</figcaption>
+	</figure>
+			
+			<!-- <ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-1" scrollTo scrollTargetSelector="#item-8-6-1" (click)="activeVistionSend('section-8','item-8-6-1')">Delete</a> – Delete the selected annotation&#40;s&#41;.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-2" scrollTo scrollTargetSelector="#item-8-6-2" (click)="activeVistionSend('section-8','item-8-6-2')">Copy With Data</a> – Copy the selected annotation&#40;s&#41; with Form data, Link data, Tag data and Properties preserved.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-3" scrollTo scrollTargetSelector="#item-8-6-3" (click)="activeVistionSend('section-8','item-8-6-3')">Copy Without Data</a> - Copy the selected annotation&#40;s&#41; without Form data, Link data or Tag data.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-4" scrollTo scrollTargetSelector="#item-8-6-4" (click)="activeVistionSend('section-8','item-8-6-4')">Move to Layer</a> – Move the selected annotation&#40;s&#41; to another Layer within the document. </li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-5" scrollTo scrollTargetSelector="#item-8-6-5" (click)="activeVistionSend('section-8','item-8-6-5')">Use as Toolbar</a> – Create a new toolbar using the selected annotation&#40;s&#41; .</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-6" scrollTo scrollTargetSelector="#item-8-6-6" (click)="activeVistionSend('section-8','item-8-6-6')">Add to Toolbar With Data</a> – Add the selected annotation&#40;s&#41; with Form data, Link data, Tag data and Properties preserved to an existing Toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-7" scrollTo scrollTargetSelector="#item-8-6-7" (click)="activeVistionSend('section-8','item-8-6-7')">Add to Toolbar Without Data</a> – Add the selected annotation&#40;s&#41; without Form data, Link data or Tag data to an existing Toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-8" scrollTo scrollTargetSelector="#item-8-6-8" (click)="activeVistionSend('section-8','item-8-6-8')">Add to Toolbar Without Data</a> – Add the selected annotation&#40;s&#41; without Form data, Link data or Tag data to an existing Toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-9" scrollTo scrollTargetSelector="#item-8-6-9" (click)="activeVistionSend('section-8','item-8-6-9')">Resize and Rotate</a> - Resize, repoint and / or rotate the selected annotation&#40;s&#41;.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-10" scrollTo scrollTargetSelector="#item-8-6-10" (click)="activeVistionSend('section-8','item-8-6-10')">Set as Base Icon Size</a> - Establish a size that all new simple shape annotation icons will be set to when added to the document.</li>
+			</ol> -->
+			<ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-1" scrollTo scrollTargetSelector="#item-8-6-1">Delete</a> – Delete the selected annotation&#40;s&#41;.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-2" scrollTo scrollTargetSelector="#item-8-6-2">Copy With Data</a> – Copy the selected annotation&#40;s&#41; with Form data, Link data, Tag data and Properties preserved.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-3" scrollTo scrollTargetSelector="#item-8-6-3" >Copy Without Data</a> - Copy the selected annotation&#40;s&#41; without Form data, Link data or Tag data.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-4" scrollTo scrollTargetSelector="#item-8-6-4">Move to Layer</a> – Move the selected annotation&#40;s&#41; to another Layer within the document. </li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-5" scrollTo scrollTargetSelector="#item-8-6-5">Use as Toolbar</a> – Create a new toolbar using the selected annotation&#40;s&#41; .</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-6" scrollTo scrollTargetSelector="#item-8-6-6" >Add to Toolbar With Data</a> – Add the selected annotation&#40;s&#41; with Form data, Link data, Tag data and Properties preserved to an existing Toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-7" scrollTo scrollTargetSelector="#item-8-6-7" >Add to Toolbar Without Data</a> – Add the selected annotation&#40;s&#41; without Form data, Link data or Tag data to an existing Toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-8" scrollTo scrollTargetSelector="#item-8-6-8" >Add to Toolbar Without Data</a> – Add the selected annotation&#40;s&#41; without Form data, Link data or Tag data to an existing Toolbar.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-9" scrollTo scrollTargetSelector="#item-8-6-9">Resize and Rotate</a> - Resize, repoint and / or rotate the selected annotation&#40;s&#41;.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-6-10" scrollTo scrollTargetSelector="#item-8-6-10">Set as Base Icon Size</a> - Establish a size that all new simple shape annotation icons will be set to when added to the document.</li>
+			</ol>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, many of the above actions can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-1">
+			<h2 class="section-heading">8.6.1 Delete Annotations</h2>
+			<p>Once an annotation has been placed on a page, it can be deleted at any time if it is no longer desired.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Delete An Annotation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/delete-annotation.png')">
+				<a  data-title="Delete An Annotation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/delete-annotation.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Delete An Annotation</figcaption>
+				</figure>
+			
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to delete.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Delete Annotation</b>.</li>
+				<li><b>Select Confirm</b> at the confirmation screen that appears.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-2">
+			<h2 class="section-heading">8.6.2 Copy With Data</h2>
+			<p>Each annotation can be associated with one or more forms, images, links, tags and properties. It is often desired to make a copy of an annotation in order to place it somewhere else on the page or on another page within the same document. Copy With Data is one of the two ways to achieve this.</p>
+			
+			<p>Copy With Data makes a copy of the selected annotation&#40;s&#41; <b>including</b> the associated forms, links, tags and properties. This copy can then be placed onto the document pages as many times as required.</p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>Images are unique to the specific location of an annotation and therefore are not replicated when a Copy With Data action is performed.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Copy an Annotation With Data','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/copy-with-data.gif')">
+		<a data-title="Copy an Annotation With Data" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/copy-with-data.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Copy an Annotation With Data</figcaption>
+		</figure>
+		
+			
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to copy.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Copy With Data</b>.</li>
+				<li><b>Select the annotation copy</b> from the toolbar, which has been placed on top of whatever the current toolbar is.</li>
+				<li><b>Tap</b> to place a copy of the annotation onto the document.</li>
+				<li><b>Repeat</b> as desired, switching pages if necessary.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-3">
+			<h2 class="section-heading">8.6.3 Copy Without Data</h2>
+			<p>Each annotation can be associated with one or more forms, images, links, tags and properties. It is often desired to make a copy of an annotation in order to place it somewhere else on the page or on another page within the same document. Copy Without Data is one of the two ways to achieve this.</p>
+			
+			<p>Copy Without Data makes a copy of the selected annotation&#40;s&#41; including the properties but <b>excluding</b> the associated forms, links, tags and images. This copy can then be placed onto the document pages as many times as required.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Copy an Annotation Without Data','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/copy-without-data.gif')">
+		<a  data-title="Copy an Annotation Without Data" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/copy-without-data.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Copy an Annotation Without Data</figcaption>
+		</figure>
+			
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to copy.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Copy With Data</b>.</li>
+				<li><b>Select the annotation copy</b> from the toolbar, which has been placed on top of whatever the current toolbar is.</li>
+				<li><b>Tap</b> to place a copy of the annotation onto the document.</li>
+				<li><b>Repeat</b> as desired, switching pages if necessary.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-4">
+			<h2 class="section-heading">8.6.4 Move Annotation to a Different Layer</h2>
+			<p><a class="anchorStyle" href="/p3/userguide/chapter-7?id=section-7&target=item-7-8" (click)="goPickedchapterSidebar($event,'chapter-7','section-7','item-7-8')">Layers</a> provide a way to organize annotations, and as new annotations are placed onto a document, they will be placed onto the current layer. They can be moved at any time to a different layer if desired.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Move Annotation to a Different Layer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/move-layer.gif')">
+				<a  data-title="Move Annotation to a Different Layer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/move-layer.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Move Annotation to a Different Layer</figcaption>
+				</figure>
+			
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to move.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Move to Layer</b>.</li>
+				<li><b>Select the target layer</b> where the annotation will be placed.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-5">
+			<h2 class="section-heading">8.6.5 Use Annotation As a New Toolbar</h2>
+			<p>In the event an annotation will be used frequently, it can be added to a toolbar. There are several ways to do this, including the Use as Toolbar option.  This option differs from the others in that it also creates a new toolbar as part of the process.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Use Annotation As a New Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/use-as-toolbar.gif')">
+				<a data-title="Use Annotation As a New Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/use-as-toolbar.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Use Annotation As a New Toolbar</figcaption>
+				</figure>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>The annotation placed onto the new toolbar will maintain the shape and properties, however it will not retain the form, media, link or tag data.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to copy.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Use as Toolbar</b>.</li>
+				<li><b>Provide a name</b> for the new toolbar.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-6">
+			<h2 class="section-heading">8.6.6 Add to Toolbar With Data</h2>
+			<p>In the event an annotation will be used frequently, it can be added to a toolbar. There are several ways to do this, including the Add to Toolbar With Data option.  This option adds the selected annotation&#40;s&#41; <b>including</b> the associated forms, links, tags and properties to any existing toolbar.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Add to Toolbar With Data','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-with-data.gif')">
+				<a data-title="Add to Toolbar With Data" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-with-data.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add to Toolbar With Data</figcaption>
+				</figure>
+				
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to add to an existing toolbar.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Add to Toolbar with Data</b>.</li>
+				<li><b>Select the target toolbar</b> where the annotation&#40;s&#41; will be placed.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-7">
+			<h2 class="section-heading">8.6.7 Add to Toolbar Without Data</h2>
+			<p>In the event an annotation will be used frequently, it can be added to a toolbar. There are several ways to do this, including the Add to Toolbar With Data option.  This option adds the selected annotation&#40;s&#41; including properties and <b>excluding</b> the associated forms, links, tags and properties to any existing toolbar.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Add to Toolbar Without Data','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-without-data.gif')">
+				<a  data-title="Add to Toolbar Without Data" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-without-data.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add to Toolbar Without Data</figcaption>
+				</figure>
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to add to an existing toolbar.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Add to Toolbar Without Data</b>.</li>
+				<li><b>Select the target toolbar</b> where the annotation&#40;s&#41; will be placed.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-8">
+			<h2 class="section-heading">8.6.8 Add to Toolbar as Template</h2>
+			<p>In the event an annotation will be used frequently, it can be added to a toolbar. There are several ways to do this, including the Add to Toolbar as Template option.  This option adds the selected annotation&#40;s&#41; <b>including</b> the associated forms, links, tags and properties to any existing toolbar. The shape of the object, however, is set to the default shape rather than any drawn shape that may have been created.</p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>This option differs from the Add to Toolbar with Data when it comes to drawn shapes or shapes created with points. Simple shapes will work the same as the Add to Toolbar With Data.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+				
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add to Toolbar as Template','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-with-data.gif')">
+				<a  data-title="Add to Toolbar as Template" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-with-data.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add to Toolbar as Template</figcaption>
+				</figure>
+				
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to add to an existing toolbar.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Add to Toolbar as Template</b>.</li>
+				<li><b>Select the target toolbar</b> where the annotation&#40;s&#41; will be placed.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-9">
+			<h2 class="section-heading">8.6.9 Resize and Rotate</h2>
+			<p>Annotations come in all sorts of shapes and sizes, and once placed on a page, users may want to modify these even further. Depending on the type of annotation icon selected, a variety of actions can be taken.</p>
+			
+			<p><b>Simple Shapes</b></p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Resize and Rotate - Simple Shapes','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-simple-shapes.gif')">
+				<a  data-title="Resize and Rotate - Simple Shapes" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-simple-shapes.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Resize and Rotate - Simple Shapes</figcaption>
+				</figure>
+			
+			<p><b>Text</b></p>
+			
+		
+			<figure class="figure docs-figure py-3" (click)="openImage('Resize and Rotate - Text','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-text.gif')">
+				<a  data-title="Resize and Rotate - Text" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-text.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Resize and Rotate - Text</figcaption>
+				</figure>
+			
+			<p><b>Freehand</b></p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Resize and Rotate - Freehand','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-freehand.gif')">
+				<a  data-title="Resize and Rotate - Freehand" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-freehand.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Resize and Rotate - Freehand</figcaption>
+				</figure>
+			
+			<p><b>Polyline / Polygon</b></p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Resize and Rotate - Polyline / Polygon','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-poly.gif')">
+				<a  data-title="Resize and Rotate - Polyline / Polygon" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-poly.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Resize and Rotate - Polyline / Polygon</figcaption>
+				</figure>
+			
+			<p><b>Drawn Shapes</b></p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Resize and Rotate - Drawn Shapes','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-drawn.gif')">
+				<a  data-title="Resize and Rotate - Drawn Shapes" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-drawn.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Resize and Rotate - Drawn Shapes</figcaption>
+				</figure>
+			
+			<p><b>Lines</b></p>
+					
+			<figure class="figure docs-figure py-3" (click)="openImage('Resize and Rotate - Lines','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-lines.gif')">
+				<a data-title="Resize and Rotate - Lines" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/resize-and-rotate-lines.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Resize and Rotate - Lines</figcaption>
+				</figure>
+				
+			<ul>
+				<li><b>Select the annotation&#40;s&#41;</b> to add to an existing toolbar.</li>
+				<li><b>Long tap</b> to bring up the additional options menu.</li>
+				<li><b>Select Add to Toolbar with Data</b>.</li>
+				<li><b>Select the target toolbar</b> where the annotation&#40;s&#41; will be placed.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>As multiple annotations can be selected at one time, the above action can be performed on several annotations at once.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-6-10">
+			<h2 class="section-heading">8.6.10 Set a Base Annotation Icon Size</h2>
+			<p>Simple shape annotation icons are placed onto a document at the same general size, and this size can be made bigger or smaller through setting a base icon size.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Set a Base Annotation Icon Size','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/base-size.gif')">
+				<a  data-title="Set a Base Annotation Icon Size" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/base-size.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Set a Base Annotation Icon Size</figcaption>
+				</figure>
+				
+			<ul>
+				<li>Select the annotation that has the desired base icon size.</li>
+				<li>Long tap to bring up the additional options menu.</li>
+				<li>Select Set as Base Icon Size.</li>
+				<li>Select whether to apply this to the current page, selected pages in the document, or all pages in the document.</li>
+			</ul>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>Setting a base icon size will only impact new annotation icons that are added to the page, and does not retroactively adjust any existing annotation icon sizes.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-7">
+			<h2 class="section-heading">8.7 Forms Tab</h2>
+			<p>The forms tab resides on the data panel and is used to populate information on an annotation or multiple annotations at a time. This area only becomes active when one or more annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Form Tab With No Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-no-icon-selected.png')">
+				<a  data-title="Form Tab With No Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-no-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Form Tab With No Annotations Selected</figcaption>
+				</figure>
+				
+			
+			<p>Once an annotation is selected, the default form for the document will display unless the annotation has been assigned a default icon. Learn more about setting a default form in the <a href="chapter-6.php#item-6-4-4">Default Form</a> section of <a href="chapter-6.php#section-6">Toolbar Builder</a>.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Form Tab With One Annotation Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-one-icon-selected.png')">
+				<a  data-title="Form Tab With One Annotation Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-one-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Form Tab With One Annotation Selected</figcaption>
+				</figure>
+				
+			
+			<p>If multiple annotations are selected, this will be indicated by an additional notation at the top of the data panel, indicating how many annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Form Tab With Multiple Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-multple-icons-selected.png')">
+				<a data-title="Form Tab With Multiple Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-multple-icons-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Form Tab With Multiple Annotations Selected</figcaption>
+				</figure>
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>When multiple annotations are selected, any information entered into a form or forms will be applied to all selected annotations. If any information previously exists for a form field in one of the selected annotations, it will be overwritten.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<p>If a project has more than one form, users can switch forms by tapping on the button labeled with the name of the current form.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Switch to a Different Form','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-switch-form.png')">
+				<a  data-title="Switch to a Different Form" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/forms-switch-form.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Switch to a Different Form</figcaption>
+				</figure>
+			
+			<ul>
+				<li>Select from the list of forms that appear on the popup to switch forms.</li>
+				<li>Select Edit to enter <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-3" (click)="goPickedchapterSidebar($event,'chapter-5','section-5','item-5-3')">Form Designer</a>, where you can modify the form if desired.</li>
+				<li>Select the i icon to detach the form from the annotation icon.</li>
+				
+				<div class="callout-block callout-block-warning">
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-bullhorn"></i>
+							</span><!--//icon-holder-->
+							Warning
+						</h4>
+						<p>If you detach a form from an annotation, all form values will be reset if you decide to use the detached form again with the annotation.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+			
+				<li>The checkmark indicates which form is set as the default / current form for the annotation.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>A badge icon will appear on top of the form tab icon at the bottom of the data panel when one or more forms have been populated for the selected annotation(s).</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-8">
+			<h2 class="section-heading">8.8 Media Tab</h2>
+			<p>The media tab resides on the data panel and is used to populate information on an annotation or multiple annotations at a time. This area only becomes active when one or more annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Media Tab With No Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/media-no-icon-selected-marked-up.png')">
+				<a  data-title="Media Tab With No Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/media-no-icon-selected-marked-up.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Media Tab With No Annotations Selected</figcaption>
+				</figure>
+				
+			
+			<!-- <ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-1" scrollTo scrollTargetSelector="#item-8-8-1" (click)="activeVistionSend('section-8','item-8-8-1')">Tapping the camera icon</a> allows users to add an image to the selected annotation(s) by using their iPad camera.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-2" scrollTo scrollTargetSelector="#item-8-8-2" (click)="activeVistionSend('section-8','item-8-8-2')">Tapping the camera roll icon</a> allows users to add one or more images to the selected annotation(s) from their iPad's camera roll.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-3" scrollTo scrollTargetSelector="#item-8-8-3" (click)="activeVistionSend('section-8','item-8-8-3')">Tapping the cloud drive icon</a> allows users to add one or more images to the selected annotation(s) from their iPad's local storage or any cloud drive (i.e. Dropbox, OneDrive, GoogleDrive) that has been configured on the iPad.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-4" scrollTo scrollTargetSelector="#item-8-8-4" (click)="activeVistionSend('section-8','item-8-8-4')">Tapping the stub photo icon</a> allows users to add one or more placeholder images to the selected annotation(s). These placeholders can later be reconciled when images with the exact same name are imported into the project using the Plannotate Web Client interface.</li>
+			</ol> -->
+			<ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-1" scrollTo scrollTargetSelector="#item-8-8-1" >Tapping the camera icon</a> allows users to add an image to the selected annotation(s) by using their iPad camera.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-2" scrollTo scrollTargetSelector="#item-8-8-2" >Tapping the camera roll icon</a> allows users to add one or more images to the selected annotation(s) from their iPad's camera roll.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-3" scrollTo scrollTargetSelector="#item-8-8-3" >Tapping the cloud drive icon</a> allows users to add one or more images to the selected annotation(s) from their iPad's local storage or any cloud drive (i.e. Dropbox, OneDrive, GoogleDrive) that has been configured on the iPad.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-4" scrollTo scrollTargetSelector="#item-8-8-4" >Tapping the stub photo icon</a> allows users to add one or more placeholder images to the selected annotation(s). These placeholders can later be reconciled when images with the exact same name are imported into the project using the Plannotate Web Client interface.</li>
+			</ol>
+
+			<figure class="figure docs-figure py-3" (click)="openImage('Media Tab With One Annotation Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/media-one-icon-selected.png')">
+				<a  data-title="Media Tab With One Annotation Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/media-one-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Media Tab With One Annotation Selected</figcaption>
+				</figure>
+			
+			<p>If multiple annotations are selected, this will be indicated by an additional notation at the top of the data panel, indicating how many annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Media Tab With Multiple Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/media-multple-icons-selected.png')">
+				<a  data-title="Media Tab With Multiple Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/media-multple-icons-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Media Tab With Multiple Annotations Selected</figcaption>
+				</figure>
+				
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>When multiple annotations are selected, any images added will be added to all selected annotations.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>A badge icon will appear on top of the Media tab icon at the bottom of the data panel when one or more images or stubs have been populated for the selected annotation(s).</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-8-1">
+			<h2 class="section-heading">8.8.1 Add From Camera</h2>
+			<p>Adding a photo taken with the same iPad that is running Plannotate is a simple way to add value to an annotation. When the camera icon is selected, the device camera will appear and allow you to take a picture.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Photo from Camera to Annotation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-from-camera.gif')">
+				<a  data-title="Add Photo from Camera to Annotation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-from-camera.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add Photo from Camera to Annotation</figcaption>
+				</figure>
+				
+			
+			<ul>
+				<li>From the Media tab, select the <b>camera icon</b>.</li>
+				<li><b>Orient the iPad</b> in order to focus on the desired image.</li>
+				<li><b>Tap the white circle</b> to capture the photo.</li>
+				<li><b>Select Use Photo</b> to save the photo to the annotation, or Retake if you would like to take the picture again.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>You can select Cancel to abort the process.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<p>If multiple annotations are selected, the photo will be added to all annotations.</p>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-8-2">
+			<h2 class="section-heading">8.8.2 Add From Camera Roll</h2>
+			<p>Users can add photos from their iPad's camera roll to any annotation as well. </p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Photo from Camera Roll to Annotation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-from-camera-roll.gif')">
+				<a  data-title="Add Photo from Camera Roll to Annotation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-from-camera-roll.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add Photo from Camera Roll to Annotation</figcaption>
+				</figure>
+			
+			<ul>
+				<li>From the Media tab, <b>select the camera roll icon</b>.</li>
+				<li><b>Select one or more photos</b> to add to the annotation. As you select each photo, the number next to the Done button will increment by 1.</li>
+				<li>Tap <b>Done</b> to save the photo to the annotation.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>You can select as many photos as you prefer at one time, and you can select Cancel to abort the process.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<p>If multiple annotations are selected, the photo(s) will be added to all annotations.</p>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-8-3">
+			<h2 class="section-heading">8.8.3 Add From Cloud Drive</h2>
+			<p>Users can add photos from their iPad's internal drive or from any cloud drive that has been configured on their iPad, such as Microsoft OneDrive, Google Drive, Dropbox, etc. </p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Photo from a Cloud Drive','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-from-cloud.gif')">
+				<a  data-title="Add Photo from a Cloud Drive" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/add-from-cloud.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add Photo from a Cloud Drive</figcaption>
+				</figure>
+				
+			
+			<ul>
+				<li>From the Media tab, <b>select the cloud drive icon</b>.</li>
+				<li><b>Navigate to the desired location</b> on your device or on a connected cloud drive.</li>
+				<li><b>Select the desired image</b> to save the photo to the annotation.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>You can select Cancel to abort the process.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<p>If multiple annotations are selected, the photo(s) will be added to all annotations.</p>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-8-4">
+			<h2 class="section-heading">8.8.4 Add Stub Photo</h2>
+			<p>Often times it is desirable to use a separate camera to take annotation photos. When this is preferable, users require a way to add the photos to their project and associate them with the desired annotation.  Rather than having to go back to the project, locate the annotation, and then add the photo(s) after the work is complete and the images have been taken off of the camera, users can create stub photos. Stub photos are placeholders that enable you to save the exact name of the photo that will be added to the project at a later date.</p>
+			
+			<p>Stub Photos are reconciled by matching the exact name &#40;case sensitive&#41; of an image later uploaded to a project to the name that was given to a stub photo when added to an annotation.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Stub Photo Setup','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/stub-photo.png')">
+				<a  data-title="Stub Photo Setup" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/stub-photo.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Stub Photo Setup</figcaption>
+				</figure>
+				
+			
+			<ol>
+				<li><b>Use Name / Date as Prefix</b> - If this option is selected, the name of the photo prefix will change to the user's email address used to log in (prior to the &#64;domain), an &quot;_&quot;, the current date in the format yyyymmyy, an &quot;_&quot;, the photo number, and &quot;.jpg&quot;.  For example, &quot;jdoe_20210115_0001.jpg&quot;.</li>
+				<li><b>Set Prefix</b> - As an alternative to using Name / Date a a prefix, users can specify their own desired prefix. Often time digital cameras use a prefix of &quot;IMG_&quot;.</li>
+				<li><b>Set Number</b> - This will be the first photo number used when creating the stub file, and will be incremented by 1 for each additional stub photo desired.</li>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>Plannotate retains the last photo number used when creating stub files so as additional stub photos are created, they will not conflict in numbering with ones that were previously added.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<li><b>Number of Stubs</b> - By default, 5 stub photo names will be generated.  This number can be increased or decreased as desired.</li>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>Regardless of the number of stubs created and displayed to the right, no stub photos will be saved unless they are selected by tapping on the checkbox to the right of the names.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<li><b>Number</b> - Users can increase or decrease the photo number by selecting the - or + buttons.  This is an alternative to typing in a new number in the Set Number field.</li>
+				<li><b>Stubs</b> - Users can increase number of stub names created by selecting the +1 through +5 buttons.  This is an alternative to typing in a new number in the Number of Stubs field.</li>
+				<li>Stub file names are created and displayed based upon the actions taken in the steps above.  In order to add the Stub Photos to an annotation, you must <b>select one or more of the names</b> that appear in the list.</li>
+				<li>After selecting one or more stub file names, <b>select the Add button</b> to add the stub photo placeholders to the annotation.</li>
+				<li>Select the <b>X</b> in the top right corner to exit without creating any stub photos.</li>
+			</ol>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Stub Photo Placeholders','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/stub-photos.gif')">
+				<a  data-title="Add Stub Photo Placeholders" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/stub-photos.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add Stub Photo Placeholders</figcaption>
+				</figure>
+			
+			<p>If multiple annotations are selected, the photo(s) will be added to all annotations.</p>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-8-4-1">
+			<h2 class="section-heading">8.8.4.1 Reconciling Stub Photo</h2>
+			<p>The process to reconcile stub photos involves matching the exact name of the stub file&#40;s&#41; with an image file of the same name. The images must be of type jpg &#40;Joint Photographic Group&#41;, with an extension of .jpg in lowercase. </p>
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>Reconciling stubs requires the file name and the stub name to match exactly, and is <b>case sensitive</b>.  A stub named IMG_0001.JPG will not be reconciled with a file named IMG_0001.jpg, as the file extensions do not match.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			
+			
+<figure class="figure docs-figure py-3" (click)="openImage('Stub Photo Reconcilation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/stub-reconciliation.gif')">
+	<a  data-title="Stub Photo Reconcilation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/stub-reconciliation.gif" loading="lazy" alt="" style="width: 600px;"></a>
+	<figcaption class="figure-caption mt-3">Stub Photo Reconcilation</figcaption>
+	</figure>
+	
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>When Plannotate is used on an iPad, all work is preformed offline until a synch with the Plannotate cloud takes place, either manually or on an automated schedule. If a stub photo is added to a project and the project is not subsequently synchronized, the Plannotate cloud will not know it exists and therefore will be unable to reconcile.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<ul>
+				<li>Once a stub file or files are added to a project, <b>synchronize</b> the project so that the Plannotate Cloud is aware that they exist.</li>
+				<li><b>Navigate to Plannnotate's web client</b> interface, log in and access the applicable project.</li>
+				<li>Select the <b>Reconcile Stub Photos icon</b> in the top right corner.</li>
+				<li><b>Drag and drop</b> the desired photo(s) to be reconciled, or select the cloud icon to enable selecting the file(s) from your computer.</li>
+				<li>Select the <b>Upload File</b> button when you have added all desired photos to be reconciled.</li>
+				<li>Perform a <b>sync </b>on the Plannotate iPad application in order to get the latest information from the Plannotate cloud, including the reconciled photos.</li>
+			</ul>
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>If any of the photos selected have a file extension other than .jpg, an error message will appear and the file will not be uploaded.  If multiple files are selected, those that match the .jpg file extension will be uploaded while those that do not will not.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-8-5">
+			<h2 class="section-heading">8.8.5 Annotation Photo Actions</h2>
+			<p>As photos are added to an annotation, users can perform several actions on the photo. </p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Annotation Photo Actions','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/photo-actions.png')">
+				<a  data-title="Annotation Photo Actions" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/photo-actions.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Annotation Photo Actions</figcaption>
+				</figure>
+			
+			<ol>
+				<li><b>Add comments</b> to the photo.</li>
+				<li><b>Manually Sync</b> the project - See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-3" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-2-3')">Tags</a> for more information.</li>
+				<li><b>Add tags</b> to the photo - See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-10" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-10')">Synchronization</a> for more information.</li>
+				<li><b>Export</b> the photo - Export the photo by saving it or sending it through any available application installed on the device.</li>
+				<li><b>Annotate</b> the photo - Mark up the photo as a new document.</li>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>When this option is selected, users are given the option to name the photo, which will then become a new document in the project. The new document will be opened and the user can annotate it as they can any other project document.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<li><b>Delete</b> the photo.</li>
+				<li>Scroll through the annotation photos by <b>tapping each individually</b> or by using a sliding motion to switch between photos.</li>
+				<li><b>Return</b> to the previous screen.</li>
+			</ol>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Annotation Photo Actions','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/photo-actions.gif')">
+				<a  data-title="Annotation Photo Actions" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/photo-actions.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Annotation Photo Actions</figcaption>
+				</figure>
+			
+			<p>In addition to the options available once a photo has been selected, a long hold on any photo will bring up additional options that can be performed.</p>
+			
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add Photo from Camera to Annotation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/photo-long-hold.png')">
+				<a  data-title="Add Photo from Camera to Annotation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/photo-long-hold.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add Photo from Camera to Annotation</figcaption>
+				</figure>
+			
+			<ol>
+				<li><b>Rename</b> the photo.</li>
+				<li><b>Add / Remove / Edit Tags</b> - See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-3" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-2-3')">Tags</a> for more information.</li>
+				<li><b>Add as New Document</b>.  See point number 5 above.</li>
+				<li><b>Delete</b> the photo.</li>
+				<li><b>Cancel</b> out of this screen.</li>
+			</ol>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-9">
+			<h2 class="section-heading">8.9 Links Tab</h2>
+			<p>The links tab resides on the data panel and is used to populate information on an annotation or multiple annotations at a time. This area only becomes active when one or more annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Links Tab With No Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/links-no-icon-selected.png')">
+				<a  data-title="Links Tab With No Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/links-no-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Links Tab With No Annotations Selected</figcaption>
+				</figure>
+			
+			<!-- <ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-9-1" scrollTo scrollTargetSelector="#item-8-9-1" (click)="activeVistionSend('section-8','item-8-9-1')">Tapping the document link icon</a> allows users to link the selected annotation to another document page within the project.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-9-2" scrollTo scrollTargetSelector="#item-8-9-2" (click)="activeVistionSend('section-8','item-8-9-2')">Tapping the URL link icon</a> allows users to link the selected annotation to any webpage, video, etc. that is accessible by a URL.</li>
+			</ol> -->
+
+			<ol>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-9-1" scrollTo scrollTargetSelector="#item-8-9-1">Tapping the document link icon</a> allows users to link the selected annotation to another document page within the project.</li>
+				<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-9-2" scrollTo scrollTargetSelector="#item-8-9-2">Tapping the URL link icon</a> allows users to link the selected annotation to any webpage, video, etc. that is accessible by a URL.</li>
+			</ol>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Links Tab With One Annotation Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/links-one-icon-selected.png')">
+				<a  data-title="Links Tab With One Annotation Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/links-one-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Links Tab With One Annotation Selected</figcaption>
+				</figure>
+			
+			<p>If multiple annotations are selected, this will be indicated by an additional notation at the top of the data panel, indicating how many annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Links Tab With Multiple Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/links-multiple-icons-selected.png')">
+				<a  data-title="Links Tab With Multiple Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/links-multiple-icons-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Links Tab With Multiple Annotations Selected</figcaption>
+				</figure>
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>When multiple annotations are selected, any information entered into a form or forms will be applied to all selected annotations. If any information previously exists for a form field in one of the selected annotations, it will be overwritten.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>A badge icon will appear on top of the Links tab icon at the bottom of the data panel when one or more forms have been populated for the selected annotation(s).</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-9-1">
+			<h2 class="section-heading">8.9.1 Link to Document Page</h2>
+			<p>Users can link any annotation to another document page within the project. When selecting the document link icon, a popup will appear that will guide the user through the steps.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Link Annotation to Document Page','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/link-to-document-page.gif')">
+				<a  data-title="Link Annotation to Document Page" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/link-to-document-page.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Link Annotation to Document Page</figcaption>
+				</figure>
+			
+			<ul>
+				<li>Select the <b>document link icon</b>.</li>
+				<li><b>Search and / or select</b> the desired target document.</li>
+				<li><b>Select the applicable page</b> where the link will reference.</li>
+				<li>Determine if the annotation should link to:</li>
+				<ul>
+					<li>the selected document page.</li>
+					<li>an exact copy of the entire document. If this option is selected, the target document will be duplicated <b>with all markups</b>, and the link will reference the new copy.</li>
+					<li>a new copy of the entire document. If this option is selected, the target document will be duplicated <b>without any markups</b>, and the link will reference the new copy.</li>
+				</ul>
+				<li>Select the <b>X</b> in the top right corner to exit without saving.</li>
+			</ul>
+			
+			<p>If multiple annotations are selected, the photo will be added to all annotations.</p>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-9-2">
+			<h2 class="section-heading">8.9.2 Link to URL</h2>
+			<p>Users can link any annotation to an website, video or other content that can be accessed through a URL.</p>
+			
+		
+<figure class="figure docs-figure py-3" (click)="openImage('Link to an External URL','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/link-to-url.gif')">
+	<a  data-title="Link to an External URL" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/link-to-url.gif" loading="lazy" alt="" style="width: 600px;"></a>
+	<figcaption class="figure-caption mt-3">Link to an External URL</figcaption>
+	</figure>
+			<ul>
+				<li>Select the <b>URL link icon</b>.</li>
+				<li><b>Enter the desired URL</b> in the provided space.</li>
+				<li>If desired, select the <b>Test URL</b> button to ensure that the URL is accessible.</li>
+				<li>Select <b>Add Link</b> to save the URL link.</li>
+				<li>Select the <b>X</b> in the top right corner to exit without saving.</li>
+				
+			</ul>
+			
+			<p>If multiple annotations are selected, the photo will be added to all annotations.</p>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-10">
+			<h2 class="section-heading">8.10 Tags Tab</h2>
+			<p>The tags tab resides on the data panel and is used to populate information on an annotation or multiple annotations at a time. This area only becomes active when one or more annotations are selected.</p>
+			
+			<p>See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-3" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-2-3')">Manage Tags</a> for more information on Tags.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Tags Tab With No Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/tags-no-icon-selected.png')">
+				<a  data-title="Tags Tab With No Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/tags-no-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Tags Tab With No Annotations Selected</figcaption>
+				</figure>
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Tags Tab With One Annotation Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/tags-one-icon-selected.png')">
+					<a  data-title="Tags Tab With One Annotation Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/tags-one-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Tags Tab With One Annotation Selected</figcaption>
+					</figure>
+			
+			<p>If multiple annotations are selected, this will be indicated by an additional notation at the top of the data panel, indicating how many annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Tags Tab With Multiple Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/tags-multiple-icons-selected.png')">
+				<a  data-title="Tags Tab With Multiple Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/tags-multiple-icons-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Tags Tab With Multiple Annotations Selected</figcaption>
+				</figure>
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>When multiple annotations are selected, any information entered into a form or forms will be applied to all selected annotations. If any information previously exists for a form field in one of the selected annotations, it will be overwritten.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>A badge icon will appear on top of the Tags tab icon at the bottom of the data panel when one or more forms have been populated for the selected annotation(s).</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-11">
+			<h2 class="section-heading">8.11 Properties Tab</h2>
+			<p>The properties tab resides on the data panel and is used to populate information on an annotation or multiple annotations at a time. This area only becomes active when one or more annotations are selected.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Properties Tab With No Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/properties-no-icon-selected.png')">
+				<a  data-title="Properties Tab With No Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/properties-no-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Properties Tab With No Annotations Selected</figcaption>
+				</figure>
+			<ol>
+				<li>Entering text in this box will <b>change the name</b> of the selected annotation.</li>
+				<li>Entering text in this box will <b>add a label</b> to the selected annotation. This label text will appear on top of the annotation and will be visible on the document.</li>
+				<li>Tapping on the box to the right of Shape allows users to <b>change the shape</b> of the selected annotation. Users can pick from any of the available shapes that appear in the popup.</li>
+				<li>The <b>stroke color</b> is the color of the line around the shape, or comprising the shape in the case of lines that only have a perimiter. It is also the color that will be used for the Label text.</li>
+				<li>The <b>fill color</b> is the color of the interior of the shape and is not applicable to shapes that only have a perimeter.</li>
+				<li>The <b>opacity of a shape</b> determines how transparent the fill color will appear, and is a range of 0 to 1, where 0 is completely transparent and 1 is completely solid.</li>
+				<li>The <b>line width</b> of a shape determines how thick the line around the shape appears, or how thick the line that comprises the shape appears.</li>
+			</ol>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Properties Tab With One Annotation Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/properties-one-icon-selected.png')">
+				<a data-title="Properties Tab With One Annotation Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/properties-one-icon-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Properties Tab With One Annotation Selected</figcaption>
+				</figure>
+			
+			<p>If multiple annotations are selected, this will be indicated by an additional notation at the top of the data panel, indicating how many annotations are selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Properties Tab With Multiple Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/properties-multiple-icons-selected.png')">
+				<a  data-title="Properties Tab With Multiple Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/properties-multiple-icons-selected.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Properties Tab With Multiple Annotations Selected</figcaption>
+				</figure>
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Set the Properties of An Annotation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/set-properties.gif')">
+					<a  data-title="Set the Properties of An Annotation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/set-properties.gif" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Set the Properties of An Annotation</figcaption>
+					</figure>
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>When multiple annotations are selected, any information entered into a form or forms will be applied to all selected annotations. If any information previously exists for a form field in one of the selected annotations, it will be overwritten.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-8-12">
+			<h2 class="section-heading">8.12 Page Navigation</h2>
+			<p>When a document has more than one page, there are several different methods for navigating between them.</p>
+			
+			<p>When you first open a document, the PDF will appear without any markups applied.  Users can then beginning adding annotations to the document through the various <a class="anchorStyle" href="/p3/userguide/chapter-6?id=section-6&target=section-6" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','section-6')">Toolbars</a>.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Navigating Pages Within a Document','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/page-navigation.gif')">
+		<a data-title="Navigating Pages Within a Document" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-8/page-navigation.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Navigating Pages Within a Document</figcaption>
+		</figure>
+			
+			<ul>
+				<li>Users can change pages using the <b>left and right arrows</b> on either side of the page number at the top of the document screen. This will switch one page at a time with each tap on the <b>&#60; or &#62;</b>. </li>	
+				<li>Tapping on the <b>&quot;X/Y&quot;</b>, signifying the current page &#40;X&#41; out of total pages &#40;Y&#41; in the document, pops up an additional screen that will allow users to select the page to navigate to, or to search for the desired page.</li>
+				<li>Selecting the <a class="anchorStyle" href="/p3/userguide/chapter-7?id=section-7&target=item-7-10" (click)="goPickedchapterSidebar($event,'chapter-7','section-7','item-7-10')">More Options</a> will provide the option to <b>Switch Pages</b>, which achieves the same result as tapping on the &quot;X/Y&quot;.</li>
+			</ul>
+		</section><!--//section-->
+		</header>
+</article>

@@ -1,0 +1,49 @@
+.form{
+    margin: 0px;
+    padding: 0px;
+}
+
+label{
+    font-size: 17px;
+    color: #002e5f;
+    display: block;
+}
+
+input{
+   width: 300px;
+   height: 40px;
+   border: none;
+   border-bottom: 2px solid rgba(128, 127, 131, 0.4);
+}
+
+.owner , .assign{
+    padding-top: 60px;
+}
+
+.pre{
+    float: right;
+    position: relative;
+    padding-top: 90px;
+     
+}
+.matmenu1,.matmenu2,.matmenu3{
+ margin-top: 50px;  
+}
+.greencolor{
+    color: rgb(56, 228, 56);
+
+}
+
+.redcolor{
+    color: rgb(252, 40, 40);
+}
+
+.pre button{
+    background-color: #f98e2c;
+    color: #FFFF;
+    border: 2px solid rgba(128, 127, 131, 0.4);
+    font-size: 13px;
+    width: 130px;
+    height: 30.27px;
+    font-weight: 500;
+   }

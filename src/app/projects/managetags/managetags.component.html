@@ -1,0 +1,43 @@
+<div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Manage Tags</h3>
+    <div class="image-close">
+      <img src="assets/images/Sort/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <mat-dialog-content class="tags-adjust">
+    <div class="heading">
+      <p class="heading_text">
+        Please enter a comma separated list of tags, or click any tag to remove.
+      </p>
+    </div>
+    <div class="input-group input-field-head">
+      <input class="form-control bg-none input-field" aria-describedby="basic-addon1"
+         placeholder="Tag 1, Tag 2, ..." name="tag_name"
+        #renameProject="ngModel" [(ngModel)]="getRename"
+        (ngModelChange)="firstLetterCapital(getRename)" (keyup.enter)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :AddTag(renameProject.value,true)"
+        autocomplete="off"/>
+    </div>
+    <hr class="hr-area" />
+    <div class="content-area" id="style-1">
+      <div class="tags-area">
+        <div *ngFor="let foldertagname of foldertaglist" class="tag-section-head bg">
+          <div class="text-part">
+            <p class="tag-name">{{ foldertagname["folder_tag_name"] }}</p>
+          </div>
+          <div class="img-part">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="tag-close" alt="close"
+              (click)="this.userrole == 'admin'?removeTag(foldertagname['folder_tag_id']):this.userRoleGlobal.permissionCheck()" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="loader"
+      (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :saveButtonTrigger(renameProject.value,false)">
+      Save
+    </button>
+  </div>
+</div>
+<app-grand-loader *ngIf="loader"></app-grand-loader>

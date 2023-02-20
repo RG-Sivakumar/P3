@@ -1,0 +1,133 @@
+.header{
+    background-color:#E8E8E8;  
+    padding:20px;
+    position: relative;
+    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+}
+.header-heading{
+    color: #002e5f;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.img-part{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    font-weight: 500;
+    color: black!important;
+}
+.img-close{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+}
+.img-close:hover{
+    cursor: pointer;
+}
+p{
+    margin-bottom: 0px;
+}
+.content-area{
+    padding:20px 10px;
+    align-items: center;
+}
+.row{
+    margin:0px;
+}
+.sheet-img-potrait{
+    max-width: 85%;
+    border:2px solid #006E95;
+}
+.sheet-img-landscape{
+    max-width: 100%;
+    border:2px solid #006E95;
+}
+.document-name, .pages{
+    font-size: 19px;
+    color: #335578;
+}
+.input-field{
+    border:2px solid #F98E2C;
+}
+.screen-part{
+    text-align: center;
+    padding:10px 0px 20px 0px;
+}
+.radio-text{
+    color:#A7A9AC;
+    font-size:17px;
+    margin-left: 3px;
+}
+input[type='radio']:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 15px;
+    top: -3px;
+    left: -1px;
+    position: relative;
+    background-color: #ffffff;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #335578;
+}
+
+input[type='radio']:checked:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 15px;
+    top: -3px;
+    left: -1px;
+    position: relative;
+    background-color: #335578;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #335578;
+}
+input[type="radio"]:hover, .radio-text:hover{
+    cursor: pointer;
+}
+.footer{
+    padding:30px 10px;
+    text-align: center;
+    background-color: #E8E8E8;
+    border-top:1px solid rgba(0, 0, 0, 0.1);
+}
+.add-button{
+    color: #A4A426;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 0px;
+    border:none;
+    background: transparent;
+}
+.add-button:disabled{
+    cursor: not-allowed;
+}
+.first{
+    height:130px;
+    width:200px;
+}
+button{
+    outline: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

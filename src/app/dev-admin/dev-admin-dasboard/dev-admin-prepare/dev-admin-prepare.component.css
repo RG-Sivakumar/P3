@@ -1,0 +1,50 @@
+.form{
+    margin: 0px;
+    padding: 0px;
+}
+
+label{
+    font-size: 17px;
+    color: #002e5f;
+    display: block;
+}
+
+input{
+   width: 300px;
+   height: 40px;
+   border: none;
+   border-bottom: 2px solid rgba(128, 127, 131, 0.4);
+}
+
+.server{
+    margin-top: 33px;
+}
+
+select{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid rgba(128, 127, 131, 0.4);
+}
+
+
+.owner , .project ,.UU , .assign{
+    padding-top: 70px;
+}
+
+.pre{
+    float: right;
+    position: relative;
+     left: 580px;
+    top: 100px;
+}
+
+.pre button{
+    background-color: #f98e2c;
+    color: #FFFF;
+    border: 2px solid rgba(128, 127, 131, 0.4);
+    font-size: 13px;
+    width: 130px;
+    height: 30.27px;
+    font-weight: 500;
+   }

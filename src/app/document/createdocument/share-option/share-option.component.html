@@ -1,0 +1,132 @@
+<div class="app-project-head">
+    <!-- <div class="header container-fluid">
+        <h3 class="header-heading1">Options</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div> -->
+    <div class="content-area scroll-1">
+        <div [style.pointerEvents]="userRoleGlobal.disableMode ? 'none' : 'auto'"
+            class="row content-head-section disabled">
+            <div class="col-lg-8">
+                <p class="content-heading">Include Links</p>
+            </div>
+            <div class="col-lg-4 toggleMethod disabled">
+                <!-- <mat-slide-toggle></mat-slide-toggle> -->
+                <mat-slide-toggle [checked]="is_link"
+                (change)="is_link_toggle($event)"></mat-slide-toggle>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section disabled">
+            <div class="col-lg-11">
+                <p class="content-heading disabled" (click)="pdfexport('export_blank_page_as_pdf')">Export Blank Page as PDF</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section disabled">
+            <div class="col-lg-11">
+                <p class="content-heading disabled" (click)="pdfexport('export_page_as_pdf')">Export Page as PDF</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div [style.pointerEvents]="userRoleGlobal.disableMode ? 'none' : 'auto'"
+            class="row content-head-section disabled" (click)="pdfexport('export_page_as_pdf_with_local_links')">
+            <div class="col-lg-11">
+                <p class="content-heading disabled">Export Page for Local Viewer</p>
+            </div>
+            </div>
+        <hr class="hr-area">
+        <div [style.pointerEvents]="userRoleGlobal.disableMode ? 'none' : 'auto'"
+            class="row content-head-section disabled" (click)="pdfexport('export_blank_document_as_pdf')">
+            <div class="col-lg-11">
+                <p class="content-heading disabled">Export Blank Document as PDF</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div [style.pointerEvents]="userRoleGlobal.disableMode ? 'none' : 'auto'"
+            class="row content-head-section disabled" (click)="pdfexport('export_document_as_pdf')">
+            <div class="col-lg-11">
+                <p class="content-heading disabled">Export Document as PDF</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div [style.pointerEvents]="userRoleGlobal.disableMode ? 'none' : 'auto'"
+            class="row content-head-section disabled" (click)="pdfexport('export_document_as_pdf_with_local_links')">
+            <div class="col-lg-11">
+                <p class="content-heading disabled">Export Document for Local Viewer</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="exportnew()">
+            <div class="col-lg-11">
+                <p class="content-heading">Export Document as CSV</p>
+            </div>
+        </div>
+        <!-- <img id="foo" src="https://picsum.photos/200/300" height="100" width="100"> -->
+        <hr class="hr-area">
+
+        <div class="row content-head-section" (click)="exportreportnew()">
+            <div class="col-lg-11">
+                <p class="content-heading">Export Document as Reporting CSV</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+
+        <div class="row content-head-section" (click)="exportcsvforforms()">
+            <div class="col-lg-11">
+                <p class="content-heading">Export CSV for Pre-annotation</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+
+        <div class="row content-head-section" (click)="importdocument()">
+            <div class="col-lg-11">
+                <p class="content-heading">Import CSV into Document </p>
+            </div>
+        </div>
+        <!-- <img id="foo" src="https://picsum.photos/200/300" height="100" width="100"> -->
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="exportphotosnew()">
+            <div class="col-lg-11">
+                <p class="content-heading">Export Photos</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div  class="row content-head-section" (click)="exportAutocad()">
+            <div class="col-lg-11">
+                <p class="content-heading" >Export to AutoCAD</p>
+            </div>
+        </div>
+        <!-- <hr class="hr-area">
+        <div  class="row content-head-section" (click)="exportfromautocad()">
+            <div class="col-lg-11">
+                <p class="content-heading" >Export from AutoCAD</p>
+            </div>
+        </div> -->
+        <hr class="hr-area">
+        <div  class="row content-head-section" (click)="downloadMedia()">
+            <div class="col-lg-11">
+                <p class="content-heading" >Download Media</p>
+            </div>
+        </div>
+    </div>
+    <div class="pdfPage" *ngIf="false">
+        <pdf-viewer id="pdfViewerHeadShare" [src]="pdfURL" [(page)]="pdfPgeNumber" [show-all]="true" [original-size]="false"
+          [fit-to-page]='true' (page-rendered)="pageRendered1($event)" [text-mode]="true">
+        </pdf-viewer>
+    </div>
+</div>
+<div class="container" style="display:none">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let img of documentDetails;">
+            <div *ngIf="page==img.page_number">
+                <img class="img-fluid" crossOrigin="Anonymous" [src]="getBase64Image(img.file_path)">
+            </div>
+        </div>
+    </div>
+     
+</div>
+<div class="image_part" *ngIf="loader">
+    <img src="assets/images/spin.gif" alt="..." />
+</div>

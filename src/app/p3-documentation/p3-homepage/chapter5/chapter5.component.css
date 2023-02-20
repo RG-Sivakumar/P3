@@ -1,0 +1,19 @@
+.anchorStyle{
+    color: #fdc07e;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    cursor: pointer;
+}
+.anchorStyle:hover{
+    color: #1a7846;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.font-wt{
+    font-weight: 700;
+}
+.theme-bg-light{
+    font-weight: bolder;
+}

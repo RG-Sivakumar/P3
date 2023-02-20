@@ -1,0 +1,185 @@
+<div style="width: 800px"></div>
+
+<div class="color">
+  <div class="filter dialog-header-box col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <span class="head-project" style="font-weight: 500; font-size: 17px">{{
+      project
+      }}</span>
+    <span class="close" (click)="onclose()"><img class="close-img"
+        src="assets/images/P3_Close-Cancel_Blue.png" /></span>
+  </div>
+</div>
+<hr class="header-hr" />
+<!-- <div class="row"> -->
+<div class="row" style="min-height: 300px;margin:0px;padding:10px">
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <span class="head">Add Users</span>
+    <hr class="user-hr" />
+    <!-- <input class="form-control my-0 py-1 lime-border" placeholder="Search" aria-label="Search" name="search_keyword"
+      #search_keyword="ngModel" [(ngModel)]="this.searchdefault" />
+    <div class="input-group-append">
+      <span class="" id="basic-text1" (click)="search(search_keyword)">
+        <img *ngIf="novalue == this.searchdefault.length > 0" src="assets/images/P3_SearchIcon _Grey.png" class="img1"
+          width="15px" /></span>
+    </div> -->
+    <div class="input-group search-input-field">
+      <input class="form-control my-0 search-part" (keyup.enter)="search(search_keyword)" placeholder="Search"
+        aria-label="Search" name="search_keyword" #search_keyword="ngModel"
+        [ngClass]="{'py3': novalue == this.searchdefault.length > 0}" [(ngModel)]="this.searchdefault"
+        id="example-search-input" autocomplete="off"/>
+      <span class="input-group-append">
+        <div class="input-group-text bg-transparent" (click)="search(search_keyword)"><i class="fa fa-search"
+            style="cursor: pointer;"></i></div>
+      </span>
+    </div>
+    <div>
+      <img *ngIf="show" style="position:absolute;
+            margin-left: 129px;
+            margin-top: 22px;" class="rounded float-right" width="150px" src="assets/images/spin.gif" />
+    </div>
+
+    <div style="padding-top: 10px">
+      <mat-table [dataSource]="listData" class="scroll">
+        <ng-container matColumnDef="Emp">
+          <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.last_name }}, {{ element.first_name }}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef>
+            Email</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.email_id}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="plus">
+          <mat-header-cell *matHeaderCellDef class="plus-part"> </mat-header-cell>
+          <mat-cell *matCellDef="let element" class=" plus-part">
+            <span (click)="Adduser(element.user_id)" class="click">
+              <img src="assets/images/P3_AddIcon_Blue.png" width="20px" /></span>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row class="header-rows" *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+
+        <mat-row *matRowDef="let element; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <span class="head">Project Members</span>
+    <hr class="user-hr" />
+    <mat-table [dataSource]="listData1" class="scroll1">
+      <ng-container matColumnDef="user">
+        <mat-header-cell *matHeaderCellDef>User
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.last_name }}, {{ element.first_name }} {{element.email_id}}
+        </mat-cell>
+      </ng-container>
+      <!-- <ng-container matColumnDef="Emp">
+        <mat-header-cell *matHeaderCellDef class="col-md-2 col-lg-2 col-sm-2 col-xs-2">Emp</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="col-md-2 col-lg-2 col-sm-2 col-xs-2 head1">
+          <span *ngIf="element.internal_user_flag == 1">WJE</span>
+        </mat-cell>
+      </ng-container> -->
+      <ng-container matColumnDef="View">
+        <mat-header-cell *matHeaderCellDef class="align-property">View</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="align-property view-disable" (click)="
+        permission2($event.target.checked,element,element.user_id,'view')
+      ">
+          <input type="checkbox" name="layer_name" class="layer-name multiple-checkbox"
+            [checked]="element.view_permission_flag == 1" />
+          <!-- <span *ngIf="element.view_permission_flag == 1" class="click">
+            <img src="assets/images/P3_CheckBoxTick_Blue.png" width="20px"
+          /></span>
+
+          <span *ngIf="element.view_permission_flag == 0" class="click">
+            <img src="assets/images/P3_CheckBoxTick_Grey.png" width="20px"
+          /></span> -->
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Edit">
+        <mat-header-cell *matHeaderCellDef class="align-property">Edit</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="align-property" (click)="
+            permission2($event.target.checked,element,element.user_id,'edit')
+          ">
+          <input type="checkbox"  name="layer_name" class="layer-name multiple-checkbox"
+            [checked]="element.edit_permission_flag == 1" />
+          <!-- <span *ngIf="element.edit_permission_flag == 1" class="click">
+            <img src="assets/images/P3_CheckBoxTick_Blue.png" width="20px"
+          /></span>
+
+          <span *ngIf="element.edit_permission_flag == 0" class="click">
+            <img src="assets/images/P3_CheckBoxTick_Grey.png" width="20px"
+          /></span> -->
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Admin">
+        <mat-header-cell *matHeaderCellDef class="align-property">Admin</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="align-property" (click)="
+        permission2($event.target.checked,element,element.user_id,'admin')
+      ">
+          <input type="checkbox" name="layer_name" class=" multiple-checkbox"
+            [checked]="element.admin_permission_flag == 1" />
+          <!-- <span *ngIf="element.admin_permission_flag == 1" class="click">
+            <img src="assets/images/P3_CheckBoxTick_Blue.png" width="20px"
+          /></span>
+
+          <span *ngIf="element.admin_permission_flag == 0" class="click">
+            <img src="assets/images/P3_CheckBoxTick_Grey.png" width="20px"
+          /></span> -->
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef class="align-property"></mat-header-cell>
+        <mat-cell *matCellDef="let element" class="align-property">
+          <span (click)="RemoveUser(element.user_id)" class="click" [ngClass]="{'hiddenView':element.user_id==su.user_id}">
+            <img src="assets/images/icons/P3WebIcon_15Trash.png" class="delete-img" /></span>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row class="header-rows" *matHeaderRowDef="displayedColumns1; sticky:true"></mat-header-row>
+
+      <mat-row *matRowDef="let element; columns: displayedColumns1"></mat-row>
+    </mat-table>
+  </div>
+  <img *ngIf="show1" style="position:absolute;
+      margin-left: 526px;
+    margin-top:44px;" class="rounded float-right" width="150px" src="assets/images/spin.gif" />
+</div>
+<!-- </div> -->
+
+
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" class="form">
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="background-color: #edf3f8">
+    <hr style="margin-bottom: 5px; background-color: #002e5f" />
+    <span class="span">Create New External User</span>
+  </div>
+
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="background-color: #edf3f8">
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 external-head">
+      <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+        <input class="form-control s input-field" type="text" placeholder="First Name" aria-label="Search"
+          name="first_name" #first_name="ngModel" [(ngModel)]="service.formData.first_name"
+          (ngModelChange)="capitalWord(first_name.value)" required />
+      </div>
+      <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+        <input class="form-control s input-field" type="text" placeholder="Last Name" aria-label="Search"
+          name="last_name" #last_name="ngModel" [(ngModel)]="service.formData.last_name"
+          (ngModelChange)="capitalWord1(last_name.value)" required />
+      </div>
+      <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
+        <input class="form-control input-field" type="email" placeholder="Email@domain.com" aria-label="Search" name="email_id"
+          #email_id="ngModel" [(ngModel)]="service.formData.email_id" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+          required />
+        <!-- pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" -->
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style="background-color: #edf3f8">
+        <button type="submit" [disabled]="form.invalid">Invite New User</button>
+      </div>
+    </div>
+  </div>
+</form>
+<div *ngIf="loader" class="img-partspin">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>

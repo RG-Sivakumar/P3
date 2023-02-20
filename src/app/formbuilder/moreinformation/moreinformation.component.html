@@ -1,0 +1,39 @@
+<div class="header">
+    <div class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12 single-line-text">
+        <span class="head">{{formName}}</span>
+    </div>
+    <div class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12 fnt-style">
+        <span class="date-textglobal">Created:</span><span class="date-textglobal" style="margin-left:3px;">{{createdDate | date : "MM/dd/yyyy 'at' hh:mm a"}}</span><span class="close"
+            style="float: right; padding-right: 10px;" (click)="onclose()"><img
+                src="assets/images/P3_Close-Cancel_Blue.png" width="25px"></span>
+    </div>
+    <div class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12 fnt-style">
+        <span class="date-textglobal">Last Modified:</span><span style="margin-left:3px;"></span>
+        <span class="date-textglobal" style="margin-left:3px;">{{modifiedDate | date : "MM/dd/yyyy 'at' hh:mm a"}}</span>
+    </div>
+    <div>
+        <div class="row m-0 col-lg-12">
+            <div class="tag-name">
+                <p class="tags fnt-type">Tags: </p>
+            </div>
+            <div class="tag-list">
+                <span class="tags fnt-type"
+                    *ngFor="let tagname of taglist;let indexvalue=index">{{tagname['form_tag_name']}}<span
+                        *ngIf="taglist.length-1>indexvalue">, </span></span>
+            </div>
+        </div>
+        <!-- <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <span>Tags:&nbsp;</span>
+            <span *ngFor="let option of taglist">{{option['form_tag_name']}}&nbsp;&nbsp;</span>
+        </div> -->
+    </div>
+</div>
+<hr style="margin-top:0rem;margin-bottom: 0px;">
+<div class="row content-head">
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+        <span class="headSec hover">Form Fields</span>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 count-part">
+        <span class="headSec hover num">{{formCount}}</span>
+    </div>
+</div>

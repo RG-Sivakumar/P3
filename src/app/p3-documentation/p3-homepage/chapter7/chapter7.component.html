@@ -1,0 +1,1182 @@
+<article class="docs-article" id="section-7">
+	<header class="docs-header">
+		<h1 class="docs-heading">7.0 Documents
+			<span class="docs-time">Last updated:{{lastModifiedDate}}</span>
+	</h1>
+	
+	<section class="docs-intro">
+		<p>Project documents are where the core of the application lies. This is where users can interact with documents and add annotations to a page. Subsequently, users can link document pages to annotations or record data such as form entries and photos. Users can also add new annotation icons that have been created within a document to an existing or new toolbar.</p>
+		
+		<figure class="figure docs-figure py-3"  (click)="openImage('Project Document on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/documents.png')">
+			<a  data-title="Project Document on iPad" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/documents.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Project Document on iPad</figcaption>
+		</figure>
+		<figure class="figure docs-figure py-3"  (click)="openImage('Project Document on Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/documents-web.png')">
+			<a  data-title="Project Document on Web" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/documents-web.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Project Document on Web</figcaption>
+		</figure>
+		
+		
+		
+		<ol>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-1" scrollTo scrollTargetSelector="#item-7-1" (click)="activeVistionSend('section-7','item-7-1')">Document Space</a> – Displays the pdf of the currently selected page to be worked on.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-2" scrollTo scrollTargetSelector="#item-7-2" (click)="activeVistionSend('section-7','item-7-2')">Data Panel</a> – Displays the data that is tied to each annotation, excluding the Layers tab.</li>
+			<li><b>Back Button</b> - Return to the Project Screen.</li>
+			<li><b>Document Title</b> – Displays the document name and the current page out of the total number of document pages.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-3" scrollTo scrollTargetSelector="#item-7-3" (click)="activeVistionSend('section-7','item-7-3')">Search</a> – Enables you to search for annotations based on several search criteria.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-4" scrollTo scrollTargetSelector="#item-7-4" (click)="activeVistionSend('section-7','item-7-4')">Move</a> - Allows annotations to be moved through drag and drop when selected.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-5" scrollTo scrollTargetSelector="#item-7-5" (click)="activeVistionSend('section-7','item-7-5')">Undo</a> - Allows users to remove the last action&#40;s&#41; performed, one by one. <b>NOTE:</b> This feature is not currently available on web client and is planned for a future release.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-6" scrollTo scrollTargetSelector="#item-7-6" (click)="activeVistionSend('section-7','item-7-6')">Redo</a> - Works as an undo for the undo action. <b>NOTE:</b> This feature is not currently available on web client and is planned for a future release.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-7" scrollTo scrollTargetSelector="#item-7-7" (click)="activeVistionSend('section-7','item-7-7')">Multi-Select</a> - When selected, users can pick multiple annotations on the page in order to perform a common set of actions.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8" scrollTo scrollTargetSelector="#item-7-8" (click)="activeVistionSend('section-7','item-7-8')">Layers</a> – Displays the layer panel popup.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9" scrollTo scrollTargetSelector="#item-7-9" (click)="activeVistionSend('section-7','item-7-9')">Export</a> - Enables the document to be exported to PDF in order to save or email.</li>
+			<li><b>Manual Sync</b> – On Plannotate for iPad, this initiates a synchronization of data with the Plannotate cloud, which uploads all new data since the last sync, and downloads any new data from the Plannotate cloud. See <a class="anchorStyle"  href="/p3/userguide/chapter-3?id=section-3&target=item-3-10" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-10')">Project Management Manual Sync</a> for more information. On Plannotate for Web, this will refresh the document and pull any changes that have taken place in the cloud since the document was opened, such as those resulting from another user's work.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-10" scrollTo scrollTargetSelector="#item-7-10" (click)="activeVistionSend('section-7','item-7-10')">More Options</a> – Displays a popup with multiple extra options for the document.</li>
+		</ol>
+				
+	</section><!--//docs-intro-->
+	<section class="docs-section" id="item-7-1">
+		<h2 class="section-heading">7.1 Document Space</h2>
+		<p>The document space is the area where PDF documents that have been added to the project will appear.  This area allows users to zoom in and out on the document, as well as mark up the document with an unlimited number of annotations.</p>
+		
+		<p>When you first open a document, the PDF will appear without any markups applied.  Users can then beginning adding annotations to the document through the various <a class="anchorStyle" href="/p3/userguide/chapter-6?id=section-6&target=section-6" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','section-6')">Toolbars</a>.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Document Screen','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/document-blank.png')">
+			<a  data-title="Document Screen" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/document-blank.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Document Screen</figcaption>
+		</figure>
+	
+	</section><!--//section-->	
+	<section class="docs-section" id="item-7-2">
+		<h2 class="section-heading">7.2 Data Panel</h2>
+		<p>The data panel area stays permanently on the left side of the Document screen and allows users to modify annotations.  This includes adding form content, images, links, tags and property modifications.  Each of these topics are covered in a separate section of this document.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<ul>
+					<p>The data panel will remain empty until one or more annotations are selected.</p>
+			</ul>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		<figure class="figure docs-figure py-3" (click)="openImage('Data Panel With No Annotations Selected','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/data-panel.gif')">
+			<a  data-title="Data Panel With No Annotations Selected" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/data-panel.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Data Panel With No Annotations Selected</figcaption>
+		</figure>
+			
+	</section><!--//section-->
+
+	<section class="docs-section" id="item-7-3">
+		<h2 class="section-heading">7.3 Search</h2>
+		<p>Users can search within a document in order to locate annotations that meet the search conditions selected. This helps to identify annotations more easily, especially when a large number of annotations existing within the pages of a document.</p>
+		
+		<p>When a user selects the search button, a separate window will appear on top of the Data Panel with various options. As annotations are located and selected by marking the checkbox to the right of the annotation name, they will remain selected once the Search window is closed. This enables users to modify the selected annotation(s) usin the Data Panel without having to reselect them.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Document Search for Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/search.png')">
+			<a  data-title="Document Search for Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/search.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Document Search for Annotations</figcaption>
+		</figure>
+		
+		
+		<ol>
+			<li><b>Tap on the Search icon</b> to open and close the Search window.</li>
+			<li><b>Text field</b> for adding search terms.</li>
+			<li><b>Filters</b> that can be applied to the search.</li>
+			<ul>
+				<li><b>All</b> - The default filter, which allows the search to be conducted with all of the other filters allowed.</li>
+				<li><b>With Photos</b> - This will identify any annotations that have photos added to the Media Tab. </li>
+				<li><b>Form Values</b> - This will identify any annotations where a form has been attached.</li>
+				<li><b>Tag Values</b> - This will identify any annotations where one or more tags have been assigned.</li>
+				<li><b>With Stubs</b> - This will identify any annotations that have stub photos added to the Media Tab.</li>
+			</ul>
+			<li>The <b>reults</b> of the search will appear in the list below.  Checking any of the annotations will result in them being selected on the document.</li>
+		</ol>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<ul>
+					<p>The text field currently applies only when the All option is selected in the Filters.  This will expand in future releases.</p>
+				</ul>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Document Search for Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/search.gif')">
+			<a  data-title="Document Search for Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/search.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Document Search for Annotations</figcaption>
+		</figure>
+		
+		<div class="callout-block callout-block-warning">
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-bullhorn"></i>
+					</span><!--//icon-holder-->
+					Warning
+				</h4>
+				<p>The filter options work as a union, meaning that if multiple boxes are checked, the annotations must meet all of the filter requirements.  For example, an annotation with photos and stub photos will be found if the With Photos box or the With Stubs box is selected. It will also be found if both boxes are selected.  Another annotation with only photos and no stub photos will not be found if both boxes are selected.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-4">
+		<h2 class="section-heading">7.4 Moving Annotations</h2>
+		<p>Once an annotation is placed onto a document page, it can be relocated to another place within the same document page.  This is done by selecting the move button in the top toolbar. The button must be selected in order to move an annotation in order to prevent accidentally moving the annotation when performing some other action.</p>
+		<figure class="figure docs-figure py-3" (click)="openImage('Moving a Single Annotation On A Document on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move.gif')">
+			<a  data-title="Moving a Single Annotation On A Document on iPad" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Moving a Single Annotation On A Document on iPad</figcaption>
+		</figure>
+			
+			
+			<h3>Steps for iPad</h3>
+			<ul>
+				<li><b>Select the move icon</b> in the top toolbar.</li>
+				<li><b>Tap on the annotation icon</b> to be moved in order to select it.</li>
+				<li><b>Drag the annotation icon</b> with your finger to the desired location.</li>
+				<li><b>Select the move icon</b> in the top toolbar when finished.</li>
+			</ul>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Moving a Single Annotation On A Document on Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move-web.gif')">
+				<a  data-title="Moving a Single Annotation On A Document on Web" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move-web.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Moving a Single Annotation On A Document on Web</figcaption>
+			</figure>
+		
+			<h3>Steps for Web Client</h3>
+			<ul>
+				<li><b>Select the move icon</b> in the top toolbar.</li>
+				<li><b>Double click on the annotation icon</b> to be moved in order to select it.</li>
+				<li><b>Drag the annotation icon</b> with your mouse to the desired location.</li>
+				<li><b>Select the Done icon</b> on the right side of the screen when finished.</li>
+			</ul>
+		
+		<p>You may also wish to move several annotations at the same time. This is possible using the combination of the move icon <a href="#item-7-7">Mutli-Select</a> icon.</p>
+		<figure class="figure docs-figure py-3" (click)="openImage('Moving a Single Annotation On A Document on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move-multiple.gif')">
+			<a  data-title="Moving a Single Annotation On A Document on iPad" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move-multiple.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Moving a Single Annotation On A Document on iPad</figcaption>
+		</figure>
+		
+		<h3>Steps for iPad</h3>
+		<ul>
+			<li><b>Select the multi-select icon</b> in the top toolbar.</li>
+			<li><b>Tap on each annotation icon</b> to select them, or drag to select multiple annotation icons at the same time.</li>
+			<li>Once the desired annotations are selected, <b>select the move icon</b> in the top toolbar.</li>
+			<li><b>Drag anywhere on the screen</b> with your finger to move the annotations the desired location.</li>
+			<li><b>Select the move icon</b> in the top toolbar when finished.</li>
+			<li><b>Select the multi-select icon</b> in the top toolbar to unselect the annotations.</li>
+		</ul>
+		<figure class="figure docs-figure py-3" (click)="openImage('Moving a Single Annotation On A Document on Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move-multiple-web.gif')">
+			<a  data-title="Moving a Single Annotation On A Document on Web" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/move-multiple-web.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Moving a Single Annotation On A Document on Web</figcaption>
+		</figure>
+		
+		<h3>Steps for Web Client</h3>
+		<ul>
+			<li><b>Select the multi-select icon</b> in the top toolbar.</li>
+			<li><b>Tap on each annotation icon</b> to select them, or drag to select multiple annotation icons at the same time.</li>
+			<li>Once the desired annotations are selected, <b>select the move icon</b> in the top toolbar.</li>
+			<li><b>Drag anywhere on the screen</b> with your mouse to move the annotations the desired location.</li>
+			<li><b>Select the Done icon</b> on the right side of the screen when finished.</li>
+		</ul>
+		
+		
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-5">
+		<h2 class="section-heading">7.5 Undo</h2>
+		<p>Let's face it.  We all make mistakes! The undo button allows users to revert the last several actions back in order to recover from virtually any activity performed within a document.</p>
+		
+		<p>Any action performed within a document can be undone until the document is closed.</p>	
+		
+			<div class="callout-block callout-block-danger mr-1">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder">
+							<i class="fas fa-exclamation-triangle"></i>
+						</span><!--//icon-holder-->
+						Danger
+					</h4>
+					<p>There is currently no undo function on the web client. This is a feature that will be added in a future enhancement.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+			<figure class="figure docs-figure py-3" (click)="openImage('Undo Document Edits','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/undo.gif')">
+				<a  data-title="Undo Document Edits" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/undo.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Undo Document Edits</figcaption>
+			</figure>
+		
+		<p>There is no limitation on the number of actions that can be undone as long as the user remains within the document.  Once the document is exited, the abilility to undo edits will be lost.</p>
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>The undo action will not be able to recover activity once the user exits a document.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-6">
+		<h2 class="section-heading">7.6 Redo</h2>
+		<p>Let's face it.  We all make mistakes. And sometimes the mistake was hitting the undo button! The redo button allows users to revert the last undo actions back in order to recover from virtually any activity that has been undone within a document.</p>
+		
+		<p>Any undo action performed within a document can be redone until the document is closed.</p>	
+		
+		<div class="callout-block callout-block-danger mr-1">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder">
+							<i class="fas fa-exclamation-triangle"></i>
+						</span><!--//icon-holder-->
+						Danger
+					</h4>
+					<p>There is currently no redo function on the web client. This is a feature that will be added in a future enhancement.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+			<figure class="figure docs-figure py-3" (click)="openImage('Redo an Undo Action','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/redo.gif')">
+		<a  data-title="Redo an Undo Action" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/redo.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Redo an Undo Action</figcaption>
+	</figure>
+		
+		<p>There is no limitation on the number of actions that can be redone as long as the user remains within the document.  Once the document is exited, the abilility to redo edits will be lost.</p>
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>The redo action will not be able to recover activity once the user exits a document.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+	
+	</section><!--//section-->
+	
+		
+		<section class="docs-section" id="item-7-7">
+		<h2 class="section-heading">7.7 Multi-Select</h2>
+		<p>Sometimes it is beneficial to make the same edits to more than one annotation within a document.  The multi-select toolbar button was designed to make this process easy.</p>
+		
+		<p>Once a user has selected multiple annotations, a number of actions become available in the Data Panel.  This may vary depending on which annotation icon types are selected.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>Tap on each annotation icon to select them, or drag to select multiple annotation icons at the same time.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Editing Multiple Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/multi-select.gif')">
+		<a data-title="Editing Multiple Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/multi-select.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Editing Multiple Annotations</figcaption>
+	</figure>
+		
+		<p>Once the user is satisfied with the edits, they can select the mutli-select button again to turn it off. They will now notice that all of the edits that were performed have been saved with each annotation that was selected. </p>
+		
+		<div class="callout-block callout-block-warning">
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-bullhorn"></i>
+					</span><!--//icon-holder-->
+					Warning
+				</h4>
+				<p>All properties can be modified when multi-select is enabled, including changing the annotation shapes.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+	
+
+		
+	
+		
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8">
+		<h2 class="section-heading">7.8 Layers</h2>
+		<p>Layers provide the ability to show and hide annotations within a document and serve as an imaginary stack of transparent slides on top of a document page.  </p>
+		
+		<p>The concept of adding layers is an important one, as each layer can be hidden or visible to the users.  By hiding a layer, all of the annotations placed onto that layer are hidden from view as though they are not there.  By unhiding the layer, they immediately reappear on the document.</p>
+		
+		<p>Each new document comes with a Default layer, and all edits to the document are made on this layer until additional layers are created by the user.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/layer-panel.png')">
+			<a  data-title="Layer Panel" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/layer-panel.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel</figcaption>
+		</figure>
+		
+		<ol>
+			<li><b>Close</b> the Layer Panel screen</li>
+			<li>The <b>Default layer</b>, which can be expanded and collapsed. Any new layers that are added will work in the same manner</li>
+			<li>The <b>show icon</b> indicates whether this layer is <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-1" scrollTo scrollTargetSelector="#item-7-8-1" (click)="activeVistionSend('section-7','item-7-8-1')">visible or hidden</a> on the document. When the icon is tapped, it will switch to have a line through it if it is hidden.</li>
+			<li><b>Tapping the ...</b> will bring up a window of <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-2" scrollTo scrollTargetSelector="#item-7-8-2" (click)="activeVistionSend('section-7','item-7-8-2')">additional options</a>.</li>
+			<li>The <b>checkbox</b> represents the <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-3" scrollTo scrollTargetSelector="#item-7-8-3" (click)="activeVistionSend('section-7','item-7-8-3')">current layer</a>.  The current layer is the layer on which any new annotations will be placed.</li>
+			<li>When a layer is expanded, the annotations that have been placed onto the layer will appear, along with a variety of information about the annotation. <b>Checking the box</b> to the left of the annotation icon will result in the annotation being <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-4" scrollTo scrollTargetSelector="#item-7-8-4" (click)="activeVistionSend('section-7','item-7-8-4')">selected on the document page</a>.</li>
+			<li>Selecting the <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-5" scrollTo scrollTargetSelector="#item-7-8-5" (click)="activeVistionSend('section-7','item-7-8-5')">Add a New Layer</a> button will expand the layer panel and present additional options to create new layers.</li>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel Expanded to Add Layers','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/add-layer.png')">
+				<a  data-title="Layer Panel Expanded to Add Layers" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/add-layer.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Layer Panel Expanded to Add Layers</figcaption>
+			</figure>
+			
+			<li>Once a new layer is set up, <b>click this button</b> to save the layer to the document.</li>
+			<li>The layer name is the one that will be <b>displayed on the left side of this panel</b> (see Level 1) and will be the name that appears in the layer selection window when changing the layer for an annotation.</li>
+			<li><b>New layers can be added</b> to all pages, the current page only, or any other page within a document.</li>
+		</ol>	
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-1">
+		<h2 class="section-heading">7.8.1 Show and Hide Layers</h2>
+		<p>Once layers are established, they can be set as visible or hidden.  By hiding a layer, all annotations that have been placed upon that layer will be hidden on the document. </p>
+		
+		<p>A good example of how this could be useful is when a project recurs over time.  Users can create a layer for each visit, allowing them to hide or show the annotations from a previous visit.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - Show and Hide','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/show-hide-layer.gif')" >
+			<a  data-title="Layer Panel - Show and Hide" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/show-hide-layer.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel - Show and Hide</figcaption>
+		</figure>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-2">
+		<h2 class="section-heading">7.8.2 More Options</h2>
+		<p>Once created, layers can be locked, renamed and deleted.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - More Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/layer-more-options.png')" >
+			<a  data-title="Layer Panel - More Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/layer-more-options.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel - More Options</figcaption>
+		</figure>
+		
+		<ul>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-2-1" scrollTo scrollTargetSelector="#item-7-8-2-1" (click)="activeVistionSend('section-7','item-7-8-2-1')">Locking a layer</a> prevents users from editing any annotation placed on the layer as well as placing any new annotations on the layer. When a layer is set to locked, it will display a lock icon next to the show and hide icon to indicate its status.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-2-2" scrollTo scrollTargetSelector="#item-7-8-2-2" (click)="activeVistionSend('section-7','item-7-8-2-2')">Renaming a layer</a> allows users to change the name that appears in the Layer screen and when changing the layer for an annotation on a document.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-2-3" scrollTo scrollTargetSelector="#item-7-8-2-3" (click)="activeVistionSend('section-7','item-7-8-2-3')">Deleting a layer</a> allows users to remove the layer from the document.</li>
+		</ul>
+		
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-2-1">
+		<h2 class="section-heading">7.8.2.1 Locking Layers</h2>
+		<p>If a user wants to view a layer within a document but not modify that layer in any way, including adding annotations or deleting existing annotations, they can lock the layer. Locking a layer prevents users from editing any annotation placed on the layer as well as placing any new annotations on the layer. When a layer is set to locked, it will display a lock icon next to the show and hide icon to indicate its status.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - Lock a Layer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/lock-layer.gif')">
+			<a  data-title="Layer Panel - Lock a Layer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/lock-layer.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel - Lock a Layer</figcaption>
+		</figure>
+		
+		
+		<div class="callout-block callout-block-warning">
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-bullhorn"></i>
+					</span><!--//icon-holder-->
+					Warning
+				</h4>
+				<p>A layer will remain locked until the user unlocks the layer. Exiting from and returning to the document will not unlock the layer.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-2-2">
+		<h2 class="section-heading">7.8.2.2 Renaming Layers</h2>
+		<p>Renaming a layer allows users to change the name that appears in the Layer screen and when changing the layer for an annotation on a document.</p>
+		
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - Rename a Layer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/rename-layer.gif')">
+				<a  data-title="Layer Panel - Rename a Layer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/rename-layer.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Layer Panel - Rename a Layer</figcaption>
+			</figure>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>When renaming a layer that has been created on multiple pages, users will be provided the option to rename the layer on all pages within the document, the current page or any other page on the document simultaneously.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-2-3">
+		<h2 class="section-heading">7.8.2.3 Deleting Layers</h2>
+		<p>Deleting a layer allows users to remove the layer from the document.</p>
+	
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>When a user deletes a layer, they are presented with the option of keeping any annotations that exist on that layer. Alternatively, they can delete all annotations and related information when the layer is deleted.</p> 
+				<p>If you decide to keep the annotations, you will be asked to select the layer to move the annotations onto.</p>
+		
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - Delete a Layer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/delete-layer.gif')">
+		<a data-title="Layer Panel - Delete a Layer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/delete-layer.gif" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Layer Panel - Delete a Layer</figcaption>
+	</figure>
+		
+		<div class="callout-block callout-block-warning">
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-bullhorn"></i>
+					</span><!--//icon-holder-->
+					Warning
+				</h4>
+				<p>If a document page only has one layer, users will not be able to delete the layer. In addition, if the document only has one layer, users will not be able to select the option to Keep Annotations as there is no additional layer to move them on to.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-3">
+		<h2 class="section-heading">7.8.3 Set Default Layer</h2>
+		<p>The default layer is the layer on which any new annotations will be placed. When a new document is added to a project, it is automatically assigned a default layer named <b>Default</b>. All annotations added to the document will be placed on this layer until another layer is added and set as the default layer.  Alternatively, annotations can be assigned to a different layer after they have been added to the document. </p>
+		
+		<p>In order to set the default layer within the layer panel, simply check the box to the right of the layer. In order to view which layer is the current default layer, open the <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8" scrollTo scrollTargetSelector="#item-7-8" (click)="activeVistionSend('section-7','item-7-8')">layer panel</a> and look for the check box.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - Set a Default Layer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/default-layer.png')">
+			<a  data-title="Layer Panel - Set a Default Layer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/default-layer.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel - Set a Default Layer</figcaption>
+		</figure>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-4">
+		<h2 class="section-heading">7.8.4 Select Annotations</h2>
+		<p>Once inside the <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8" scrollTo scrollTargetSelector="#item-7-8" (click)="activeVistionSend('section-7','item-7-8')">layer panel</a>, users can expand and collapse the various layers to display the annotations that exist within each layer.  By selecting the checkbox to the left of the annotation icon, the annotation will automatically be selected on the document page.  This is useful when trying to locate an annotation on a page, or when looking to select multiple annotations on a page.</p>
+		
+		<p>You may select multiple annotations from any number of layers on the page.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>If a layer is marked as hidden, any annotations selected from the hidden layer will not appear as they will also be hidden on the page.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - Select Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/select-annotations.gif')">
+			<a  data-title="Layer Panel - Select Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/select-annotations.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel - Select Annotations</figcaption>
+		</figure>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-5">
+		<h2 class="section-heading">7.8.5 Add a New Layer</h2>
+		<p>Layers provide the ability to show and hide annotations within a document and serve as an imaginary stack of transparent slides on top of a document page.  </p>
+		
+		<p>The concept of adding layers is an important one, as each layer can be hidden or visible to the users.  By hiding a layer, all of the annotations placed onto that layer are hidden from site as though they are not there.  By unhiding the layer, they immediately reappear on the document.</p>
+		
+		<p>Each new document comes with a Default layer, and all edits to the document are made on this layer until additional layers are created by the user.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/layer-panel.jpg')">
+			<a  data-title="Layer Panel" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/layer-panel.jpg" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel</figcaption>
+		</figure>
+		
+		<ol>
+			<li><b>Close the Layer Panel</b> screen</li>
+			<li>The <b>default layer</b>, which can be expanded and collapsed. Any new layers that are added will work in the same manner</li>
+			<li>The <b>show icon</b> indicates whether this layer is visible or hidden on the document. When the icon is tapped, it will switch to have a line through it if it is hidden.</li>
+			<li><b>Tapping the ...</b> will bring up a window of additional options.</li>
+			<li>The <b>checkbox</b> represents the default layer.  The default layer is the layer on which any new annotations will be placed.</li>
+			<li>When a <b>layer is expanded</b>, the annotations that have been placed onto the layer will appear, along with a variety of information about the annotation. Checking the box to the left of the annotation icon will result in the annotation being selected on the document page.</li>
+			<li>Selecting the <b>Add a New Layer</b> button will expand the layer panel and present additional options to create new layers.</li>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel Expanded to Add Layers','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/add-layer.jpg')">
+				<a  data-title="Layer Panel Expanded to Add Layers" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/add-layer.jpg" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Layer Panel Expanded to Add Layers</figcaption>
+			</figure>
+			
+			<li>Once a new layer is set up, <b>click this button</b> to save the layer to the document.</li>
+			<li>The <b>layer name</b> is the one that will be displayed on the left side of this pane (see Level 1) and will be the name that appears in the layer selection window when changing the layer for an annotation.</li>
+			<li><b>New layers can be added</b> to all pages, the current page only, or any other page within a document.</li>
+		</ol>	
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-8-5-1">
+		<h2 class="section-heading">7.8.5.1 Add a New Layer</h2>
+		<p>Every document comes with a default layer. Users may wish to add more layers to the document in order to separate the placement of annotations. A good example of how this could be useful is when a project recurs over time. Users can create a layer for each visit, allowing them to <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-1" scrollTo scrollTargetSelector="#item-7-8-1" (click)="activeVistionSend('section-7','item-7-8-1')">hide or show</a> the annotations from a previous visit.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Layer Panel - Add A New Layer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/add-layer.gif')">
+			<a  data-title="Layer Panel - Add A New Layer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/add-layer.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Layer Panel - Add A New Layer</figcaption>
+		</figure>
+			
+		<ul>
+			<li>Open the <b>layer panel</b>.</li>
+			<li>Select <b>Add a New Layer</b>.</li>
+			<li><b>Provide a name</b> for the new layer.</li>
+			<li><b>Determine which page</b> or pages to add the new layer.</li>
+			<li>Select <b>Save</b>.</li>
+		</ul>
+		
+		<p>Layers can be added to the current page, multiple pages within the document, or all pages within the document simultaneously.  Once a new layer is added to the page, the layer can be set as the <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-8-3" scrollTo scrollTargetSelector="#item-7-8-3" (click)="activeVistionSend('section-7','item-7-8-3')">default layer</a> and existing annotations can be moved to the new layer.</p>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9">
+		<h2 class="section-heading">7.9 Export a Document</h2>
+		<p>Documents can be exported in a variety of formats. Users have the option of exporting each page or the entire document at once, and with both options users have the ability to include or exclude annotations.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Exporting Menu on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export.png')">
+				<a  data-title="Exporting Menu on iPad" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Exporting Menu on iPad</figcaption>
+			</figure>
+			
+		<p>The web client has two additional options - 1) Export to AutoCAD and 2) Download Media.</p>
+		
+		
+			<figure class="figure docs-figure py-3" (click)="openImage('Exporting Menu on Web Client','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-web.png')">
+				<a  data-title="Exporting Menu on Web Client" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-web.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Exporting Menu on Web Client</figcaption>
+			</figure>
+		
+		<ol>
+			<li><b>Include Links</b> - If this toggle switch is turned on, the <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-2" scrollTo scrollTargetSelector="#item-7-9-2" (click)="activeVistionSend('section-7','item-7-9-2')">Export page as PDF</a> and <a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-4" scrollTo scrollTargetSelector="#item-7-9-4" (click)="activeVistionSend('section-7','item-7-9-4')">Export document as PDF</a> will include annotations that can be selected, resulting in Plannotate web client opening to the annotation icon on the selected report.</li>
+			<!-- <li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-1" scrollTo scrollTargetSelector="#item-7-9-1" (click)="activeVistionSend('section-7','item-7-9-1')">Export Blank Page as PDF</a> - For documents that are more than one page, the current page of the document can be exported to a new PDF document without any markups. When selected, you will be prompted as to where you would like to save or send the new document.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-2" scrollTo scrollTargetSelector="#item-7-9-2" (click)="activeVistionSend('section-7','item-7-9-2')">Export Page as PDF</a> - For documents that are more than one page, the current page of the document can be exported to a new PDF document with markups. When selected, you will be prompted as to where you would like to save or send the new document.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-3" scrollTo scrollTargetSelector="#item-7-9-3" (click)="activeVistionSend('section-7','item-7-9-3')">Export Blank Document as PDF</a> - For documents that are more than one page, the entire document can be exported to a new PDF document without any markups. When selected, you will be prompted as to where you would like to save or send the new document.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-4" scrollTo scrollTargetSelector="#item-7-9-4" (click)="activeVistionSend('section-7','item-7-9-4')">Export Document as PDF</a> - For documents that are more than one page, the entire document can be exported to a new PDF document with markups. When selected, you will be prompted as to where you would like to save or send the new document.</li> -->
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-1" scrollTo scrollTargetSelector="#item-7-9-1" (click)="activeVistionSend('section-7','item-7-9-1')">Export Blank Page as PDF</a> - For documents that are more than one page, the current page of the document can be exported to a new PDF document without any markups. </li>
+		<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-2" scrollTo scrollTargetSelector="#item-7-9-2" (click)="activeVistionSend('section-7','item-7-9-2')">Export Page as PDF</a> - For documents that are more than one page, the current page of the document can be exported to a new PDF document with markups. </li>
+		<li><a  href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-3" scrollTo scrollTargetSelector="#item-7-9-3" (click)="activeVistionSend('section-7','item-7-9-3')">Export Blank Document as PDF</a> - For documents that are more than one page, the entire document can be exported to a new PDF document without any markups. </li>
+		<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-4" scrollTo scrollTargetSelector="#item-7-9-4" (click)="activeVistionSend('section-7','item-7-9-4')">Export Document as PDF</a> - For documents that are more than one page, the entire document can be exported to a new PDF document with markups. </li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-5" scrollTo scrollTargetSelector="#item-7-9-5" (click)="activeVistionSend('section-7','item-7-9-5')">Export Document as CSV</a> - The entire document can be saved as a CSV flat file with all document contents stored into rows and columns.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-6" scrollTo scrollTargetSelector="#item-7-9-6" (click)="activeVistionSend('section-7','item-7-9-6')">Export Document as Reporting CSV</a> - A subset of the document can be saved as a CSV flat file similar to the Export Document as CSV, but with certain rows and columns pivoted.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-7" scrollTo scrollTargetSelector="#item-7-9-7" (click)="activeVistionSend('section-7','item-7-9-7')">Export Photos</a> - All annotations with photos will be exported to a CSV with the photo information and associated URL provided.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-8" scrollTo scrollTargetSelector="#item-7-9-8" (click)="activeVistionSend('section-7','item-7-9-8')">AutoCAD Integration</a> - All annotations we be exported to a JSON format in order to be imported into AutoCAD.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-9-9" scrollTo scrollTargetSelector="#item-7-9-9" (click)="activeVistionSend('section-7','item-7-9-9')">Downloading Photos</a> - All photos within the document or project will be exported and savid into a .zip file.</li>
+			
+		</ol>
+		
+		<div class="callout-block callout-block-info">
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>With the release of 3.1.0, the export features will trigger a process to run on the server, and the user requesting the export will receive an email when the file is ready for download.  This change was made in order to avoid waiting on very large projects to be exported.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-1">
+		<h2 class="section-heading">7.9.1 Export Blank Page as PDF</h2>
+		<p>For documents that are more than one page, the current page of the document can be exported to a new PDF document without any markups. When selected, you will be prompted as to where you would like to save or send the new document.</p>
+			
+		<figure class="figure docs-figure py-3" (click)="openImage('Export Blank Page as PDF','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-blank-page.gif')">
+			<a  data-title="Export Blank Page as PDF" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-blank-page.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Export Blank Page as PDF</figcaption>
+		</figure>
+		
+		<p>In the attached example, the document was immediately opened in Adobe Acrobat on the same device. Users can select to open the document, email the document or send it to any number of applications based upon the setup of each individual iPad.</p>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-2">
+		<h2 class="section-heading">7.9.2 Export Page as PDF</h2>
+		<p>For documents that are more than one page, the current page of the document can be exported to a new PDF document with markups. When selected, you will be prompted as to where you would like to save or send the new document.</p>
+		
+		<p>The key difference between exporting as a blank page and exporting the page is the inclusion of annotations and markups.  When selecting Export Page as PDF, the markups are also exported to the resulting document. </p>
+		
+		<p>As well, if the Include Links toggle is enabled, the markups will be "clickable" and will open the iPad's browser to Plannotate web client, where the annotation can be further explored.</p>
+			
+		<figure class="figure docs-figure py-3" (click)="openImage('Export Page as PDF','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-page.gif')">
+			<a  data-title="Export Page as PDF" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-page.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Export Page as PDF</figcaption>
+		</figure>
+		
+		
+		<p>In the attached example, the document was immediately opened in Adobe Acrobat on the same device. Users can select to open the document, email the document or send it to any number of applications based upon the setup of each individual iPad.</p>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-3">
+		<h2 class="section-heading">7.9.3 Export Blank Document as PDF</h2>
+		<p>For documents that are more than one page, the entire document can be exported to a new PDF document without any markups. When selected, you will be prompted as to where you would like to save or send the new document.</p>
+			
+		<figure class="figure docs-figure py-3" (click)="openImage('Export Blank Document as PDF','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-blank-doc.gif')">
+			<a  data-title="Export Blank Document as PDF" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-blank-doc.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Export Blank Document as PDF</figcaption>
+		</figure>
+		
+		<p>In the attached example, the document was immediately opened in Adobe Acrobat on the same device. Users can select to open the document, email the document or send it to any number of applications based upon the setup of each individual iPad.</p>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-4">
+		<h2 class="section-heading">7.9.4 Export Document as PDF</h2>
+		<p>For documents that are more than one page, the entire document can be exported to a new PDF document with markups. When selected, you will be prompted as to where you would like to save or send the new document.</p>
+		
+		<p>The key difference between exporting as a blank document and exporting the document is the inclusion of annotations and markups.  When selecting Export Document as PDF, the markups are also exported to the resulting document. </p>
+		
+		<p>As well, if the Include Links toggle is enabled, the markups will be "clickable" and will open the iPad's browser to Plannotate web client, where the annotation can be further explored.</p>
+			
+		<figure class="figure docs-figure py-3" (click)="openImage('Export Document as PDF','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-doc.gif')">
+			<a  data-title="Export Document as PDF" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-doc.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Export Document as PDF</figcaption>
+		</figure>
+		
+		<p>In the attached example, the document was immediately opened in Adobe Acrobat on the same device. Users can select to open the document, email the document or send it to any number of applications based upon the setup of each individual iPad.</p>
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-5">
+		<h2 class="section-heading">7.9.5 Export Document as CSV</h2>
+		<p>In addition to saving pages and documents to PDF, the entire document or project can be saved as a CSV flat file with all contents stored into rows and columns.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Export Document to CSV','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-csv.gif')">
+			<a  data-title="Export Document to CSV" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-csv.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Export Document to CSV</figcaption>
+			</figure>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<ul>
+					<li>If the Export Document as CSV is selected from within the Document screen (as seen in the example below), the full contents of the document will be exported into a flat file.</li>
+					<li>If the Export Project as CSV is selected from within the Project Dashboard screen, the full contents of the entire project will be exported into a flat file.</li>
+				</ul>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-6">
+		<h2 class="section-heading">7.9.6 Export Document as Reporting CSV</h2>
+		<p>In addition to saving pages and documents to PDF, the entire document or project can be saved as a CSV flat file with all contents stored into rows and columns. Similar to the Export Document as CSV, the Export Document as Reporting CSV extracts the document contents to a flat file, but pivots some of the columns into rows for easier reporting in Excel Pivot Tables.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>NOTE: We recommend you use https://plannotate3.com to generate this file, as there are more steps involved when using the iPad.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Export Document to Reporting CSV','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-reporting-csv.gif')">
+			<a  data-title="Export Document to Reporting CSV" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-reporting-csv.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Export Document to Reporting CSV</figcaption>
+			</figure>
+		
+		<p>Once the CSV file is saved to your computer, you can use the provided Plannotate Reporting Template, which can be located on Microsoft Teams in the Plannotate User Community shared space.  Navigate to Documents > General > Reporting, where you will find the <a href="https://teams.microsoft.com/l/file/FBDC357B-F4EB-4F78-B41B-550D1CD1DEFD?tenantId=d0924f05-afc4-4561-8d85-9000b3956a8b&fileType=xlsm&objectUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity%2FShared%20Documents%2FGeneral%2FReporting%2FPlannotate%20Reporting%20Template%201.0.1.xlsm&baseUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity&serviceName=teams&threadId=19:808fae938fb942b0a4356d706f2bd14c@thread.tacv2&groupId=12c4d014-9172-42f1-a944-40204ad22892" target="_blank">Microsoft Excel template</a> along with a <a href="https://wjeonline.sharepoint.com/sites/PlannotateUserCommunity/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x012000196114B789A52948AD7E7B039092FD4F&id=%2Fsites%2FPlannotateUserCommunity%2FShared%20Documents%2FGeneral%2FReporting%2FPlannotate%20Reporting%20Template%2Emp4&parent=%2Fsites%2FPlannotateUserCommunity%2FShared%20Documents%2FGeneral%2FReporting" target="_blank">video recording</a> explaining how it works.</p>
+		
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<ul>
+					<li>If the Export Document as Reporting CSV is selected from within the Document screen (as seen in the example below), the full contents of the document will be exported into a flat file.</li>
+					<li>If the Export Project as Reporting CSV is selected from within the Project Dashboard screen, the full contents of the entire project will be exported into a flat file.</li>
+				</ul>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-7">
+		<h2 class="section-heading">7.9.7 Export Photos</h2>
+		<p>In the event a user would like to have a list of all photos within a document or entire project, the Export Photos option will allow them to save a list of all annotations with photos, along with a URL to view the photos within Plannotate.</p>
+		
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Export Photos','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-photos.gif')">
+			<a  data-title="Export Photos" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/export-photos.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Export Photos</figcaption>
+			</figure>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<ul>
+					<li>If the Export Photos is selected from within the Document screen (as seen in the example below), the full contents of the document will be exported into a flat file.</li>
+					<li>If the Export Photos is selected from within the Project Dashboard screen, the full contents of the entire project will be exported into a flat file.</li>
+				</ul>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-8">
+		<h2 class="section-heading">7.9.8 AutoCAD Integration</h2>
+		<p>Plannotate allows users to export annotations to a JSON format that can then be loaded into AutoCAD.  The original CADapult tool that was created for allowing Plannotate annotation shapes to be imported from and exported to AutoCAD has been modified in order to support Plannotate version 3.  In order to implement the updates, two files will need to be added to your computer.  These files can be found within the <a href="https://wjeonline.sharepoint.com/sites/PlannotateUserCommunity/Shared%20Documents/General/CADapult/CADapult-2021-08-12.zip" target="_blank">CADapult.zip file</a> located on Microsoft Teams in the Plannotate User Community shared space.  Navigate to Documents > General > CADapult. You will also find the original <a href="https://teams.microsoft.com/l/file/65CEDF79-9681-4998-B184-BC20034DB462?tenantId=d0924f05-afc4-4561-8d85-9000b3956a8b&fileType=pdf&objectUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity%2FShared%20Documents%2FGeneral%2FCADapult%2FCADapult%20-%20Plannotate%20AutoCAD%20plugin.pdf&baseUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity&serviceName=teams&threadId=19:808fae938fb942b0a4356d706f2bd14c@thread.tacv2&groupId=12c4d014-9172-42f1-a944-40204ad22892" target="_blank">CADapult - Plannotate AutoCAD plugin user guide</a> at this location.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>The following steps assume that you have installed CADapult from the WJE network.  If you have not, please see the <a href="https://teams.microsoft.com/l/file/65CEDF79-9681-4998-B184-BC20034DB462?tenantId=d0924f05-afc4-4561-8d85-9000b3956a8b&fileType=pdf&objectUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity%2FShared%20Documents%2FGeneral%2FCADapult%2FCADapult%20-%20Plannotate%20AutoCAD%20plugin.pdf&baseUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity&serviceName=teams&threadId=19:808fae938fb942b0a4356d706f2bd14c@thread.tacv2&groupId=12c4d014-9172-42f1-a944-40204ad22892" target="_blank">CADapult - Plannotate AutoCAD plugin.pdf</a> for steps on how to do this.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<h3>Installing New Files for Plannotate version 3</h3> 
+		<ol>
+			<li>Download the <a href="https://wjeonline.sharepoint.com/sites/PlannotateUserCommunity/Shared%20Documents/General/CADapult/CADapult-2021-08-12.zip" target="_blank">Cadapult.zip</a> file to your computer from Teams.</li>
+			<li>Unzip the files and place them in a new directory in the same location as where the CADapult plugin is currently installed.</li>
+			<ul>
+				<li>Navigate to C:\Program Files\AutoCAD 2018\Plugins</li>
+				<li>Create a directory called p3 (or whatever you prefer)</li>
+				<li>Place the two files from the .zip file into the new p3 directory</li>
+			</ul>
+			<li>Since the files where not provided as part of an installation, they need to be unblocked by your computer in order to work.</li>
+			<ul>
+				<li>Navigate to the two new files in C:\Program Files\AutoCAD 2018\Plugins\p3\</li>
+				<ul>
+					<li>Cadapult.dll</li>
+					<li>Newtonsoft.Json.dll</li>
+				</ul>
+				<li>Right click on the first file to find the properties (and then repeat these steps for the second file).</li>
+				
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('View File Properties','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/unblock-1.png')">
+					<a  data-title="View File Properties=km " data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/unblock-1.png" loading="lazy" alt="" ></a>
+					<figcaption class="figure-caption mt-3">View File Properties</figcaption>
+					</figure>
+				
+				<li>In the bottom right corner there is a checkbox for “Unblock”.  Check the box if it is not already checked, and then select Apply.</li>
+				<li>Select OK and repeat for the second file.</li>
+	
+			</ul>
+		</ol>
+		
+		<h3>Exporting AutoCAD content for Plannotate</h3>
+		<p>You may continue to export content from AutoCAD to be imported into Plannotate version 2 or version 3 using the same set of instructions as was used in Plannotate version 2.</p>
+		
+		
+		<h3>Importing Plannotate Annotations into AutoCAD</h3>
+		<p>If you are importing Plannotate version 2 content into AutoCAD, you will also use the same set of instructions in the existing CADapult documentation.</p>
+		<p>If you are importing Plannotate version 3 content into AutoCAD, you will follow these modified instructions.</p>
+		
+		<ol>
+			<li>Select the Export button within any Plannotate version 3 document and then select Export to AutoCAD.</li>
+			<li>Copy the Document URL that is displayed to your clipboard.</li>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Copy Plannotate URL for Importing into AutoCAD','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/copy-url.png')">
+				<a  data-title="Copy Plannotate URL for Importing into AutoCAD" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/copy-url.png" loading="lazy" alt="" ></a>
+				<figcaption class="figure-caption mt-3">Copy Plannotate URL for Importing into AutoCAD</figcaption>
+				</figure>
+		
+			<li>Launch AutoCAD and in the command line, type NETLOAD followed by the ENTER key.</li>
+			<li>The Choose .NET Assembly dialog will appear.</li>
+			
+			<ul>
+				<li>Navigate to the C:\Program Files\AutoCAD 2018\Plugins\p3\ folder that was created above.</li>
+				<li>Select the new Cadapult.dll file that was placed there in the steps above.</li>
+				<li>Select the Open button.</li>
+			</ul>
+			<li>In the command line, type PLANNOTATE2 followed by the ENTER key. </li>
+			<li>The CADapult JSON Importer dialog will appear.</li>
+		
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('JSON Importer for Importing into AutoCAD','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/json-importer.png')">
+					<a  data-title="JSON Importer for Importing into AutoCAD" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/json-importer.png" loading="lazy" alt=""></a>
+					<figcaption class="figure-caption mt-3">JSON Importer for Importing into AutoCAD</figcaption>
+					</figure>
+				
+			<ul>
+				<li>Copy and Paste the Document URL from the Plannotate Document URL dialog in step 2 above into the line provided. </li>
+				<li>Leave the username and password fields empty.  They are not needed for Plannotate version 3 content to be imported. </li>
+				<li>Select the Load Document button. </li>
+			</ul>
+			
+			<li>Continue to Step 7 on page 5 of the <a href="https://teams.microsoft.com/l/file/65CEDF79-9681-4998-B184-BC20034DB462?tenantId=d0924f05-afc4-4561-8d85-9000b3956a8b&fileType=pdf&objectUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity%2FShared%20Documents%2FGeneral%2FCADapult%2FCADapult%20-%20Plannotate%20AutoCAD%20plugin.pdf&baseUrl=https%3A%2F%2Fwjeonline.sharepoint.com%2Fsites%2FPlannotateUserCommunity&serviceName=teams&threadId=19:808fae938fb942b0a4356d706f2bd14c@thread.tacv2&groupId=12c4d014-9172-42f1-a944-40204ad22892" target="_blank">CADapult - Plannotate AutoCAD plugin.pdf</a>.</li>
+		</ol>
+		
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-9-9">
+		<h2 class="section-heading">7.9.9 Download Media</h2>
+		<p>In the event a user would like to have a copy of all photos within a document or entire project, the Download Media option will allow them to save them to a .zip file that can be downloaded and used offline.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<ul>
+					<li>If the Download Media is selected from within the Document screen, the photos attached to annotations within the document will be exported.</li>
+					<li>If the Download Media is selected from within the Project Dashboard screen, the photos attached to annotations within the entire project will be exported.</li>
+				</ul>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-10">
+		<h2 class="section-heading">7.10 More Options</h2>
+		<p>In addition to the toolbar action items, there are an additional set of options that are availble by clicking on the icon in the top right corner.</p>
+		
+		
+<figure class="figure docs-figure py-3" (click)="openImage('More Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/more-options.png')">
+    <a  data-title="More Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/more-options.png" loading="lazy" alt="" style="width: 600px;"></a>
+    <figcaption class="figure-caption mt-3">More Options</figcaption>
+</figure>
+		
+		<ol>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-10-1" scrollTo scrollTargetSelector="#item-7-10-1" (click)="activeVistionSend('section-7','item-7-10-1')">Rename Page</a> - Allows you to rename any page within a document.</li>
+			<li><a href="/p3/userguide/chapter-8?id=section-8&target=item-8-12" (click)="goPickedchapterSidebar($event,'chapter-8','section-8','item-8-12')">Switch Pages</a> - Navigate through the various pages within a document.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-10-2" scrollTo scrollTargetSelector="#item-7-10-2" (click)="activeVistionSend('section-7','item-7-10-2')">Manage Tags</a> - Opens the Manage Tags screen.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-10-3" scrollTo scrollTargetSelector="#item-7-10-3" (click)="activeVistionSend('section-7','item-7-10-3')">Filter Toolbar Annotations</a> - Limit the annotation icons displayed on the toolbars within a document.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-10-4" scrollTo scrollTargetSelector="#item-7-10-4" (click)="activeVistionSend('section-7','item-7-10-4')">Hide Toolbar Annotation Names</a> - Hide or show the names displayed under each annotation icon.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-10-5" scrollTo scrollTargetSelector="#item-7-10-5" (click)="activeVistionSend('section-7','item-7-10-5')">Set Scale</a> - Set a default scale used to calculate the length and area of annotations on a page.</li>
+			<li><a href="/p3/userguide/chapter-7?id=section-7&target=item-7-10-6" scrollTo scrollTargetSelector="#item-7-10-6" (click)="activeVistionSend('section-7','item-7-10-6')">View Only Mode</a> - Limit the actions that can be performed within a document by setting it to view only.</li>
+		</ol>
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-10-1">
+		<h2 class="section-heading">7.10.1 Rename a Document Page</h2>
+		<p>By default, each page within a document is given a name of "Page x". This can be changed at any time by navigating to the Rename Page option.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Rename a Document Page','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/rename-page.png')">
+			<a  data-title="Rename a Document Page" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/rename-page.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Rename a Document Page</figcaption>
+		</figure>
+		
+			<ul>
+				<li>Select <b>Rename</b> to change the name of the current page.</li>
+				<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the toolbar name unchanged.</li>
+			</ul>
+	   
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-10-2">
+		<h2 class="section-heading">7.10.2 Manage Tags</h2>
+		<p>Tags are metadata assigned to a Plannotate object like a project, document, annotation, etc. By adding meaningful tags, users will be able to search for content more effectively.</p>
+		
+		<p>When the <b>Manage Tags</b> option is selected, a popup will appear displaying any tags that have been assigned to the page.  These will show up in orange, for example &quot;Concrete&quot;.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Manage Tags','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/tags.png')">
+			<a  data-title="Manage Tags" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/tags.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Manage Tags</figcaption>
+		</figure>
+		
+			<ul>
+				<li><b>Enter any number of tags</b> on the data entry line, separated by a comma, and hit the enter key on your iPad keyboard to record them.</li>
+				<li>Select the <b>X</b> next to any tags in orange to remove them.</li>
+				<li>Select <b>Save</b> to save all the changes that were made.</li>
+				<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the tags unchanged.</li>
+			</ul>
+	   
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-10-3">
+		<h2 class="section-heading">7.10.3 Filter Toolbar Annotations</h2>
+		<p>Annotations come in a variety of types (see <a class="anchorStyle" href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" (click)="goPickedchapterSidebar($event,'chapter-6','section-6','item-6-4')">Toolbar Annotations</a> for more information). Users can filter which of these are show in desired.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Filter Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/filter-annotations.png')">
+		<a  data-title="Filter Annotations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/filter-annotations.png" loading="lazy" alt="" style="width: 600px;"></a>
+		<figcaption class="figure-caption mt-3">Filter Annotations</figcaption>
+	</figure>
+		
+		<p>Annotation icons can be filtered as follows:</p>
+			<ul>
+				<li><b>All</b> - By default, all annotation icons will be displayed on all toolbars.</li>
+				<li><b>Point</b> - Annotation shapes include circle, octagon, square, triangle, star, diamond, flag, camera, arrow and text.</li>
+				<li><b>Freehand</b> - Annotation shapes include freehand line and freehand area.</li>
+				<li><b>Vertex</b> - Annotation shapes include polyline arrow, polyline, line and line axial.</li>
+				<li><b>Rectangle / Ellipse</b> - Annotation shapes include polygon, drawn ellipse and drawn rectangle.</li>
+			</ul>
+	   
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-10-4">
+		<h2 class="section-heading">7.10.4 Hide Toolbar Annotation Names</h2>
+		<p>Each annotation icon by default has a name displayed below the shape on the toolbar. These names can be disabled by selecting the Hide Toolbar Annotation Names option.</p>
+		<figure class="figure docs-figure py-3" (click)="openImage('Hide Toolbar Annotation Names','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/hide-names.png')">
+			<a data-title="Hide Toolbar Annotation Names" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/hide-names.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Hide Toolbar Annotation Names</figcaption>
+		</figure>
+	   
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-10-5">
+		<h2 class="section-heading">7.10.5 Set Scale</h2>
+	
+		<p>The Set Scale option allows you to define the length of a line on the page, which can then be used to calculate a variety of geometric values depending on the annotation icon that is selected.  For example, the length of the scale line can be used to determine the area of a circle, whereby the radius of the circle can be determined based upon how big it is in comparison to the scale line.</p>
+		
+		<p>When the scale for a page is set, a box is placed into the bottom right corner representing a legend that shows the length of the scale line and the value in feet that it represents.</p>
+			
+		<figure class="figure docs-figure py-3" (click)="openImage('Setting the Scale Within A Document','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/set-scale.gif')">
+			<a  data-title="Setting the Scale Within A Document" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/set-scale.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Setting the Scale Within A Document</figcaption>
+		</figure>
+			
+			<ul>
+				<li><b>Tap the ...</b> button in the top menu of a project document.</li>
+				<li>Select the <b>Set Scale</b> option from the menu.</li>
+				<li><b>Draw a line on</b> the document page to indicate the size of your scale. You can continue to tap and draw until you are satisfied with the length of the line..</li>
+							
+				<div class="callout-block callout-block-info">
+								
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>The placement of the scale line does not matter, as once it is established, it will move to the bottom right corner of the document.  Therefore, you can draw the line wherever you desire on the document page, focussing on the length of the line and not on the placement.</p>
+						
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<li><b>Enter a numeric value</b> at the bottom of the screen to estalish how many feet the line represents.</li>
+				<li>The scale be be set independently for each page in the document or for all pages within the document.</li>
+				<ul>
+					<li>If you want to set the scale for the current page only, <b>uncheck the option for All Pages</b>.</li>
+					<li>If you want to set the scale for all pages, <b>check the option for All Pages</b>.</li>
+				</ul>
+				<li>Tap the <b>Set Scale</b> button.</li>
+			</ul>
+			
+			<p>Scale calculations apply to the following annotation types:</p>
+			<div class="table-responsive my-4">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/circle.png" height="100" width="100"></th>
+							<td>
+								<p><b>Circle</b> annotations have a radius <b>r</b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; &#928; r<sup>2</sup></p>
+							</td>
+						</tr>
+						<tr>
+							  <th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/octagon.png" height="100" width="100"></th>
+							  <td>
+								<p><b>Octagon</b> annotations have a side <b>a</b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; 2 &#40;1 &#43; &#8730;2&#41; a<sup>2</sup></p>
+							</td>
+						</tr>
+						
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/square.png" height="100" width="100"></th>
+							<td>
+								<p><b>Square</b> annotations have a side <b>a</b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; a<sup>2</sup></p>
+							</td>
+						</tr>
+						
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/triangle.png" height="100" width="100"></th>
+							<td>
+								<p><b>Triangle</b> annotations have a base <b>b</b>, height <b>h<sub>b</sub></b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; h<sub>b</sub>b &#47; 2</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/diamond.png" height="100" width="100"></th>
+							<td>
+								<p><b>Diamond &#47; Rhombus</b> annotations have a diagonal <b>p</b>, a diagonal <b>q</b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; p q &#47; 2</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/freehand-line.png" height="100" width="100"></th>
+							<td>
+								<p><b>Freehand Line</b> annotations have a length measuring the perimeter of the line that is drawn.</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/freehand-area.png" height="100" width="100"></th>
+							<td>
+								<p><b>Freehand Area</b> annotations have a length <b>l</b>, a width <b>w</b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; l w</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/polyline-arrow.png" height="100" width="100"></th>
+							<td>
+								<p><b>Polyline-Arrow</b> annotations have a length measuring the perimeter of all segments of the line that is drawn.</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/polyline.png" height="100" width="100"></th>
+							<td>
+								<p><b>Polyline</b> annotations have a length measuring the perimeter of all segments of the line that is drawn.</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/drawn-ellipse.png" height="100" width="100"></th>
+							<td>
+								<p><b>Drawn Ellipse</b> annotations have an axis <b>a</b>, an axis <b>b</b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; &#928; a b</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/drawn-rectangle.png" height="100" width="100"></th>
+							<td>
+								<p><b>Drawn Rectangle</b> annotations have a length <b>l</b>, a width <b>w</b> and an area <b>A</b> that is calculated as follows:</p>
+								<p>A &#61; l w</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/line.png" height="100" width="100"></th>
+							<td>
+								<p><b>Line</b> annotations have a length measuring the perimeter of the line that is drawn.</p>
+							</td>
+						</tr>
+						<tr>
+							<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/line-axial.png" height="100" width="100"></th>
+							<td>
+								<p><b>Line Axial</b> annotations have a length measuring the perimeter of the line that is drawn.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!--//table-responsive-->
+			
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-10-6">
+		<h2 class="section-heading">7.10.6 View Only Mode</h2>
+		<p>All projects have built in security (see <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-6" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-2-6')">Manage Users</a> for more information). Though a user with Edit or Admin rights has the ability to mark up documents, there may be times where they want to view the document and annotation details without accidently modifying any of the content.  This is the concept behind setting the View Only Mode checkbox.</p>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('View Only Mode','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/view-only.png')">
+			<a  data-title="View Only Mode" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/view-only.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">View Only Mode</figcaption>
+		</figure>
+		
+		<p>When view only mode is enabled, the user cannot add annotations or edit any of the existing document markups. All information will be set to read-only mode.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>View Only Mode can be turned on and off as desired by each user, and does not have any impact on project security.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		 
+	   
+	</section><!--//section-->
+	<section class="docs-section" id="item-7-11">
+		<h2 class="section-heading">7.11 Copy a Document to Plannotate</h2>
+	
+		<p>In addition to adding a PDF file as a new document within the Plannotate interface, you can share a PDF document opened on your iPad's PDF viewer. This method is more involved than <a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=item-4-7-2" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-7-2')">Adding a Document From Device</a>.</p>
+			
+		<figure class="figure docs-figure py-3" (click)="openImage('Copy a Document to Plannotate','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/copy-to-plannotate.gif')">
+			<a  data-title="Copy a Document to Plannotate" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-7/copy-to-plannotate.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Copy a Document to Plannotate</figcaption>
+		</figure>
+			<ul>
+				<li><b>Open the PDF document</b> on your iPad.</li>
+				<li>Select the <b>forward icon</b> in the top right corner.</li>
+				<li>Select the <b>Plannotate version 3 icon</b> from the list of applications that appear.</li>
+				<li>You will be presented with a message indicating &quot;Your file is copied to Plannotate 3. Please select any project and add to a folder.&quot;. Select <b>OK</b>.</li>
+				</ul>
+				<div class="callout-block callout-block-info">
+								
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>If a project is opened when performing this action, you will be required to exit to the Project Dashboard and then re-open the project before seeing the option to import the copied document.</p>
+						
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<li><b>Open the desired project</b> where the document is to be added.</li>
+				<li>You will now see a blue button centered at the bottom of the screen that reads &quot;Import copied document&quot;. <b>Tap on this button</b> to import the document.</li>
+				<li><b>Provide a name</b> for the document or leave the file name as the document name.</li>
+				<li>Select <b>Add</b>.</li>
+				<li>You will be presented with a tree view of the existing folders and subfolders in the project.  <b>Tap the desired folder</b> to add the new document into.</li>
+	
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>It is advised that Plannotate is open and you are in the Project Dashboard prior to performing this action. If Plannotate is not open, preforming this action will open the application and have you log in as applicable. </p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+	</section><!--//section-->
+		
+	
+	
+	
+	
+		
+	
+</header>
+</article>
+	
+
+
+
+
+	

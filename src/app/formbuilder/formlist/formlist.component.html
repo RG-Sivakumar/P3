@@ -1,0 +1,83 @@
+<mat-table *ngIf="!retrieveImport" [dataSource]="listData" class="table-head">
+  <ng-container matColumnDef="Name">
+    <mat-cell *matCellDef="let element" class="col-xl-12 col-md-12 col-lg-12 col-sm-12 col-12 change_cur form-list-head"
+      (click)="formbuilder(element.form_id, element.form_name)" (contextmenu)="onContextMenu($event,element.form_name,element.created_date,
+    element.last_updated_date,element.form_id,element.project_id,element.is_hidden,element.form_element_count)"
+    [longPress]="2000" (onRelease)="onVeryLongPress($event,element.form_name,element.created_date,
+    element.last_updated_date,element.form_id,element.project_id,element.is_hidden,element.form_element_count)">
+      <span class="mobile-label">Name:</span>
+      <span class="hover">
+
+      </span>
+      <p style="font-size: 16px; font-weight: 550; color: #00447c;    margin-bottom: -5px;">&nbsp;&nbsp;&nbsp;&nbsp;{{ element.form_name }}</p>
+    </mat-cell>
+  </ng-container>
+  <!-- <ng-container matColumnDef="Created">
+    <mat-header-cell *matHeaderCellDef class="col-xl-2 col-md-2 col-lg-3 justify-content-start"><span
+        style="padding-left: 10px;"> Created</span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="col-xl-2 col-md-2 col-lg-3">
+      <span class="mobile-label col-xs-3">Created:</span>
+      <span style="font-size: 16px; color: #a7a9ac;">{{ element.created_date }}
+      </span>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="LastModified">
+    <mat-header-cell *matHeaderCellDef class="col-xl-4 col-md-4 col-lg-3 justify-content-start"><span
+        style="padding-left: -7px;"> Last Modified</span>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="col-xl-2 col-md-2 col-lg-3">
+      <span class="mobile-label col-xs-3">Last Modified:</span>
+      <span style="font-size: 16px; color: #a7a9ac;"
+        *ngIf="element.last_updated_date == null">{{ element.created_date }}</span>
+      <span style="font-size: 16px; color: #a7a9ac;">{{
+        element.last_updated_date
+      }}</span>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="dot">
+    <mat-header-cell *matHeaderCellDef class="col-md-1 justify-content-start">
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="col-xl-1 col-md-1 col-lg-1 col-xs-1 justify-content-start">
+      <span class="pl hover" (click)="
+          onMenu(
+            element.form_name,
+            element.created_date,
+            element.last_updated_date,
+            element.form_id,
+            element.project_id,
+            element.is_hidden,
+            element.form_element_count
+          )
+        ">...
+      </span>
+    </mat-cell>
+  </ng-container> -->
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<div class="image_part1"  >
+  <img  src="assets/images/P3_AddProject_bg.png"  matTooltip="Click to add Form"
+  matTooltipHideDelay="300" matTooltipClass="tooltipstyle" (click)="Addform()" width="120px" class="justify-content-end hover n"
+    alt="..."  />
+</div>
+<div *ngIf="set" class="image_part">
+  <img src="assets/images/spin.gif" width="300px" alt="..." />
+</div>
+<!-- <div class="text-center">
+  <h1>Drag and pull the edges of the rectangle</h1>
+  <div
+    class="rectangle"
+    [ngStyle]="style"
+    mwlResizable
+    [validateResize]="validate"
+    [resizeEdges]="{ right: true, left: true,top:true,bottom:true}"
+    [enableGhostResize]="true"
+    (resizeEnd)="onResizeEnd($event)">
+    <img
+      src="http://i.imgur.com/eqzz2dl.gif"
+      class="resize-handle"
+      mwlResizeHandle
+      [resizeEdges]="{right: true}">
+  </div>
+</div> -->

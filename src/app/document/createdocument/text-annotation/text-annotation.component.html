@@ -1,0 +1,23 @@
+<!-- Add textannotation section Start -->
+<div  class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">Annotation Label</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <label id="dummytext" class="widthHeightcalculate"></label>
+    <!-- <div class="heading">
+        <p class="heading_text">Enter the text to display</p>
+    </div> -->
+    <div class="input-field-head">
+        <!-- <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px;"
+        placeholder="Enter text" name="text_name"  [(ngModel)]="textName" (ngModelChange)="checkstringValueValid()" required autocomplete="off" /> -->
+        <textarea name="text-area-1" id="textinput" rows="5" class="text-input" [(ngModel)]="textName" (ngModelChange)="checkstringValueValid()"></textarea>
+    </div>
+    <div class="footer">
+        <button type="button" class="add-button" [disabled]="textName==''" (click)="textNameAction(textName)">Done</button>
+    </div>
+</div>
+
+<!-- Add textannotation section End -->

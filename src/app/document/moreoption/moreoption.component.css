@@ -1,0 +1,109 @@
+.header {
+  background-color: #e8e8e8;
+  padding: 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.header-heading {
+  color: #002e5f;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+.img-close {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+}
+.img-close:hover {
+  cursor: pointer;
+}
+.created-date,
+.modified-date,
+.tags {
+  color: #807f83;
+  font-style: italic;
+  font-weight: 500;
+}
+p {
+  margin-bottom: 0px;
+}
+.content-area {
+  padding: 0px 10px;
+}
+.row {
+  margin: 0px;
+}
+.img-part {
+  width: 25px;
+}
+.content-head-section {
+  padding: 17px 5px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.content-head-section:hover {
+  cursor: pointer;
+}
+.content-heading {
+  color: #002e5f;
+  font-weight: 500;
+  font-size: 16px;
+}
+.hr-area {
+  margin: 0px;
+}
+.right-tick {
+  margin-top: -10px;
+}
+.tick-mark {
+  height: 25px;
+  max-width: 100%;
+}
+.hide-only {
+  display: none;
+}
+.customeCheckbox {
+  position: relative;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.customeCheckbox:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 25px !important;
+    height: 25px !important;
+    top: -0px;
+    left: 0px;
+    border: 2px solid #807f83;
+    border-radius: 1px; 
+    background-color: white;
+}
+.customeCheckbox:checked:after {
+  content: "";
+    display: block;
+    width: 9px !important;
+    height: 20px !important;
+    border: solid #f98e2c;
+    border-width: 0 2px 2px 0;
+    transform: rotate(37deg);
+    position: absolute;
+    top: -0px;
+    left: 8px;
+}
+.right-side-part{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-part, .left-side-part{
+  display: flex;
+  align-items: center;
+}

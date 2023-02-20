@@ -1,0 +1,51 @@
+<div class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading">Add Field Sheet</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="row content-area">
+        <div class="img-part col-lg-6 col-sm-6">
+            <img [ngClass]="{'sheet-img-landscape':classactive,'sheet-img-potrait':!classactive}"  [src]="imgSource" alt="Filedsheet">
+        </div>
+        <div class="content-text col-lg-6 col-sm-6">
+            <form name="form">
+                <div class="form-group">
+                    <label class="document-name" for="exampleInputname">Document Name</label>
+                    <input type="email" class="form-control input-field" id="exampleInputname"
+                        aria-describedby="emailHelp" placeholder="Name" name="document_name" (paste)="myFunction($event)"
+                        #document_name="ngModel" [(ngModel)]="documentName" (ngModelChange)="firstLetterCapital(documentName)" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="pages" for="exampleInputPassword1"># of Pages</label>
+                    <input type="number" class="form-control input-field number-field" min="1" max="20" id="exampleInputPassword1" placeholder="1 - 20"
+                        name="noOfpages" #noOfpages="ngModel" [(ngModel)]="pagesdocument" (ngModelChange)="restrictPages(pagesdocument)" autocomplete="off"
+                         required>
+                </div>
+            </form>
+        </div>
+    </div>
+    <form>
+        <div class="row screen-part">
+            <div class="col-lg-6 col-sm-6">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="screenview" id="inlineRadio1"
+                         value="Portrait"  (change)="changestatus(1)" [checked]="validate">
+                    <label class="form-check-label radio-text" for="inlineRadio1">Portrait</label>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="screenview" id="inlineRadio2" value="Landscape"
+                         [checked]="!validate" (change)="changestatus(2)">
+                    <label class="form-check-label radio-text" for="inlineRadio2">Landscape</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="footer">
+        <button class="add-button" [disabled]="(document_name.value==undefined || noOfpages.value==undefined || pagesdocument==0||pagesdocument==null)"
+         (click)="AddNewFieldsheet(document_name.value,noOfpages.value)">Add</button>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="projectdetails_section" style="width:380px;">
+    <div class="header container-fluid">
+        <h3 class="header-heading">Select Folder</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <mat-dialog-content id="style-1">
+        <div class="content-area">
+            <mat-tree #tree [dataSource]="dataSource" [treeControl]="treeControl">
+                <mat-tree-node *matTreeNodeDef="let node" [hidden]="node.is_folder_flag==false" matTreeNodeToggle
+                    matTreeNodePadding class="mat_tree_section" (dragover)="handleDragOver($event, node);"
+                    (dragend)="handleDragEnd($event);" (drop)="handleDrop($event, node);" [ngClass]="getStyle(node)"
+                    (click)="AddNewdoc(node.folder_level,node.folder_id,node)">
+                    <div *ngIf="node.is_folder_flag==true" class="top_head col-lg-9 col-md-9 col-sm-5 col-6 p-0">
+                        <div class="col-lg-2 img-head">
+                            <img [src]="getfoldericon(node)" alt="Sub-folder" class="parent-folder-img">
+                        </div>
+                        <div *ngIf="node.is_folder_flag==true" class="col-lg-10 col-md-9 col-sm-12 col-12 pl-0">
+                            <span class="checklist-leaf-node child_text_area" draggable="true"
+                                (dragstart)="handleDragStart($event, node);">
+                                <span class="nodeContent content-heading" [ngClass]="{'drag-start': dragNode===node}">
+                                    {{node.item}}
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </mat-tree-node>
+                <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding class="mat_tree_section"
+                    matTreeNodeOutlet (dragover)="handleDragOver($event, node);"
+                    (dragend)="handleDragEnd($event, node);" (drop)="handleDrop($event, node);"
+                    [ngClass]="getStyle(node)" (load)="tree.treeControl.expandAll()"
+                    (click)="AddNewdoc(node.folder_level,node.folder_id,node)">
+                    <div class="top_head col-lg-12 col-md-9 col-sm-5 col-6 p-0">
+                        <div class="col-lg-2">
+                            <img class="parent-folder-img" [src]="getfoldericon(node)">
+                        </div>
+                        <div class="col-lg-10 col-md-9 col-sm-12 col-12 pl-0">
+                            <span class=" checklist-leaf-node  folder-name" draggable="true"
+                                (dragstart)="handleDragStart($event, node);">
+                                <span class="nodeContent content-heading" [ngClass]="{'drag-start': dragNode===node}">
+                                    {{node.item}}
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </mat-tree-node>
+            </mat-tree>
+            <span #emptyItem></span>
+        </div>
+    </mat-dialog-content>
+</div>
+<div *ngIf="show" class="loaderCommonStyle">
+    <img src="assets/images/spin.gif" alt="..." />
+  </div>

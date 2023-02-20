@@ -1,0 +1,25 @@
+<div class="app-project-head">
+  <div class="row header container-fluid">
+    <div class="col-lg-12">
+      <p class="content-heading-header">Pages</p>
+    </div>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="content-head-section style-1">
+      <div *ngFor="let selectPageSingle of selectPages" class="row col-lg-12" (click)="openLinkPage(selectPageSingle)">
+          <p class="content-heading col-lg-12">{{ documentName }} <span>- {{ selectPageSingle["page_name"] }}</span></p>
+          <p class="content-sub-text col-lg-12">{{selectedFolder["Location"]}}
+          </p>
+          <hr class="hr-area " style="width: 100%;" />
+      </div>
+    </div>
+  </div>
+</div>

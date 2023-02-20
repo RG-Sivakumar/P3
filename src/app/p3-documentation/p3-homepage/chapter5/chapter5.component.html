@@ -1,0 +1,1074 @@
+<article class="docs-article" id="section-5">
+<header class="docs-header">
+	<h1 class="docs-heading">5.0 Form Builder
+        
+        <span class="docs-time">Last updated: 
+        
+            {{lastModifiedDate}}
+        </span></h1>
+
+		<section class="docs-intro">
+			<p>The Form Builder is the entry point to project forms, an area unique to each project, where users can create, modify and delete project forms.  Forms go hand-in-hand with toolbars and enable users to add detailed annotation information to project documents.</p>
+			
+			<p>Each new project comes with a <b>Default</b> form, which can be modified or deleted.</p>
+			
+			<figure class="figure docs-figure py-3"  (click)="openImage('Form Builder','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/form-builder.jpg')">
+				<a  data-title="Form Builder" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/form-builder.jpg" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Form Builder</figcaption>
+			</figure>
+			<ol>
+				<li><b>Project Title</b> –References the name of the currently selected project.</li>
+				<li><b>Form Builder</b> – The entry point to project forms.  </li>
+				<li><a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=item-4-6" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-6')"><b>Support</b></a> – Provides Plannotate support videos, documentation, and support ticket creation.</li>
+				<li><a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=section-3" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','section-3')"><b>Dashboard</b></a> – Allows you to exit the project and return to the <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=section-3" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','section-3')">Project Management Dashboard</a>.</li>
+				<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-1" scrollTo scrollTargetSelector="#item-5-1" (click)="activeVistionSend('section-5','item-5-1')"><b>Form List</b></a> – This is the space where the list of all project forms will be displayed.</li>
+				<li><b>Search</b> – Enables you to search the displayed list of forms based on several search criteria. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">Project Management Search</a> for more information.</li>
+				<li><b>Sort</b> – Enables you to sort the displayed list of forms based on several sort options. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">Project Management Sort</a> for more information. </li>
+				<li><b>Export</b> – Allows users to export project content to a variety of formats. See <a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=item-4-8" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-8')">Export</a> for more information.</li>
+				<li><b>Manual Sync</b> – Initiates a synchronization of data with the Plannotate cloud, which uploads all new data since the last sync, and downloads any new data from the Plannotate cloud. See <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-10" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-10')">Project Management Manual Sync</a> for more information. This icon is available only on Plannotate for the iPad, as the web client version is communicating real time with the Plannotate cloud. Plannotate on web client has an Apple icon in the top right corner to allow users to install Plannotate on their iPad.</li>
+				<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-2" scrollTo scrollTargetSelector="#item-5-2" (click)="activeVistionSend('section-5','item-5-2')"><b>Add</b></a> – Provides the ability to add new forms.</li>
+			</ol>
+					
+		</section><!--//docs-intro-->
+		<section class="docs-section" id="item-5-1">
+			<h2 class="section-heading">5.1 Form List</h2>
+			<p>The list of forms displays all project forms, sorted by default in alphabetical order.</p>
+			
+			<p>When you first create a project, you will have a default form, and as new forms are added, they will appear in a list view.</p>
+			
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Form List with Two Forms','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/forms.png')">
+					<a  data-title="Form List with Two Forms" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/forms.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Form List with Two Forms</figcaption>
+				</figure>
+			
+			<p>Once new forms have been added, or existing forms have been modified, they will either show in a blue or orange color. The list will default in alphabetical order, and can be <a class="anchorStyle"  href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">searched</a> and <a class="anchorStyle"  href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<ul>
+						<li>Forms will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a class="anchorStyle"  href="/p3/userguide/chapter-2?id=section-2&target=item-2-3" (click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Forms will show in a blue color if they have been fully synchronized to the Plannotate cloud.</li>
+				</ul>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-1-1">
+			<h2 class="section-heading">5.1.1 Form Options</h2>
+			<p>There are two actions that can be performed on a form.</p>
+			
+			<ul>
+				<li><b>Single tap</b> – Selects and opens the form into the Form Builder.</li>
+				<li><b>Long hold</b> – Opens a menu of form options.</li>
+			</ul>
+			
+			<p>When a long hold is performed, a popup menu showing a variety of options will appear.</p>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Form Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/form-options.jpg')">
+				<a  data-title="Form Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/form-options.jpg" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Form Options</figcaption>
+			</figure>
+				
+				<ol>
+					<li>The <b>title</b> of the form that was selected.</li>
+					<li><b>Cancels out</b> of this screen. You can also select anywhere off the menu to close the screen.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-1-1-1" scrollTo scrollTargetSelector="#item-5-1-1-1" (click)="activeVistionSend('section-5','item-5-1-1-1')">Rename</a> - Allows you to rename the form.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-1-1-2" scrollTo scrollTargetSelector="#item-5-1-1-2" (click)="activeVistionSend('section-5','item-5-1-1-2')">Manage Tags</a> - Opens the Manage Tags screen.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-1-1-3" scrollTo scrollTargetSelector="#item-5-1-1-3" (click)="activeVistionSend('section-5','item-5-1-1-3')">More Information</a> - Displays form metadata / details.</li>
+					<li><b>Hide</b> - Enables the form to be hidden from use. See <a class="anchorStyle"  href="/p3/userguide/chapter-4?id=section-4&target=item-4-4" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-4')">Hidden Content</a></li>
+				</ol>
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-1-1-1">
+			<h2 class="section-heading">5.1.1.1 Rename A Form</h2>
+			<p>The user that initially creates a form will assign a name to the form.  In the event this name needs to change, this option can be selected.</p>
+			
+			<p>When the <b>Rename</b> option is selected, the current name of the form will appear, and by tapping on the data entry line, you will be able to modify or enter a new name.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Rename A Form','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/rename-form.png')">
+				<a  data-title="Rename A Form" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/rename-form.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Rename A Form</figcaption>
+			</figure>
+			
+				<ul>
+					<li>Select <b>Rename</b> to change the name of the form.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the form name unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-1-1-2">
+			<h2 class="section-heading">5.1.1.2 Manage Tags</h2>
+			<p>Tags are metadata assigned to a Plannotate object like a project, document, annotation, etc. By adding meaningful tags, users will be able to search for content more effectively.</p>
+			
+			<p>When the <b>Manage Tags</b> option is selected, a popup will appear displaying any tags that have been assigned to the form.  These will show up in orange, for example &quot;Concrete&quot;.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Manage Tags','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/tags.png')">
+				<a  data-title="Manage Tags" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/tags.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Manage Tags</figcaption>
+			</figure>
+				<ul>
+					<li><b>Enter any number of tags</b> on the data entry line, separated by a comma, and hit the enter key on your iPad keyboard to record them.</li>
+					<li>Select the <b>X</b> next to any tags in orange to remove them.</li>
+					<li>Select <b>Save</b> to save all the changes that were made.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the tags unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-1-1-3">
+			<h2 class="section-heading">5.1.1.3 Form Information</h2>
+			<p>The <b>More Information</b> screen shows metadata information associated with the form and its contents.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Form Information','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/information.png')">
+				<a  data-title="Form Information" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/information.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Form Information</figcaption>
+			</figure>
+			
+				<ul>
+					<li>The <b>top section</b> shows the form name, created data, last modification date and the tags associated with the form.</li>
+					<li>The <b>main body</b> of the screen shows how many form fields exist within the form.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-2">
+			<h2 class="section-heading">5.2 Adding Project Forms</h2>
+			<p>The Add Form section of Form Builder allows you to create new forms as well as make a copy of existing ones from within the project or from other projects which you have access. Any user with appropriate access to a project can create a new form or copy other forms.</p>
+			<p>After tapping the <b>+</b> at the bottom right corner of the screen, a popup screen will appear allowing you to select from a few options. </p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Creating and Duplicating Forms','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/new-form.jpg')">
+				<a  data-title="Creating and Duplicating Forms" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/new-form.jpg" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Creating and Duplicating Forms</figcaption>
+			</figure>
+			
+				<ol>
+					<li>The <b>title</b> of the menu.</li>
+					<li><b>Cancel out</b> of this screen. You can also select anywhere off the menu to close the menu.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-2-1" scrollTo scrollTargetSelector="#item-5-2-1" (click)="activeVistionSend('section-5','item-5-2-1')">New Form</a> - Add a new form to the project.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-2-2" scrollTo scrollTargetSelector="#item-5-2-2" (click)="activeVistionSend('section-5','item-5-2-2')">Duplicate Existing Form</a> - Add a new form by making a duplicate of an existing form within the same project.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-2-3" scrollTo scrollTargetSelector="#item-5-2-3" (click)="activeVistionSend('section-5','item-5-2-3')">Import Form From Other Projects</a> - Add a new form by making a duplicate of an existing form from another project which you have access.</li>
+				</ol>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>If a form is created with the same name as an existing form, the name will be appended with a number, incremented by 1 each time this happens.  For example, if a form named &#34;Crack&#34; exists and is created for a 2nd time, it will receive the name &#34;Crack &#40;1&#41;&#34;.  If this were to be added again, it would be given a name &#34;Crack &#40;2&#41;&#34; and so on.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-2-1">
+			<h2 class="section-heading">5.2.1 Adding a New Form</h2>
+			<p>After creating a project, you may want to add additional forms to capture annotation content. There are several methods to do this, the first of which is to create a brand new form.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add a New Form','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/new-form.png')">
+				<a data-title="Add a New Form" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/new-form.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add a New Form</figcaption>
+			</figure>
+				
+				<ul>
+					<li><b>Provide a name</b> for the new form.</li>
+					<li>Select <b>Add</b> to add the form.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-2-2">
+			<h2 class="section-heading">5.2.2 Duplicate an Existing Form Within the Same Project</h2>
+			<p>After creating a project, you may want to add additional forms to capture annotation content. There are several methods to do this, the second of which is to duplicate an existing form within the same project.</p>
+			
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Duplicate an Existing Form Within the Same Project','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/duplicate-form-same-project.gif')">
+					<a data-title="Duplicate an Existing Form Within the Same Project" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/duplicate-form-same-project.gif" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Duplicate an Existing Form Within the Same Project</figcaption>
+				</figure>
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>In order to select a form to duplicate, check the box to the right of the desired form.  You may only select one form at a time. Therefore, if you wish to add a copy of several forms, you will repeat these steps.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<ul>
+					<li><b>Select the form</b> you wish to duplicate from the list of forms within the project.</li>
+					<li>Select the <b>Create Copy</b> button.</li>
+					<li><b>Provide a name</b> for the new form.</li>
+					<li>Select <b>Add</b> to create the form.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-2-3">
+			<h2 class="section-heading">5.2.3 Import an Existing Form From a Different Project</h2>
+			<p>After creating a project, you may want to create additional forms to capture annotation content. There are several methods to do this, the third of which is to import an existing form from a different project project.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Import an Existing Form From a Different Project','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/duplicate-from-different.gif')">
+				<a  data-title="Import an Existing Form From a Different Project" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/duplicate-from-different.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Import an Existing Form From a Different Project</figcaption>
+			</figure>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>In order to select a form to import, check the box&#40;es&#41; to the right of the desired form.  You may select multiple forms at once.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<div class="callout-block callout-block-warning">
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-bullhorn"></i>
+							</span><!--//icon-holder-->
+							Warning
+						</h4>
+						<p>In order to import forms from other projects, it is important that you first perform a <b>sync</b> to ensure that the projects and forms have been downloaded to your device.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<ul>
+					<li><b>Select the forms</b> you wish to import from the list of forms within the projects which you have access.</li>
+					<li>Select the <b>Import</b> button.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-3">
+			<h2 class="section-heading">5.3 Form Designer</h2>
+			<p>Once a form is selected, the form designer screen appears, allowing you to create, modify and delete form fields.</p>
+			<p>The form designer is divided into three primary areas: the available field types, the body of the form being created, and the properties of each form field once selected.</p>
+			
+				
+					<figure class="figure docs-figure py-3" (click)="openImage('Form Designer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/form-designer.jpg')">
+						<a  data-title="Form Designer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/form-designer.jpg" loading="lazy" alt="" style="width: 600px;"></a>
+						<figcaption class="figure-caption mt-3">Form Designer</figcaption>
+					</figure>
+				
+			
+				<ol>
+					<li>The <b>name</b> of the form that was selected.</li>
+					<li>The <a href="/p3/userguide/chapter-5?id=section-5&target=section-5" scrollTo scrollTargetSelector="#section-5" (click)="activeVistionSend('section-5','section-5')">full list of form fields</a> that are available to add to the form.</li>
+					<li><a class="anchorStyle"  href="/p3/userguide/chapter-4?id=section-4&target=item-4-6" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-6')">Support</a> – Provides Plannotate support videos, documentation, and support ticket creation.</li>
+					<li><a  href="/p3/userguide/chapter-5?id=section-5&target=section-5" scrollTo scrollTargetSelector="#section-5" (click)="activeVistionSend('section-5','section-5')">Exit</a> - Exists back to the main Form Builder screen.</li>
+					<li>The <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-3-1" scrollTo scrollTargetSelector="#item-5-3-1" (click)="activeVistionSend('section-5','item-5-3-1')">main body</a> of the form, where you will add, modify and organize your form fields.</li>
+					<li>The <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-1" scrollTo scrollTargetSelector="#item-5-4-1" (click)="activeVistionSend('section-5','item-5-4-1')">properties area</a> of the form, where you will set up and modify each form field property.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-3" scrollTo scrollTargetSelector="#item-5-3" (click)="activeVistionSend('section-5','item-5-3')">Build</a> – The build screen is the main screen of the Form Designer.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-5" scrollTo scrollTargetSelector="#item-5-5" (click)="activeVistionSend('section-5','item-5-5')">Preview</a> – Preview allows you to see what the form will look like as well as interact with the form to test the functionality.</li>
+					<li><a href="/p3/userguide/chapter-5?id=section-5&target=item-5-6" scrollTo scrollTargetSelector="#item-5-6" (click)="activeVistionSend('section-5','item-5-6')">Publish</a> – Forms are not saved until the Publish button is selected.</li>
+				</ol>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-3-1">
+			<h2 class="section-heading">5.3.1 Adding Form Fields to a Form</h2>
+			<p>Form fields can be added to the main body of the form by tapping on the form field on the left.</p>
+			
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Adding Form Fields to a Form','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-fields.gif')" >
+					<a  data-title="Adding Form Fields to a Form" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-fields.gif" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Adding Form Fields to a Form</figcaption>
+				</figure>
+				<ul>
+					<li><b>Locate the field</b> to add to the form.</li>
+					<li><b>Tap</b> on the field.</li>
+				</ul>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>If a form field is created with the same name as an existing field, the name will be appended with a number, incremented by 1 each time this happens.  For example, if a field named &#34;Length&#34; exists and is created for a 2nd time, it will receive the name &#34;Length &#40;1&#41;&#34;.  If this were to be added again, it would be given a name &#34;Length &#40;2&#41;&#34; and so on.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-3-2">
+			<h2 class="section-heading">5.3.2 Reorder Form Fields</h2>
+			<p>Form fields are added in the order they are tapped, and can be easily reordered through drag-and drop.</p>
+
+			<figure class="figure docs-figure py-3" (click)="openImage('Reorder Form Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/reorder-fields.gif')">
+				<a  data-title="Reorder Form Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/reorder-fields.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Reorder Form Fields</figcaption>
+			</figure>
+		
+				<ul>
+					<li><b>Hold your finger</b> on the three lines to the right of any field.</li>
+					<li><b>Drag the field</b> to the desired location on the form.</li>
+					<li><b>Release</b> your finger.</li>
+				</ul>
+				
+				<div class="alert alert-success" role="alert">
+					On the web client, a left click on your mouse button is used as a single tap, and a long hold on your left mouse button is used for a long hold.
+				</div>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4">
+			<h2 class="section-heading">5.4 Form Fields</h2>
+				<p>Form fields comprise the most important part of forms. There are a variety of form field types, and each can be customized through the form field properties.</p>
+			
+				<div class="table-responsive my-4">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-2" scrollTo scrollTargetSelector="#item-5-4-2" (click)="activeVistionSend('section-5','item-5-4-2')">Single Line Text</a></th>
+								<td>Used for single-line input and accept any form of text. </td>
+							</tr>
+							<tr>
+								  <th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-3" scrollTo scrollTargetSelector="#item-5-4-3" (click)="activeVistionSend('section-5','item-5-4-3')">Text Area</a></th>
+								  <td>Used for multi-line input and accept any form of text.</td>
+							</tr>
+							
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-4" scrollTo scrollTargetSelector="#item-5-4-4" (click)="activeVistionSend('section-5','item-5-4-4')">Text Label</a></th>
+								<td>Used as a header or label within the form.</td>
+							</tr>
+							
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-5" scrollTo scrollTargetSelector="#item-5-4-5" (click)="activeVistionSend('section-5','item-5-4-5')">Number</a></th>
+								<td>Used for numeric value input and accepts any numeric value.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-12" scrollTo scrollTargetSelector="#item-5-4-12" (click)="activeVistionSend('section-5','item-5-4-12')">Divider</a></th>
+								<td>A separator in order to divide form fields. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-13" scrollTo scrollTargetSelector="#item-5-4-13" (click)="activeVistionSend('section-5','item-5-4-13')">Checkbox</a></th>
+								<td>Represents a single, predefined checkbox that a user can select.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-6" scrollTo scrollTargetSelector="#item-5-4-6" (click)="activeVistionSend('section-5','item-5-4-6')">Dropdown</a></th>
+								<td>Provides a pre-defined list of options that a user can select.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-7" scrollTo scrollTargetSelector="#item-5-4-7" (click)="activeVistionSend('section-5','item-5-4-7')">Single Choice</a></th>
+								<td>Represents a group of pre-defined radio buttons that a user can select. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-8" scrollTo scrollTargetSelector="#item-5-4-8" (click)="activeVistionSend('section-5','item-5-4-8')">Multiple Choice</a></th>
+								<td>Represents a group of pre-defined checkboxes buttons that a user can select. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-9" scrollTo scrollTargetSelector="#item-5-4-9" (click)="activeVistionSend('section-5','item-5-4-9')">Date Picker</a></th>
+								<td>Presents a date field as a calendar-style date picker UI that you choose a date from. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link" href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-10" scrollTo scrollTargetSelector="#item-5-4-10" (click)="activeVistionSend('section-5','item-5-4-10')">Formula</a></th>
+								<td>Displays the result of a calculation that has been defined by the form creator. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><a class="theme-link"  href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-11" scrollTo scrollTargetSelector="#item-5-4-11" (click)="activeVistionSend('section-5','item-5-4-11')">Address</a></th>
+								<td>Mutli-value text boxes with default address input fields.</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div><!--//table-responsive-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-1">
+			<h2 class="section-heading">5.4.1 Form Field Properties</h2>
+			<p>There are a variety of form field properties shared by various form fields throughout the form builder.  A complete list of the properties can be found below, along with a reference to the form fields that use each of them.</p>
+			
+			<div class="table-responsive my-4">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col" style="width:25%;font-weight:bolder;">Property</th>
+							<th scope="col" style="width:40%;font-weight:bolder;">Description</th>
+							<th scope="col" style="width:35%;font-weight:bolder;">Applies To</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td scope="row">Label Text</td>
+							<td>The value that will be displayed above form field on a form and can be thought of as the name of the field.</td>
+							<td>All except Divider</td>
+						</tr>
+						<tr>
+							<td scope="row">Label Align</td>
+							<td>Determines the position of the field label to the field value. Choices are Top align or Left align.</td>
+							<td>All except Divider</td>
+						</tr>
+						<tr>
+							<td scope="row">Excel Column Name</td>
+							<td>Used in previous versions of Plannotate for column headers in CSV outputs.  <b>This feature has been depricated with Plannotate 3.x and is no longer applicable.</b></td>
+							<td>All except Divider</td>
+						</tr>
+						<tr>
+							<td scope="row">Placeholder Text</td>
+							<td>Descriptive text displayed inside an input field until the field is filled. It disappears when you start typing in the field. This is an optional field when available. </td>
+							<td>Single Line Text, Text Area, Number, Date Picker</td>
+						</tr>
+						<tr>
+							<td scope="row">Default Value</td>
+							<td>The value that will be used for an input field unless it is modified. </td>
+							<td>Single Line Text, Text Area, Number, Dropdown, Single Choice, Date Picker. This is an optional field when available.</td>
+						</tr>
+						<tr>
+							<td scope="row">Use Conditions</td>
+							<td>Determines if an action should take place on the field based upon the value set in another field within the same form.  See <a href="#item-5-4-14">Use Conditions</a>. </td>
+							<td>All except Text Label, Address and Divider.</td>
+						</tr>
+						<tr>
+							<td scope="row">Minimum Value</td>
+							<td>Determines the lowest value accepted for a numeric field.</td>
+							<td>Number</td>
+						</tr>
+						<tr>
+							<td scope="row">Maximum Value</td>
+							<td>Determines the highest value accepted for a numeric field.</td>
+							<td>Number</td>
+						</tr>
+						<tr>
+							<td scope="row">Options</td>
+							<td>Determines the choices available to select, along with a variety of properties and actions that can be applied if the choice is selected. See <a href="#item-5-4-15">Set Options</a>.</td>
+							<td>Dropdown, Single Choice, Multiple Choice</td>
+						</tr>
+						<tr>
+							<td scope="row">Default Date</td>
+							<td>Allows today's date to be used in a date field.</td>
+							<td>Date Picker</td>
+						</tr>
+						<tr>
+							<td scope="row">Calculation</td>
+							<td>Allows a calculation to be defined, with elements including numbers, simple operations and other form field values. See <a href="#item-5-4-16">Field Calculations</a></td>
+							<td>Formula</td>
+						</tr>
+						<tr>
+							<td scope="row">Number of Decimals</td>
+							<td>Establishes the precision of a calculated result based in the number of decimal places to display.</td>
+							<td>Formula</td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!--//table-responsive-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-2">
+			<h2 class="section-heading">5.4.2 Single Line Text Fields</h2>
+			<p>Single line text fields are used for single-line input and accept any form of text.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Single Line Text Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/single-line-text.gif')">
+				<a  data-title="Single Line Text Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/single-line-text.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Single Line Text Fields</figcaption>
+			</figure>
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-3">
+			<h2 class="section-heading">5.4.3 Text Area Fields</h2>
+			<p>Text Area fields are used for multi-line input and accept any form of text.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Text Area Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/text-area.gif')">
+				<a  data-title="Text Area Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/text-area.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Text Area Fields</figcaption>
+			</figure>
+			
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-4">
+			<h2 class="section-heading">5.4.4 Text Label Fields</h2>
+			<p>Text Label fields are used as a header or label within the form.</p>
+			<figure class="figure docs-figure py-3"  (click)="openImage('Text Label Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/text-label.png')">
+				<a  data-title="Text Label Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/text-label.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Text Label Fields</figcaption>
+			</figure>
+			
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-5">
+			<h2 class="section-heading">5.4.5 Number Fields</h2>
+			<p>Text fields are used for numeric value input and accepts any numeric value.</p>
+			
+			
+			<figure class="figure docs-figure py-3"   (click)="openImage('Number Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/number.gif')">
+				<a  data-title="Number Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/number.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Number Fields</figcaption>
+			</figure>
+		   
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-6">
+			<h2 class="section-heading">5.4.6 Dropdown Fields</h2>
+			<p>Dropdown fields provide a pre-defined list of options that a user can select. Only one choice can be selected.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Dropdown Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/dropdown.gif')">
+				<a  data-title="Dropdown Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/dropdown.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Dropdown Fields</figcaption>
+			</figure>
+		   
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the: </p>
+						<ul>
+							<li>Use Calculated Values property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-16" scrollTo scrollTargetSelector="#item-5-4-16" (click)="activeVistionSend('section-5','item-5-4-16')">Field Calculations</a>.</li>
+							<li>Options property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-15" scrollTo scrollTargetSelector="#item-5-4-15" (click)="activeVistionSend('section-5','item-5-4-15')">Set Options</a>.</li>
+							<li>Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</li>
+							</ul>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-7">
+			<h2 class="section-heading">5.4.7 Single Choice Fields</h2>
+			<p>Single Choice fields represent a group of pre-defined radio buttons that a user can select. Only one choice can be selected.</p>
+			
+			
+				
+		<figure class="figure docs-figure py-3" (click)="openImage('Single Choice Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/single-choice.gif')">
+			<a  data-title="Single Choice Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/single-choice.gif" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Single Choice Fields</figcaption>
+		</figure>
+		   
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the: </p>
+						<ul>
+							<li>Use Calculated Values property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-16" scrollTo scrollTargetSelector="#item-5-4-16" (click)="activeVistionSend('section-5','item-5-4-16')">Field Calculations</a>.</li>
+							<li>Options property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-15" scrollTo scrollTargetSelector="#item-5-4-15" (click)="activeVistionSend('section-5','item-5-4-15')">Set Options</a>.</li>
+							<li>Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</li>
+							</ul>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-8">
+			<h2 class="section-heading">5.4.8 Multiple Choice Fields</h2>
+			<p>Multiple Choice fields represent a group of pre-defined checkboxes that a user can select. Unlike Single Choice and Dropdown fields, users can select multiple values.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Multiple Choice Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/multiple-choice.gif')">
+				<a  data-title="Multiple Choice Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/multiple-choice.gif"  alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Multiple Choice Fields</figcaption>
+			</figure>
+		   
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the: </p>
+						<ul>
+							<li>Use Calculated Values property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-16" scrollTo scrollTargetSelector="#item-5-4-16" (click)="activeVistionSend('section-5','item-5-4-16')">Field Calculations</a>.</li>
+							<li>Options property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-15" scrollTo scrollTargetSelector="#item-5-4-15" (click)="activeVistionSend('section-5','item-5-4-15')">Set Options</a>.</li>
+							<li>Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</li>
+							</ul>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-9">
+			<h2 class="section-heading">5.4.9 Date Picker Fields</h2>
+			<p>Date Picker fields present a date field as a calendar-style date picker UI that you choose a date from.</p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Date Picker Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/date-picker.gif')">
+				<a data-title="Date Picker Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/date-picker.gif"  alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Date Picker Fields</figcaption>
+			</figure>
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-10">
+			<h2 class="section-heading">5.4.10 Formula Fields</h2>
+			<p>Formula fields displays the result of a calculation that has been defined by the form creator. </p>
+			
+			<p>There are several ways to create a calculation value, including but not limited to:</p>
+			
+			<ul>
+				<li><b>Tapping</b> on the number buttons under the calculation field to add numbers to the formula.</li>
+				</ul>
+		
+					<figure class="figure docs-figure py-3" (click)="openImage('Simple Calculation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/simple-calc.png')">
+						<a  data-title="Simple Calculation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/simple-calc.png"  alt="" style="width: 600px;"></a>
+						<figcaption class="figure-caption mt-3">Simple Calculation</figcaption>
+					</figure>
+				
+				<li><b>Tapping</b> on simple operations including addition, subtraction, multiplication, division and parenthesis to group information within the formula</li>
+				
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Calculation Using Basic Operations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/calc-with-operations.png')">
+					<a  data-title="Calculation Using Basic Operations" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/calc-with-operations.png"  alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Calculation Using Basic Operations</figcaption>
+				</figure>
+				
+				<li>Adding the value from other form fields within the form. This can be done for any form that has either a numeric input &#40;such as number&#41;, or a field that allows for a number to be assigned to a choice &#40;such as the options within dropdown, single choice and multiple choice fields&#41;.</li>
+				
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Calculation Using Values From Other Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/calc-with-fields.png')">
+					<a  data-title="Calculation Using Values From Other Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/calc-with-fields.png"  alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Calculation Using Values From Other Fields</figcaption>
+				</figure>
+			
+			
+			<p>You can create any number of calculations using the key pad directly under the Calculation entry box.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Formula Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/formula.gif')">
+				<a  data-title="Formula Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/formula.gif" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Formula Fields</figcaption>
+			</figure>
+			
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the Use Conditions property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-11">
+			<h2 class="section-heading">5.4.11 Address Fields</h2>
+			<p>Address fields present mutli-value text boxes with default address input fields. In the current release, this is simply informational. Future releases may see additional capabilities with the address field. </p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Address Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/address.png')">
+				<a data-title="Address Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/address.png"  alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Address Fields</figcaption>
+			</figure>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-12">
+			<h2 class="section-heading">5.4.12 Divider Fields</h2>
+			<p>Divider fields allow users to add a separator to create sections between form fields. </p>
+			
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Divider Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/divider.png')">
+				<a  data-title="Divider Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/divider.png" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Divider Fields</figcaption>
+			</figure>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-13">
+			<h2 class="section-heading">5.4.13 Checkbox Fields</h2>
+			<p>Checkbox fields represent a single, pre-defined checkbox that a user can select.</p>
+			
+			
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Checkbox Fields','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/checkbox.png')">
+					<a  data-title="Checkbox Fields Fields" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/checkbox.png" loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Checkbox Fields</figcaption>
+				</figure>
+		   
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>For more information on the: </p>
+						<ul>
+							<li>Use Calculated Values property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-15" scrollTo scrollTargetSelector="#item-5-4-15" (click)="activeVistionSend('section-5','item-5-4-15')">Set Options</a>.</li>
+							<li>Options property, see <a href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-15" scrollTo scrollTargetSelector="#item-5-4-15" (click)="activeVistionSend('section-5','item-5-4-15')">Set Options</a>.</li>
+							<li>Use Conditions property, see <a  href="/p3/userguide/chapter-5?id=section-5&target=item-5-4-14" scrollTo scrollTargetSelector="#item-5-4-14" (click)="activeVistionSend('section-5','item-5-4-14')">Use Conditions</a>.</li>
+							</ul>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-14">
+			<h2 class="section-heading">5.4.14 Form Field Conditions</h2>
+			<p>Form fields conditions enable limited if, then, else functionality to most form field types. When enabled, a form field can be hidden or displayed based upon the value entered in another field.</p>
+			<p>Conditions can be enabled for all form field types with the exception of Text Label, Address and Divider. In order to enable the use of conditions, toggle the Use Conditions field to on for the applicable field.</p>
+			<p>There are 4 values that must be set in order for the condition to work.</p>
+			
+			<div class="table-responsive my-4">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th class="theme-bg-light" style="width: 30%;">Field Determining the Condition</th>
+							<td style="width: 70%;">This is the field that will be used to determine how the condition will work.  In an If, Then, Else statement, this is the first part of the If &#40;If <i><b>Field Determining the Condition</b></i>&#41;.</td>
+						</tr>
+						<tr>
+							  <th class="theme-bg-light">Condition</th>
+							  <td><p>This is the operation that will be used along with the Field Determining the Condition. In an If, Then, Else statement, this is the second part of the If &#40;If Field Determining the Condition <i><b>is equal to</b></i>&#41;. Available choices are:<p>
+								  <ul>
+									<li>is Equal To</li>
+									<li>is Not Equal To</li>
+									<li>is Empty</li>
+									<li>is Filled</li>
+								  </ul>
+							  </td>
+						</tr>
+						<tr>
+							  <th class="theme-bg-light">Select a Value</th>
+							  <td><p>This is the operation that will be used along with the Condition. In an If, Then, Else statement, this is the third part of the If &#40;If Field Determining the Condition is equal to <i><b>value</b></i>&#41;. </p>
+							  
+							  <div class="callout-block callout-block-info">
+									
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder mr-1">
+												<i class="fas fa-info-circle"></i>
+											</span><!--//icon-holder-->
+											Note
+										</h4>
+										<p>If the <b>is empty</b> or <b>is filled</b> are selected for the Condition, then this value will not appear as it is not applicable.</p>
+									</div><!--//content-->
+								</div><!--//callout-block-->
+							  </td>
+						</tr>
+						
+						<tr>
+							<th class="theme-bg-light">Select the Condition Action</th>
+							<td>This value allows you to select if you want to show or hide this form field if the condition is met.  In an If, Then, Else statement, this is the <b>Then</b>. The Else portion will always be the opposition of what is selected here. For example, if the choice is to <b>show</b> this field, then the else will be to <b>hide</b> this field.</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div><!--//table-responsive-->
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>Multiple Choice fields cannot be used in determining the action to take in a condition as users can select multple values and the condition would not know how to address if multiple answers are selected.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<p>In the following example, we have a Single Choice field that asks the user their favorite fruit.  The choices are <b>Apple</b>, <b>Banana</b>, <b>Cherry</b>, and <b>Peach</b>.  If the user selects <b>Apple</b>, they are presented with a question asking which is their favorite color apple, <b>Red</b> or <b>Green</b>.</p>
+			
+			<ul>
+				<li>Set up a Single Choice field called <b>Favorite Fruit</b> and define the options to choose from as <b>Apple</b>, <b>Banana</b>, <b>Cherry</b>, and <b>Peach</b>.</li>
+				<li>Set up a Single Choice field called <b>Favorite Color Apple</b> and define the options to choose from as <b>Red</b> or <b>Green</b>.</li>
+				<ul>
+					<li>Enable the radio button for <b>Use conditions</b>.</li>
+					<li>Select the field that will determine the condition.  In this case that is the <b>Favorite Fruit</b> field.</li>
+					<li>Select the condition from the list of choices.  In this case that is <b>is Equal To</b>.</li>
+					<li>Select the value to trigger the condition.  In this case that is <b>Apple</b>.</li>
+					<li>Determine if you want to show or hide the Favorite Apple Color field if the value in the Favorite Fruit field is set to Apple.  In this case, we will select <b>Show</b>.</li>
+				</ul>
+			</ul>
+			<p>We can now preview the form and see how this works.</p>
+			
+			
+					
+				<figure class="figure docs-figure py-3" (click)="openImage('Enabling and Setting Up Conditions','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/conditions.gif')">
+					<a data-title="Enabling and Setting Up Conditions" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/conditions.gif"  alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Enabling and Setting Up Conditions</figcaption>
+				</figure>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-15">
+			<h2 class="section-heading">5.4.15 Form Field Options</h2>
+			<p>Form field options enable users to:</p>
+			
+			<ul>
+				<li><b>Set the default value</b></li>
+				<li><b>Change the properities</b> of an annotation icon</li>
+				<li><b>Assign a numeric value</b> to the options, which can be used in a calculation within a Formula field.</li>
+			</ul>
+			
+			
+				<div class="callout-block callout-block-info">
+										
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>Form field options are available in Dropdown, Single Choice and Multiple Choice form field types.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<p>There are 4 columns where values can be assigned to options.</p>
+			
+				<div class="table-responsive my-4">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th class="theme-bg-light" style="width: 30%;">Options</th>
+								<td style="width: 70%;">This is where users can assign the values that will serve as choices.  For example, in a question such as &quot;What is your favorite color&quot;, the values could be something such as <b>Red</b>, <b>Yellow</b>, <b>Green</b> and <b>Blue</b></td>
+							</tr>
+							<tr>
+								  <th class="theme-bg-light">Default</th>
+								  <td>This allows users to determine which value&#40;s&#41; will automatically be selected when the form is accessed.  Any user of the form can modify this value, however if this value is not changed, it will remain as the selected value.</td>
+							</tr>
+							<tr>
+								  <th class="theme-bg-light">Calculated Values</th>
+								  <td><p>This column works in conjunction with the <b>Use Calculated Values</b> toggle.  If the toggle is enabled, each Option added will have a value assigned to it.  When the option is selected, the option value will be displayed, and the value will also be assigned but not displayed.  This allows the form field to be used in a Formula field.</p>
+								  <p>In the example above where a user picks their favorite color, we could assign a value of 5 to Red, 10 to Yellow and 15 to Green.  If the &quot;What is your favorite color&quot; is used in a Formula field where the formual is <b>1 x [What is your favorite color]</b>, the result will be <b>5</b> if Red is selected, <b>10</b> for Yellow and <b>15</b> for Green.</p>
+								  </td>
+							</tr>
+							
+							<tr>
+								<th class="theme-bg-light">Attributes</th>
+								<td><p>Attributes are an optional value that can be selected.  When selected, the user can determine if this option value will result in the annotation icon, fill color, stroke color, opacity and &#47; or line width will be modified when selected.</p>
+								 <p>In the example above where a user picks their favorite color, a user could decide that if Red is selected, the annotation icon will change to a cirlce with a red fill color, black stroke color, opacity of 0.5 and line width of 5.0.</p>
+								 <p>When a user creates an annotation, selects this form to use with the annotation, and then selects Red for the &quot;What is your favorite color&quot; field, the annotation will be changed.
+								 </p>
+								 <div class="callout-block callout-block-info">
+									
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder mr-1">
+												<i class="fas fa-info-circle"></i>
+											</span><!--//icon-holder-->
+											Note
+										</h4>
+										<p>Attributes cannot be assigned to option values in Mutliple Choice form fields as the attribtute would not know how to be applied if multiple answers are selected.</p>
+									</div><!--//content-->
+								</div><!--//callout-block-->
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div><!--//table-responsive-->
+			
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Adding Attribute Options to a Form Field','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-default-value.png')">
+					<a data-title="Adding Attribute Options to a Form Field" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-default-value.png"  alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Setting a Default Value to a Form Field</figcaption>
+				</figure>
+				
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Adding the Calculated Values Options to a Form Field','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-calculated-value.gif')">
+					<a data-title="Adding the Calculated Values Options to a Form Field" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-calculated-value.gif" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Adding the Calculated Values Options to a Form Field</figcaption>
+				</figure>
+				
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Adding Attribute Options to a Form Field','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-attributes.gif')">
+					<a data-title="Adding Attribute Options to a Form Field" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-attributes.gif"  alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Adding Attribute Options to a Form Field</figcaption>
+				</figure>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-16">
+			<h2 class="section-heading">5.4.16 Adding Calculations to Formula Form Fields</h2>
+			<p>The formula form field allows users to create calculations with simple arithmetic. The formulas can include numbers, operations such as add and subtract, as well as values from other form fields within the same form.</p>
+			
+			<table>
+				<tr>
+					<td style="width: 30%;">
+						<figure class="figure docs-figure py-3" (click)="openImage('Formula Field Number Pad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/calculation-number-pad.jpg')">
+							<a  data-title="Formula Field Number Pad" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/calculation-number-pad.jpg"  alt="" style="width: 250px;"></a>
+							<figcaption class="figure-caption mt-3">Formula Field Number Pad</figcaption>
+						</figure>
+					</td>
+					<td  style="width: 70%;">
+						<ol>
+							<li><b>Calculation Area</b> - where the created formula will appear.</li>
+							<li><b>Numeric buttons</b> - adds the corresponding number to the formula.</li>
+							<li><b>Operators</b> - adds the corresponding operator to the formula.</li>
+							<li><b>Back space</b> - allows users to remove some or all of the calculation from within the Calculation Area.</li>
+							<li><b>Add Fields button</b> - allows users to add other form fields to the form to be used in the calculation. For number form fields, the numeric value entered will be used.  If the <b>Use Calculated Values</b> is toggled on for Dropdown, Single Choice, and Multiple Choice fields, the values assigned to each option will be used. </li>
+						</ol>
+					</td>
+				</tr>
+			</table>
+			
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Adding the Calculated Values Options to a Form Field','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-calculated-value.gif')">
+					<a  data-title="Adding the Calculated Values Options to a Form Field" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/add-options-calculated-value.gif"  alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Adding the Calculated Values Options to a Form Field</figcaption>
+				</figure>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>If a form field is created with the same name as an existing field, the name will be appended with a number, incremented by 1 each time this happens.  For example, if a field named &#34;Length&#34; exists and is created for a 2nd time, it will receive the name &#34;Length &#40;1&#41;&#34;.  If this were to be added again, it would be given a name &#34;Length &#40;2&#41;&#34; and so on.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-17">
+			<h2 class="section-heading">5.4.17 Copy Form Fields</h2>
+			<p>Once a form field is created, it can be easily duplicated into a new field.  The newly created form field can then be modified as desired.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Duplicate a Form Field','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/duplicate-field.png')">
+				<a  data-title="Duplicate a Form Field" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/duplicate-field.png"  alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Duplicate a Form Field</figcaption>
+			</figure>
+			
+				<ul>
+					<li><b>Select the desired form field</b> to duplicate.</li>
+					<li><b>Select the copy icon</b> in the bottom right corner of the form field properties window.</li>
+					<li><b>Provide a name</b> for the newly created form field.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-4-18">
+			<h2 class="section-heading">5.4.18 Delete Form Fields</h2>
+			<p>Once a form field is created, it can be deleted at any time to be removed from the form. </p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Delete a Form Field','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/delete-field.png')" >
+				<a  data-title="Delete a Form Field" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/delete-field.png"  alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Delete a Form Field</figcaption>
+			</figure>
+			
+				<ul>
+					<li><b>Select the desired form field</b> to delete.</li>
+					<li><b>Select the delete icon</b> in the bottom right corner of the form field properties window.</li>
+					<li><b>Confirm</b> that the field should be deleted.</li>
+				</ul>
+				
+				<div class="callout-block callout-block-warning">
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-bullhorn"></i>
+							</span><!--//icon-holder-->
+							Warning
+						</h4>
+						<p>If any of the form fields are deleted, they will no longer be seen in any new annotation that uses the form.  They will also be removed from any existing annotation that uses the applicable form, noting that they will not be deleted but rather hidden from view.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-5">
+			<h2 class="section-heading">5.5 Preview a Form</h2>
+			<p>At any time during the creation or modification of a form, users can preview what the form will look like when <a href="#item-5-6">Published</a>. This will allow the user to confirm that the form is working as expected, and will allow users to validate form values, selections, and calculations.</p>
+			<figure class="figure docs-figure py-3" (click)="openImage('Preview a Form','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/preview.gif')">
+                <a  data-title="Preview a Form" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/preview.gif"  alt="" style="width: 600px;"></a>
+                <figcaption class="figure-caption mt-3">Preview a Form</figcaption>
+            </figure>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-5-6">
+			<h2 class="section-heading">5.6 Publish a Form</h2>
+			<p>Once the form is complete and ready for use, users can <b>Publish</b> the form.  If the form is new, users will now be able to use it.  If the form contains modifications to an existing form, the modifications will now be seen.</p>
+					
+			<figure class="figure docs-figure py-3" (click)="openImage('Publish a Form','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/publish.gif')">
+				<a  data-title="Publish a Form" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-5/publish.gif"  alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Publish a Form</figcaption>
+			</figure>
+			
+			 <div class="callout-block callout-block-danger mr-1">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder">
+							<i class="fas fa-exclamation-triangle"></i>
+						</span><!--//icon-holder-->
+						Danger
+					</h4>
+					<p>If a form is exited before publishing, all changes will be lost.  This may be desired if the user is testing or trying new things. In the event a user selects Exit and has not published the form, a warning will be presented confirming this action is desired.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		
+	</header>
+</article>

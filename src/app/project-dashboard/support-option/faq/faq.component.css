@@ -1,0 +1,83 @@
+.content-area{
+    padding:20px 0px;
+}
+.mat-expansion-panel{
+    box-shadow: none;
+} 
+.mat-expansion-panel-header{
+    min-height:82px;
+    background-color:#ffffff;
+}
+.img-part{
+    text-align: center;
+}
+.m-adjust{
+    margin:0px 15px;
+}
+.mat-expansion-panel-header:hover, .mat-expansion-panel-header:focus-within{
+    background-color: #E8E8E8 !important;
+}
+.mat-expansion-panel{
+    margin:0px;
+}
+.expand-body{
+    padding:30px 28px 10px 28px;
+}
+.content-header{
+    align-items: center;
+}
+
+.content-heading{
+    color:#335578;
+    font-size: 18px;
+    font-weight: 500;
+}
+.down-arrow{
+    width:17px;
+    height:10px;
+}
+.left-arrow{
+    height:20px;
+}
+.left-arrow:hover{
+    cursor:pointer;
+}
+.myprofile-header{
+    padding:27px 24px;
+    background-color:#E8E8E8;
+    border-bottom:1px solid rgba(0, 0, 0, .1);
+}
+.myprofile-heading{
+    text-align: center;
+    color:rgba(64, 64, 64, .8);
+    font-size: 20px;
+    font-weight: 500;
+}
+.img-head-part{
+    justify-content: center;
+    align-items: center;
+}
+.mat-expansion-indicator::after{
+    width:17px;
+    height:10px;
+    margin-right: 20px;
+}
+::ng-deep .mat-expansion-indicator:after {
+    color: white;
+    opacity: 0;
+  }
+.row{
+    margin:0px;
+}
+h3{
+    margin-bottom: 0px;
+}
+p{
+    margin-bottom:0px;
+}
+.expand-area-text{
+    font-size: 18px;
+    font-weight: 500;
+    color:rgba(64, 64, 64, 1);
+    letter-spacing: .7px;
+}

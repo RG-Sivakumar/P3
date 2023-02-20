@@ -1,0 +1,38 @@
+<div>
+  <div class="app-project-head">
+    <div class="header container-fluid">
+      <h3 class="header-heading">Duplicate Toolbar</h3>
+      <div class="image-close">
+        <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="onClose()" />
+      </div>
+    </div>
+    <div class="heading">
+      <p class="heading_document">Please enter a new toolbar name</p>
+    </div>
+    <div class="input-group input-field-head">
+      <!-- <div class="input-group-prepend image-part-head"> -->
+        <!-- <span class="text-center bg-none" id="basic-addon1"><img class="toolbar-img"
+            src="assets/images/toolbar/P3_ToolbarsIcon_Blue.png" /></span>
+      </div> -->
+      <!-- name="new_toolbar_name"
+        #new_toolbar_name="ngModel"
+        [(ngModel)]="toolbarname" -->
+      <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px; font-weight: 500;
+        color:black;                   
+        font-size: 16px;" placeholder="Toolbar Name" name="new_toolbar_name" #new_toolbar_name="ngModel"
+        [(ngModel)]="service.formData.toolbar_name" required autocomplete="off"
+        (ngModelChange)="firstLetterCapital(service.formData.toolbar_name)" />
+    </div>
+    <hr class="hr-area" />
+    <div class="footer">
+      <button (click)="onSubmit(new_toolbar_name)" [disabled]="new_toolbar_name.value == ''||btnDisabled" value="submit"
+        type="button" style="color: #a4a426;
+          font-size: 18px;
+          font-weight: 500;
+          border: none;
+          background-color: #e8e8e8;">
+        Create
+      </button>
+    </div>
+  </div>
+</div>

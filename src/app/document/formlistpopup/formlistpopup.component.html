@@ -1,0 +1,15 @@
+<mat-table   [dataSource]="listData" class="table-head">
+    <ng-container matColumnDef="Name">
+      <mat-cell *matCellDef="let element" class="col-xl-12 col-md-12 col-lg-12 col-sm-12 col-12 change_cur form-list-head" (click)="formclick(element.form_id)">
+        <span class="mobile-label">Name:</span>
+        <span class="hover">
+  
+        </span>
+        <p style="font-size: 16px; font-weight: 550; color: #00447c;    margin-bottom: -5px;">&nbsp;&nbsp;&nbsp;&nbsp;{{ element.form_name }}</p>
+      </mat-cell>
+    </ng-container>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<div class="image_part" *ngIf="loader">
+    <img src="assets/images/spin.gif"  alt="..." />
+</div>

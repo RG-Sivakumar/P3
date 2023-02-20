@@ -1,0 +1,42 @@
+<div class="container-fluid menubar">
+    <div class="row heading">
+
+        <div class="col-lg-4 col-md-4 col-sm-4 logo" >
+            <img style="width: 200px;" src="assets/images/icons/P3_Design_MainDashboard_TitleLogo.png" alt="">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 head">
+            <h3 style="color: #ffff; font-size: 18px; font-weight: 500;">Plannotate 3 Dev Admin</h3>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 logout">
+            <button style="color: #ffff;"  (click)="logout()" class="btn btn-orange">Logout</button>
+        </div>
+
+
+</div>
+<div class="row sidebar" >
+    <div class="col-lg-3 col-md-3 col-sm-3 menus">
+        <div class="sub-menus">
+        <div class="migrate">
+            <label class="btn migre">Migrate</label>
+        </div>
+        <div class="subfolder">
+        <div class="first">
+            <!-- routerLink="/devadmin/prepare" -->
+            <label class="prepare" [ngClass]="{active:isprepare}" (click)="prepare()" >Prepare</label>
+        </div>
+        <div class="second">
+            <label class="convert" [ngClass]="{active:isconvert}" (click)="convert()">Convert</label>
+        </div>
+        <div class="third">
+            <label class="status" [ngClass]="{active:isstatus}" (click)="status()">Status</label>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-9">
+        <app-dev-admin-prepare *ngIf="isprepare"></app-dev-admin-prepare>
+        <app-dev-admin-convert *ngIf="isconvert"></app-dev-admin-convert>
+        <app-dev-admin-status *ngIf="isstatus"></app-dev-admin-status>
+    </div>
+</div>
+</div>

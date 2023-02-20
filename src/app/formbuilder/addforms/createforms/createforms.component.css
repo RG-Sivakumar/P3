@@ -1,0 +1,145 @@
+.bg-none {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+.linebox {
+  border-bottom: 2px solid #e8e8e8;
+  position: relative;
+  /* width: 450px; */
+}
+i {
+  font-size: 18px;
+}
+.txtclr {
+  font-size: 17px;
+  color: #807f83;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+::placeholder {
+  color: #807f83;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #807f83;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #807f83;
+}
+.headSec {
+  color: #002e5f;
+  font-weight: 500;
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .headSec {
+    min-width: 400px;
+  }
+}
+.rbutton{
+  margin-left: 21px;
+}
+.text1{
+  color: black;
+  font-size: 17px;
+}
+.btn-lg {
+  background-color: #f98e2c;
+  border: none;
+  width: 100%;
+  border-radius: 1px;
+}
+button:focus {
+  outline: 0;
+}
+.btn-lg:active {
+  border: none;
+}
+.btn-lg:disabled {
+  cursor: not-allowed;
+}
+.bton-sing {
+  color: #fff;
+  font-weight: 500;
+}
+.btnDiv {
+  margin: 0px !important;
+}
+.close {
+  line-height: 0.7 !important;
+  cursor: pointer;
+}
+.input-group-text {
+  background-color: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background-color: #e8e8e8;
+}
+button:disabled,
+button[disabled] {
+  cursor: auto;
+  user-select: none;
+  border: none;
+  background-color: #e8e8e8;
+}
+.radiosection{
+  display: flex;
+  justify-content: space-around;
+}
+input[type=radio] {
+  width: 18px;
+  height: 18px;
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+}
+label {
+  float: left;
+  clear: none;
+  display: block;
+  padding: 0px 1em 0px 8px;
+}
+input[type=radio],
+input.radio {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+} */
+.text1{
+  color: #002e5f;
+}
+/* input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color:darkblue;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+} */

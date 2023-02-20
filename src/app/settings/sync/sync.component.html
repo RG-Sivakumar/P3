@@ -1,0 +1,89 @@
+<div class="sync-section">
+    <div class="sync-header">
+        <h3 class="sync-heading">Sync Options</h3>
+    </div>
+</div>
+<div class="content-area">
+    <div class="row sync-details-section">
+        <div class="leftSdie d-flex col-lg-6 col-md-6">
+            <div class="img-part col-lg-2 col-md-2">
+                <img src="assets/images/sync/P3_Design_20_Menu-Sync.jpg" class="sync-img" alt="manual sync">
+            </div>
+            <div class="name-part col-lg-10 col-md-10">
+                <p class="sync-text">Manual Sync</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-area">
+    <div class="row sync-details-section">
+        <div class="leftSdie d-flex col-lg-6 col-md-6">
+            <div class="img-part col-lg-2 col-md-2">
+                <img src="assets/images/sync/P3_Design_20_Menu-Sync1.jpg" class="sync-img" alt="Wi-Fi Only">
+            </div>
+            <div class="name-part col-lg-10 col-md-10">
+                <p class="sync-text">Wi-Fi Only</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-area">
+    <div class="row sync-details-section">
+        <div class="leftSdie d-flex col-lg-6 col-md-6">
+            <div class="img-part col-lg-2 col-md-2">
+                <img src="assets/images/sync/P3_Design_20_Menu-Sync2.jpg" class="sync-img"
+                    alt="Wi-Fi + Cellular Network">
+            </div>
+            <div class="name-part col-lg-10 col-md-10">
+                <p class="sync-text">Wi-Fi + Cellular Network</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-area">
+    <div class="row sync-details-section">
+        <div class="leftSdie d-flex col-lg-6 col-md-6">
+            <div class="img-part col-lg-2 col-md-2">
+                <img src="assets/images/sync/P3_Design_20_Menu-Sync3.jpg" class="sync-img" alt="Sync Interval">
+            </div>
+            <div class="name-part col-lg-10 col-md-10">
+                <p class="sync-text">Sync Interval</p>
+            </div>
+        </div>
+        <div class="rightSide textright d-flex col-lg-6 col-md-6">
+            <div class="sync-text rightSide-name col-lg-10">
+                <input type="text" name="name" class="input-field " #myInput [readonly]="firstNameEdit"
+                    [(ngModel)]="firstName" (focusout)="againHideFirst()">1 Minutes
+            </div>
+            <div class="img-part rightSide-img-part col-lg-2 col-md-2">
+                <img width="40px" src="assets/images/icons/P3WebIcon_13Edit.png" class="edit-img" alt="profile name"
+                    (click)="focusInputFirstName()">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-area">
+    <div class="row sync-details-section">
+        <div class="leftSdie d-flex col-lg-6 col-md-6">
+            <div class="img-part col-lg-2 col-md-2">
+                <img src="assets/images/sync/P3_Design_20_Menu-Sync4.jpg" class="sync-img" alt="manual sync">
+            </div>
+            <div class="name-part col-lg-10 col-md-10">
+                <p class="sync-text">Sync photos and vidios on Wi-Fi Only</p>
+            </div>
+        </div>
+        <div class="rightSide d-flex col-lg-6 col-md-6">
+            <div class="name-part rightSide-name col-lg-10">
+                <input type="text" name="name" class="input-field" #myInput [readonly]="firstNameEdit"
+                    [(ngModel)]="firstName" (focusout)="againHideFirst()">
+            </div>
+            <div class="img-part rightSide-img-part col-lg-2 col-md-2">
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider roundCir"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>

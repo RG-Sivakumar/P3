@@ -1,0 +1,152 @@
+<!-- Add Rename section Start -->
+<div *ngIf="show" class="image_part">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>
+<div *ngIf="addRename" class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1">Rename</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p *ngIf="folderflag == 0" class="heading_text">
+      Please enter a new document name
+    </p>
+    <p *ngIf="folderflag == 1&&folderLevel==0" class="heading_text">
+      Please enter a new folder name
+    </p>
+    <p *ngIf="folderflag == 1&&folderLevel!=0" class="heading_text">
+      Please enter a new folder name
+    </p>
+  </div>
+  <div class="input-group input-field-head">
+
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px"
+      name="project_name" #renameProject="ngModel" [(ngModel)]="renameFoldername" (paste)="myFunction($event)"
+      (ngModelChange)="firstLetterCapitalRename(renameFoldername)" required autocomplete="off" />
+  </div>
+  <hr class="hr-are a" />
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="renameProject.value == ''"
+      (click)="userRoleGlobal.userRol=='view'?userRoleGlobal.permissionCheck():renameAuc(renameProject.value)">
+      Rename
+    </button>
+  </div>
+</div>
+
+<!-- Add Rename section End -->
+<!-- Add new Folder section start -->
+
+<div *ngIf="addNewFolder" class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1">Add New Folder</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">Please enter a new folder name</p>
+  </div>
+  <div class="input-group input-field-head">
+    <div class="input-group-prepend">
+      <span class="text-center bg-none" id="basic-addon1"><img src="assets/images/P3_FolderClosedIcon.png"
+          class="newFolder-img" /></span>
+    </div>
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px"
+      placeholder="Type Name" name="folder_name" #folder_name="ngModel" [(ngModel)]="folderName" (paste)="myFunction($event)"
+      (ngModelChange)="firstLetterCapitalNewFolder(folderName)" required autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" [disabled]="folder_name.value == ''" class="add-button"
+      (click)="AddNewFolderAuc(folder_name.value)">
+      Add
+    </button>
+  </div>
+</div>
+<!-- Add new Folder section End -->
+
+<!-- Add new SubFolder section Start  original folder -->
+<div *ngIf="addNewSubFolder" class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1">Add New Folder</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">Please enter a new folder name</p>
+  </div>
+  <div class="input-group input-field-head">
+
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px"
+      placeholder="Type Name" name="project_name" #subfolder_name="ngModel" [(ngModel)]="subfolderName" (paste)="myFunction($event)"
+      (ngModelChange)="firstLetterCapitalSubFolder(subfolderName)" required autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" [disabled]="subfolder_name.value == ''||btnDisabled" class="add-button"
+      (click)="AddNewSubFolderAuc(subfolder_name.value)">
+      Add
+    </button>
+  </div>
+</div>
+<!-- Add new SubFolder section End -->
+
+<!-- Copy without Annotation section Start -->
+<div *ngIf="withoutAnnotation" class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1-WithoutAnnot">
+      Copy Document Without Annotations
+    </h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading_document">
+    <p class="heading_text">Please enter a name for the new document</p>
+  </div>
+  <div class="input-group input-field-headwithout">
+
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px"
+      placeholder="Copy of Document" name="project_name" #renameDocument="ngModel" [(ngModel)]="getRename"
+      (ngModelChange)="firstLetterCapital(getRename)" required autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="renameDocument.value == ''||btnDisabled"
+      (click)="CopyDocumentwithoutAnnotaion(renameDocument.value)">
+      Copy
+    </button>
+  </div>
+</div>
+<!-- Copy without Annotation section End -->
+
+<!-- Copy with Annotation section Start -->
+<div *ngIf="withAnnotation" class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1-WithoutAnnot">Copy Document With Annotations</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading_document">
+    <p class="heading_text">Please enter a name for the new document</p>
+  </div>
+  <div class="input-group input-field-head">
+
+    <input class="form-control bg-none input-field " aria-describedby="basic-addon1" style="margin-left: 2px"
+      placeholder="Copy of Document" name="project_name" #renameDocument="ngModel" [(ngModel)]="getRename" (paste)="myFunction($event)"
+      (ngModelChange)="firstLetterCapital(getRename)" required autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="renameDocument.value == ''||btnDisabled"
+      (click)="CopyDocumentwithAnnotaion(renameDocument.value)">
+      Copy
+    </button>
+  </div>
+</div>
+
+<!-- Copy with Annotation section End -->

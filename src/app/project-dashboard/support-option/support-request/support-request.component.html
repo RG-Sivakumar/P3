@@ -1,0 +1,66 @@
+<div class="col-xl-12 col-lg-12 col-xs-12 col-md-12 d-flex justify-content-center c">
+  <span class="font">Please complete the fields below. A member of our support team will get
+    back to you shortly.</span>
+</div>
+<div class="row firstName-head">
+  <div class="col-lg-5 col-sm-5">
+    <input class="input-field" type="text" value="{{firstName}}"
+      placeholder="{{firstName}}" />
+  </div>
+  <div class="col-lg-5 col-sm-5">
+    <input class="input-field" type="text" value="{{lastName}}"
+      placeholder="{{lastName}} " />
+  </div>
+</div>
+<div class="row email-head">
+  <div class="col-lg-5 col-sm-5">
+    <input class="input-field" type="text" value="{{Email}}"
+      placeholder="{{Email}}" />
+  </div>
+  <div class="col-lg-5 col-sm-5">
+    <input class="input-field {{requiredCheck}}" type="text" style="font-weight: 500;color: black;"
+      placeholder="Telephone" [(ngModel)]="Telephone" />
+  </div>
+</div>
+<div class="row subject-head">
+  <div class="col-lg-11 col-sm-11">
+    <input class="input-field {{requiredCheck1}}" style="font-weight: 500;color: black;" type="text"
+      placeholder="Subject" [(ngModel)]="Subject" (ngModelChange)="firstLetterCapital1(Subject)"/>
+  </div>
+</div>
+<div class="row description-head">
+  <div class="col-lg-11 col-sm-11">
+    <textarea class="input-field bg-none {{requiredCheck2}}" style="font-weight: 500;color: black" type="text"
+      placeholder="Detailed description so that your issue can be reproduced if possible" [(ngModel)]="DetailedDescription" (ngModelChange)="firstLetterCapital(DetailedDescription)"></textarea>
+  </div>
+</div>
+<div class="row attachment-area">
+  <div class="col-lg-11 hv-center">
+    <img src="assets/images/icons/P3WebIcon_46Link.png" class="link-image">
+    <p class="attachment-text">Attachments : <span class="add-text" (click)="openUploadBox()">Add</span></p>
+  </div>
+  <div class="content-area">
+    <div class="tags-area" id="style-1">
+      <div *ngFor="let foldertagname of uploadDatas;let i=index" class="tag-section-head bg">
+        <div class="text-part">
+          <p class="tag-name">{{ foldertagname["filename"]}}</p>
+        </div>
+        <div class="img-part">
+          <img src="assets/images/P3_Close-Cancel_Blue.png" class="tag-close" alt="close"
+            (click)="removeTag(i)" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-lg-12 col-md-12 d-flex justify-content-center w">
+  <!-- (click)="zE.activate()" -->
+  <button [disabled]="diasableTag" class="submit-but text-center" mat-raised-button type="submit"
+    (click)="RequestSubmit()">
+    Submit
+  </button>
+</div>
+<div class="col-xs-12 col-lg-12 col-md-12 d-flex justify-content-center w">
+  <span>{{requestResponce}}</span>
+</div>

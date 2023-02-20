@@ -1,0 +1,141 @@
+<div class="sidebar-feature1" style="position:absolute;width:100%;z-index: 99;">
+  <div style="background-color:rgb(227 252 255);">
+    <div class="col-lg-12 headers-formss justify-content-center">
+      <h3 class="searchcolor">Search</h3>
+    </div>
+    <div class="col-lg-12" style="width:100%;top:25px;">
+      <div class="row">
+        <div class="col-lg-9" style="width:100%">
+          <div class="input-group col-lg-12 search-group" style="background-color: #fff;border:2px solid orange;">
+            <div class="input-group-prepand prepand-head">
+              <img src="assets/images/P3_SearchIcon _Grey.png" class="search-img-section" alt="search-icon" />
+            </div>
+            <input style="background-color: #fff" type="text" name="search-text" class="form-control  search-text-Pl"
+              placeholder="Search for annotation name" [(ngModel)]="searchWord"
+               />
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <button class="btn " type="button" class="search-button" (click)="search_annotation_action()">search</button>
+        </div>
+      </div>
+    </div>
+    <div class="row col-11" style="margin-top: 30px;">
+      <p class="content-heading filter-heading">Filter</p>
+    </div>
+    <div class="row col-12">
+      <div class="col-6">
+        <div style="display: flex; margin-top: 10px">
+          <input type="checkbox" name="layer_name" [disabled]="allChecked" class="layer-name multiple-checkbox"
+            (change)="annotationfilter1()" [(ngModel)]="allChecked" />
+          <p class="content-heading">All</p>
+        </div>
+
+        <div style="display: flex; margin-top: 10px">
+          <input type="checkbox" name="layer_name" class="layer-name multiple-checkbox" [(ngModel)]="mediaChecked"
+            (change)="annotationfilter()" />
+          <p class="content-heading">With Photos</p>
+        </div>
+        <div style="display: flex; margin-top: 10px;margin-bottom: 20px;">
+          <input type="checkbox" name="layer_name" class="layer-name multiple-checkbox" [(ngModel)]="formChecked"
+            (change)="annotationfilter()" />
+          <p class="content-heading">Form Values</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div style="display: flex; margin-top: 10px">
+          <input type="checkbox" name="layer_name" (change)="annotationfilter()" [(ngModel)]="tagchecked"
+            class="layer-name multiple-checkbox" />
+          <p class="content-heading">Tag values</p>
+        </div>
+        <div style="display: flex; margin-top: 10px">
+          <input type="checkbox" name="layer_name" class="layer-name multiple-checkbox" [(ngModel)]="checkStub"
+            (change)="annotationfilter()" />
+          <p class="content-heading">With Stubs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-feature1" style="background-color: #FFFFFF;">
+    <div class="row header-shape">
+      <span class="col-4 shapes-head-manual" style="text-align: center;color:black;font-weight: 500;">Name</span>
+      <span class="col-4 shapes-head-manual" style="text-align: center;color:black;font-weight: 500;">Select</span>
+    </div>
+    <!-- <div class="list-head-1" id="style-1"> -->
+    <cdk-virtual-scroll-viewport itemSize="112" class="example-viewport scroll-1">
+      <div *cdkVirtualFor="let option of documentAnnotations_svg_view;let m=index;trackBy: trackbyFunction;" class="example-item">
+        <div class="row list-head">
+          <div [attr.id]="'searchannotation'+m" class="col-lg-2 search-annotation-part">
+            <svg [attr.viewBox]="option.viewbox" xmlns="http://www.w3.org/2000/svg"
+              class="img-responsive svg-header-annotation" width="40" height="40" [attr.transform]="option?.transform"
+              [ngClass]="{'round-line':(option.toolbar_element_id==12 || option.toolbar_element_id==17)}">
+              <g *ngIf="!option.isEllipse && !option.isRectangle" [style.opacity]="option?.opacity">
+                <path [attr.d]="option.annotation_data" [attr.stroke]="option.stroke_color" [attr.fill]="option.fill_color"
+                  [attr.stroke-width]="option.linewidth">
+                </path>
+                <text *ngIf="option.toolbar_element_id==11 && option.breaktexts.length==1"
+                  [style.fontSize]="option.textfontSize + 'px'" class="svg-font-size" [attr.x]="option.textshapetextx"
+                  [attr.y]="option.textshapetexty" [attr.fill]="option.stroke_color">
+                  <tspan *ngFor="let breaktext of option.breaktexts;let textindex = index" [attr.x]="option.textshapetextx"
+                    [attr.y]="option.textshapetexty" [style.fontSize]="option.textfontSize + 'px'">
+                    {{breaktext}}
+                  </tspan>
+                </text>
+                <text *ngIf="option.toolbar_element_id==11 && option.breaktexts.length>1"
+                  [style.fontSize]="option.textfontSize + 'px'" class="svg-font-size" [attr.x]="option.textshapetextx"
+                  [attr.y]="option.textshapetexty" [attr.fill]="option.stroke_color">
+                  <tspan *ngFor="let breaktext of option.breaktexts;let textindex = index" [attr.x]="option.textshapetextx"
+                    [attr.y]="(option.textshapetexty + (option.textfontSize * (textindex+1)))"
+                    [style.fontSize]="option.textfontSize + 'px'">
+                    {{breaktext}}
+                  </tspan>
+                </text>
+              </g>
+              <g *ngIf="option.isEllipse" [style.opacity]="option?.opacity">
+                <ellipse [attr.cx]="option.ellipse.cx" [attr.cy]="option.ellipse.cy" [attr.rx]="option.ellipse.rx"
+                  [attr.ry]="option.ellipse.ry" [attr.fill]="option.fill_color" [attr.stroke-width]="option.linewidth"
+                  [attr.stroke]="option.stroke_color"></ellipse>
+              </g>
+              <g *ngIf="option.isRectangle" [style.opacity]="option?.opacity">
+                <rect [attr.x]="option.rectangle.x" [attr.y]="option.rectangle.y" [attr.width]="option.rectangle.width"
+                  [attr.height]="option.rectangle.height" [attr.fill]="option.fill_color"
+                  [attr.stroke-width]="option.linewidth" [attr.stroke]="option.stroke_color"></rect>
+              </g>
+            </svg>
+            <ng-container *ngIf="option?.toolbar_element_id!=11">
+              <p *ngIf="option?.annotation_label!=undefined && option?.annotation_label!=''" class="preview-svg-annot"
+                [style.opacity]="option.opacity" [style.color]="option.stroke_color" [style.transform]="option?.transform">
+                {{option.annotation_label}}</p>
+            </ng-container>
+          </div>
+          <div class="col-lg-8">
+            <p>{{ option.annotation_name }}</p>
+            <p class="annotation-details" appSpecialcharater>Created : <span class="date-st">{{ option.created_date | date : "MM/dd/yyyy 'at'
+                h:mm a" }}</span> by {{getcreated(option.created_by_user_id)}}
+            </p>
+            <p class="annotation-details" appSpecialcharater>Modified : <span class="date-st">{{ option.last_updated_date | date : "MM/dd/yyyy
+                'at' h:mm a" }}</span> by
+              {{getmodified(option.updated_by_user_id,option)}}</p>
+            <p class="annotation-details">Media : ({{ option.annotation_media }}) Forms : ({{
+              option.annotation_forms }}) Links : ({{ option.annotation_links }})</p>
+          </div>
+          <div class="col-lg-2">
+            <input class="layer-name multiple-checkbox anno_checkbox" [attr.type]="msgFromParent1 ? 'checkbox' : 'radio'"
+              [checked]="searchannotationIds.includes(option.annotation_id)" [disabled]="option.invalid_check"
+              (change)="annotationChecked(option.annotation_id,$event,option)" />
+          </div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+    <!-- </div> -->
+    <div class="progressbar-head" *ngIf="circleLoader">
+      <circle-progress [percent]="loadingPercentage" [radius]="50" [outerStrokeWidth]="10" [innerStrokeWidth]="6"
+        [outerStrokeColor]="'#F98E2C'" [innerStrokeColor]="'#FFD580'" [backgroundColor]="'#FFFFFF'"
+        [backgroundGradient]="true" [animation]="true" [showTitle]="false" [showUnits]="false" [subtitle]="loadingtype"
+        [subtitleColor]="'#002E5F'" [subtitleFontSize]="14" [subtitleFontWeight]="500" [outerStrokeGradient]="true"
+        [outerStrokeGradientStopColor]="'#ff99b0'" [startFromZero]="false"></circle-progress>
+    </div>
+  </div>
+    <div *ngIf="show" class="loaderCommonStyle">
+      <img src="assets/images/spin.gif" alt="..." />
+    </div>

@@ -1,0 +1,55 @@
+<!-- delete toolbar section start -->
+
+<div *ngIf="toolbarDelete" class="delete-toolbar-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Delete Toolbar Annotation</h3>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">
+      Please Confirm you want to delete this toolbar annotation
+    </p>
+  </div>
+  <div class="footer">
+    <button type="button" class="confirm-button" (click)="removeField()">
+      Confirm
+    </button>
+  </div>
+</div>
+
+<!-- delete toolbar section End -->
+
+<!-- delete Default Form section End -->
+
+<div *ngIf="formDelete" class="delete-toolbar-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Remove Default Form</h3>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="heading-form">
+    <p class="heading_text">
+      Please Confirm you want to remove this default form. If so, any new annotations placed on a document will not have the form associated by default. Existing annotations
+      will not be impacted.
+    </p>
+  </div>
+  <div class="footer">
+    <button type="button" class="confirm-button" (click)="removeDefaultForm()">
+      Confirm
+    </button>
+  </div>
+</div>
+<!-- delete Default Form section End -->

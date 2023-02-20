@@ -1,0 +1,81 @@
+<div class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading">Sort By</h3>
+        <div class="image-close">
+            <img src="assets/images/Sort/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="row content-head-section" (click)="ascendingSort()">
+            <!-- <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_SortIconA-Z_Blue.png">
+            </div> -->
+            <div class="col-lg-10 col-sm-10">
+                <p class="content-heading">Name (A to Z)</p>
+            </div>
+            <div [hidden]="asC" class="col-lg-2 col-sm-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="descendingSort()">
+            <!-- <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_SortIconZ-A_Blue.png">
+            </div> -->
+            <div class="col-lg-10 col-sm-10">
+                <p class="content-heading">Name (Z to A)</p>
+            </div>
+            <div [hidden]="desC" class="col-lg-2 col-sm-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="dateCreatedOldToRecent()">
+            <!-- <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_DateCreatedO-R_Blue.png">
+            </div> -->
+            <div class="col-lg-10 col-sm-10">
+                <p class="content-heading">Date Created (Old to Recent)</p>
+            </div>
+            <div [hidden]="dateCrOtoR" class="col-lg-2 col-sm-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="dateCreatedRecentToOld()">
+            <!-- <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_DateCreatedR-O-Blue.png">
+            </div> -->
+            <div class="col-lg-10 col-sm-10">
+                <p class="content-heading">Date Created (Recent to Old)</p>
+            </div>
+            <div [hidden]="dateCrRtoO" class="col-lg-2 col-sm-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="lastUpdatedOldToRecent()">
+            <!-- <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_DateModifiedO_R_Blue.png">
+            </div> -->
+            <div class="col-lg-10 col-sm-10">
+                <p class="content-heading">Date Modified (Old to Recent)</p>
+            </div>
+            <div [hidden]="dateMdOtoR" class="col-lg-2 col-sm-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="lastUpdatedRecentToOld()">
+            <!-- <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_DateModifiedR-O_Blue.png">
+            </div> -->
+            <div class="col-lg-10 col-sm-10">
+                <p class="content-heading">Date Modified (Recent to Old)</p>
+            </div>
+            <div [hidden]="dateMdRtoO" class="col-lg-2 col-sm-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+    </div>
+</div>

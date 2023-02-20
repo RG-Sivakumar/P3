@@ -1,0 +1,79 @@
+<div class="auth-wrapper no-block justify-content-center align-items-center" style="
+    background: url(assets/images/background/P3_Design_LoginScreen_Bg.jpg)
+      no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow:hidden;
+  ">
+  <!-- <div class="auth-wrapper no-block justify-content-center align-items-center" style="background:url(assets/images/P3_Design_LoginScreen_BgImage.jpg); 
+background-size: 100% 100%;background-repeat: no-repeat;background-position: left top;height: 100%;"> -->
+  <!-- <div class="bg-overlay" style="background:url(assets/images/P3_Design_Login_BlueGradient.png);background-size: 100% 100%;
+            background-repeat: no-repeat;background-position: left top;height: 100%;"> -->
+  <div class="row hr-center">
+    <div class="col-lg-6 col-md-7 col-sm-8 whole-part m-3 m-md-0">
+      <!-- <div id="loginform" [ngClass]="{ 'd-none': recoverform }" class="col-lg-12 loginSection"> -->
+        <div id="loginform" class="col-lg-12 loginSection">
+        <div class="col-12 logo">
+          <img src="assets/images/icons/P3_Design_LoginScreen_Title LogoFull.png" style="width: 320px" class="img-fluid"
+            alt="Responsive image" />
+            <span class="devad">Dev Admin</span>
+        </div>
+        <!-- Form -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <form #form="ngForm" (submit)="onSubmit(form)" class="form-horizontal m-t-20" id="loginform">
+              <div class="input-group mb-3 linebox">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-none" id="basic-addon1"><img class="email-img"
+                      src="assets/images/P3_EmailIcon _White.png" /></span>
+                </div>
+                <input type="email" required minlength="1" maxlength="320"
+                 class="form-control bg-none input-field"
+                  placeholder="Email Address" aria-label="email"  name="email_id"
+                  #email_id="ngModel" [(ngModel)]="mailidvalue" />
+              </div>
+              <div class="input-group mb-3 linebox">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-none" id="basic-addon2"><img class="password-img"
+                      src="assets/images/P3_Passwordicon _White.png" /></span>
+                </div>
+                <!-- <input id="password" [type]="fieldTextType ? 'text' : 'password'" required minlength="4" maxlength="20"
+                  class="form-control bg-none input-field" placeholder="Password" aria-label="Password"
+                   name="password"  [(ngModel)]="passwordvalue"/> -->
+                <input id="password" [type]="'text'" required minlength="4" maxlength="20"
+                  class="form-control bg-none input-field" placeholder="Password" aria-label="Password"
+                   name="password"  [(ngModel)]="passwordvalue"/>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 text-center err-msg1">
+                  <p class="error_text clr field_invalid text-center">
+                    {{err_message}}
+                  </p>
+                </div>
+              </div>
+              <div class="row form-group text-center justify-content-center">
+                <div class="col-xs-12 col-lg-4 col-md-4">
+                  <button class="btn-lg bton-sing" type="submit"  style="padding: 1px">
+                    Sign In
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 copy-right-head">
+      <p class="copyright-text">
+        <span class="copyright-symbol">&#169;</span> COPYRIGHT WISS, JANNEY,
+        ELSTNER ASSOCIATES, INC., NORTHBROOK, ILLINOIS. ALL RIGHTS RESERVED.
+      </p>
+    </div>
+  </div>
+</div>
+
+

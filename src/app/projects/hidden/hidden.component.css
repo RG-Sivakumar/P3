@@ -1,0 +1,282 @@
+.table-head{
+  overflow: hidden;
+}
+
+.project_section {
+  background-color: #ffffff;
+}
+.image_part {
+  align-items: center;
+  position: absolute;
+}
+.proj_section {
+  align-items: center;
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+}
+.project-header {
+  padding: 20px 24px;
+  background-color: #e8e8e8;
+}
+.first_name {
+  padding-left: 10px;
+}
+.project-heading {
+  margin-bottom: 0px;
+  font-weight: 500;
+  color: #404040;
+  font-size: 17px;
+}
+.mat-dialog-container {
+  padding: 0px !important;
+  border-radius: 10px;
+}
+
+.mat-tree-node {
+  overflow: visible;
+  cursor: move;
+  border-bottom: 1px solid #e8e8e8;
+}
+.line-branch{
+  border-left:2px dashed rgba(167,169,172,0.7);
+  margin-left: 9px;
+}
+.right_arrow {
+  border: none;
+  background: transparent;
+  padding: 0px;
+  margin: 0px 10px;
+  display: flex;
+  align-items: center;
+}
+.drop-above {
+  border-top: 10px solid #2196f3;
+  margin-top: -10px;
+}
+
+.drop-below {
+  border-bottom: 10px solid #2196f3;
+  margin-bottom: -10px;
+}
+
+.drop-center {
+  background-color: darkgray;
+}
+
+.drag-start {
+  background-color: #1565c0;
+  color: honeydew;
+} 
+.drop-end {
+  background-color: #FFFFFF;
+  color: #002e5f;
+} 
+/* .with1{
+width:50%;
+} */
+.option_image {
+  width: 30px;
+}
+.download_image {
+  width: 30px;
+}
+.folder-img {
+  width: 27px;
+  height: 25px;
+  margin:0px 5px;
+  object-fit: contain;
+}
+.icon-arrow {
+  color: #002e5f;
+  font-weight: 800;
+}
+.folder-name,
+.child_text_area {
+  color: #002e5f;
+  font-weight: 500;
+  font-size: 17px;
+}
+.sub-img {
+  width: 27px;
+  height: 28px;
+  margin:0px 5px;
+  object-fit: contain;
+}
+.document-img {
+  width: 27px;
+  height: 28px;
+  margin:0px 6px 0px 4px;
+  object-fit: contain;
+}
+.image_part {
+  /* display: flex;
+  justify-content: flex-end; */
+  position: relative;
+}
+.image_downlaod_head {
+  position: absolute;
+  right: 0px;
+}
+.image_option_head {
+  position: absolute;
+  right: 35px;
+}
+.image_option_head:hover {
+  cursor: pointer;
+}
+
+.mat_tree_section {
+  position: relative;
+  /* height:58px; */
+}
+.created_date {
+  color: #a7a9ac;
+  font-style: italic;
+  font-weight: 500;
+  margin-right: 15px;
+}
+.modified_date {
+  color: #a7a9ac;
+  font-style: italic;
+  font-weight: 500;
+}
+.whole_div {
+  display: flex;
+  flex-direction: column;
+}
+.whole_div:hover {
+  cursor: pointer;
+}
+/* .mat-tree-node .created_date{
+  color:#F98E2C;
+} */
+.top_head {
+  display: flex;
+  /* align-items: center; */
+  padding: 10px 0px;
+  margin-top:2px;
+  margin-bottom:2px;
+  position:relative;
+}
+.bottom_head {
+  display: flex;
+  margin-top: 15px;
+}
+p {
+  margin-bottom: 0px;
+}
+.data_before {
+  width: 33px;
+  display: inline-block;
+}
+.background-highlight {
+  background: red;
+}
+.add-image {
+  width: 120px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+.add-image:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .whole_div {
+    padding: 0px;
+  }
+  .image_option_head {
+    top: 24%;
+  }
+  .image_downlaod_head {
+    top: 24%;
+  }
+  .data_before {
+    width: 25px;
+  }
+  .top_head {
+    padding-left: 0px;
+  }
+}
+@media (max-width: 600px) {
+  .bottom_head {
+    display: block;
+  }
+  .mat-tree-node {
+    padding: 15px 0px;
+  }
+  .modified_date {
+    margin-top: 10px;
+  }
+  .data_before {
+    width: 25px;
+  }
+  .bottom_head {
+    padding-left: 30px;
+  }
+  .sub-case-date {
+    padding-left: 0px;
+  }
+  .page-wrapper .container-fluid {
+    padding: 0px !important;
+  }
+}
+
+.image_part1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -135.5px;
+  margin-left: -135.5px;
+  z-index: 999;
+}
+
+.mat-dialog-container1 {
+  border: 0px;
+}
+.dynamic-Arrow{
+  padding: 5px;
+    margin: 0px 10px;
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
+}
+.hideOption{
+  visibility: hidden;
+  pointer-events: none;
+  margin: 0px 4px 0px 4px;
+}
+.arrow-part{
+  flex: 0 0 10%;
+  width:10%;
+}
+.image-part{
+  display: flex;
+  justify-content: center;
+}
+.text-part{
+  flex: 0 0 80%;
+  width:80%;
+}
+.threeline{
+  position:fixed;
+  right:40px;
+  /* padding-right: 35px; */
+  color: rgba(167,169,172, 0.7);
+  font-size: 20px;
+  font-weight: 100;
+}
+.threeline>a>i{
+  width:25px;
+  height:25px;
+  object-fit:contain;
+  color:lightgrey;
+  font-size:22px;
+}
+.annot_count{
+  color:#807F83;
+  font-size: 14px;
+}

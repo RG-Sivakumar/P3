@@ -1,0 +1,36 @@
+<div class="more_information_section">
+  <div class="row header container-fluid">
+    <div class="col-lg-10 header-heading-part">
+      <h3 class="header-heading">Add to Toolbar(Stamp)</h3>
+    </div>
+    <div class="col-lg-2 close-img-part">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="content-area" id="style-1">
+    <div
+      class="row content-head-section"
+      *ngFor="let toolbarvalue of toolbarListData; let indexValue = index"
+    >
+      <div class="col-lg-10">
+        <p class="content-heading">{{ toolbarvalue["toolbar_name"] }}</p>
+      </div>
+      <div class="col-lg-2 checkbox-part">
+        <input
+          type="checkbox"
+          name="toolbar_name"
+          class="toolbar-selected multiple-checkbox"
+          (click)="toggleVisibility($event, toolbarvalue,indexValue)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="show" class="image_part1">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>

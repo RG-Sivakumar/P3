@@ -1,0 +1,107 @@
+<div class="toolbar-list">
+  <div *ngIf="toolbarList" class="row">
+    <mat-table [dataSource]="dataSource" class="col-lg-12 col-md-12 matTable mat-elevation-z8">
+      <!-- Project Name Column -->
+      <ng-container matColumnDef="ProjectName">
+        <mat-header-cell *matHeaderCellDef class="header-title col-lg-4 col-md-4">
+          Project Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="table-data col-lg-4 col-md-4">
+
+          {{ element.project_name }}
+        </mat-cell>
+      </ng-container>
+      <!-- Created Column -->
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef class="header-title col-lg-3 col-md-3">
+          Toolbar Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="table-data col-lg-3 col-md-3">
+          {{ element.toolbar_name }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Created Column -->
+      <ng-container matColumnDef="CreatedDate">
+        <mat-header-cell *matHeaderCellDef class="header-title Date-header-title col-lg-2 col-md-2">
+          Created
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="table-date-data Date-table-data col-lg-2 col-md-2">
+          {{ element.created_date | date : 'MM/dd/yyyy'}} at {{ element.created_date | date : 'hh:mm aa'}}
+        </mat-cell>
+      </ng-container>
+      <!-- Modified Column -->
+      <ng-container matColumnDef="LastModifiedDate">
+        <mat-header-cell *matHeaderCellDef class="header-title Date-header-title col-lg-2 col-md-2">
+          Modified
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="table-date-data Date-table-data col-lg-2 col-md-2">
+          {{ element.last_updated_date | date : 'MM/dd/yyyy' }} at  {{ element.last_updated_date | date : 'hh:mm aa' }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="checkboxAll">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="header-title col-lg-1 col-md-1 checkbox-header-cell"
+          ><input class="checkboxHead" type="checkbox"
+        /></mat-header-cell>
+        <mat-cell
+          *matCellDef="let element"
+          class="table-data checkbox-cell col-lg-1 col-md-1 checkboxchildhead"
+        >
+          <input
+            type="checkbox"
+            class="checkboxchild"
+            (change)="toggleVisibilityImport($event, element.toolbar_id)"
+          />
+        </mat-cell>
+      </ng-container> -->
+
+      <ng-container matColumnDef="checkboxAll">
+        <mat-header-cell *matHeaderCellDef class="header-title col-lg-1 col-md-1 checkbox-header-cell"><input
+            class="checkboxHead toolbarselectCheckbox" type="checkbox" (change)="getAllProjectImport($event)"
+            [checked]="isAllSelectedValue">
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="table-data checkbox-cell col-lg-1 col-md-1 checkboxchildhead">
+          <input type="checkbox" class="checkboxchild toolbarselectCheckbox"
+            (change)="$event ? toggleVisibilityImport($event,element.toolbar_id) : null"
+            [checked]="getCheckImportToolbar(element.toolbar_id)">
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" class="header-row"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" class="table-data-row"></mat-row>
+    </mat-table>
+    <div class="row buttons-head hv-center n">
+      <div class="col-lg-12 button-col hv-center">
+        <div class="cancel-part hv-center">
+          <button class="btn  btn-import" (click)="cancel()">
+            Cancel
+          </button>
+        </div>
+        <div *ngIf="toolbarList" class="import-part hv-center">
+          <button class="btn  btn-import" [disabled]="btnDisabled" (click)="importForms()">
+            Import
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="addToolbar">
+    <img src="assets/images/P3_AddProject_bg.png" style="pointer-events: none;" class="plus-img" alt="plusMark"
+      (click)="addToolbarProject()" />
+  </div> -->
+  <div *ngIf="slider" class="img-partspin">
+    <img src="assets/images/spin.gif" alt="..." />
+  </div>
+  <!-- <div *ngIf="toolbarList" class="col-lg-2 col-md-3 import-part">
+    <button class="btn btn-block btn-import" [disabled]="btnDisabled" (click)="importForms()">
+      Import
+    </button>
+  </div> -->
+  
+
+</div>

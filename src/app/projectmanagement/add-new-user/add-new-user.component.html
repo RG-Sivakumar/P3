@@ -1,0 +1,151 @@
+<!-- <div *ngIf="overlay" id="overlay">
+  <div *ngIf="show" class="col-lg-12 col-md-12 proj_section">
+    <div class="image_part text-center">
+      <img src="assets/images/spin.gif" width="300px" alt="..." />
+    </div>
+  </div>
+</div> -->
+<div class="loaderCommonStyle" *ngIf="loader">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>
+<div *ngIf="!loader" class="auth-wrapper no-block justify-content-center align-items-center" style="
+    background: url(assets/images/background/P3_Design_LoginScreen_Bg.jpg)
+      no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow:hidden;
+  ">
+  <!-- <div class="auth-wrapper no-block justify-content-center align-items-center" style="background:url(assets/images/P3_Design_LoginScreen_BgImage.jpg); 
+background-size: 100% 100%;background-repeat: no-repeat;background-position: left top;height: 100%;"> -->
+  <!-- <div class="bg-overlay" style="background:url(assets/images/P3_Design_Login_BlueGradient.png);background-size: 100% 100%;
+            background-repeat: no-repeat;background-position: left top;height: 100%;"> -->
+  <div class="row hr-center">
+    <div class="col-lg-6 col-md-7 col-sm-8 whole-part m-3 m-md-0">
+      <div class="col-lg-12 loginSection" >
+        <div class="col-12 logo" >
+          <span class="top-text">
+            You have been invited to join a project on Plannotate, an application used by Wiss, Janney, Elstner Associates
+              to collect field investigation and condition assessment data. Please create a new password below and select
+              Accept to continue.
+           
+           </span>
+        </div>
+        <!-- Form -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+           
+              <div class="input-group mb-3 linebox">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-none" id="basic-addon1"><img class="email-img"
+                      src="assets/images/P3_EmailIcon _White.png" /></span>
+                </div>
+              
+     
+      <input type="email"  class="form-control bg-none input-field"
+      placeholder="User Name" aria-label="email"  [(ngModel)]="emailId" 
+      readonly/>
+              </div>
+              
+              <div class="input-group mb-3 linebox">
+               
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-none" id="basic-addon2"><mat-icon class="password-img" style="color:white;">person_outline</mat-icon></span>
+                </div>
+             
+                <input type="text"  class="form-control bg-none input-field"
+      placeholder="Name" aria-label="email"  [(ngModel)]="fulllname"
+      readonly/>
+                
+              </div>
+              <div class="input-group mb-3 linebox">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-none" id="basic-addon2"><img class="password-img"
+                      src="assets/images/P3_Passwordicon _White.png" /></span>
+                </div>
+     
+                <input  [type]="fieldTextType1 ? 'text' : 'password'"   class="form-control bg-none input-field"
+                minlength="4" maxlength="320" placeholder="New Password"
+                name="new_password" [(ngModel)]="newPassword" #newpassword="ngModel" required
+                >
+                <div id="toggle" class="input-group-prepend">
+                  <span class="input-group-text bg-none" *ngIf="!passwordshow" id="basic-addon2"
+                    (click)="password1()">
+                    <img class="password-img" src="assets/images/outline_visibility_white_18dp.png" />
+                    <!-- <span class="material-icons">
+                    visibility_off
+                  </span>-->
+                  </span>
+
+                  <span class="input-group-text bg-none" *ngIf="passwordshow" id="basic-addon2"
+                    (click)="password2Click()">
+                    <img class="password-img" src="assets/images/outline_visibility_off_white_18dp.png" />
+                    <!-- <span class="material-icons">
+                    visibility
+                  </span> -->
+                  </span>
+                </div>
+              </div>
+              <div class="input-group mb-3 linebox">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-none" id="basic-addon2"><img class="password-img"
+                      src="assets/images/P3_Passwordicon _White.png" /></span>
+                </div>
+
+              
+                <input   [type]="fieldTextType ? 'text' : 'password'"  class="form-control bg-none input-field"
+                minlength="4" maxlength="320" placeholder="Confirm Password"
+                name="new_password" [(ngModel)]="newPassword1" #newpassword="ngModel" required 
+                />
+                <div id="toggle" class="input-group-prepend">
+                  <span class="input-group-text bg-none" *ngIf="!showPassword" id="basic-addon2"
+                    (click)="passwordonClick()">
+                    <img class="password-img" src="assets/images/outline_visibility_white_18dp.png" />
+                    <!-- <span class="material-icons">
+                    visibility_off
+                  </span>-->
+                  </span>
+
+                  <span class="input-group-text bg-none" *ngIf="showPassword" id="basic-addon2"
+                    (click)="passwordoffClick()">
+                    <img class="password-img" src="assets/images/outline_visibility_off_white_18dp.png" />
+                    <!-- <span class="material-icons">
+                    visibility
+                  </span> -->
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 text-center err-msg1">
+                  <p 
+                    class="error_text clr field_invalid text-center" *ngIf="formError">
+                    {{formErrorMessage}}
+                  </p>
+                  <p 
+                  class="error_text clr field_invalid text-center" *ngIf="error">
+                  Please Try Again
+                </p>
+                </div>
+              </div>
+              <div class="row form-group text-center justify-content-center">
+                <div class="col-xs-12 col-lg-4 col-md-4">
+                  <button class="btn-lg bton-sing" (click)="invitationAccept()" type="submit" style="padding: 1px">
+                    Accept
+                  </button>
+                </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 copy-right-head">
+      <p class="copyright-text">
+        <span class="copyright-symbol">&#169;</span> COPYRIGHT WISS, JANNEY,
+        ELSTNER ASSOCIATES, INC., NORTHBROOK, ILLINOIS. ALL RIGHTS RESERVED.
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+.matTable{
+    padding:0px;
+    box-shadow: none;
+}
+.addToolbar{
+    width:8%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.plus-img{
+    max-width: 100%;
+}:hover{
+    cursor: pointer;
+}
+
+.n{
+   
+    bottom:0;
+  
+    position:fixed;
+   }
+.header-title{
+    font-size: 18px;
+    font-weight: 500;
+    color:#807F83;
+}
+.table-data{
+    font-size:18px;
+    font-weight: 500;
+    color:#335578;
+}
+.table-date-data{
+    font-size:18px;
+    font-weight: 500;
+    color:#A7A9AC;
+}
+.header-row{
+    background-color:#EBEBEB;
+    padding:10px;
+}
+.table-data-row{
+    padding:4px 10px
+}
+.toolbar-img{
+    width:24px;
+    height:30px;
+    margin-right: 20px;
+}
+.toolbar-list{
+    position: relative;
+    min-height: 90vh;
+    width:100%;
+}
+.img-partspin{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -107.5px;
+    margin-left: -21px;
+}
+.button{
+    padding:10px 5px;
+    border:1px solid #002E5F;
+    background-color: #f98e2c;
+    width:60%;
+    color:white;
+    font-size: 18px;
+}
+.dot-img{
+    width:16%;
+}
+.Date-table-data, .Date-header-title, .dot-cell{
+    justify-content: center;
+}
+
+.toolbarselectCheckbox {
+    position: relative;
+    cursor: pointer;
+  }
+  .toolbarselectCheckbox:before {
+    content: "";
+      display: block;
+      position: absolute;
+      width: 25px !important;
+      height: 25px !important;
+      top: -6px;
+      left: -2px;
+      border: 2px solid #807F83;
+      border-radius: 1px;
+      background-color: white;
+  }
+  .toolbarselectCheckbox:checked:after {
+    content: "";
+    display: block;
+    width: 10px !important;
+    height: 20px !important;
+    border: solid #002E5F;
+    border-width: 0 2px 2px 0;
+    transform: rotate(37deg);
+    position: absolute;
+    top: -6px;
+    left: 5px;
+  }
+  .row{
+      margin: 0px;
+  }
+  
+  .buttons-head{
+    height:70px;
+    width:82.5%;
+    background-color: #FFFFFF;
+}
+.hv-center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-col{
+    justify-content: space-around !important;
+}
+.btn-import:disabled{
+    opacity: 1;
+}
+.btn-import:disabled:hover{
+    cursor: auto;
+}
+.btn-import{
+    background-color: #F98E2C;
+    color:#fff;
+    border:1px solid #000000;
+    width:210px;
+    font-weight: 500;
+}

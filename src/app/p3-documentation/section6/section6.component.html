@@ -1,0 +1,589 @@
+<article class="docs-article" id="section-6">
+	<header class="docs-header">
+		<h1 class="docs-heading">6.0 Toolbar Builder
+			<span class="docs-time">Last updated:{{lastModifiedDate}}</span>
+		</h1>
+		
+		<section class="docs-intro">
+			<p>The Toolbar Builder is the area where annotation icons are designed, named and collected into individual project toolbars. Toolbars are one of the most powerful features in Plannotate as they allow users to place any type of annotation on project documents and are fully customizable.</p>
+			<p>	Users can use the Toolbar Builder to create new or edit existing toolbars. There are a variety of pre-defined annotation icons that can be used to create a toolbar. Toolbar annotations can be set to have a default form associated, and can also have prepopulated form values that are set by default when an annotation icon is placed onto a document.</p>
+			
+			<p>Each new project comes with a <b>Default</b> toolbar, which can be modified or deleted.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Toolbar Builder','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-builder.png')">
+				<a  data-title="Toolbar Builder" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-builder.png" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Toolbar Builder</figcaption>
+			</figure>
+			
+			<ol>
+				<li><b>Project Title</b> –References the name of the currently selected project.</li>
+				<li><b>Toolbar Builder</b> – The entry point to project toolbars.  </li>
+				<li><a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=item-4-6" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-6')">Support</a> – Provides Plannotate support videos, documentation, and support ticket creation.</li>
+				<li><a href="/p3/userguide/chapter-4?id=section-4&target=section-4" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','section-4')">Dashboard</a> – Allows you to exit the project and return to the <a href="/p3/userguide/chapter-4?id=section-4&target=section-4" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','section-4')">Project Management Dashboard</a>.</li>
+				<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-1" scrollTo scrollTargetSelector="#item-6-1" (click)="activeVistionSend('section-6','item-6-1')">Toolbar List</a> – This is the space where the list of all project toolbars will be displayed.</li>
+				<li><b>Search</b> – Enables you to search the displayed list of toolbars based on several search criteria. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">Project Management Search</a> for more information.</li>
+				<li><b>Sort</b> – Enables you to sort the displayed list of toolbars based on several sort options. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-9" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">Project Management Sort</a> for more information. </li>
+				<li><b>Export</b> – Allows users to export project content to a variety of formats. See <a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=item-4-8" 
+					(click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-8')">Export</a> for more information.</li>
+				<li><b>Manual Sync</b> – Initiates a synchronization of data with the Plannotate cloud, which uploads all new data since the last sync, and downloads any new data from the Plannotate cloud. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-10" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-10')">Project Management Manual Sync</a> for more information. This icon is available only on Plannotate for the iPad, as the web client version is communicating real time with the Plannotate cloud. Plannotate on web client has an Apple icon in the top right corner to allow users to install Plannotate on their iPad.</li>
+				<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-2" scrollTo scrollTargetSelector="#item-6-2" (click)="activeVistionSend('section-6','item-6-2')">Add</a> – Provides the ability to add new toolbars.</li>
+			</ol>
+					
+		</section><!--//docs-intro-->
+		<section class="docs-section" id="item-6-1">
+			<h2 class="section-heading">6.1 Toolbar List</h2>
+			<p>The list of toolbars displays all project toolbars, sorted by default in alphabetical order.</p>
+			
+			<p>When you first create a project, you will have a default toolbar, and as new toolbars are added, they will appear in a list view.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Toolbar List with Two Toolbars','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-listing.png')">
+				<a  data-title="Toolbar List with Two Toolbars" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-listing.png" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Toolbar List with Two Toolbars</figcaption>
+			</figure>
+			
+			<p>Once new toolbars have been added, or existing toolbars have been modified, they will either show in a blue or orange color. The list will default in alphabetical order, and can be <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">searched</a> and <a class="anchorStyle" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<ul>
+						<li>Toolbars will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3" (click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Toolbars will show in a blue color if they have been fully synchronized to the Plannotate cloud.</li>
+				</ul>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-1-1">
+			<h2 class="section-heading">6.1.1 Toolbar Options</h2>
+			<p>There are two actions that can be performed on a toolbar.</p>
+			
+			<ul>
+				<li><b>Single tap</b> – Selects and opens the toolbar into the Toolbar Builder.</li>
+				<li><b>Long hold</b> – Opens a menu of toolbar options.</li>
+			</ul>
+			
+			<p>When a long hold is performed, a popup menu showing a variety of options will appear.</p>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+			</div>	
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Toolbar Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-options.png')">
+				<a  data-title="Toolbar Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-options.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Toolbar Options</figcaption>
+			</figure>
+				
+				<ol>
+					<li>The <b>title</b> of the toolbar that was selected.</li>
+					<li><b>Cancels out</b> of this screen. You can also select anywhere off the menu to close the screen.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-1-1-1" scrollTo scrollTargetSelector="#item-6-1-1-1" (click)="activeVistionSend('section-6','item-6-1-1-1')">Rename</a> - Allows you to rename the toolbar.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-1-1-2" scrollTo scrollTargetSelector="#item-6-1-1-2" (click)="activeVistionSend('section-6','item-6-1-1-2')">Manage Tags</a> - Opens the Manage Tags screen.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-1-1-3" scrollTo scrollTargetSelector="#item-6-1-1-3" (click)="activeVistionSend('section-6','item-6-1-1-3')">More Information</a> - Displays toolbar metadata / details.</li>
+					<li><b>Hide</b> - Enables the toolbar to be hidden from use. See <a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=item-4-4" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-4')">Hidden Content</a></li>
+				</ol>
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-1-1-1">
+			<h2 class="section-heading">6.1.1.1 Rename A Toolbar</h2>
+			<p>The user that initially creates a toolbar will assign a name to the toolbar.  In the event this name needs to change, this option can be selected.</p>
+			
+			<p>When the <b>Rename</b> option is selected, the current name of the toolbar will appear, and by tapping on the data entry line, you will be able to modify or enter a new name.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Rename A Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/rename-toolbar.png')">
+				<a data-title="Rename A Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/rename-toolbar.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Rename A Toolbar</figcaption>
+			</figure>
+		
+			
+				<ul>
+					<li>Select <b>Rename</b> to change the name of the toolbar.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the toolbar name unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-1-1-2">
+			<h2 class="section-heading">6.1.1.2 Manage Tags</h2>
+			<p>Tags are metadata assigned to a Plannotate object like a project, document, annotation, etc. By adding meaningful tags, users will be able to search for content more effectively.</p>
+			
+			<p>When the <b>Manage Tags</b> option is selected, a popup will appear displaying any tags that have been assigned to the form.  These will show up in orange, for example &quot;Concrete&quot;.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Manage Tags','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/tags.png')">
+				<a data-title="Manage Tags" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/tags.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Manage Tags</figcaption>
+			</figure>
+		
+			
+				<ul>
+					<li><b>Enter any number of tags</b> on the data entry line, separated by a comma, and hit the enter key on your iPad keyboard to record them.</li>
+					<li>Select the <b>X</b> next to any tags in orange to remove them.</li>
+					<li>Select <b>Save</b> to save all the changes that were made.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the tags unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-1-1-3">
+			<h2 class="section-heading">6.1.1.3 Toolbar Information</h2>
+			<p>The <b>More Information</b> screen shows metadata information associated with the toolbar and its contents.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Toolbar Information','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/information.png')">
+				<a  data-title="Toolbar Information" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/information.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Toolbar Information</figcaption>
+			</figure>
+			
+				<ul>
+					<li>The <b>top section</b> shows the toolbar name, created data, last modification date and the tags associated with the toolbar.</li>
+					<li>The <b>main body</b> of the screen shows how many toolbar annotations exist within the toolbar.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-2">
+			<h2 class="section-heading">6.2 Adding Project Toolbars</h2>
+			<p>The Add Toolbar section of Toolbar Builder allows you to create new toolbars as well as make a copy of existing ones from within the project or from other projects which you have access. Any user with appropriate access to a project can create a new toolbar or copy other toolbar.</p>
+			<p>After tapping the <b>+</b> at the bottom right corner of the screen, a popup screen will appear allowing you to select from a few options. </p>
+			
+			<figure class="figure docs-figure py-3"  (click)="openImage('Creating and Duplicating Toolbars','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/add-toolbar.png')"> 
+				<a  data-title="Creating and Duplicating Toolbars" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/add-toolbar.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Creating and Duplicating Toolbars</figcaption>
+			</figure>
+			
+				<ol>
+					<li>The <b>title</b> of the menu.</li>
+					<li><b>Cancel out</b> of this screen. You can also select anywhere off the menu to close the screen.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-2-1" scrollTo scrollTargetSelector="#item-6-2-1" (click)="activeVistionSend('section-6','item-6-2-1')">New Toolbar</a> - Add a new folder to the project.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-2-2" scrollTo scrollTargetSelector="#item-6-2-2" (click)="activeVistionSend('section-6','item-6-2-2')">Duplicate Existing Toolbar</a> - Add a new toolbar by making a duplicate of an existing toolbar within the same project.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-2-3" scrollTo scrollTargetSelector="#item-6-2-3" (click)="activeVistionSend('section-6','item-6-2-3')">Import Toolbar From Other Projects</a> - Add a new toolbar by making a duplicate of an existing toolbar from another project which you have access.</li>
+				</ol>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>If a toolbar is created with the same name as an existing toolbar, the name will be appended with a number, incremented by 1 each time this happens.  For example, if a toolbar named &#34;Crack&#34; exists and is created for a 2nd time, it will receive the name &#34;Crack &#40;1&#41;&#34;.  If this were to be added again, it would be given a name &#34;Crack &#40;2&#41;&#34; and so on.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-2-1">
+			<h2 class="section-heading">6.2.1 Adding a New Toolbar</h2>
+			<p>After creating a project, you may want to add additional toolbars to capture annotation content. There are several methods to do this, the first of which is to add a brand new toolbar.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add a New Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/new-toolbar.gif')">
+				<a  data-title="Create a New Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/new-toolbar.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add a New Toolbar</figcaption>
+			</figure>
+				
+				<ul>
+					<li><b>Provide a name</b> for the new toolbar.</li>
+					<li>Select <b>Add</b> to add the toolbar.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-2-2">
+			<h2 class="section-heading">6.2.2 Duplicate an Existing Toolbar Within the Same Project</h2>
+			<p>After creating a project, you may want to create additional toolbars to capture annotation content. There are several methods to do this, the second of which is to duplicate an existing toolbar within the same project.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Duplicate an Existing Toolbar Within the Same Project','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/duplicate-toolbar-same-project.gif')">
+				<a data-title="Duplicate an Existing Toolbar Within the Same Project" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/duplicate-toolbar-same-project.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Duplicate an Existing Toolbar Within the Same Project</figcaption>
+			</figure>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>In order to select a toolbar to duplicate, check the box to the right of the desired toolbar.  You may only select one toolbar at a time. Therefore, if you wish to create a copy of several toolbars, you will repeat these steps.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<ul>
+					<li><b>Select the toolbar</b> you wish to duplicate from the list of toolbars within the project.</li>
+					<li>Select the <b>Create Copy</b> button.</li>
+					<li><b>Provide a name</b> for the new toolbar.</li>
+					<li>Select <b>Add</b> to create the toolbar.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-2-3">
+			<h2 class="section-heading">6.2.3 Add an Existing Toolbar From a Different Project</h2>
+			<p>After creating a project, you may want to create additional forms to capture annotation content. There are several methods to do this, the third of which is to add an existing toolbar from a different project project.</p>
+			
+			<p>When you import a toolbar from another project, you will also import any forms that are being used by the toolbar as a default form for any of the annotation icons.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Add an Existing Toolbar From a Different Project','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/duplicate-from-different.gif')">
+				<a  data-title="Add an Existing Toolbar From a Different Project" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/duplicate-from-different.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Add an Existing Toolbar From a Different Project</figcaption>
+			</figure>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>In order to select a toolbar to add, check the box&#40;es&#41; to the right of the desired toolbar.  You may select multiple toolbars at once.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<div class="callout-block callout-block-warning">
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-bullhorn"></i>
+							</span><!--//icon-holder-->
+							Warning
+						</h4>
+						<p>In order to add toolbars from other projects, it is important that you first perform a <b>sync</b> to ensure that the projects and toolbars have been downloaded to your device.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<ul>
+					<li><b>Select the toolbars</b> you wish to add from the list of toolbars within the projects which you have access.</li>
+					<li>Select the <b>Import</b> button.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-3">
+			<h2 class="section-heading">6.3 Toolbar Designer</h2>
+			<p>Once a toolbar is selected, the toolbar designer screen appears, allowing you to create, modify and delete toolbar annotations.</p>
+			<p>The toolbar designer is divided into three primary areas: the available annotation icons, the body of the toolbar being created, and the properties of each toolbar annotation once selected.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Toolbar Designer','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-designer.jpg')">
+				<a  data-title="Toolbar Designer" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/toolbar-designer.jpg" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Toolbar Designer</figcaption>
+			</figure>
+			
+				<ol>
+					<li>The <b>name</b> of the toolbar that was selected.</li>
+					<li>The <a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4" scrollTo scrollTargetSelector="#item-6-4" (click)="activeVistionSend('section-6','item-6-4
+						')">full list of annotation icons</a> that are available to add to the toolbar.</li>
+					<li><a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=item-4-6" (click)="goPickedchapterSidebar($event,'chapter-4','section-4','item-4-6')">Support</a> – Provides Plannotate support videos, documentation, and support ticket creation.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=section-6"  scrollTo scrollTargetSelector="#section-6" (click)="activeVistionSend('section-6','section-6')">Exit</a> - Exists back to the main Toolbar Builder screen.</li>
+					<li>The <b>main body</b> of the toolbar, where you will add, modify and organize your toolbar annotations.</li>
+					<li>The <a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4-1" scrollTo scrollTargetSelector="#item-6-4-1" (click)="activeVistionSend('section-6','item-6-4-1')">properties area</a> of the toolbar, where you will set up and modify each toolbar annotation property.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-3" scrollTo scrollTargetSelector="#item-6-3" (click)="activeVistionSend('section-6','item-6-3')">Build</a> – The build screen is the main screen of the Toolbar Designer.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-5" scrollTo scrollTargetSelector="#item-6-5" (click)="activeVistionSend('section-6','item-6-5')">Preview</a> – Preview allows you to see what the toolbar will look like as well as interact with the toolbar to test the functionality.</li>
+					<li><a href="/p3/userguide/chapter-6?id=section-6&target=item-6-6" scrollTo scrollTargetSelector="#item-6-6" (click)="activeVistionSend('section-6','item-6-6')">Publish</a> – Forms are not saved until the Publish button is selected.</li>
+				</ol>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-4">
+			<h2 class="section-heading">6.4 Toolbar Annotation Icons</h2>
+				<p>Every project comes with a Default Toolbar, which includes each of the 19 included annotation shapes. In addition, by default the simple shapes are blue with a blue border around them, and the drawn shapes will be drawn in blue outline with blue fill as applicable. Each shape can be customized through the annotation settings &#40;see <a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4-3" scrollTo scrollTargetSelector="#item-6-4-3" (click)="activeVistionSend('section-6','item-6-4-3')">Settings</a>&#41;.</p>
+				
+				<p>The following table discusses each of the included annotation icons.</p>
+				
+				 <div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<ul>
+							<li>The annotations that can be placed on a document as the exact shape of the annotation are <b>simple shapes</b> and include <b>Circle</b>, <b>Octagon</b>, <b>Square</b>, <b>Triangle</b>, <b>Star</b>, <b>Diamond</b>, <b>Flag</b>, <b>Camera</b>, <b>Arrow</b> and <b>Text</b> &#40;a text annotation is a text bubble with a line extending from it&#41;.</li>
+							<li>The annotations that are added to documents as <b>freehand drawings</b> include <b>Freehand-Line</b> and <b>Freehand-Area</b>. The only difference between the two is that each Freehand-Area drawing is closed and and filled when the drawing is done.</li>
+							<li>In addition to freehand drawing, there are a number of annotations that allow for <b>vertex drawing</b>. Unlike freehand, vertex drawing involves setting points that are then connected by a line. These annotations include <b>Polyline-Arrow</b>, <b>Polyline</b>, and <b>Polygon</b>. </li>
+							<li>There are two <b>drag-to-draw</b> annotations that include <b>Drawn-Rectangle</b> and <b>Drawn-Ellipse</b>.</li>
+						</ul>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+			
+				<div class="table-responsive my-4">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/circle.png" height="50" width="50"></th>
+								<td><b>Circle</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							<tr>
+								  <th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/octagon.png" height="50" width="50"></th>
+								  <td><b>Octagon</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/square.png" height="50" width="50"></th>
+								<td><b>Square</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/triangle.png" height="50" width="50"></th>
+								<td><b>Triangle</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/star.png" height="50" width="50"></th>
+								<td><b>Star</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/diamond.png" height="50" width="50"></th>
+								<td><b>Diamond &#47; Rhombus</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/flag.png" height="50" width="50"></th>
+								<td><b>Flag</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/camera.png" height="50" width="50"></th>
+								<td><b>Camera</b> annotations are simple icon shapes and can be placed as is onto any project document. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/arrow.png" height="50" width="50"></th>
+								<td><b>Arrow</b> annotations are simple icon shapes and can be placed as is onto any project document.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/text.png" height="50" width="50"></th>
+								<td><b>Text</b> annotations allows user to add text to a callout icon shape.  Once the annotation is placed onto a project document, the user will be prompted to enter text.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/freehand-line.png" height="50" width="50"></th>
+								<td><b>Freehand Line</b> annotations allow users to draw freely on the document, saving the drawing&#40;s&#41; as a single annotation or multiple annotations.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/freehand-area.png" height="50" width="50"></th>
+								<td><b>Freehand Area</b> annotations are freehand lines that are closed and filled, creating an area.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/polyline-arrow.png" height="50" width="50"></th>
+								<td><b>Polyline-Arrow</b> annotations are similar to polyline annotations, but have an arrowhead at the end.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/polyline.png" height="50" width="50"></th>
+								<td><b>Polyline</b> annotations are simple line segments.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/polygon.png" height="50" width="50"></th>
+								<td><b>Polygon</b> annotations are polylines that are closed and filled, creating a polygonal shape. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/drawn-ellipse.png"  height="50" width="50"></th>
+								<td><b>Drawn Ellipse</b> annotations are ellipse shapes that are drawn onto a document using a dragging motion to determine the size. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/drawn-rectangle.png" height="50" width="50"></th>
+								<td><b>Drawn Rectangle</b> annotations are rectangle shapes that are drawn onto a document using a dragging motion to determine the size. </td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/line.png" height="50" width="50"></th>
+								<td><b>Line</b> annotations are simple, single line segments.</td>
+							</tr>
+							<tr>
+								<th class="theme-bg-light"><img src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/line-axial.png" height="50" width="50"></th>
+								<td><b>Line Axial</b> annotations are lines that can only be placed horizontally or vertically on a document.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><!--//table-responsive-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-4-1">
+			<h2 class="section-heading">6.4.1 Adding Annotations to a Toolbar</h2>
+			<p>Once a toolbar is created, annotations can be added to the toolbar by tapping on the annotation icons on the left. The available spaces are numbered starting with 1, and new annotations by default will be added to the next incremental number available.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Adding Annotations to a Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/add-annotations.gif')">
+				<a  data-title="Adding Annotations to a Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/add-annotations.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Adding Annotations to a Toolbar</figcaption>
+			</figure>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<ul>
+							<li>Annotation icons will be added in the order that they were selected. See <a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4-2" scrollTo scrollTargetSelector="#item-6-4-2" (click)="activeVistionSend('section-6','item-6-4-2')">Arranging Annotations</a> to learn how to change the order.</li>
+							<li>The color, transparency and other various properties can be modified once the icon has been added to the toolbar. See <a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4-3" scrollTo scrollTargetSelector="#item-6-4-3" (click)="activeVistionSend('section-6','item-6-4-3')">Annotation Settings</a> to learn how to modify the properties.</li>
+							<li>Annotation icons can also be added to toolbars through the document interface.  This is covered in detail within the <a class="anchorStyle" href="/p3/userguide/chapter-7?id=section-7&target=section-7" (click)="goPickedchapterSidebar($event,'chapter-7','section-7','section-7')">Documents</a> section.</li>
+					</ul>
+						</div><!--//content-->
+				</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-4-2">
+			<h2 class="section-heading">6.4.2 Arranging the Order of Annotations</h2>
+			<p>Once annotations have been added to a toolbar, they can be moved to any desired order by dragging the desired annotation and dropping it in the new location.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Arranging Annotations on a Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/arrange-annotations.gif')">
+				<a  data-title="Arranging Annotations on a Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/arrange-annotations.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Arranging Annotations on a Toolbar</figcaption>
+			</figure>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-4-3">
+			<h2 class="section-heading">6.4.3 Modifying Annotation Settings</h2>
+			<p>Once annotations have been added to a toolbar, a variety of settings can be modified.  These include:</p>
+			<table>
+				<tr>
+					<td  style="width: 40%;">
+						<figure class="figure docs-figure py-3" (click)="openImage('Annotation Settings','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/settings.png')">
+							<a  data-title="Annotation Settings" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/settings.png" loading="lazy" alt="" style="width: 350px;"></a>
+							<figcaption class="figure-caption mt-3">Annotation Settings</figcaption>
+						</figure>
+					</td>
+					<td  style="width: 60%;">
+						<ol>
+							<li><b>Close and Save</b> - Select the X in the top right corner to save and close the setting window.</li>
+							<li><b>Name</b> - The name and label of the annotation. This text will appear on the toolbar.</li>
+							<li><b>Stroke Color</b> - Sets the stroke color for annotations that have an outside perimeter or line.</li>
+							<li><b>Fill Color</b> - Sets the fill color for annotations that have an inside area.</li>
+							<li><b>Opacity</b> - Sets the level of transparency for the fill color for annotations that have an inside area.</li>
+							<li><b>Line Width</b> - Sets the width of the annotation's line in pixels.</li>
+							<li><b>Default Form</b> - Establishes the default form that will be used when the annotation is added to a document and selected. This is an optional setting.</li>
+							<li><b>Copy Annotation</b> - Creates a duplicate copy of the annotation and places it on the toolbar.  See <a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4-5" scrollTo scrollTargetSelector="#item-6-4-5" (click)="activeVistionSend('section-6','item-6-4-5')">Copy Annotation</a>.</li>
+							<li><b>Delete Annotation</b> - Removes the annotation from the toolbar.  See <a href="/p3/userguide/chapter-6?id=section-6&target=item-6-4-6" scrollTo scrollTargetSelector="#item-6-4-6" (click)="activeVistionSend('section-6','item-6-4-6')">Delete Annotation</a>.</li>
+						</ol>
+					</td>
+				</tr>
+			</table>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Modify Annotation Settings','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/annotations-settings.gif')">
+				<a  data-title="Modify Annotation Settings" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/annotations-settings.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Modify Annotation Settings</figcaption>
+			</figure>
+			
+			<div class="callout-block callout-block-info">
+										
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>Certain annotations do not have all settings enabled, as they are not applicable.  For example, the Line shape annotation does not have Fill properties.  In the event that a setting is not applicable for an annotation icon, the setting will be disabled and appear in a lighter color to denote this.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-4-4">
+			<h2 class="section-heading">6.4.4 Setting a Default Form</h2>
+			<p>As annotations are added to document pages, additional information can be added to the annotation through the use of forms.  Users can add data from any project forms that are available. In addition, users can pre-determine the default form that will be displayed when the annotation is selected within a document.  As well, default values can be pre-populated so that they appear when the annotation is added.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Setting a Default Form','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/default-form.gif')">
+				<a  data-title="Setting a Default Form" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/default-form.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Setting a Default Form</figcaption>
+			</figure>
+			
+			<div class="callout-block callout-block-info">
+		
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>You may add as many default forms as you desire to each annotation icon. This is useful if you want to set pre-defined values for some of the form fields as a new annotation is added to a document. When adding more than one, the first one added will be the default.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-4-5">
+			<h2 class="section-heading">6.4.5 Copy Annotations</h2>
+			<p>Once an annotation is created, it can be easily duplicated into a new annotaion.  The newly created annotation can then be modified as desired.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Duplicate an Annotation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/duplicate-annotation.gif')">
+				<a  data-title="Duplicate an Annotation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/duplicate-annotation.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Duplicate an Annotation</figcaption>
+			</figure>
+				<ul>
+					<li><b>Select the desired annotation</b> to duplicate.</li>
+					<li><b>Select the copy icon</b> in the bottom right corner of the annotation settings window.</li>
+					<li><b>Provide a name</b> for the newly created annotation.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-4-6">
+			<h2 class="section-heading">6.4.6 Delete an Annotation</h2>
+			<p>Once an annotation is created, it can be deleted at any time to be removed from the toolbar. </p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Delete an Annotation','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/delete-annotation.gif')">
+				<a  data-title="Delete an Annotation" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/delete-annotation.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Delete an Annotation</figcaption>
+			</figure>
+			
+				<ul>
+					<li><b>Select the desired annotation</b> to duplicate.</li>
+					<li><b>Select the delete icon</b> in the bottom right corner of the annotation settings window.</li>
+					<li><b>Confirm</b> that the annotation should be deleted.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-5">
+			<h2 class="section-heading">6.5 Preview a Toolbar</h2>
+			<p>At any time during the creation or modification of a toolbar, users can preview what the toolbar will look like when <a href="#item-6-6">Published</a>. This will allow the user to confirm that the toolbar is working as expected.</p>
+				
+			<figure class="figure docs-figure py-3" (click)="openImage('Preview a Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/preview.gif')">
+				<a  data-title="Preview a Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/preview.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Preview a Toolbar</figcaption>
+			</figure>
+				
+				<div class="callout-block callout-block-info">
+		
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>In order to confirm that the default form values work as expected, you will need to add the annotation icon to a document. The Toolbar builder does not have a capability for doing this.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				 
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-6-6">
+			<h2 class="section-heading">6.6 Publish a Toolbar</h2>
+			<p>Once the toolbar is complete and ready for use, users can <b>Publish</b> the toolbar.  If the toolbar is new, users will now be able to use it.  If the toolbar contains modifications to an existing toolbar, the modifications will now be seen.</p>
+					
+			<figure class="figure docs-figure py-3" (click)="openImage('Publish a Toolbar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/publish.gif')">
+				<a  data-title="Publish a Toolbar" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-6/publish.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Publish a Toolbar</figcaption>
+			</figure>
+			
+			 <div class="callout-block callout-block-danger mr-1">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder">
+							<i class="fas fa-exclamation-triangle"></i>
+						</span><!--//icon-holder-->
+						Danger
+					</h4>
+					<p>If a toolbar is exited before publishing, all changes will be lost.  This may be desired if the user is testing or trying new things. In the event a user selects Exit and has not published the toolbar, a warning will be presented confirming this action is desired.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		</header>
+	   </article>
+	

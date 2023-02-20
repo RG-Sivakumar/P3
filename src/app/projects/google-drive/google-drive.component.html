@@ -1,0 +1,37 @@
+<div class="file-upload-section">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Add Document from GoogleDrive</h3>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="row add-file-area">
+    <form autocomplete="off" class="col-lg-12">
+      <div class="choose-file-area col-lg-12">
+        <!-- <input
+          type="file"
+          name="photo"
+ z        class="input-field"
+          id="file"
+          (change)="handleFileInput($event.target.files)"
+        /> -->
+        <!-- <input-file
+          (files)="fileChanged2($event)"
+          [accept]="'image/*'"
+          #input2
+        ></input-file> -->
+        <button (click)="onApiLoad()">Click Me!</button>
+      </div>
+    </form>
+  </div>
+  <div class="footer">
+    <button class="add-button" [disabled]="true">
+      Upload File
+    </button>
+  </div>
+</div>

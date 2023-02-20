@@ -1,0 +1,29 @@
+<!-- <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 1</div>
+    </div>
+</div> -->
+
+    <!-- <div class="card">
+        <div class="checkbox-container">
+        <label class="checkbox-label">
+            <input type="checkbox">
+            <span class="checkbox-custom rectangular"></span>
+        </label>
+        <div class="input-title">Rectangular</div>
+        </div>
+        <div class="checkbox-container circular-container">
+        <label class="checkbox-label">
+            <input type="checkbox">
+            <span class="checkbox-custom circular"></span>
+        </label>
+          <div class="input-title">Circular</div>
+        </div>
+    </div> -->
+
+        <div id="pdfImg" style="position:relative;border:1px solid #d3d3d3; width:500px; height:500px;" (click)="getPosition($event)">
+            <!-- <canvas id="rectCanvas" width="500" height="500" style="background-color: red;"></canvas> -->
+        </div>
+        <input type="text" [(ngModel)]="getYear">
+        <span *ngIf="getYear!=''">Hai Welcome</span>

@@ -1,0 +1,30 @@
+<div class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading">Add A New Toolbar</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="row content-head-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :addNewToolbar()">
+
+            <div class="col-lg-10">
+                <p class="content-heading">New Toolbar</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section">
+
+            <div class="col-lg-10">
+                <p class="content-heading" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :importForms()">Duplicate Existing Toolbar</p>
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="this.userrole == 'view'?this.userRoleGlobal.permissionCheck() :importToolbar()">
+
+            <div class="col-lg-10">
+                <p class="content-heading">Import Toolbar From Other Projects</p>
+            </div>
+        </div>
+    </div>
+</div>

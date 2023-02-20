@@ -1,0 +1,2196 @@
+# Query: localStorage.getItem(
+# ContextLines: 1
+
+596 results - 97 files
+
+authguard\src\app\auth.guard.ts:
+  21        debugger;
+  22:     if (localStorage.getItem('username') != null) {
+  23        return true;
+
+src\app\app.component.ts:
+   16    title = "app";
+   17:   // loggedin = localStorage.getItem("loggedIn");
+   18:   // rememberMe = localStorage.getItem("rememberMe");
+   19    loggedin = this.encrptdecrpt.getItem("loggedIn");//security;
+
+   39      this.rememberMe = this.encrptdecrpt.getItem("rememberMe");//security;
+   40:     let getrememebr = localStorage.getItem("rememberMe");
+   41      let getcode = this.router.parseUrl(this.router.url).queryParams['code'] || '';
+
+   59          // if (!this.exceptRouter.some((m) => event.url.includes(m))) {
+   60:         //   console.log('a',!!localStorage.getItem("rememberMe"));
+   61:         //   this.loginChecking = !!localStorage.getItem("rememberMe");
+   62          //   this.getData(event);
+
+   72              this.loginChecking = !!JSON.stringify(this.encrptdecrpt.getItem("rememberMe"));//security;
+   73:             // let ipadValidChecking = !!localStorage.getItem("ipadValidation");
+   74              let ipadValidChecking = !!JSON.stringify(this.encrptdecrpt.getItem("ipadValidation"));//security;
+
+   89                    this.encrptdecrpt.setItem("returnUrl",event["url"]);//security
+   90:                   // this.rUrl = localStorage.getItem("returnUrl");
+   91                    this.rUrl = this.encrptdecrpt.getItem("returnUrl");//security;
+
+   98                else {
+   99:                 // this.rUrl = localStorage.getItem("returnUrl");
+  100                  this.rUrl = this.encrptdecrpt.getItem("returnUrl");//security;
+
+  105                console.log('web');
+  106:               // this.loginChecking = !!localStorage.getItem("rememberMe");
+  107                this.loginChecking = !!JSON.stringify(this.encrptdecrpt.getItem("rememberMe"));//security;
+
+  244        let getSectionId = this.route.snapshot.queryParamMap.get("id");
+  245:       // let loginChecking = !!localStorage.getItem("rememberMe");
+  246        let loginChecking = !!JSON.stringify(this.encrptdecrpt.getItem("rememberMe"));//security;
+
+  267        console.log('no outside');
+  268:       // let ipadValidChecking = !!localStorage.getItem("ipadValidation");
+  269        let ipadValidChecking = !!JSON.stringify(this.encrptdecrpt.getItem("ipadValidation"));//security;
+
+src\app\authguard-service.service.ts:
+   9    gettoken() {
+  10:     // return !!localStorage.getItem("loggedIn");
+  11      debugger;
+
+src\app\data.service.ts:
+  20    constructor() { 
+  21:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  22    }
+
+src\app\global-user-role.service.ts:
+  77      //User level management 
+  78:     if (localStorage.getItem("userrole") != null) {
+  79:       if (localStorage.getItem("userrole").includes("||")) {
+  80  
+  81:         let storageRoleData = localStorage.getItem('userrole').split("||")
+  82          if (projectid == storageRoleData[0]) {
+
+src\app\value.service.ts:
+  15    constructor(private dataService:DataService) {
+  16:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  17    }
+
+src\app\dev-admin\dev-admin-dasboard\dev-admin-convert\dev-admin-convert.component.ts:
+  12  
+  13:   project_uuid:any = localStorage.getItem("project_uuid"); 
+  14    selectedLevel : any;
+
+src\app\document\createdocument\createdocument.component.ts:
+    160    pdfPageNumber: number = 1;
+    161:   loggedin: any = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+    162    parent = document.getElementsByClassName("mySlides");
+
+    951  
+    952:     this.projectName = localStorage.getItem("projectName");
+    953:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+    954:     // this.setBaseIconSize = JSON.parse(localStorage.getItem("setBaseiconSize"));
+    955:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+    956      this.pageChange$ = this.dataService1.switchPagesendPageNumber.subscribe(async (data) => {
+
+   1642      //VIEW ONLY MODE
+   1643:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+   1644      console.log(this.isReadonly);
+
+   1656      this.securityCheck();
+   1657:     this.getScaleValue = []//JSON.parse(localStorage.getItem("scale"));
+   1658      //remove pagezoom function
+
+   1690            let find_toolbar = this.toolbarListData.findIndex((tool)=>tool.toolbar_id==localtoolbarId);
+   1691:           // let localtoolbarId = localStorage.getItem("toolbarId"); commented 20-01-2022
+   1692            if (localtoolbarId == "" || localtoolbarId == undefined || localtoolbarId == null || find_toolbar == -1) {
+
+   3462          this.tempModelFields = _.cloneDeep(this.modelFields);
+   3463:         this.toolbarFilter = JSON.parse(localStorage.getItem("toolbarFilterItem"));
+   3464          if (this.modelFields.length > 0) {
+
+   3500                  this.tempModelFields = _.cloneDeep(this.modelFields);
+   3501:                 this.toolbarFilter = JSON.parse(localStorage.getItem("toolbarFilterItem"));
+   3502                  this.toolbarFilterMethod();
+
+   5804    //       );
+   5805:   //       console.log(localStorage.getItem("userdetail"))
+   5806    //       this.newLayerData = response["response_body"]["layer_data"];
+
+   9929            this.createduserid = (res["response_body"][0].created_by_user_id);
+   9930:           this.userdetail = localStorage.getItem("userdetail")
+   9931            this.list = JSON.parse(this.userdetail)
+
+  20033        if (this.documentDetails[ak].page_id == this.currentPageId) {
+  20034:         var getLocalValue = JSON.parse(localStorage.getItem("setBaseiconSize"));
+  20035          if (getLocalValue["setBaseIconPagesAllowed"] != undefined) {
+
+  20038              if (this.documentDetails[ak].page_id == getLocalValue["setBaseIconPagesAllowed"][alok]) {
+  20039:               this.setBaseIconSize = JSON.parse(localStorage.getItem("setBaseiconSize"));
+  20040              }
+
+  27097      this.createduserid = (annotationData.created_by_user_id);
+  27098:     this.userdetail = localStorage.getItem("userdetail")
+  27099      this.list = JSON.parse(this.userdetail)
+
+  32144      }
+  32145:     if (localStorage.getItem("stub_prefix") != null) {
+  32146        localStorage.removeItem("stub_prefix");
+
+  32171      
+  32172:     let get_toolbar_storage = localStorage.getItem('toolbarlastchange');
+  32173      if(get_toolbar_storage!=null){
+
+  32202    lastseenToolbar_check(){
+  32203:     let get_toolbar_storage = localStorage.getItem('toolbarlastchange');
+  32204      if(get_toolbar_storage!=null){
+
+  32259                    this.tempModelFields = _.cloneDeep(this.modelFields);
+  32260:                   this.toolbarFilter = JSON.parse(localStorage.getItem("toolbarFilterItem"));
+  32261                    this.toolbarFilterMethod();
+
+  32280      //this.imageScalingReset();
+  32281:     let get_local_values = localStorage.getItem('pagezoom');
+  32282      if(get_local_values!=null){
+
+  32303      
+  32304:     let get_local_values = localStorage.getItem('pagezoom');
+  32305      if(get_local_values!=null){
+
+  32438      let page_details = {page_id:this.currentPageId,zoom:this.scale,scrollx:0,scrolly:0};
+  32439:     let get_local_values = localStorage.getItem('pagezoom');
+  32440      // no values means if coniditon
+
+  32484          this.layerDatas = get_new_storage.LayerData;
+  32485:         let get_deleted_stub_value : any = localStorage.getItem("deleted_stub");
+  32486  
+
+  32505    lastseendocument_storage(check_loading_or_changing:string){
+  32506:     let get_document_lastpage_details = localStorage.getItem("document_last_page_view");
+  32507      if(get_document_lastpage_details != null){
+
+  32564          console.log("scroll", scroll_value);
+  32565:         let get_local_values = localStorage.getItem('pagezoom');
+  32566          if(get_local_values!=null){
+
+src\app\document\createdocument\add-links-option\link-to-photo\link-to-photo.component.ts:
+  80    ngOnInit(): void {
+  81:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  82      this.documentId = this.route.snapshot.queryParamMap.get("folderId");
+  83      this.documentname = this.route.snapshot.queryParamMap.get("documentName");
+  84:     this.projectname = localStorage.getItem("projectName");
+  85    }
+
+src\app\document\createdocument\add-links-option\link-to-url\link-to-url.component.ts:
+  60    ngOnInit(): void {
+  61:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  62      this.documentId = this.route.snapshot.queryParamMap.get("folderId");
+
+src\app\document\createdocument\add-links-option\links-to-document\links-to-document.component.ts:
+  106    ngOnInit(): void {
+  107:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  108      this.documentname = this.route.snapshot.queryParamMap.get("documentName");
+  109:     this.projectname = localStorage.getItem("projectName");
+  110    }
+
+src\app\document\createdocument\add-links-option\links-to-document\document-pages\document-pages.component.ts:
+  60    ngOnInit(): void {
+  61:     this.projectname = localStorage.getItem("projectName");
+  62    }
+
+src\app\document\createdocument\add-links-option\links-to-document\document-pages\link-api-page\link-api-page.component.ts:
+  72    ngOnInit(): void {
+  73:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  74    }
+
+src\app\document\createdocument\add-multiple-images\add-multiple-images.component.ts:
+  148      this.buttonValidate = true;
+  149:     var loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
+  150:     this.projectId = localStorage.getItem("prject_id");
+  151      this.selecterUser = loggedIn.user_id;
+
+src\app\document\createdocument\annotation-menu\annotation-menu.component.ts:
+  83      console.log(this.data.multiselectionList1)
+  84:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  85      this.layerDatas = this.data.layerData;
+
+src\app\document\createdocument\annotation-menu\addasnewtoolbar\addasnewtoolbar.component.ts:
+  66      }
+  67:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  68    }
+
+src\app\document\createdocument\annotation-menu\addtotoolbarstamp\addtotoolbarstamp.component.ts:
+  63      }
+  64:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  65    }
+
+src\app\document\createdocument\annotation-menu\useasnewtoolbar\useasnewtoolbar.component.ts:
+  48      this.multiselectOnUse = this.data.multiselect;
+  49:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  50    }
+
+  52    ngOnInit(): void {
+  53:     this.projectId = localStorage.getItem("projectIdlocal");
+  54    }
+
+src\app\document\createdocument\mediamenu\mediamenu.component.ts:
+  74      }
+  75:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  76    }
+
+src\app\document\createdocument\previewimage\previewimage.component.ts:
+  182      // get Preview page data start
+  183:     let get_preview_data : any = localStorage.getItem("preview_image_data");
+  184      get_preview_data = JSON.parse(get_preview_data);
+
+  235        // update the localstorage values changes for delete and tags upgrades
+  236:       let get_location_storage_values : any = localStorage.getItem("preview_image_data");      
+  237        get_location_storage_values = JSON.parse(get_location_storage_values);
+
+  243      });
+  244:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+  245    }
+
+  550      window.close();
+  551:     let enableSelected = JSON.parse(localStorage.getItem("preSelectAnnotationId"));
+  552      if(enableSelected!=null && enableSelected!=undefined){
+
+src\app\document\createdocument\previewimage\addasnewdocument\addasnewdocument.component.ts:
+  42    ngOnInit(): void {
+  43:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  44    }
+
+src\app\document\createdocument\previewimage\select-folder-annotate\select-folder-annotate.component.ts:
+   67    dataSource: MatTreeFlatDataSource<TodoItemNode, TodoItemFlatNode>;
+   68:   // localvalue=JSON.parse(localStorage.getItem('loggedIn'));
+   69    // userId:number;
+
+  291    imgpath: string = "assets/images/icons/P3WebIcon_17Folder.png";
+  292:   localvalue = JSON.parse(localStorage.getItem("loggedIn"));
+  293    userId: number;
+
+  344      console.log(this.dataSource);
+  345:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  346      database.dataChange.subscribe((data) => {
+
+  367      console.log(receivedata,this.mediaUrl);
+  368:     this.projectName = localStorage.getItem("projectName");
+  369      this.getFolderfromAPI();
+
+src\app\document\createdocument\searchpage\searchpage.component.ts:
+  112      this.projectId = this.route.snapshot.queryParamMap.get("project_id");
+  113:     this.currentpageidsearch = localStorage.getItem(this.projectId + "currentpage")
+  114      this.documentAnnotations = this.displayannotation_search;
+
+  156        if (status) {
+  157:         this.currentpageidsearch = localStorage.getItem(this.projectId + "currentpage")
+  158          this.getlayerdatafromapi();
+
+src\app\document\createdocument\share-option\share-option.component.ts:
+   41      this.documentidss = this.documentDetails[0]["document_id"];
+   42:     this.projectId = localStorage.getItem("projectIdlocal");
+   43      this.expo = receiveHeaderData;
+
+   64      this.documentidss = this.documentDetails[0]["document_id"];
+   65:     this.projectId = localStorage.getItem("projectIdlocal");
+   66      this.expo = receiveHeaderData;
+
+  160      this.documentidss = this.documentDetails[0]["document_id"]
+  161:     this.projectId = localStorage.getItem("projectIdlocal")
+  162      this.expo = receiveHeaderData;
+
+  302    ngOnInit(): void {
+  303:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  304    }
+
+  401      this.documentidss = this.documentDetails[0]["document_id"];
+  402:     this.projectId = localStorage.getItem("projectIdlocal");
+  403      var annontationidDate = new Date().getTime();
+
+  434      this.documentidss = this.documentDetails[0]["document_id"];
+  435:     this.projectId = localStorage.getItem("projectIdlocal");
+  436      var annontationidDate = new Date().getTime();
+
+  476      this.documentidss = this.documentDetails[0]["document_id"];
+  477:     this.projectId = localStorage.getItem("projectIdlocal");
+  478      var annontationidDate = new Date().getTime();
+
+  518      this.documentidss = this.documentDetails[0]["document_id"];
+  519:     this.projectId = localStorage.getItem("projectIdlocal");
+  520      var annontationidDate = new Date().getTime();
+
+  559      this.documentidss = this.documentDetails[0]["document_id"];
+  560:     this.projectId = localStorage.getItem("projectIdlocal");
+  561      var annontationidDate = new Date().getTime();
+
+  601      this.documentidss = this.documentDetails[0]["document_id"];
+  602:     this.projectId = localStorage.getItem("projectIdlocal");
+  603      var annontationidDate = new Date().getTime();
+
+  692      this.documentidss = this.documentDetails[0]["document_id"];
+  693:     this.projectId = localStorage.getItem("projectIdlocal");
+  694      var annontationidDate = new Date().getTime();
+
+  725      this.documentidss = this.documentDetails[0]["document_id"];
+  726:     this.projectId = localStorage.getItem("projectIdlocal");
+  727      var annontationidDate = new Date().getTime();
+
+  765      this.documentidss = this.documentDetails[0]["document_id"];
+  766:     this.projectId = localStorage.getItem("projectIdlocal");
+  767      var annontationidDate = new Date().getTime();
+
+  808      this.documentidss = this.documentDetails[0]["document_id"];
+  809:     this.projectId = localStorage.getItem("projectIdlocal");
+  810      var annontationidDate = new Date().getTime();
+
+  842      this.documentidss = this.documentDetails[0]["document_id"];
+  843:     this.projectId = localStorage.getItem("projectIdlocal");
+  844      var annontationidDate = new Date().getTime();
+
+src\app\document\layers-page\layers-page.component.ts:
+  107    ) {
+  108:     this.projectid = localStorage.getItem("projectIdlocal")
+  109      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+  110:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  111      this.mailid = this.su.email_id;
+
+src\app\document\media\media.component.ts:
+  31      this.callBackgetStubData = this.data.callback_StubData;
+  32:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  33    }
+
+src\app\document\media\stubphotos\stubphotos.component.ts:
+  127      var iii = this.ProjectId
+  128:     //let setnumber = Number(localStorage.getItem(this.ProjectId));
+  129  
+
+  431          if(get_response_body == undefined || get_response_body == ""){
+  432:           this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  433            get_response_body = {last_stub_id:"0001",email_id:this.su.email_id,stub_name:"IMG-$~_true_~^"};
+
+  438          this.setNumber = get_response_body.last_stub_id;
+  439:         // this.setNumber = localStorage.getItem(this.ProjectId)===null? "0001":localStorage.getItem(this.ProjectId)===undefined?"0001":localStorage.getItem(this.ProjectId)===""?"0001":(Number(localStorage.getItem(this.ProjectId))+1).toString().padStart(4, "0");
+  440          let splitEmail = get_response_body.email_id.split("@");
+
+  462          });
+  463:         // var check_username_checkstatus = localStorage.getItem(this.ProjectId + "-username")
+  464          //Toggle to be set on page load 
+
+src\app\document\moreoption\moreoption.component.ts:
+  53      console.log(this.page_Data);
+  54:     this.projectid=localStorage.getItem("projectIdlocal")
+  55      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+  60      console.log(this.page_Data);
+  61:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+  62      console.log(this.isReadonly);
+
+src\app\document\moreoption\document-managetag\document-managetag.component.ts:
+  31      console.log(data);
+  32:     this.projectid=localStorage.getItem("projectIdlocal")
+  33      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\document\moreoption\filtertoolbar\filtertoolbar.component.ts:
+  43      this.projectId = this.route.snapshot.queryParamMap.get("project_id");
+  44:     let getLocalCheckValues = JSON.parse(localStorage.getItem("toolbarFilterItem"));
+  45      if (getLocalCheckValues != null) {
+  46:       this.toolbarFilter = JSON.parse(localStorage.getItem("toolbarFilterItem"));
+  47        console.log(this.toolbarFilter);
+
+src\app\document\services\create-document.service.ts:
+    35    constructor(private Http: HttpClient,private textCheckService:DataService) {
+    36:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+    37      this.createDocumentStore_values = new createDocumentVar();
+
+    48      return this.Http.post<getDocumentDetails[]>(
+    49:       localStorage.getItem("APIBaseUrl") + "report/get_document_data",
+    50        getDocumentDetailscsv
+
+    87      return this.Http.post<getDocumentDetails[]>(
+    88:       localStorage.getItem("APIBaseUrl") + "report/get_csv_url",
+    89        getDocumentDetailscsv
+
+   103      console.log(
+   104:       localStorage.getItem("APIBaseUrl") + "report/get_media_report",
+   105        getDocumentDetailscsv
+
+   107      return this.Http.post<getDocumentDetails[]>(
+   108:       localStorage.getItem("APIBaseUrl") + "report/get_media_report",
+   109        getDocumentDetailscsv
+
+   150      console.log(
+   151:       localStorage.getItem("APIBaseUrl") + "report/get_document_report",
+   152        getDocumentDetailscsv
+
+   154      return this.Http.post<getDocumentDetails[]>(
+   155:       localStorage.getItem("APIBaseUrl") + "report/get_document_report",
+   156        getDocumentDetailscsv
+
+   181      console.log(
+   182:       localStorage.getItem("APIBaseUrl") + "folder/get_document_pages",
+   183        getDocumentDetailsData
+
+   185      return this.Http.post<getDocumentDetails[]>(
+   186:       localStorage.getItem("APIBaseUrl") + "folder/get_document_pages",
+   187        getDocumentDetailsData
+
+   193      let createdDate = new Date().toISOString();
+   194:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   195      rename.user_id = this.su.user_id;
+
+   199      rename.last_updated_date = createdDate;
+   200:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/page_rename", rename).pipe(retry(3));
+   201    }
+
+   211      return this.Http.post<getAnnotationForm[]>(
+   212:       localStorage.getItem("APIBaseUrl") + "annotation/get_all_annotation_web",
+   213        getAnnotationFormlistData
+
+   226      console.log(getSingleAnnotate);
+   227:     return this.Http.post<singleAnnotation[]>(localStorage.getItem("APIBaseUrl") + "annotation/get_single_annotation_data",
+   228        getSingleAnnotate).pipe(retry(3));
+
+   235      console.log(
+   236:       localStorage.getItem("APIBaseUrl") + "annotation/get_form",
+   237        getDocumentDetailsData
+
+   239      return this.Http.post<getDocumentDetails[]>(
+   240:       localStorage.getItem("APIBaseUrl") + "annotation/get_form",
+   241        getDocumentDetailsData
+
+   250      console.log(
+   251:       localStorage.getItem("APIBaseUrl") + "annotation/get_page_annotation_count",
+   252        getDocumentDetailsData
+
+   254      return this.Http.post<getDocumentDetails[]>(
+   255:       localStorage.getItem("APIBaseUrl") + "annotation/get_page_annotation_count",
+   256        getDocumentDetailsData
+
+   261      return this.Http.post<any[]>(
+   262:       localStorage.getItem("APIBaseUrl") + "annotation/get_layer_data", { layer_id: layerId, annotation_id: annotationId }).pipe(retry(3));
+   263    }
+
+   318      return this.Http.post<createLayer[]>(
+   319:       localStorage.getItem("APIBaseUrl") + "annotation/create_form",
+   320        parem
+
+   337      if (projectId == null) {
+   338:       projectId = localStorage.getItem("projectIdlocal");
+   339      }
+
+   380      return this.Http.post<createLayer[]>(
+   381:       localStorage.getItem("APIBaseUrl") + "annotation/create_form",
+   382        parem
+
+   397      if (projectId == null) {
+   398:       projectId = localStorage.getItem("projectIdlocal");
+   399      }
+
+   441      return this.Http.post<createLayer[]>(
+   442:       localStorage.getItem("APIBaseUrl") + "annotation/create_form",
+   443        parem
+
+   455      return this.Http.post<any>(
+   456:       localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   457        parem
+
+   471      return this.Http.post<any>(
+   472:       localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   473        parem
+
+   486      };
+   487:     console.log(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+   488:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   489        parem
+
+   508      };
+   509:     console.log(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+   510:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   511        parem
+
+   603      };
+   604:     console.log(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+   605:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   606        parem
+
+   719      };
+   720:     console.log(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+   721:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   722        parem
+
+   735      };
+   736:     console.log(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+   737:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   738        parem
+
+   752      };
+   753:     console.log(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+   754:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   755        parem
+
+   876      console.log(JSON.stringify(parem));
+   877:     console.log(localStorage.getItem("APIBaseUrl") + "annotation/update_base_icon", parem);
+   878:     // return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+   879      //   parem
+   880      // );
+   881:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_base_icon",
+   882        parem
+
+  1021      return this.Http.post<any>(
+  1022:       localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+  1023        parem
+
+  1039      return this.Http.post<any>(
+  1040:       localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+  1041        parem
+
+  1056      return this.Http.post<any>(
+  1057:       localStorage.getItem("APIBaseUrl") + "annotation/update_form",
+  1058        parem
+
+  1078      console.log(JSON.stringify(parem));
+  1079:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+  1080    }
+
+  1179      };
+  1180:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+  1181    }
+
+  1194      console.log(parem);
+  1195:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+  1196    }
+
+  1439      console.log(parem);
+  1440:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_form", parem);
+  1441    }
+
+  1628      console.log(parem);
+  1629:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/multi_select_annotation_web", parem);
+  1630    }
+
+  1688      };
+  1689:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/get_media_data", parem);
+  1690    }
+
+  1742      return this.Http.post<createLayer[]>(
+  1743:       localStorage.getItem("APIBaseUrl") + "annotation/create_form",
+  1744        parem
+
+  1754      return this.Http.post<any>(
+  1755:       localStorage.getItem("APIBaseUrl") + "folder/get_project_folders", sendData).pipe(retry(3));
+  1756    }
+
+  1761      sendData.project_id = project_id;
+  1762:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + 'folder/get_project_document_pages_web', sendData).pipe(retry(3));
+  1763    }
+
+  1770      formlist.project_id = projectId;
+  1771:     return this.Http.post<forms[]>(localStorage.getItem("APIBaseUrl") + "formbuilder/get_project_forms_list", formlist);
+  1772    }
+
+  1781      list.updated_by_userid = this.su.user_id.toString();
+  1782:     console.log((localStorage.getItem("APIBaseUrl") + "annotation/update_base_icon", list));
+  1783:     return this.Http.post<forms[]>(localStorage.getItem("APIBaseUrl") + "annotation/update_base_icon", list);
+  1784    }
+
+  1796      var autoCADinputs = new getDocumentDetails();
+  1797:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  1798      autoCADinputs.document_id = documentId;
+  1799:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "autocad/reverse_autocad", autoCADinputs);
+  1800    }
+
+  1811      generateInputs.user_id = this.su.user_id;
+  1812:     return this.Http.post<multipleannotation[]>(localStorage.getItem("APIBaseUrl") + "annotation/get_annotation_data_web", generateInputs);
+  1813    }
+
+  1818      generateInputsMedia.process_id = processId;
+  1819:     return this.Http.post<multipleannotation[]>(localStorage.getItem("APIBaseUrl") + "admin/photos_zip", generateInputsMedia);
+  1820    }
+
+  1823  
+  1824:     return this.Http.post<multipleannotation[]>(localStorage.getItem("APIBaseUrl") + "report/get_csv_url", {process_id:processId});
+  1825    }
+
+src\app\document\services\documenttag.service.ts:
+  20      var taglist = new getDocumentDetails();
+  21:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  22      taglist.user_id = this.su.user_id;
+
+  25      return this.Http.post<any>(
+  26:       localStorage.getItem("APIBaseUrl") + "annotation/get_all_page_tags",
+  27        taglist
+
+  32      var taglist = new getDocumentDetails();
+  33:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  34      taglist.user_id = this.su.user_id;
+
+  37      return this.Http.post<any>(
+  38:       localStorage.getItem("APIBaseUrl") + "annotation/get_page_tags",
+  39        taglist
+
+  43      var tag = new getDocumentDetails();
+  44:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  45      let createdDate = new Date().toISOString();
+
+  53      return this.Http.post<any>(
+  54:       localStorage.getItem("APIBaseUrl") + "annotation/add_page_tags",
+  55        tag
+
+  59      var tag = new getDocumentDetails();
+  60:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  61      tag.user_id = this.su.user_id;
+
+  64      return this.Http.post<any>(
+  65:       localStorage.getItem("APIBaseUrl") + "annotation/remove_page_tags",
+  66        tag
+
+  73      let createdDate = new Date().toISOString();
+  74:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  75      newdoc.user_id = this.su.user_id;
+
+  87      newdoc.updated_by_userid=this.su.user_id.toString();
+  88:     console.log(localStorage.getItem("APIBaseUrl") + "folder/copy_annotaion_image_document_web", newdoc);
+  89:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/copy_annotaion_image_document_web", newdoc);
+  90    }
+
+  95      let createdDate = new Date().toISOString();
+  96:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  97      newdoc.user_id = this.su.user_id;
+
+src\app\document\services\formmapping.service.ts:
+  15    constructor(private Http: HttpClient) {
+  16:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  17      this.getStoredFormList();
+
+  22      let createdDate = new Date().toISOString();
+  23:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  24      var parem = { created_date:createdDate,
+
+  30      return this.Http.post<any>(
+  31:       localStorage.getItem("APIBaseUrl") + "annotation/create_form",
+  32        parem
+
+  45      return this.Http.post<any>(
+  46:       localStorage.getItem("APIBaseUrl") + "annotation/annotation_media",
+  47        filedata
+
+  64      return this.Http.post<any>(
+  65:       localStorage.getItem("APIBaseUrl") + "annotation/upload_annotation_media_web",
+  66        filedata
+
+  70    get_all_annotation() {
+  71:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  72:     var projectid = localStorage.getItem("projectIdlocal");
+  73      console.log(projectid, this.su.user_id);
+
+  75      return this.Http.post<any>(
+  76:       localStorage.getItem("APIBaseUrl") + "annotation/get_all_annotation",
+  77        { project_id: projectid, user_id: this.su.user_id }
+
+  84      var formlist = new forms();
+  85:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  86  
+  87      formlist.user_id = this.su.user_id;
+  88:     this.projectId = localStorage.getItem("projectIdlocal");
+  89      formlist.project_id = this.projectId;
+  90  
+  91:     return this.Http.post<forms[]>(localStorage.getItem("APIBaseUrl") + "formbuilder/get_project_forms_list", formlist).pipe(catchError(this.handleError));
+  92    }
+
+src\app\document\shareoption1\shareoption1.component.ts:
+   32    async downloadFile(data, filename = 'data', receiveHeaderData) {
+   33:     this.projectId = localStorage.getItem("projectIdlocal")
+   34      this.expo = receiveHeaderData;
+
+  124    async downloadFile(data, filename = 'data', receiveHeaderData) {
+  125:     this.projectId = localStorage.getItem("projectIdlocal");
+  126      this.expo = receiveHeaderData;
+
+  146    async downloadFile1(data, filename = 'data', receiveHeaderData) {
+  147:     this.projectId = localStorage.getItem("projectIdlocal")
+  148      this.expo = receiveHeaderData;
+
+  250    ngOnInit(): void {
+  251:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  252    }
+
+  269      this.project_name =  this.data.title1
+  270:     this.projectId = localStorage.getItem("projectIdlocal");
+  271      var annontationidDate = new Date().getTime();
+
+  303      this.project_name =  this.data.title1
+  304:     this.projectId = localStorage.getItem("projectIdlocal");
+  305      var annontationidDate = new Date().getTime();
+
+  385      this.project_name =  this.data.title1
+  386:     this.projectId = localStorage.getItem("projectIdlocal");
+  387      var annontationidDate = new Date().getTime();
+
+  418      this.project_name =  this.data.title1
+  419:     this.projectId = localStorage.getItem("projectIdlocal");
+  420      var annontationidDate = new Date().getTime();
+
+  459      this.project_name =  this.data.title1
+  460:     this.projectId = localStorage.getItem("projectIdlocal");
+  461      var annontationidDate = new Date().getTime();
+
+  492      this.project_name =  this.data.title1
+  493:     this.projectId = localStorage.getItem("projectIdlocal");
+  494      var annontationidDate = new Date().getTime();
+
+  533      this.loader = true;
+  534:     this.projectId = localStorage.getItem("projectIdlocal");
+  535      let processId = this.valueService.generateUUID();
+
+  579      this.loader = true;
+  580:     this.projectId = localStorage.getItem("projectIdlocal");
+  581      let processId = this.valueService.generateUUID();
+
+src\app\document\switch-form\switch-form.component.ts:
+  63    ) {
+  64:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+  65      console.log(this.data.annotationId);
+
+src\app\document\switch-toolbar\switch-toolbar.component.ts:
+  35    ) {
+  36:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+  37      this.projectId = this.route.snapshot.queryParamMap.get("project_id");
+
+src\app\formbuilder\duplicateelement\duplicateelement.component.ts:
+  51      _item.element_data.label_text = changeUpperCaseProjectName;
+  52:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  53      var annontationidDate = new Date().getTime();
+
+src\app\formbuilder\formbuilder\formbuilder.component.ts:
+   164    form_name: any;
+   165:   userid = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   166    subscription: Subscription;
+
+   223      this.pageFrom = this.routes.snapshot.queryParamMap.get("pageFrom");
+   224:     this.admin = localStorage.getItem("Admin");
+   225:     this.edit = localStorage.getItem("Edit");
+   226:     this.view = localStorage.getItem("View");
+   227      // localStorage.setItem('builder', 'form');
+
+   231      }
+   232:     this.projectid = localStorage.getItem("projectIdlocal");
+   233      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+   252      this.headerService.setTitle(this.form_name);
+   253:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+   254    }
+
+   764  
+   765:       this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   766        var annontationidDate = new Date().getTime();
+
+   885  
+   886:       this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   887        var annontationidDate = new Date().getTime();
+
+  1090      item.element_data.use_calculated_values = false
+  1091:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  1092      
+
+  1505    addValue(options) {
+  1506:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  1507      var annontationidDate = new Date().getTime();
+
+  1644  
+  1645:         this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  1646      var annontationidDate = new Date().getTime();
+
+  1679  
+  1680:         this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  1681      var annontationidDate = new Date().getTime();
+
+  2253        if(get_options.length>0){
+  2254:         this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  2255          var annontationidDate = new Date().getTime();
+
+  2917      else if (this.pageFrom == "document") {
+  2918:       let enableSelected = JSON.parse(localStorage.getItem("preSelectAnnotationId"));
+  2919        let annotationId = enableSelected.id;
+
+  4626        var annontationidDate = new Date().getTime();
+  4627:       this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  4628  
+
+src\app\formbuilder\formdesign\formdesign.component.ts:
+  163  	) {
+  164: 		this.projectid = localStorage.getItem("projectIdlocal");
+  165  		this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\formbuilder\formlist\formlist.component.ts:
+   78    ) {
+   79:     this.admin = localStorage.getItem("Admin");
+   80:     this.edit = localStorage.getItem("Edit");
+   81:     this.view = localStorage.getItem("View");
+   82      this.service3.currentMessage.subscribe((message) => {
+
+   94      //get User level management
+   95:     this.projectid = localStorage.getItem("projectIdlocal");
+   96      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+  100      this.headerService.mainTitle("");
+  101:     this.headerService.setTitle(localStorage.getItem("projectName"));
+  102      this.formlisting();
+
+  104      this.filtermethod();
+  105:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  106      this.searchOut();
+
+  233    getFormTaglist() {
+  234:     this.projectid = localStorage.getItem("projectIdlocal");
+  235      this.service.getAllFormTag(this.projectid).subscribe((res) => {
+
+src\app\formbuilder\formlist\formduplicatetable\formduplicatetable.component.ts:
+   76    ngOnInit(): void {
+   77:     this.headerService.setTitle(localStorage.getItem("projectName"));
+   78      this.formlisting();
+   79:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   80      this.searchOut();
+
+  187    getFormTaglist() {
+  188:     this.projectid = localStorage.getItem("projectIdlocal");
+  189      this.service.getAllFormTag(this.projectid).subscribe((res) => {
+
+src\app\formbuilder\formlist\import-forms\import-forms.component.ts:
+   76      this.getAllFormList();
+   77:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   78      this.filtermethod();
+
+  328        this.formImportdata.sync_version_uuid = "0";
+  329:       this.formImportdata.destination_project_id = localStorage.getItem("projectIdlocal");
+  330        console.log(this.formImportdata);
+
+src\app\formbuilder\formlist\menucomponent\menucomponent.component.ts:
+  46    ) {
+  47:     this.admin = localStorage.getItem("Admin");
+  48:     this.edit1 = localStorage.getItem("Edit");
+  49:     this.view = localStorage.getItem("View");
+  50      this.formfield = this.data.formfield;
+
+  62  
+  63:     if (localStorage.getItem("userrole") != null) {
+  64:       if(localStorage.getItem("userrole").includes("||"))
+  65        {
+  66            
+  67:         let storageRoleData = localStorage.getItem('userrole').split("||")
+  68          if(this.projectid == storageRoleData[0]) {
+
+src\app\formbuilder\manageform\manageform.component.ts:
+  41      //get User level management
+  42:     this.projectid = localStorage.getItem("projectIdlocal");
+  43      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\formbuilder\services\formdata.service.ts:
+  20    ngOnInit():void{
+  21:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  22    }
+
+  31      return this.http.post<any[]>(
+  32:       localStorage.getItem("APIBaseUrl") + "formbuilder/get_form_elements_structure",
+  33        null
+
+  38      let createdDate = new Date().toISOString();
+  39:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  40      Updatemodel.created_date= createdDate;
+
+  44      console.log(Updatemodel);
+  45:     return this.http.post<any[]>(localStorage.getItem("APIBaseUrl") + "formbuilder/update_form_data",Updatemodel);
+  46    }
+
+src\app\formbuilder\services\formlist.service.ts:
+   23      var formlist = new forms();
+   24:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   25      formlist.user_id = this.su.user_id;
+   26:     this.projectId = localStorage.getItem("projectIdlocal");
+   27      formlist.project_id = this.projectId;
+
+   29      return this.http.post<forms[]>(
+   30:       localStorage.getItem("APIBaseUrl") + "formbuilder/get_project_forms_list",
+   31        formlist
+
+   36      let createdDate = new Date().toISOString();
+   37:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   38      rename.user_id = this.su.user_id;
+
+   45      return this.http.post<any>(
+   46:       localStorage.getItem("APIBaseUrl") + "formbuilder/rename_form",
+   47        rename
+
+   52      var getFormtag = new forms();
+   53:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   54      getFormtag.user_id = this.su.user_id;
+
+   56      return this.http.post<any>(
+   57:       localStorage.getItem("APIBaseUrl") + "formbuilder/get_project_forms_tags",
+   58        getFormtag
+
+   69      var tag = new forms();
+   70:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   71  
+
+   75      return this.http.post<any>(
+   76:       localStorage.getItem("APIBaseUrl") + "formbuilder/get_form_tags",
+   77        tag
+
+   82      let createdDate = new Date().toISOString();
+   83:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   84      tag.user_id = this.su.user_id;
+
+   92      return this.http.post<any>(
+   93:       localStorage.getItem("APIBaseUrl") + "formbuilder/add_form_tag",
+   94        tag
+
+   99      let createdDate = new Date().toISOString();
+  100:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  101      tag.user_id = this.su.user_id;
+
+  108      return this.http.post<any>(
+  109:       localStorage.getItem("APIBaseUrl") + "formbuilder/remove_form_tag",
+  110        tag
+
+  114      var info = new forms();
+  115:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  116      info.user_id = this.su.user_id;
+
+  118      return this.http.post<any>(
+  119:       localStorage.getItem("APIBaseUrl") + "formbuilder/get_form_metrices",
+  120        info
+
+  125      let createdDate = new Date().toISOString();
+  126:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  127      hide.user_id = this.su.user_id;
+
+  134      return this.http.post<any>(
+  135:       localStorage.getItem("APIBaseUrl") + "formbuilder/hide_or_unhide_form",
+  136        hide
+
+  141      let createdDate = new Date().toISOString();
+  142:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  143      hide.user_id = this.su.user_id;
+
+  151      return this.http.post<any>(
+  152:       localStorage.getItem("APIBaseUrl") + "formbuilder/hide_or_unhide_form",
+  153        hide
+
+  158      let createdDate = new Date().toISOString();
+  159:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  160      create.user_id = this.su.user_id;
+  161:     create.project_id = localStorage.getItem("projectIdlocal");
+  162      create.form_id = this.su.user_id + "-" + uuid.toString() + "-" + date;
+
+  169      return this.http.post<any>(
+  170:       localStorage.getItem("APIBaseUrl") + "formbuilder/create_form",
+  171        create
+
+  176      let createdDate = new Date().toISOString();
+  177:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  178      dup.user_id = this.su.user_id;
+  179:     dup.source_project_id = localStorage.getItem("projectIdlocal");
+  180      dup.source_form_id = form_id;
+  181      dup.new_form_name = form;
+  182:     dup.destination_project_ids = localStorage.getItem("projectIdlocal");
+  183      dup.destination_form_id = this.su.user_id + "-" + uuid.toString() + "-" + date;
+
+  188      return this.http.post<any>(
+  189:       localStorage.getItem("APIBaseUrl") + "formbuilder/duplicate_form",
+  190        dup
+
+  194      var user = new duplicate();
+  195:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  196      user.user_id = this.su.user_id;
+  197      return this.http.post<any>(
+  198:       localStorage.getItem("APIBaseUrl") + "formbuilder/get_all_forms_list_for_user",
+  199        user
+
+  205      let createdDate = new Date().toISOString();
+  206:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  207      importFormData.user_id = this.su.user_id;
+  208:     importFormData.destination_project_id = localStorage.getItem(
+  209        "projectIdlocal"
+
+  217      return this.http.post<importForm[]>(
+  218:       localStorage.getItem("APIBaseUrl") + "formbuilder/import_form",
+  219        importFormData
+
+  224      return this.http.post<importForm[]>(
+  225:       localStorage.getItem("APIBaseUrl") + "formbuilder/import_form",
+  226        importFormData
+
+  230      var gfd = new forms();
+  231:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  232      gfd.user_id = this.su.user_id;
+
+  235      return this.http.post<any>(
+  236:       localStorage.getItem("APIBaseUrl") + "formbuilder/get_form_data",
+  237        gfd
+
+  248      let createdDate = new Date().toISOString();
+  249:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  250      createDefaultForm.user_id = this.su.user_id;
+
+  258      return this.http.post<defaultForm[]>(
+  259:       localStorage.getItem("APIBaseUrl") + "formbuilder/create_form",
+  260        createDefaultForm
+
+src\app\p3-documentation\p3-homepage\p3-homepage.component.ts:
+  20      });
+  21:     this.backButtonTrigger = !!localStorage.getItem("ipadValidation");
+  22:     console.log(this.backButtonTrigger,!!localStorage.getItem("ipadValidation"));
+  23      // let updatedconvertDate = moment.utc(this.last_updated_date).toDate(); 
+
+src\app\p3-documentation\support-header\support-header.component.ts:
+  29    ngAfterViewInit(): void {
+  30:     this.backButtonTrigger = !!localStorage.getItem("ipadValidation");
+  31:     console.log(this.backButtonTrigger,!!localStorage.getItem("ipadValidation"));
+  32    }
+
+src\app\project-dashboard\create-project\create-project.component.ts:
+  65    ) {
+  66:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  67      // this.formDataService.get_form_elements_structure().subscribe((data) => {
+
+src\app\project-dashboard\manage-user\manage-user.component.ts:
+  62      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+  63:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  64      console.log(this.userrole)
+
+src\app\project-dashboard\manage-user-init\manage-user-init.component.ts:
+  13  export class ManageUserInitComponent implements OnInit {
+  14:   project = localStorage.getItem("projectName");
+  15:   projectid = localStorage.getItem("projectIdlocal");
+  16:   date2 = localStorage.getItem("project_cdate");
+  17:   date1 = localStorage.getItem("project_mdate");
+  18:   status = localStorage.getItem("project_status");
+  19    userrole: any = "";
+
+  24    ) {
+  25:     this.projectid = localStorage.getItem("projectIdlocal");
+  26:     this.project = localStorage.getItem("projectName");
+  27:     let projectid = localStorage.getItem("projectIdlocal");
+  28      this.userrole = this.userRoleGlobal.findUserProjectRole(projectid);
+
+src\app\project-dashboard\my-project\my-project.component.ts:
+  91      this.headerService.setTitle("My Projects");
+  92:     let expandNodeListRemover = localStorage.getItem('expandNode');
+  93        if(expandNodeListRemover!=null){
+
+src\app\project-dashboard\my-project\services\projectlist.service.ts:
+   22      var projectlist = new project();
+   23:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   24      console.log(this.su.user_id);
+
+   28      console.log(
+   29:       localStorage.getItem("APIBaseUrl") + "project/get_my_project_listing",
+   30        projectlist
+
+   33        .post<any>(
+   34:         localStorage.getItem("APIBaseUrl") + "project/get_my_project_listing",
+   35          projectlist
+
+   41      var projectlist = new project();
+   42:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   43      console.log(this.su.user_id);
+
+   47        .post<any>(
+   48:         localStorage.getItem("APIBaseUrl") + "project/get_project_user_permission",
+   49          projectlist
+
+   56      let createdDate = new Date().toISOString();
+   57:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   58      projects.user_id = this.su.user_id;
+
+   65      projects.updated_by_userid = this.su.user_id.toString();
+   66:     console.log(localStorage.getItem("APIBaseUrl") + "project/create_project_web", projects);
+   67      return this.http.post<any>(
+   68:       localStorage.getItem("APIBaseUrl") + "project/create_project_web",
+   69        projects
+
+   73      var recent = new project();
+   74:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   75  
+
+   78      console.log(
+   79:       localStorage.getItem("APIBaseUrl") + "project/get_recent_project_listing",
+   80        recent
+
+   82      return this.http.post<any>(
+   83:       localStorage.getItem("APIBaseUrl") + "project/get_recent_project_listing",
+   84        recent
+
+   88      var favourite = new project();
+   89:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   90      favourite.user_id = this.su.user_id;
+
+   93      console.log(
+   94:       localStorage.getItem("APIBaseUrl") + "project/get_my_favorite_project_listing",
+   95        favourite
+
+   97      return this.http.post<any>(
+   98:       localStorage.getItem("APIBaseUrl") + "project/get_my_favorite_project_listing",
+   99        favourite
+
+  103      var hidden = new project();
+  104:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  105      hidden.user_id = this.su.user_id;
+
+  107      hidden.count = 0;
+  108:     console.log(localStorage.getItem("APIBaseUrl") + "project/get_my_hidden_project_listing",
+  109        hidden
+
+  111      return this.http.post<any>(
+  112:       localStorage.getItem("APIBaseUrl") + "project/get_my_hidden_project_listing",
+  113        hidden
+
+  118      let createdDate = new Date().toISOString();
+  119:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  120      Favorite.user_id = this.su.user_id;
+
+  126      console.log(
+  127:       localStorage.getItem("APIBaseUrl") + "project/add_project_to_favorite",
+  128        Favorite
+
+  130      return this.http.post<any>(
+  131:       localStorage.getItem("APIBaseUrl") + "project/add_project_to_favorite",
+  132        Favorite
+
+  137      let createdDate = new Date().toISOString();
+  138:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  139      Favorite.user_id = this.su.user_id;
+
+  145      console.log(
+  146:       localStorage.getItem("APIBaseUrl") + "project/remove_project_from_favorite",
+  147        Favorite
+
+  149      return this.http.post<any>(
+  150:       localStorage.getItem("APIBaseUrl") + "project/remove_project_from_favorite",
+  151        Favorite
+
+  156      let createdDate = new Date().toISOString();
+  157:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  158      rename.user_id = this.su.user_id;
+
+  164      rename.updated_by_userid = this.su.user_id.toString();
+  165:     console.log(localStorage.getItem("APIBaseUrl") + "project/rename_project", rename);
+  166      return this.http.post<any>(
+  167:       localStorage.getItem("APIBaseUrl") + "project/rename_project",
+  168        rename
+
+  173      let createdDate = new Date().toISOString();
+  174:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  175      hide.user_id = this.su.user_id;
+
+  180      hide.updated_by_userid = this.su.user_id.toString();
+  181:     console.log(localStorage.getItem("APIBaseUrl") + "project/unhide_the_favorite", hide);
+  182      return this.http.post<any>(
+  183:       localStorage.getItem("APIBaseUrl") + "project/unhide_the_favorite",
+  184        hide
+
+  189      let createdDate = new Date().toISOString();
+  190:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  191      hide.user_id = this.su.user_id;
+
+  196      hide.updated_by_userid = this.su.user_id.toString();
+  197:     console.log(localStorage.getItem("APIBaseUrl") + "project/hide_the_favorite", hide);
+  198      return this.http.post<any>(
+  199:       localStorage.getItem("APIBaseUrl") + "project/hide_the_favorite",
+  200        hide
+
+  204      var projectinfo = new project();
+  205:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  206      projectinfo.user_id = this.su.user_id;
+  207      projectinfo.project_id = project_id;
+  208:     console.log(localStorage.getItem("APIBaseUrl") + "project/get_basic_project_info", projectinfo);
+  209:     return this.http.post<any>(localStorage.getItem("APIBaseUrl") + "project/get_basic_project_info", projectinfo);
+  210    }
+
+  213      let createdDate = new Date().toISOString();
+  214:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  215      taglist.user_id = this.su.user_id;
+
+  220      taglist.updated_by_userid = this.su.user_id.toString();
+  221:     console.log(localStorage.getItem("APIBaseUrl") + "project/get_project_tags", taglist);
+  222:     return this.http.post<any>(localStorage.getItem("APIBaseUrl") + "project/get_project_tags", taglist);
+  223    }
+
+  226      let createdDate = new Date().toISOString();
+  227:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  228      tag.user_id = this.su.user_id;
+
+  234      tag.updated_by_userid = this.su.user_id.toString();
+  235:     console.log(localStorage.getItem("APIBaseUrl") + "project/add_project_tag", tag);
+  236      return this.http.post<any>(
+  237:       localStorage.getItem("APIBaseUrl") + "project/add_project_tag",
+  238        tag
+
+  243      let createdDate = new Date().toISOString();
+  244:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  245      tag.user_id = this.su.user_id;
+
+  251      tag.updated_by_userid = this.su.user_id.toString();
+  252:     console.log(localStorage.getItem("APIBaseUrl") + "project/remove_project_tag", tag);
+  253      return this.http.post<any>(
+  254:       localStorage.getItem("APIBaseUrl") + "project/remove_project_tag",
+  255        tag
+
+  259      var search = new project();
+  260:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  261      search.user_id = this.su.user_id;
+  262      search.search_keyword = searchs;
+  263:     console.log(localStorage.getItem("APIBaseUrl") + "project/search_users", search);
+  264      return this.http.post<any>(
+  265:       localStorage.getItem("APIBaseUrl") + "project/search_users",
+  266        search
+
+  271      user.project_id = project_id;
+  272:     console.log(localStorage.getItem("APIBaseUrl") + "project/get_project_users", user);
+  273      return this.http.post<any>(
+  274:       localStorage.getItem("APIBaseUrl") + "project/get_project_users",
+  275        user
+
+  280      var user = new project();
+  281:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  282      user.current_user_id = this.su.user_id;
+
+  290      user.updated_by_userid = this.su.user_id.toString() ;
+  291:     console.log(localStorage.getItem("APIBaseUrl") + "project/add_user_to_project", user);
+  292      return this.http.post<any>(
+  293:       localStorage.getItem("APIBaseUrl") + "project/add_user_to_project",
+  294        user
+
+  298      var user = new project();
+  299:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  300      user.user_id = userid;
+
+  302      user.project_id = project_id;
+  303:     console.log(localStorage.getItem("APIBaseUrl") + "project/remove_user_from_project", user);
+  304      return this.http.post<any>(
+  305:       localStorage.getItem("APIBaseUrl") + "project/remove_user_from_project",
+  306        user
+
+  311      var user = new project();
+  312:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  313      user.current_user_id = this.su.user_id;
+
+  317      user.project_id = project_id;
+  318:     console.log(localStorage.getItem("APIBaseUrl") + "project/add_external_user", user);
+  319:     return this.http.post<any>(localStorage.getItem("APIBaseUrl") + "project/add_external_user",user);
+  320    }
+
+  329      console.log(
+  330:       localStorage.getItem("APIBaseUrl") + "project/update_permission_for_project",
+  331        userpermission
+
+  333      return this.http.post<any>(
+  334:       localStorage.getItem("APIBaseUrl") + "project/update_permission_for_project",
+  335        userpermission
+
+  340      var getAllTagSendData = new project();
+  341:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  342      getAllTagSendData.user_id = this.su.user_id;
+  343      console.log(
+  344:       localStorage.getItem("APIBaseUrl") + "project/get_all_projects_tags",
+  345        getAllTagSendData
+
+  347      return this.http.post<any>(
+  348:       localStorage.getItem("APIBaseUrl") + "project/get_all_projects_tags",
+  349        getAllTagSendData
+
+  364      console.log(statusRequest);
+  365:     console.log(localStorage.getItem("APIBaseUrl") + "folder/support_submit_request", statusRequest);
+  366:     return this.http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/support_submit_request", statusRequest);
+  367    }
+
+  379    create_stub_reference_api(projectId,stubId,stubName):Observable<project_stub_val[]>{
+  380:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  381      let stub_input = new project_stub_val();
+
+src\app\project-dashboard\support-option\support-option.component.ts:
+   35      this.heading = "Support Options";
+   36:     this.hidearrow1 = JSON.parse(localStorage.getItem("supportBack"))
+   37      router.events.forEach((event) => {
+
+   77            this.encrptdecrpt.setItem("builder",'toolbar');//security
+   78:           this.hidearrow1 = JSON.parse(localStorage.getItem("supportBack"))
+   79          } else if (event["url"].includes("/formbuilder/formEdit")) {
+
+   83            this.encrptdecrpt.setItem("builder",'form');//security
+   84:           this.hidearrow1 = JSON.parse(localStorage.getItem("supportBack"))
+   85          } else {
+
+   98      console.log("change")
+   99:     this.hidearrow1 = JSON.parse(localStorage.getItem("supportBack"))
+  100      this.userGuide = false;
+
+  109    clickarrow1() {
+  110:     if (localStorage.getItem('builder') == "toolbar") {
+  111        // localStorage.setItem('supportBackTool', JSON.stringify(false));
+  112        this.encrptdecrpt.setItem("supportBackTool",false);//security
+  113:       this.hidearrow1 = JSON.parse(localStorage.getItem("supportBack"))
+  114        let currentUrl = this.router.url;
+
+  117            queryParams: {
+  118:             project_id: localStorage.getItem("prject_id"),
+  119:             toolbarName: localStorage.getItem("builderName"),
+  120:             toolbarId: localStorage.getItem("builderId"),
+  121:             pageFrom: localStorage.getItem("pageForm")
+  122            }
+
+  128        this.encrptdecrpt.setItem("supportBackTool",false);//security
+  129:       this.hidearrow1 = JSON.parse(localStorage.getItem("supportBack"))
+  130        this.model = this.formdataservice.get();
+
+  135            queryParams: {
+  136:             Form_id: localStorage.getItem("builderId"),
+  137:             Form_name: localStorage.getItem("builderName"),
+  138:             pageFrom: localStorage.getItem("pageForm")
+  139            }
+
+src\app\project-dashboard\support-option\support-request\support-request.component.ts:
+  42    {
+  43:     var UserData = JSON.parse(localStorage.getItem("loggedIn"));
+  44      console.log(UserData);
+
+  54    ngOnInit(): void {
+  55:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  56    }
+
+src\app\projectmanagement\services\externaluser.service.ts:
+  34      console.log(
+  35:       localStorage.getItem("APIBaseUrl") + "project/accept_external_user_invitation",
+  36        user,
+
+  41      return this.http.post<any>(
+  42:       localStorage.getItem("APIBaseUrl") + "project/accept_external_user_invitation",
+  43        user
+
+  51      userCheckInorNot.email_id = emailId;
+  52:     return this.http.post<externalUser>(localStorage.getItem("APIBaseUrl") + "project/get_external_url_status",userCheckInorNot);
+  53    }
+
+  61        user.project_id = users.project_id;
+  62:       console.log(localStorage.getItem("APIBaseUrl") + "project/add_external_user", user);
+  63        return this.http.post<externalUser>(
+  64:         localStorage.getItem("APIBaseUrl") + "project/add_external_user",
+  65          user
+
+  72      {
+  73:       // this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  74        user.user_id = Number(id);
+
+  78  
+  79:       console.log(localStorage.getItem("APIBaseUrl") + "user/change_password", user);
+  80        return this.http.post<externalUser>(
+  81:         localStorage.getItem("APIBaseUrl") + "user/change_password",
+  82          user
+
+src\app\projectmanagement\services\login.service.ts:
+  57      console.log(user);
+  58:     console.log(localStorage.getItem("APIBaseUrl") + "user/forgot_password", user, {
+  59        observe: "response",
+
+  61      return this.http.post<any>(
+  62:       localStorage.getItem("APIBaseUrl") + "user/forgot_password",
+  63        user
+
+src\app\projectmanagement\userlogin\userlogin.component.ts:
+   45    errBlock: boolean = false;
+   46:   // rememberMe = localStorage.getItem("rememberMe");
+   47:   // localvalue = localStorage.getItem("loggedIn");
+   48    rememberMe = this.encrptdecrpt.getItem("rememberMe");//security;
+
+  102  
+  103:     //this.rm = JSON.parse(localStorage.getItem("NewrememberMe"));
+  104:     // var username = JSON.parse(localStorage.getItem("email_id"));
+  105      var username = this.encrptdecrpt.getItem("email_id");//security;
+
+src\app\projects\add-content\add-content.component.ts:
+  41      console.log(this.selectfolders);
+  42:     this.projectid = localStorage.getItem("projectIdlocal");
+  43      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\projects\add-file\add-file.component.ts:
+  85    ngOnInit(): void {
+  86:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  87  
+
+src\app\projects\add-project\add-project.component.ts:
+  129    ngOnInit(): void {
+  130:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  131    }
+
+src\app\projects\add-stubs\add-stubs.component.ts:
+  34    failedFiles:any[] = [];
+  35:   logedin=JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  36    user: number;
+
+  40      private addcontentservice: AddcontentService, public service: ProjectlistService) {
+  41:     this.projectId = localStorage.getItem("projectIdlocal");
+  42  
+
+src\app\projects\document-more\document-more.component.ts:
+  48    ) {
+  49:     this.projectid = localStorage.getItem("projectIdlocal");
+  50      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\projects\duplicatetable\duplicatetable.component.ts:
+  350  //     // this.userId = this.localvalue.user_id;
+  351: //     this.projectId = localStorage.getItem("projectIdlocal");
+  352  //     this.service.getProjectfolder(8, this.projectId).subscribe((res) => {
+
+src\app\projects\fieldselectfolder\fieldselectfolder.component.ts:
+   68    dataSource: MatTreeFlatDataSource<TodoItemNode, TodoItemFlatNode>;
+   69:   // localvalue=JSON.parse(localStorage.getItem('loggedIn'));
+   70    // userId:number;
+
+  291    imgpath: string = "assets/images/icons/P3WebIcon_17Folder.png";
+  292:   localvalue = JSON.parse(localStorage.getItem("loggedIn"));
+  293    userId: number;
+
+  355    ngOnInit(): void {
+  356:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  357      this.getFolderfromAPI();
+
+src\app\projects\fieldsheet\fieldsheet.component.ts:
+  71    ngOnInit(): void {
+  72:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  73    }
+
+src\app\projects\folder-more\folder-more.component.ts:
+  45    ) {
+  46:     this.projectid = localStorage.getItem("projectIdlocal");
+  47      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\projects\hidden\hidden.component.ts:
+  315    imgpath: string = "assets/images/icons/P3WebIcon_17Folder.png";
+  316:   localvalue = JSON.parse(localStorage.getItem("loggedIn"));
+  317    userId: number;
+
+  344      this.show = true;
+  345:     this.projectId = localStorage.getItem("projectIdlocal");
+  346      this.treeFlattener = new MatTreeFlattener(
+
+  380      this.headerservice.mainTitle("");
+  381:     this.headerservice.setTitle(localStorage.getItem("projectName"));
+  382      // setTimeout(()=>{
+
+  530      this.userId = this.localvalue.user_id;
+  531:     this.projectId = localStorage.getItem("projectIdlocal");
+  532      this.service
+
+src\app\projects\hidden\hiddenlist\hiddenlist.component.ts:
+  80    ngOnInit(): void {
+  81:     this.projectId = localStorage.getItem("projectIdlocal");
+  82      this.toolbarlisting();
+
+src\app\projects\hidden\hiddenlists\hiddenlists.component.ts:
+   88      this.searchOut();
+   89:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   90    }
+
+  178    getFormTaglist() {
+  179:     this.projectid = localStorage.getItem("projectIdlocal");
+  180      this.service.getAllFormTag(this.projectid).subscribe((res) => {
+
+src\app\projects\hidden\renametoolbarhidden\renametoolbarhidden.component.ts:
+  29    ngOnInit(): void {
+  30:     this.projectId = localStorage.getItem("projectIdlocal");
+  31    }
+
+src\app\projects\main-project\main-project.component.ts:
+  324    imgpath: string = "assets/images/icons/P3WebIcon_17Folder.png";
+  325:   localvalue = JSON.parse(localStorage.getItem("loggedIn"));
+  326    userId: number;
+
+  373      //       if (this.projectName == null) {
+  374:     //         this.projectName = localStorage.getItem("projectName");
+  375      //       }
+
+  381      if (this.projectId == null && this.projectName == null) {
+  382:       this.projectId = localStorage.getItem("projectIdlocal");
+  383:       this.projectName = localStorage.getItem("projectName");
+  384      }
+  385:     this.admin = localStorage.getItem("Admin");
+  386:     this.edit = localStorage.getItem("Edit");
+  387:     this.view = localStorage.getItem("View");
+  388:     let getExpandList = localStorage.getItem('expandNode');
+  389      if (getExpandList != null) {
+
+  449          if (this.projectId == null) {
+  450:           this.projectId = localStorage.getItem("projectIdlocal");
+  451          }
+
+  731      this.userId = this.localvalue.user_id;
+  732:     this.projectId = localStorage.getItem("projectIdlocal");
+  733      this.service.getProjectfolder(this.userId, this.projectId).subscribe((res) => {
+
+src\app\projects\managetags\managetags.component.ts:
+  19    getAlltaglist: any;
+  20:   localvalue = JSON.parse(localStorage.getItem("loggedIn"));
+  21    userId: any;
+
+  31    ) {
+  32:     this.projectid = localStorage.getItem("projectIdlocal");
+  33      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\projects\select-folder\select-folder.component.ts:
+   70    dataSource: MatTreeFlatDataSource<TodoItemNode, TodoItemFlatNode>;
+   71:   // localvalue=JSON.parse(localStorage.getItem('loggedIn'));
+   72    // userId:number;
+
+  293    imgpath: string = "assets/images/icons/P3WebIcon_17Folder.png";
+  294:   localvalue = JSON.parse(localStorage.getItem("loggedIn"));
+  295    userId: number;
+
+  370    ngOnInit(): void {
+  371:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  372      this.getFolderfromAPI();
+
+src\app\projects\selectfolder\selectfolder.component.ts:
+   68    dataSource: MatTreeFlatDataSource<TodoItemNode, TodoItemFlatNode>;
+   69:   // localvalue=JSON.parse(localStorage.getItem('loggedIn'));
+   70    // userId:number;
+
+  289    imgpath: string = "assets/images/icons/P3WebIcon_17Folder.png";
+  290:   localvalue = JSON.parse(localStorage.getItem("loggedIn"));
+  291    userId: number;
+
+  342      console.log(this.dataSource);
+  343:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  344      database.dataChange.subscribe((data) => {
+
+  666          if (res.type === HttpEventType.Response && res["body"]["response_code"] == 200) {
+  667:           this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  668            this.documentId = this.su.user_id + "-" + uuid + "-" + date;
+
+  779            console.log(res);
+  780:           this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  781            this.documentId = this.su.user_id + "-" + uuid + "-" + date;
+
+src\app\projects\services\addcontent.service.ts:
+   35      let createdDate = new Date().toISOString();
+   36:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   37      addnewfoldermdl.folder_id = this.su.user_id + "-" + uuidoption.toString() + "-" + date;
+
+   39      if (projectId == null) {
+   40:       projectId = localStorage.getItem("projectIdlocal");
+   41      }
+
+   51      console.log(addnewfoldermdl);
+   52:     console.log(localStorage.getItem("APIBaseUrl") + "folder/create_folder", addnewfoldermdl);
+   53      return this.Http.post<any>(
+   54:       localStorage.getItem("APIBaseUrl") + "folder/create_folder",
+   55        addnewfoldermdl
+
+   60      var addnewsubfoldermdl = new addnewsubfolder();
+   61:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   62      let createdDate = new Date().toISOString();
+
+   65      if (projectId == null) {
+   66:       projectId = localStorage.getItem("projectIdlocal");
+   67      }
+
+   76      addnewsubfoldermdl.updated_by_userid = this.su.user_id.toString();
+   77:     console.log(localStorage.getItem("APIBaseUrl") + "folder/create_folder", addnewsubfoldermdl);
+   78      return this.Http.post<any>(
+   79:       localStorage.getItem("APIBaseUrl") + "folder/create_folder",
+   80        addnewsubfoldermdl
+
+   93    ) {
+   94:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   95      let createdDate = new Date().toISOString();
+
+  137      console.log(
+  138:       localStorage.getItem("APIBaseUrl") + "folder/create_documentfile_upload",
+  139        formdataDireUpFl
+
+  141      return this.Http.post<any>(
+  142:       localStorage.getItem("APIBaseUrl") + "folder/create_documentfile_upload",
+  143        formdataDireUpFl
+
+  147    incertDoc(doc_id, noOfPages, projectId, page_id) {
+  148:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  149      const formdataDireUpFl: FormData = new FormData();
+
+  159  
+  160:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/insert_document_files", formdataDireUpFl);
+  161    }
+
+  185        page_id);
+  186:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  187      let createdDate = new Date().toISOString();
+
+  196      if (projectId == null) {
+  197:       projectId = localStorage.getItem("projectIdlocal");
+  198      }
+
+  224      
+  225:     console.log('pdf inside', localStorage.getItem("APIBaseUrl") + "folder/create_document_upoload",
+  226        formdata);
+  227      // return this.Http.post<any>(
+  228:     //   localStorage.getItem("APIBaseUrl") + "folder/create_document_upoload",
+  229      //   formdata
+  230      // );
+  231:     return this.Http.post(localStorage.getItem("APIBaseUrl") + "folder/create_document_upoload", formdata, {
+  232        headers,
+
+  236      // else {
+  237:     //   console.log('png inside',localStorage.getItem("APIBaseUrl") + "folder/create_document_upoload",
+  238      //   formdata);
+  239      //   return this.Http.post<any>(
+  240:     //     localStorage.getItem("APIBaseUrl") + "folder/create_document_upoload",
+  241      //     formdata
+
+  248      console.log(projectId, document_name, noOfPages, mode, uuid, date);
+  249:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  250      let createdDate = new Date().toISOString();
+
+  253      if (projectId == null) {
+  254:       projectId = localStorage.getItem("projectIdlocal");
+  255      }
+
+  286      console.log(
+  287:       localStorage.getItem("APIBaseUrl") + "folder/create_fieldsheet",
+  288        formdataDirAdFeSh
+
+  290      return this.Http.post<any>(
+  291:       localStorage.getItem("APIBaseUrl") + "folder/create_fieldsheet",
+  292        formdataDirAdFeSh
+
+  316      let createdDate = new Date().toISOString();
+  317:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  318      const formdata1: FormData = new FormData();
+
+  320      if (projectId == null) {
+  321:       projectId = localStorage.getItem("projectIdlocal");
+  322      }
+
+  341      }
+  342:     console.log(this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/create_fieldsheet", formdata1));
+  343      return this.Http.post<any>(
+  344:       localStorage.getItem("APIBaseUrl") + "folder/create_fieldsheet",
+  345        formdata1
+
+  366      return this.Http.post<any>(
+  367:       localStorage.getItem("APIBaseUrl") + "folder/support_submit_upoload",
+  368        formdata
+
+  374      console.log(userid, projectId, file, filetype, filename);
+  375:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  376      let createdDate = new Date().toISOString();
+
+  378      if (projectId == null) {
+  379:       projectId = localStorage.getItem("projectIdlocal");
+  380      }
+
+  396      return this.Http.post<any>(
+  397:       localStorage.getItem("APIBaseUrl") + "annotation/upload_annotation_stub",
+  398        formdata
+
+src\app\projects\services\moreoption.service.ts:
+   21    constructor(private Http: HttpClient,private dataService:DataService) {
+   22:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   23    }
+
+   43      renameSendData.sync_version_uuid = "0";
+   44:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   45      renameSendData.updated_by_userid = this.su.user_id.toString();
+   46      return this.Http.post<any>(
+   47:       localStorage.getItem("APIBaseUrl") + "folder/update_folder",
+   48        renameSendData
+
+   54      let createdDate = new Date().toISOString();
+   55:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   56      addTagSendData.user_id = this.su.user_id;
+
+   63      return this.Http.post<any>(
+   64:       localStorage.getItem("APIBaseUrl") + "folder/add_folder_tag",
+   65        addTagSendData
+
+   70      var getFolderTagListSendData = new Moreoption();
+   71:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   72      // getFolderTagListSendData.user_id=this.su.user_id;
+   73      // getFolderTagListSendData.folder_id=folderId;
+   74:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/get_folder_tags", {
+   75        user_id: this.su.user_id,
+
+   82      let createdDate = new Date().toISOString();
+   83:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   84      receiveRemovefoldertagData.user_id = this.su.user_id;
+
+   91      return this.Http.post<any>(
+   92:       localStorage.getItem("APIBaseUrl") + "folder/remove_folder_tag",
+   93        receiveRemovefoldertagData
+
+   98      var receivegetFolderMerticesData = new Moreoption();
+   99:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  100      receivegetFolderMerticesData.user_id = this.su.user_id;
+  101      receivegetFolderMerticesData.folder_id = folderId;
+  102:     console.log(localStorage.getItem("APIBaseUrl") + "folder/get_basic_folder_info", receivegetFolderMerticesData);
+  103:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/get_basic_folder_info", receivegetFolderMerticesData).pipe(retry(3));
+  104    }
+
+  107      var getFolderbasicData = new Moreoption();
+  108:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  109      getFolderbasicData.user_id = this.su.user_id;
+
+  111      console.log(
+  112:       localStorage.getItem("APIBaseUrl") + "folder/get_basic_folder_info",
+  113        getFolderbasicData
+
+  115      return this.Http.post<any>(
+  116:       localStorage.getItem("APIBaseUrl") + "folder/get_basic_folder_info",
+  117        getFolderbasicData
+
+  128      hideSendData.updated_by_userid = this.su.user_id.toString();
+  129:     console.log(localStorage.getItem("APIBaseUrl") + "folder/update_folder_web", hideSendData);
+  130      return this.Http.post<any>(
+  131:       localStorage.getItem("APIBaseUrl") + "folder/update_folder_web",
+  132        hideSendData
+
+  147      unhideSendData.updated_by_userid = this.su.user_id.toString();
+  148:     console.log(localStorage.getItem("APIBaseUrl") + "folder/update_folder", unhideSendData);
+  149      return this.Http.post<any>(
+  150:       localStorage.getItem("APIBaseUrl") + "folder/update_folder",
+  151        unhideSendData
+
+  165      var withoutAnnotation = new Moreoption();
+  166:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  167      let createDate = new Date().toISOString();
+
+  169      if (projectId == null) {
+  170:       projectId = localStorage.getItem("projectIdlocal");
+  171      }
+
+  183      withoutAnnotation.updated_by_userid = this.su.user_id.toString();
+  184:     console.log(localStorage.getItem("APIBaseUrl") + "folder/copy_document_without_annotation", withoutAnnotation);
+  185:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/copy_document_without_annotation", withoutAnnotation);
+  186    }
+
+  201      var withAnnotation = new Moreoption();
+  202:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  203      withAnnotation.user_id = this.su.user_id;
+  204      if (projectId == null) {
+  205:       projectId = localStorage.getItem("projectIdlocal");
+  206      }
+
+  219      console.log(withAnnotation);
+  220:     console.log(localStorage.getItem("APIBaseUrl") + "folder/copy_document_with_annotation", withAnnotation);
+  221      return this.Http.post<any>(
+  222:       localStorage.getItem("APIBaseUrl") + "folder/copy_document_with_annotation",
+  223        withAnnotation
+
+  236      var withoutAnnotation = new Moreoption();
+  237:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  238      let createdDate = new Date().toISOString();
+
+  254      console.log(
+  255:       localStorage.getItem("APIBaseUrl") + "folder/copy_document_without_annotation",
+  256        withoutAnnotation
+
+  258      return this.Http.post<any>(
+  259:       localStorage.getItem("APIBaseUrl") + "folder/copy_document_without_annotation",
+  260        withoutAnnotation
+
+  273      var withAnnotation = new Moreoption();
+  274:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  275      let createdDate = new Date().toISOString();
+
+  291      
+  292:     console.log(localStorage.getItem("APIBaseUrl") + "folder/copy_document_with_annotation", withAnnotation);
+  293:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/copy_document_with_annotation", withAnnotation);
+  294    }
+
+  297      var getDocPage = new Moreoption();
+  298:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  299      // getDocPage.user_id=this.su.user_id;
+
+  302      if (projectId == null) {
+  303:       projectId = localStorage.getItem("projectIdlocal");
+  304      }
+  305:     return this.Http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/get_document_pages", {
+  306        user_id: this.su.user_id,
+
+  313      var getDocPage = new getDocumentPage();
+  314:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  315      getDocPage.user_id = this.su.user_id;
+
+  318      return this.Http.post<any>(
+  319:       localStorage.getItem("APIBaseUrl") + "folder/get_document_pages",
+  320        getDocPage
+
+src\app\projects\services\projectfolder.service.ts:
+  23      var getDocPage = new getDocumentPage();
+  24:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  25      getDocPage.user_id = this.su.user_id;
+
+  27      getDocPage.folder_id = folderId;
+  28:     return this.http.post<any>(localStorage.getItem("APIBaseUrl") + "folder/get_document_pages", getDocPage);
+  29    }
+
+  38      return this.http
+  39:       .post<any>(localStorage.getItem("APIBaseUrl") + "folder/get_project_folders", sendData)
+  40        .pipe(retry(3));
+
+  43    updatefolder(paramvalue): Observable<projectFolder[]> {
+  44:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  45      var updateData = new projectFolder();
+
+  56      return this.http.post<any>(
+  57:       localStorage.getItem("APIBaseUrl") + "folder/update_folder",
+  58        updateData
+
+  63      var getFolderTag = new projectFolder();
+  64:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  65      getFolderTag.user_id = this.su.user_id;
+
+  67      return this.http.post<any>(
+  68:       localStorage.getItem("APIBaseUrl") + "folder/get_all_folder_tags",
+  69        getFolderTag
+
+  73    setactivelayerUpdate(folderId,pageData,layerId){
+  74:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  75      let createdDate = new Date().toISOString();
+
+  92      console.log(setactiveModel);
+  93:     return this.http.post<any>(localStorage.getItem("APIBaseUrl") + "annotation/update_base_icon",
+  94        setactiveModel
+
+src\app\settings\my-profile\my-profile.component.ts:
+   23  export class MyProfileComponent implements OnInit {
+   24:   loggedin = JSON.parse(localStorage.getItem("loggedIn"));
+   25    firstName: string = "";
+
+   27    emailAddress: string = "";
+   28:   passwordReceive: string = atob(localStorage.getItem("user_token"));
+   29    firstNameEdit: boolean = true;
+
+   73      });
+   74:     this.passwordReceive = atob(localStorage.getItem("user_token"));
+   75      this.passwordReceive = this.dataService.changeSpecialtoKeyFormat(this.passwordReceive);
+
+  177            this.passwordCount = "";
+  178:           this.passwordReceive = atob(localStorage.getItem("user_token"));
+  179            for (var i = 0; i < this.passwordReceive.length; i++) {
+
+src\app\settings\services\my-profile.service.ts:
+  16    getMyProfile() {
+  17:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  18      var logindetails = new login();
+
+  20      console.log(
+  21:       localStorage.getItem("APIBaseUrl") + "user/get_my_profile",
+  22        logindetails
+
+  24      return this.Http.post<any>(
+  25:       localStorage.getItem("APIBaseUrl") + "user/get_my_profile",
+  26        logindetails
+
+  37      return this.Http.post<login[]>(
+  38:       localStorage.getItem("APIBaseUrl") + "user/update_my_profile",
+  39        updateProfileDetails
+
+src\app\settings\sign-out\sign-out.component.ts:
+  11  export class SignOutComponent implements OnInit {
+  12:   rememberMe = localStorage.getItem("rememberMe");
+  13    constructor(
+
+  17    ) { }
+  18:   //rememberMe = JSON.parse(localStorage.getItem("NewrememberMe"));
+  19    ngOnInit(): void {
+
+src\app\shared\header-navigation\navigation.component.ts:
+  190        if (data == '1') {
+  191:         this.projectId = localStorage.getItem("projectIdlocal");
+  192:         this.projectName = localStorage.getItem("projectName");
+  193          console.log(this.projectId, this.projectName);
+
+  200      });
+  201:     // this.projectid = localStorage.getItem("projectIdlocal");
+  202      // this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+  809      if(get_environment=="https://api.plannotate3.com:3002/planotate30/api/v2/"){
+  810:       // this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  811        this.su = this.encrptdecrpt.getItem("loggedIn") || "{}";//security
+
+src\app\shared\sidebar\sidebar.component.ts:
+  38    public config: PerfectScrollbarConfigInterface = {};
+  39:   // rememberMe =  localStorage.getItem("rememberMe");
+  40    rememberMe =  this.encrptdecrpt.getItem("rememberMe");//security;
+
+  46    supportbgSet: boolean = false;
+  47:   // loggedin = JSON.parse(localStorage.getItem("loggedIn"));
+  48    loggedin = this.encrptdecrpt.getItem("loggedIn");//security;
+
+src\app\shared\sidebar\signout\signout.component.ts:
+  25      if (this.data.rememberMe == "true") {
+  26:       var emailId = localStorage.getItem("email_id")
+  27      }
+
+src\app\toolbar\services\toolbardesign.service.ts:
+  24    get_toolbar_elements_structure(): Observable<[]> {
+  25:     return this.http.post<[]>(localStorage.getItem("APIBaseUrl") + "toolbar/get_toolbar_elements_structure", null);
+  26    }
+
+  28      var tbr = new toolbar();
+  29:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  30      tbr.user_id = this.su.user_id;
+
+  32      return this.http.post<any>(
+  33:       localStorage.getItem("APIBaseUrl") + "toolbar/get_toolbar_data",
+  34        tbr
+
+  37    update_toolbar_data(UpdateToolbarModel): Observable<any[]> {
+  38:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  39      let createdDate = new Date().toISOString();
+
+  44      console.log(UpdateToolbarModel);
+  45:     console.log(localStorage.getItem("APIBaseUrl") + "toolbar/update_toolbar_data",
+  46      UpdateToolbarModel)
+
+  48      return this.http.post<any[]>(
+  49:       localStorage.getItem("APIBaseUrl") + "toolbar/update_toolbar_data",
+  50        UpdateToolbarModel
+
+src\app\toolbar\services\toolbarlist.service.ts:
+   22      var toollist = new toolbar();
+   23:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   24      console.log(this.su.user_id);
+
+   27      return this.http.post<toolbar[]>(
+   28:       localStorage.getItem("APIBaseUrl") + "toolbar/get_project_toolbar_list",
+   29        toollist
+
+   41      let createdDate = new Date().toISOString();
+   42:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   43      toolbarCreateData.user_id = this.su.user_id;
+
+   51      return this.http.post<CreateToolbar[]>(
+   52:       localStorage.getItem("APIBaseUrl") + "toolbar/create_toolbar",
+   53        toolbarCreateData
+
+   57    getProjectAllTag(projectId): Observable<CreateToolbar[]> {
+   58:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   59      var getAllProjectToolbarTagData = new CreateToolbar();
+
+   62      return this.http.post<CreateToolbar[]>(
+   63:       localStorage.getItem("APIBaseUrl") + "toolbar/get_project_toolbar_tags",
+   64        getAllProjectToolbarTagData
+
+   68    renametoolbarName(toolbarId, toolbarName): Observable<CreateToolbar[]> {
+   69:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   70      var getToolbarReName = new CreateToolbar();
+
+   78      getToolbarReName.updated_by_userid=this.su.user_id.toString();
+   79:     console.log(localStorage.getItem("APIBaseUrl") + "toolbar/rename_toolbar", getToolbarReName);
+   80      return this.http.post<CreateToolbar[]>(
+   81:       localStorage.getItem("APIBaseUrl") + "toolbar/rename_toolbar",
+   82        getToolbarReName
+
+   86    toolbarTag(toolbarId): Observable<CreateToolbar[]> {
+   87:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+   88      var getToolbarTags = new CreateToolbar();
+
+   96      return this.http.post<CreateToolbar[]>(
+   97:       localStorage.getItem("APIBaseUrl") + "toolbar/get_toolbar_tags",
+   98        getToolbarTags
+
+  104      let createdDate = new Date().toISOString();
+  105:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  106      addTagSendData.user_id = this.su.user_id;
+
+  114      
+  115:     console.log(localStorage.getItem("APIBaseUrl") + "toolbar/add_toolbar_tag", addTagSendData);
+  116      return this.http.post<any>(
+  117:       localStorage.getItem("APIBaseUrl") + "toolbar/add_toolbar_tag",
+  118        addTagSendData
+
+  124      let createdDate = new Date().toISOString();
+  125:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  126      receiveRemovetoolbartagData.user_id = this.su.user_id;
+
+  133      return this.http.post<any>(
+  134:       localStorage.getItem("APIBaseUrl") + "toolbar/remove_toolbar_tag",
+  135        receiveRemovetoolbartagData
+
+  140      var getMoreInformationData = new MoreInformation();
+  141:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  142      getMoreInformationData.user_id = this.su.user_id;
+
+  144      return this.http.post<MoreInformation[]>(
+  145:       localStorage.getItem("APIBaseUrl") + "toolbar/get_toolbar_metrices",getMoreInformationData);
+  146    }
+
+  149      var getAllToolbarlist = new MoreInformation();
+  150:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  151      getAllToolbarlist.user_id = this.su.user_id;
+  152      return this.http.post<MoreInformation[]>(
+  153:       localStorage.getItem("APIBaseUrl") + "toolbar/get_all_toolbar_list_for_user",
+  154        getAllToolbarlist
+
+  160      let createdDate = new Date().toISOString();
+  161:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  162      importToolbarData.user_id = this.su.user_id;
+  163      importToolbarData.source_toolbar_ids_sepearated_by_comma = sourceFormIds;
+  164:     importToolbarData.destination_project_id = localStorage.getItem(
+  165        "projectIdlocal"
+
+  171      importToolbarData.updated_by_userid=this.su.user_id.toString();
+  172:     console.log(localStorage.getItem("APIBaseUrl") + "toolbar/import_toolbar", importToolbarData);
+  173      return this.http.post<any>(
+  174:       localStorage.getItem("APIBaseUrl") + "toolbar/import_toolbar",
+  175        importToolbarData
+
+  181      let createdDate = new Date().toISOString();
+  182:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  183      dup.user_id = this.su.user_id;
+
+  192      dup.updated_by_userid=this.su.user_id.toString();
+  193:     console.log(localStorage.getItem("APIBaseUrl") + "toolbar/duplicate_toolbar", dup);
+  194      return this.http.post<copyforms[]>(
+  195:       localStorage.getItem("APIBaseUrl") + "toolbar/duplicate_toolbar",
+  196        dup
+
+  202      let createdDate = new Date().toISOString();
+  203:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  204      hide.user_id = this.su.user_id;
+
+  210      hide.updated_by_userid=this.su.user_id.toString();
+  211:     console.log(localStorage.getItem("APIBaseUrl") + "toolbar/hide_or_unhide_toolbar", hide);
+  212      return this.http.post<any>(
+  213:       localStorage.getItem("APIBaseUrl") + "toolbar/hide_or_unhide_toolbar",
+  214        hide
+
+  219      let createdDate = new Date().toISOString();
+  220:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  221      hide.user_id = this.su.user_id;
+
+  227      hide.updated_by_userid=this.su.user_id.toString();
+  228:     console.log(localStorage.getItem("APIBaseUrl") + "toolbar/hide_or_unhide_toolbar", hide);
+  229      return this.http.post<any>(
+  230:       localStorage.getItem("APIBaseUrl") + "toolbar/hide_or_unhide_toolbar",
+  231        hide
+
+  246      let createdDate = new Date().toISOString();
+  247:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  248      createDefaultToolbar.user_id = this.su.user_id;
+
+  256      console.log(
+  257:       localStorage.getItem("APIBaseUrl") + "toolbar/create_toolbar",
+  258        createDefaultToolbar
+
+  260      return this.http.post<defaultToolbar[]>(
+  261:       localStorage.getItem("APIBaseUrl") + "toolbar/create_toolbar",
+  262        createDefaultToolbar
+
+  268    //   var getInformation = new toolbar();
+  269:   //   this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  270    //   getInformation.user_id = this.su.user_id;
+  271    //   getInformation.project_id = projectId;
+  272:   //   return this.http.post<toolbar[]>(localStorage.getItem("APIBaseUrl")+'dashboard/get_basic_project_info',getInformation);
+  273    //  }
+
+src\app\toolbar\toolbardesign\toolbardesign.component.ts:
+  120    ];
+  121:   userid = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  122    selectedItem: any;
+
+  188      this.pageFrom = this.route.snapshot.queryParamMap.get("pageFrom");
+  189:     this.admin = localStorage.getItem("Admin");
+  190:     this.edit = localStorage.getItem("Edit");
+  191:     this.view = localStorage.getItem("View");
+  192      if (this.admin == 0 && this.edit == 0 && this.view == 1) {
+
+  194      }
+  195:     this.projectid = localStorage.getItem("projectIdlocal");
+  196      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+  215  
+  216:     this.isReadonly = JSON.parse(localStorage.getItem("viewonlys"));
+  217      
+
+  222      });
+  223:     this.val = localStorage.getItem("forms");
+  224      this.headerTitleService.setTitle(this.title);
+
+  622        let data = event.data;
+  623:       this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  624        var annontationidDate = new Date().getTime();
+
+  714      this.duplicateNaming(item.element_id,item.element_data.element_label, item, "copy")
+  715:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  716      var annontationidDate = new Date().getTime();
+
+src\app\toolbar\toolbardesign\copyformelement\copyformelement.component.ts:
+  135    toolbarId: string;
+  136:   userid = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  137    subscription: Subscription;
+
+src\app\toolbar\toolbardesign\duplicate-toolbar\duplicate-toolbar.component.ts:
+  47      _item.element_data.element_name = this.copytext;
+  48:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  49      var annontationidDate = new Date().getTime();
+
+src\app\toolbar\toolbardesign\preview-toolbar\preview-toolbar.component.ts:
+  55    ];
+  56:   userid = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  57    constructor(
+
+  66    ) {
+  67:     this.set = localStorage.getItem("form");
+  68  
+
+  72          this.formname = message;
+  73:         this.set = localStorage.getItem("form");
+  74        });
+
+src\app\toolbar\toolbarlist\toolbarlist.component.ts:
+  68    ) {
+  69:     this.admin = localStorage.getItem("Admin");
+  70:     this.edit = localStorage.getItem("Edit");
+  71:     this.view = localStorage.getItem("View");
+  72:     this.disableButton = localStorage.getItem("disableButton");
+  73      //   this.receiveData.getValue().subscribe(data => {
+
+  90      this.headertitleservice.mainTitle("");
+  91:     this.headertitleservice.setTitle(localStorage.getItem("projectName"));
+  92:     this.projectId = localStorage.getItem("projectIdlocal");
+  93      this.formlisting();
+
+src\app\toolbar\toolbarlist\create-toobar\create-toobar.component.ts:
+  34    ngOnInit(): void {
+  35:     this.projectId = localStorage.getItem("projectIdlocal");
+  36      this.toolbarService.gettoolbarlist(this.projectId).subscribe((data) => {
+
+src\app\toolbar\toolbarlist\import-toolbar\import-toolbar.component.ts:
+  68      this.filtermethod();
+  69:     this.su = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+  70      this.searchOut()
+
+src\app\toolbar\toolbarlist\manage-tag\manage-tag.component.ts:
+  32      console.log(this.toolbarTagList);
+  33:     this.projectid = localStorage.getItem("projectIdlocal");
+  34      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\toolbar\toolbarlist\more-option\more-option.component.ts:
+  49    ) {
+  50:     this.admin = localStorage.getItem("Admin");
+  51:     this.edit1 = localStorage.getItem("Edit");
+  52:     this.view = localStorage.getItem("View");
+  53      this.toolbar_id1 = this.data.toolbar_id1;
+
+  67      });
+  68:     if (localStorage.getItem("userrole") != null) {
+  69:       if(localStorage.getItem("userrole").includes("||"))
+  70        {
+  71            
+  72:         let storageRoleData = localStorage.getItem('userrole').split("||")
+  73          if(this.projectId == storageRoleData[0]) {
+
+src\app\toolbar\toolbarlist\toolbar-feature\toolbar-feature.component.ts:
+  23    constructor(public userRoleGlobal:GlobalUserRoleService,public sendData: ValueService, private dialogRef: MatDialogRef<ToolbarFeatureComponent>, private dialog: MatDialog, private router: Router) {
+  24:     this.projectid = localStorage.getItem("projectIdlocal");
+  25      this.userrole = this.userRoleGlobal.findUserProjectRole(this.projectid);
+
+src\app\toolbar\toolbarlist\toolbar-feature\duplicateform\duplicateform.component.ts:
+  73      this.headertitleservice.mainTitle("Toolbar Builder");
+  74:     this.headertitleservice.setTitle(localStorage.getItem("projectName"));
+  75:     this.projectId = localStorage.getItem("projectIdlocal");ganesh
+  76      this.formlisting();

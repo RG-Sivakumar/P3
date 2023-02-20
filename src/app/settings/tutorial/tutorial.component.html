@@ -1,0 +1,79 @@
+<div class="row myprofile-header">
+    <div class="img-head-part d-flex col-lg-1 col-md-1">
+        <img class="left-arrow" src="assets/images/Faq/P3_ArrowLeft_Blue.png" alt="left-arrow" (click)="goBack()">
+    </div>
+    <div class="head-text-part col-lg-10 col-md-10">
+        <h3 class="myprofile-heading">Tutorial and Tips & Tricks</h3>
+    </div>
+</div>
+<div class="row content-area">
+    <div class="col-lg-6 col-md-6 product-tutorial">
+        <div class="col-lg-12 col-md-12 m-b-adjust">
+            <h3 class="tutorial-heading">Product tutorials</h3>
+        </div>
+        <div class="col-lg-12 col-md-12 m-b-adjust-head">
+            <div class="col-lg-12 col-md-12 m-b-adjust-1">
+                <h3 class="projectManagement-heading">Project Management</h3>
+            </div>
+            <div *ngFor="let projectManage of projectManagevideolist" class="col-lg-12 col-md-12">
+                <div class="d-flex details-area col-lg-12 col-md-12">
+                    <div class="col-lg-1 col-md-2 video-img-part p-0">
+                        <img class="video-image" src="assets/images/videoimg.PNG" alt="video-img">
+                    </div>
+                    <div class="col-lg-10 col-md-10">
+                        <p class="details-text">{{projectManage.name}}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 m-b-adjust-head">
+            <div class="col-lg-12 col-md-12 m-b-adjust-1">
+                <h3 class="projectManagement-heading">Projects</h3>
+            </div>
+            <div *ngFor="let project of projectvideolist" class="col-lg-12 col-md-12">
+                <div class="d-flex details-area col-lg-12 col-md-12">
+                    <div class="col-lg-1 col-md-2 video-img-part p-0">
+                        <img class="video-image" src="assets/images/videoimg.PNG" alt="video-img">
+                    </div>
+                    <div class="col-lg-10 col-md-10">
+                        <p class="details-text">{{project.name}}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12 m-b-adjust-1">
+                <h3 class="projectManagement-heading">Documents</h3>
+            </div>
+            <div *ngFor="let document of documentvideolist" class="col-lg-12 col-md-12">
+                <div class="d-flex details-area col-lg-12 col-md-12">
+                    <div class="col-lg-1 col-md-2 video-img-part p-0">
+                        <img class="video-image" src="assets/images/videoimg.PNG" alt="video-img">
+                    </div>
+                    <div class="col-lg-10 col-md-10">
+                        <p class="details-text">{{document.name}}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 tips-tricks">
+        <div class="col-lg-12 col-md-12 m-b-adjust">
+            <h3 class="tips-heading">Tips & Tricks</h3>
+        </div>
+        <div *ngFor="let video of videolist" class="col-lg-12 col-md-12">
+            <div class="d-flex details-area col-lg-12 col-md-12">
+                <div class="col-lg-1 col-md-2 video-img-part p-0">
+                    <img class="video-image" src="assets/images/videoimg.PNG" alt="video-img">
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <p class="details-text">{{video.name}}</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>

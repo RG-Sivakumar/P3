@@ -1,0 +1,60 @@
+<!-- Add new toolbar section start -->
+
+<div *ngIf="newToolbarAdd" class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Add a New Toolbar</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">Please enter the toolbar name</p>
+  </div>
+  <div class="input-group input-field-head">
+
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1"
+      style="margin-left: 2px;font-weight: bold;" placeholder="Toolbar Name" name="toolbar_name" #toolbar_name="ngModel"
+      [(ngModel)]="toolbarName" (ngModelChange)="firstLetterCapital(toolbarName)" required autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" [disabled]="toolbar_name.value == undefined||toolbar_name.value==''" class="add-button"
+      (click)="AddNewToolbarAuc(toolbar_name.value)">
+      Create
+    </button>
+  </div>
+</div>
+
+<!-- Add new toolbar section End -->
+
+<!-- Add Rename section Start -->
+  <div *ngIf="show" class="image_part">
+    <img src="assets/images/spin.gif"  alt="..." />
+  </div>
+<div *ngIf="addRename" class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading">Rename</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">Please enter a new toolbar name</p>
+  </div>
+  <div class="input-group input-field-head">
+    <div class="input-group-prepend">
+      <span class="text-center bg-none" id="basic-addon1"></span>
+    </div>
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1"  name="toolbar_name" #renametoolbar="ngModel"
+      [(ngModel)]="toolbarName" (ngModelChange)="firstLetterCapitalRename(toolbarName)" required autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="renametoolbar.value == ''"
+      (click)="renameAuc(renametoolbar.value)">
+      Rename
+    </button>
+  </div>
+</div>
+
+<!-- Add Rename section End -->

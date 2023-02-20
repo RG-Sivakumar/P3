@@ -1,0 +1,32 @@
+<div>
+    <div style="background-color: #e8e8e8">
+      <div class="text-center headSec" style="background-color: #e8e8e8; padding-top: 20px; padding-bottom: 4px">
+        <span style="background-color: #e8e8e8; padding-left: 50px">Warning!</span><span class="close"
+          style="float: right; padding-right: 24px" (click)="onClose('exit')"><img src="assets/images/P3_Close-Cancel_Blue.png"
+            width="25px" /></span>
+      </div>
+      <hr style="background-color: #e8e8e8" />
+    </div>
+    <div class="text-center txtclr" *ngIf="data.lock==true">
+      <span style="color: #002e5f; font-size: 17px">Current active layer is locked. Please<br> unlock it.</span>
+    </div>
+    <div class="text-center txtclr" *ngIf="data.lock==false">
+        <span style="color: #002e5f; font-size: 17px">Current active layer is hidden . Please<br> unhide the active layer.</span>
+      </div>
+      <div class="text-center txtclr" *ngIf="data.active==false">
+        <span style="color: #002e5f; font-size: 17px">No layer is added for the document. Please add a <br> layer to add annotations. </span>
+      </div>
+      <div class="text-center txtclr" *ngIf="data.active==true">
+        <span style="color: #002e5f; font-size: 17px">There is no active layers in the current document. </span>
+      </div>
+      <div class="text-center txtclr" *ngIf="data.delete==true">
+        <span style="color: #002e5f; font-size: 17px">Are you sure want to delete Grouping</span>
+      </div>
+    <div style="background-color: #e8e8e8; padding-bottom: 28px">
+      <hr style="background-color: #e8e8e8; margin-bottom: 24px; margin-top: 24px" />
+      <div class="text-center">
+        <button (click)="onClose()" style="color:brown; font-size: 18px; font-weight:500">
+          OK  </button>
+      </div>
+    </div>
+  </div>

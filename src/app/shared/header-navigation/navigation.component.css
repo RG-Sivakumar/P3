@@ -1,0 +1,247 @@
+.header_section{
+    justify-content: space-between;
+}
+.change-bg{
+    background-color: #fff;
+    color:black;
+    font-weight: 500;
+    padding:5px 10px;
+}
+
+  .bton{
+        padding-left:20px;
+        padding-right:20px;
+    }
+.change-bg:hover{
+    background-color:#F98E2C;
+    color:#fff;
+}
+.activeRes{
+    background-color:#F98E2C;
+    color:#fff;
+    /* border:1px solid #002E5F; */
+}
+.hiddenView {
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    text-decoration: none;
+  }
+  .fa-solid, .fas {
+    font-weight: 900;
+    font-size: 25px;
+    color: white;
+    padding: 0px 0.75rem;
+    margin-top:17px;
+}
+.left-arrow{
+    height: 14px;
+    width: 10px;
+    margin: 0px 10px;
+}
+.left-arrow:hover, .right-arrow:hover{
+    cursor: pointer;
+}
+.right-arrow{
+    height: 17px;
+    width: 16px;
+    /* margin: 0px 10px; */
+    object-fit: contain;
+}
+.document-center-align{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.pages-head{
+    display:flex;
+    align-items: center;
+    justify-content: left;
+    word-break: break-all;
+}
+.mainTitle1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pages-text{
+    font-size: 16px;
+    font-weight: 500;
+    color:#fff;
+    margin-bottom: 0px;
+}
+.input-field{
+    color:#212721;
+    font-weight: 400;
+}
+::placeholder{
+    color:#807f83;
+    opacity: 1;
+}
+:-ms-input-placeholder{
+    color:#807f83;
+}
+::-ms-input-placeholder{
+    color:#807f83;
+}
+.left-arrow-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 6%;
+}
+.doc-right-side{
+    display:flex;
+    align-items: center;
+    margin-bottom: 0px;
+    justify-content: flex-end; 
+}
+.show-doc-li{
+    list-style-type: none;
+    padding: 0px 10px;
+}
+.undo-img, .reundo-img, .sort-img, .option-img{
+    width: 22px;
+    object-fit: contain;
+}
+.multiicon-img{
+    width: 24px;
+    object-fit: contain;
+}
+.layer-img{
+    width: 24px;
+    height:29px;
+}
+.syn-img{
+    width: 24px;
+    height:25px;
+}
+.doc-search-box{
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+.search-part{
+    width: 300px;
+    position: absolute;
+    top: -10px;
+    right: 0px;
+}
+.search-relative{
+    position: relative;
+}
+.input-field.pad{
+    padding-right:30px;
+}
+.show-search-img{
+    position: absolute;
+    top: 23%;
+    right: 3%;
+    width: 19px;
+    object-fit: contain;
+}
+.input-field-search{
+    border-radius: 0px;
+    height: 36px;
+}
+/* .header-heading{
+    padding-left: 25px;
+} */
+.goback-img{
+    width:11px;
+    height:21px;
+    object-fit: contain;
+}
+.goback-img:hover{
+    cursor: pointer;
+}
+.share-img{
+    height: 22px;   
+    width: 25px;
+}
+.apple-icon{
+    height:24px;
+    width:24px;
+    margin-top:-4px;
+    object-fit: contain;
+}
+
+.stub-icon{
+    height:25px;
+    width:30px;
+    margin-top:-2px;
+    object-fit: contain;
+}
+.flexUpdate{
+    flex:0 0 24%;
+}
+.flexUpdateNormal{
+    flex:0 0 18%;
+}
+.headertitle1{
+    justify-content:center;
+}
+.pages-head-number{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.page-numberscount{
+    padding-left: 15px;
+    font-size:15px;
+}
+.page-numberscount1{
+    padding-right: 15px;
+    font-size:15px;
+}
+.disabled{
+    pointer-events: none;   
+    user-select: none;
+}
+
+::ng-deep .tooltipstyle {
+    color: #FFFFFF !important;
+    background-color: #212721;
+    padding: 0px 5px !important;
+    font-size: 11px;
+}
+.tipstyle{
+    background-color: green;
+}
+
+@media only screen and (min-width:1025px){
+    .flexUpdate{
+        flex:0 0 13%;
+    }
+    .flexUpdateNormal{
+        flex:0 0 10%;
+    }
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1024px) {
+    .flexUpdate{
+        flex:0 0 18%;
+    }
+    .flexUpdateNormal{
+        flex:0 0 14%;
+    }
+    .headertitle{
+        flex:0 0 45%;
+    }
+  
+  }
+  .loader-backdrop {
+    height:100%;
+    width:100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 99999;
+  }
+  .loader-image{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left:-135.5px;
+    margin-top:-135.5px;
+    z-index: 99999;
+    user-select: none;
+  }

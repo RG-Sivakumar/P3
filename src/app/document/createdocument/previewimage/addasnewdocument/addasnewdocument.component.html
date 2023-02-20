@@ -1,0 +1,26 @@
+<div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1">Add as New Document</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">Please enter a name for the new document</p>
+  </div>
+  <div class="input-group input-field-head">
+    <!-- <div class="input-group-prepend">
+      <span class="text-center bg-none" id="basic-addon1"><img
+          src="assets/images/projectdetails/P3_ProjectCopyDocWOAnnotIcon.png" class="newFolder-img" /></span>
+    </div> -->
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px"
+      placeholder="Copy of Document" name="folder_name" #folder_name="ngModel" [(ngModel)]="folderName" (ngModelChange)="firstLetterCapital(folder_name.value)" required
+      autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" [disabled]="folder_name.value == ''" class="add-button"
+      (click)="goToSelectFolder(folder_name.value)">Add
+    </button>
+  </div>
+</div>

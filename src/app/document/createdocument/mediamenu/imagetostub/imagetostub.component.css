@@ -1,0 +1,118 @@
+.header {
+  background-color: #e8e8e8;
+  padding: 20px 0px;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.header-heading {
+  color: #002e5f;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.close-img-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-close {
+  width: 20px;
+  height: 20px;
+}
+.img-close:hover {
+  cursor: pointer;
+}
+.created-date,
+.modified-date {
+  color: #807f83;
+  font-style: italic;
+  font-weight: 500;
+}
+.tags {
+  color: #807f83;
+  font-weight: 500;
+}
+h3 {
+  margin-bottom: 0px;
+}
+p {
+  margin-bottom: 0px;
+}
+.content-area {
+  padding: 0px 10px;
+  min-height: 55px;
+  overflow-y: auto;
+  max-height: 175px;
+}
+.row {
+  margin: 0px;
+}
+.img-part {
+  width: 25px;
+}
+.content-head-section {
+  padding: 17px 5px;
+  align-items: center;
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+}
+.content-head-section:hover {
+  cursor: pointer;
+}
+.content-heading {
+  color: #002e5f;
+  font-weight: 500;
+  font-size: 17px;
+}
+.hr-area {
+  margin: 0px;
+}
+.file-counts {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #bf4d27;
+}
+.toolbar-selected {
+  height: 20px;
+  width: 20px;
+}
+.toolbar-selected:hover {
+  cursor: pointer;
+}
+.checkbox-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  background-color: #a7a9ac;
+}
+#style-1::-webkit-scrollbar-thumb {
+  background-color: #a7a9ac;
+}
+#style-1::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+.image_part1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+}
+.my-custom-input-label-box input[type="checkbox"] {
+  display: none;
+}
+
+.my-custom-input-label-box input + label {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  background-image: url(/images/service/checkbox-unchecked.png);
+}

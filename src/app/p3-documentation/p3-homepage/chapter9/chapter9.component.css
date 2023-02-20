@@ -1,0 +1,21 @@
+.anchorStyle{
+    color: #fdc07e;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    cursor: pointer;
+}
+.anchorStyle:hover{
+    color: #1a7846;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.syn-clr:hover{
+    color:#1c6fdc;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.docs-heading{
+    font-size: 2.9rem !important;
+}

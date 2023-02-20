@@ -1,0 +1,252 @@
+<div class="app-project-head" *ngIf="!showMoveLayerOption && !btwenDocument_m_c_enable">
+  <div class="row header container-fluid" [ngClass]="{'paddingCover':toolbarElementId>11}" *ngIf="!multipleSelectOn">
+    <div class="col-lg-2" class="header-canvas-style">
+      <svg [attr.viewBox]="single_view_svg_menu.viewbox" xmlns="http://www.w3.org/2000/svg"
+        class="img-responsive svg-header-annotation" width="40" height="40" [attr.transform]="single_view_svg_menu?.transform" 
+        [ngClass]="{'round-line':(single_view_svg_menu.toolbar_element_id==12 || single_view_svg_menu.toolbar_element_id==17)}">
+        <g *ngIf="!single_view_svg_menu.isEllipse && !single_view_svg_menu.isRectangle" [style.opacity]="single_view_svg_menu?.opacity">
+          <path [attr.d]="single_view_svg_menu.annotation_data" [attr.stroke]="single_view_svg_menu.stroke_color"
+            [attr.fill]="single_view_svg_menu.fill_color" [attr.stroke-width]="single_view_svg_menu.linewidth">
+          </path>
+          <text *ngIf="single_view_svg_menu.toolbar_element_id==11 && single_view_svg_menu.breaktexts.length==1"
+            [style.fontSize]="single_view_svg_menu.textfontSize + 'px'" class="svg-font-size"
+            [attr.x]="single_view_svg_menu.textshapetextx" [attr.y]="single_view_svg_menu.textshapetexty"
+            [attr.fill]="single_view_svg_menu.stroke_color">
+            <tspan *ngFor="let breaktext of single_view_svg_menu.breaktexts;let textindex = index"
+              [attr.x]="single_view_svg_menu.textshapetextx" [attr.y]="single_view_svg_menu.textshapetexty"
+              [style.fontSize]="single_view_svg_menu.textfontSize + 'px'">
+              {{breaktext}}
+            </tspan>
+          </text>
+          <text *ngIf="single_view_svg_menu.toolbar_element_id==11 && single_view_svg_menu.breaktexts.length>1"
+            [style.fontSize]="single_view_svg_menu.textfontSize + 'px'" class="svg-font-size"
+            [attr.x]="single_view_svg_menu.textshapetextx" [attr.y]="single_view_svg_menu.textshapetexty"
+            [attr.fill]="single_view_svg_menu.stroke_color">
+            <tspan *ngFor="let breaktext of single_view_svg_menu.breaktexts;let textindex = index"
+              [attr.x]="single_view_svg_menu.textshapetextx"
+              [attr.y]="(single_view_svg_menu.textshapetexty + (single_view_svg_menu.textfontSize * (textindex+1)))"
+              [style.fontSize]="single_view_svg_menu.textfontSize + 'px'">
+              {{breaktext}}
+            </tspan>
+          </text>
+        </g>
+        <g *ngIf="single_view_svg_menu.isEllipse" [style.opacity]="single_view_svg_menu?.opacity">
+          <ellipse [attr.cx]="single_view_svg_menu.ellipse.cx" [attr.cy]="single_view_svg_menu.ellipse.cy"
+            [attr.rx]="single_view_svg_menu.ellipse.rx" [attr.ry]="single_view_svg_menu.ellipse.ry"
+            [attr.fill]="single_view_svg_menu.fill_color" [attr.stroke-width]="single_view_svg_menu.linewidth"
+            [attr.stroke]="single_view_svg_menu.stroke_color"></ellipse>
+        </g>
+        <g *ngIf="single_view_svg_menu.isRectangle" [style.opacity]="single_view_svg_menu?.opacity">
+          <rect [attr.x]="single_view_svg_menu.rectangle.x" [attr.y]="single_view_svg_menu.rectangle.y"
+            [attr.width]="single_view_svg_menu.rectangle.width" [attr.height]="single_view_svg_menu.rectangle.height"
+            [attr.fill]="single_view_svg_menu.fill_color" [attr.stroke-width]="single_view_svg_menu.linewidth"
+            [attr.stroke]="single_view_svg_menu.stroke_color"></rect>
+        </g>
+      </svg>
+      <ng-container *ngIf="single_view_svg_menu?.toolbar_element_id!=11">
+        <p *ngIf="single_view_svg_menu?.annotation_label!=undefined && single_view_svg_menu?.annotation_label!=''" 
+        class="preview-svg-annot" [style.color]="single_view_svg_menu.stroke_color" [style.opacity]="single_view_svg_menu.opacity" [style.transform]="single_view_svg_menu?.transform">{{single_view_svg_menu.annotation_label}}</p>
+      </ng-container>
+    </div>
+    <div class="col-lg-10">
+      <p class="content-heading-header">{{ annotationName }}</p>
+    </div>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="row header container-fluid paddingCoverMultiple" *ngIf="multipleSelectOn">
+    <div class="col-lg-12">
+      <p class="content-heading-header">Multiple Annotations Selected</p>
+    </div>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="content-area scroll-1">
+    <div class="row content-head-section" (click)="deleteAnnotation()">
+     
+      <div class="col-lg-12">
+        <p class="content-heading">Delete</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="rotate?'':copyAnnotationwithData()" >
+     
+      <div class="col-lg-12">
+        <p class="content-heading">Copy With Data</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="rotate?'':copyAnnotationwithOutData()">
+   
+      <div class="col-lg-12">
+        <p class="content-heading">Copy Without Data</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="rotate?'':moveAnnotation_btw_Document_direct()" >
+     
+      <div class="col-lg-12">
+        <p class="content-heading">Move to Document/Page</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="rotate?'':copyAnnotation_btw_Document()" >
+     
+      <div class="col-lg-12">
+        <p class="content-heading">Copy to Document/Page</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="openMoveLayer()">
+     <div class="col-lg-12">
+        <p class="content-heading">Move to Layer</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="editAnnotation()" *ngIf="false">
+      <div class="col-lg-2">
+        <img class="img-part" src="assets/images/P3_AnnotationsIcon_Blue.png" />
+      </div>
+      <div class="col-lg-10">
+        <p class="content-heading">Edit Annotation(s)</p>
+      </div>
+    </div>
+    <hr class="hr-area" *ngIf="false" />
+    <div class="row content-head-section" (click)="UseasToolbar()">
+    
+      <div class="col-lg-12">
+        <p class="content-heading">Use as Toolbar</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="AddtoToolbarStamp(1)">
+      <div class="col-lg-12">
+        <p class="content-heading">Add to Toolbar With Data</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="addasNewToolbar(2)">
+    
+      <div class="col-lg-12">
+        <p class="content-heading">Add to Toolbar Without Data</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="AddtoToolbarStamp(0)">
+   
+      <div class="col-lg-12" >
+        <p class="content-heading">Add to Toolbar as Template</p>
+      </div>
+      </div>
+    <hr class="hr-area" />
+    <div *ngIf="!multipleSelectOn" class="row content-head-section" (click)="copy?'':rotateandResize()" [ngClass]="{'hiddenView':multipleSelectOn || rapidShotModeOn}">
+      <!-- <div class="col-lg-2">
+        <img
+          class="img-part"
+          src="assets/images/document/P3_Documents_RepointBigIcon.png"
+        />
+      </div> -->
+      <div class="col-lg-12">
+        <p class="content-heading">Resize and Rotate</p>
+      </div>
+    </div>
+    <hr *ngIf="!multipleSelectOn" class="hr-area" />
+    <div *ngIf="!multipleSelectOn" class="row content-head-section" (click)="setBseIcon()" [ngClass]="{'hiddenView':multipleSelectOn|| rapidShotModeOn}">
+      <!-- <div class="col-lg-2">
+        <img
+          class="img-part"
+          src="assets/images/document/P3_Documents_SetAsBaseIcon.png"
+        />
+      </div> -->
+      <div class="col-lg-12">
+        <p class="content-heading">Set as Base Icon Size</p>
+      </div>
+    </div>
+    <hr *ngIf="!multipleSelectOn" class="hr-area" />
+    <div *ngIf="!multipleSelectOn" class="row content-head-section" (click)="alignAnnotation()" [ngClass]="{'hiddenView':multipleSelectOn|| rapidShotModeOn}">
+      <!-- <div class="col-lg-2">
+        <img
+          class="img-part"
+          src="assets/images/document/P3_Documents_SetAsBaseIcon.png"
+        />
+      </div> -->
+      <div class="col-lg-12">
+        <p class="content-heading">Select as a Base Icon to Align Annotations</p>
+      </div>
+    </div>
+    <hr *ngIf="!multipleSelectOn" class="hr-area" />
+    <div *ngIf="showGroupOption" class="row content-head-section" (click)="removeGroupSingle()">
+      <div class="col-lg-12">
+         <p class="content-heading">Remove From Group</p>
+       </div>
+     </div>
+    <div *ngIf="multipleSelectOn" class="row content-head-section" (click)="rotate?'':copyAnnotationwithData_multiple()" >
+     
+      <div class="col-lg-12">
+        <p class="content-heading">Copy Multiple Annotations</p>
+      </div>
+    </div>
+    <hr *ngIf="rapidModeOn" class="hr-area" />
+    <div class="row content-head-section" (click)="rapidShotMode()" [ngClass]="{'hiddenView':multipleSelectOn}"
+      *ngIf="false">
+      <!-- <div class="col-lg-2">
+        <img
+          class="img-part"
+          src="assets/images/document/P3_Documents_AsManyTickIcon.png"
+        />
+      </div> -->
+      <div class="col-lg-12">
+        <p class="content-heading">Rapid Shot Mode</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="layerBox1" class="box1 arrow-bottom1" *ngIf="showMoveLayerOption && !btwenDocument_m_c_enable">
+  <div class="header1 container-fluid">
+    <h3 class="header-heading2">Select Layer</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="layer-list-head style-1">
+    <div class="row layer-list" *ngFor="let layerOne of layerDatas" (click)="layerSelectAction(layerOne['layer_id'])">
+      <p class="layer-name col-lg-12" appSpecialcharater>{{layerOne['layer_name']}}</p>
+    </div>
+  </div>
+</div>
+<!-- Move and copy layer options view start -->
+<div id="layerBox1" class="box1 arrow-bottom1" *ngIf="btwenDocument_m_c_enable && !showMoveLayerOption">
+  <div class="header1 container-fluid">
+    <h3 class="header-heading2">Select Option</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="row content-head-section" (click)="wdata_anot_btw_doc()">
+      <div class="col-lg-12">
+        <p *ngIf="copyandmoveMode=='move'" class="content-heading" >Move With Data</p>
+        <p *ngIf="copyandmoveMode=='copy'" class="content-heading" >Copy With Data</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="wodata_anot_btw_doc()" >
+     
+      <div class="col-lg-12">
+        <p *ngIf="copyandmoveMode=='move'" class="content-heading">Move Without Data</p>
+        <p *ngIf="copyandmoveMode=='copy'" class="content-heading">Copy Without Data</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+  </div>
+  
+</div>
+<!-- Move and copy layer options view end -->
+
+<div *ngIf="show" class="image_part1">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>

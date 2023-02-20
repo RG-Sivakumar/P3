@@ -1,0 +1,50 @@
+<div class="myprofile-section">
+    <div class="myprofile-header">
+        <h3 class="myprofile-heading">Security Settings</h3>
+    </div>
+    <div class="content-area">
+        <div class="row myprofile-details-section">
+            <div class="leftSdie d-flex col-lg-6 col-md-6">
+                <div class="img-part col-lg-2 col-md-2">
+                    <img src="assets/images/myprofile/P3_Documents_LockIcon.png" class="profile-img" alt="profile name">
+                </div>
+                <div class="name-part col-lg-10 col-md-10">
+                    <p class="profile-text">Passkey Lock</p>
+                </div>
+            </div>
+            <div class="rightSide d-flex col-lg-6 col-md-6">
+                <div class="name-part rightSide-name col-lg-10">
+                    <input type="text" name="name" class="input-field" #myInput [readonly]="firstNameEdit"
+                        [(ngModel)]="firstName" (focusout)="againHideFirst()">
+                </div>
+                <div class="img-part rightSide-img-part col-lg-2 col-md-3">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider roundCir"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row myprofile-details-section1">
+            <div class="leftSdie d-flex col-lg-5 col-md-6">
+                <div class="img-part col-lg-2 col-md-2">
+                    <img src="assets/images/myprofile//P3_Passwordicon _Blue.png" class="profile-img"
+                        alt="profile name">
+                </div>
+                <div class="name-part col-lg-10 col-md-10">
+                    <p class="profile-text">Passkey</p>
+                </div>
+            </div>
+            <div class="rightSide d-flex col-lg-6 col-md-6">
+                <div class="name-part rightSide-name col-lg-10 col-md-10">
+                    <input type="text" name="name" class="input-field" #myInput1 placeholder="*********"
+                        [readonly]="LastNameEdit" [(ngModel)]="lastName" (focusout)="againHideLast()">
+                </div>
+                <div class="img-part rightSide-img-part col-lg-2 col-md-2">
+                    <img src="assets/images/icons/P3WebIcon_13Edit.png" class="edit-img" alt="profile name"
+                        (click)="focusInputLastName()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

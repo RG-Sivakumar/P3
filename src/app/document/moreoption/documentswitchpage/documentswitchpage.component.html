@@ -1,0 +1,95 @@
+<div class="app-project-head">
+  <div class="header container-fluid">
+   
+    <h3 class="header-heading justify-content-center">Pages</h3>
+    <div class="image-close">
+      <img
+        src="assets/images/P3_Close-Cancel_Blue.png"
+        class="img-close"
+        alt="close"
+        (click)="closeBox()"
+      />
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="row content-head-section">
+      <!-- <div style="height: 400px;"> -->
+      <div class="col-12">
+        <div class="input-group group-head">
+          <span class="input-group-addon image-addon"><img
+            src="assets/images/P3_SearchIcon _Grey.png"
+            class="search-img-section"
+            alt="search-icon"
+          /></span>
+          <input
+          placeholder="Search name, date, tags"
+          type="text"
+          (keyup)="applyFilter($event.target.value)"
+          class="form-control input-field"
+          [(ngModel)]="searchWordswitchPage"
+          (ngModelChange)="firstLetterCapital(searchWordswitchPage)"
+        />
+        </div>
+      </div>
+    </div>
+    <hr class="hr-tag"/>
+    <div *ngIf="pngFormat;else pdfLoading">
+      <cdk-virtual-scroll-viewport itemSize="160" class="example-viewport scroll-1">
+        <div class="row head-image-content example-item" *cdkVirtualFor="let item of datass;let m=index;trackBy: trackbyFunctionswitch;"
+          (click)="openfile(item.page_number)">
+        <div class="image-head col-4 ">
+          <img *ngIf="loading" class="pdfcovertimages_head" src="/assets/images/spin.gif">
+          <img class="pdfcovertimages" [hidden]="loading" (load)="onload()" [src]= "APIBaseUrl+item.file_path+this.firstkey"/>
+        </div>
+          <div class="col-8">
+            <p class="text-heading">
+              {{ item.page_name }}
+            </p>
+             <p *ngIf="item.last_updated_date !='0000-00-00 00:00:00' " class="modified-date">Modified : {{ item.last_updated_date }}</p>
+            <p *ngIf="item.last_updated_date =='0000-00-00 00:00:00' && item.created_date !='0000-00-00 00:00:00'" class="modified-date">Modified : {{ item.created_date }}</p>
+            <p *ngIf="item.last_updated_date =='0000-00-00 00:00:00' " class="modified-date">Modified : </p>
+            <p class="annotation-text">Annotations : {{ item.annotationCount }}</p>
+          </div>
+          <hr class="hr-area">
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+    <ng-template #pdfLoading>
+      <cdk-virtual-scroll-viewport itemSize="160" class="example-viewport scroll-1">
+        <div class="row head-image-content example-item" *cdkVirtualFor="let item of datass;let m=index;trackBy: trackbyFunctionswitch;"
+          (click)="openfile(item.page_number)">
+        <div class="image-head col-4 pdfcovertimages_head">
+          <!-- <pdf-viewer [src]="PDFDocURL" [original-size]="false" [render-text]="false" [show-all]="false" 
+            [page]="item.page_number">
+          </pdf-viewer> -->
+          <img [src]="item.imagePath" class="pdfcovertimages">
+        </div>
+          <div class="col-8">
+            <p class="text-heading">
+              {{ item.page_name }}
+            </p>
+             <p *ngIf="item.last_updated_date !='0000-00-00 00:00:00' " class="modified-date">Modified : {{ item.last_updated_date }}</p>
+            <p *ngIf="item.last_updated_date =='0000-00-00 00:00:00' && item.created_date !='0000-00-00 00:00:00'" class="modified-date">Modified : {{ item.created_date }}</p>
+            <p *ngIf="item.last_updated_date =='0000-00-00 00:00:00' " class="modified-date">Modified : </p>
+            <p class="annotation-text">Annotations : {{ item.annotationCount }}</p>
+          </div>
+          <hr class="hr-area">
+        </div>
+      </cdk-virtual-scroll-viewport>
+      <div class="row pdf-viewer-area" id="pdfViewerHeadSwitch" [ngClass]="{'outofview':pdfDisplayHide}">
+        <div class="pdfall col-lg-12">
+          <pdf-viewer class="ng2-pdf-viewer-container-1" [src]="PDFDocURL" [original-size]="false" 
+          [render-text]="false" [show-all]="false" [(page)]="pageNumber_pdf" (page-rendered)="pageRendered($event)">
+          </pdf-viewer>
+        </div>
+      </div>
+    </ng-template>
+    
+    <!-- loop end -->
+  </div>
+  <hr style="color: #002e5f; height: 2px;" />
+</div>
+
+<div *ngIf="show" class="image_part1">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>

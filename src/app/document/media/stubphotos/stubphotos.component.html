@@ -1,0 +1,105 @@
+<div class="more_information_section">
+  <div class="row header container-fluid">
+    <div class="col-lg-10 header-heading-part">
+      <h3 class="header-heading" style="margin-left: 25%">Stub Photos</h3>
+    </div>
+    <div class="col-lg-2 close-img-part">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="content-area col-6" id="style-1">
+      <div class="row content-head-section col-lg-12">
+        <div class="col-lg-9 left-side-head">
+          <p class="content-heading">Use Name/Date as Prefix</p>
+        </div>
+        <div class="col-lg-3 left-side-head" style="text-align: right">
+          <input type="checkbox" [checked]="disableTextbox" (change)="toggleDisable($event.target.checked)"
+            class="largerCheckbox customeCheckbox" />
+        </div>
+      </div>
+      <div class="row col-lg-12 content-head-section">
+        <div class="col-lg-7 left-side-head">
+          <p class="content-heading">Set Prefix</p>
+        </div>
+        <div class="col-lg-5 left-side-head">
+          <input style="border: 1px solid black" type="text" class="form-control input-field" placeholder="Stub"
+            [disabled]="disableTextbox"  name="stubNumber" [(ngModel)]="setPrefix"  (keydown)="asciiChecker($event,setPrefix)"
+            (ngModelChange)="firstLetterCapital($event,setPrefix)" (paste)="myFunction($event)" (change)="setPrefixChange()" autocomplete="off" />
+        </div>
+      </div>
+      <div class="row col-lg-12 content-head-section">
+        <div class="col-lg-7 left-side-head">
+          <p class="content-heading">Set Number</p>
+        </div>
+        <div class="col-lg-5 left-side-head">
+          <input style="border: 1px solid black" type="number" class="form-control input-field"  placeholder="0001"
+          onKeyPress="if(this.value.length==5) return false;" name="stubNumber" [(ngModel)]="setNumber" (keyup)="setNumberChange()" numbersOnly />
+        </div>
+      </div>
+      <div class="row col-lg-12 content-head-section">
+        <div class="col-lg-7 left-side-head">
+          <p class="content-heading">Number of Stubs</p>
+        </div>
+        <div class="col-lg-5 left-side-head">
+          <input style="border: 1px solid black" maxlength="3" type="text" class="form-control input-field" name="NoOfStubs"
+            [(ngModel)]="NoOfStubs" (keyup)="onKeyStubComplete($event)" numbersOnly />
+        </div>
+      </div>
+      <div class="row col-lg-12 content-head-section">
+        <div class="col-lg-4 left-numberPart">
+          <div class="number-change">Number</div>
+          <div class="add-stub-boxes fnt-size" (click)="decreaseNumber()">&minus;</div>
+          <div class="add-stub-boxes fnt-size" (click)="increaseNumber()">+</div>
+        </div>
+        <div class="col-lg-8 stub-section-head">
+          <div class="number-change">Stubs</div>
+          <div class="d-flex">
+            <div class="add-stub-boxes fnt-size1" (click)="addStubs(1)">+1</div>
+            <div class="add-stub-boxes fnt-size1" (click)="addStubs(2)">+2</div>
+            <div class="add-stub-boxes fnt-size1" (click)="addStubs(3)">+3</div>
+            <div class="add-stub-boxes fnt-size1" (click)="addStubs(4)">+4</div>
+            <div class="add-stub-boxes fnt-size1" (click)="addStubs(5)">+5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 right-side-head">
+      <div class="row content-head-section bg-clr col-lg-12">
+        <div class="col-lg-7 al-center">
+          <p class="content-heading" style="color: #404040">Name</p>
+        </div>
+        <div class="col-lg-5 al-center" style="display: flex; justify-content: flex-end; padding-right: 14px;">
+          <p class="content-heading" style="color: black">All</p>
+          &nbsp;&nbsp;
+          <input type="checkbox" [checked]="allCheckbox" (change)="All($event.target.checked,bind)" class="largerCheckbox customeCheckbox" name="select"  [(ngModel)]="bind" />
+        </div>
+      </div>
+      <div class="content-select-images style-1 col-lg-12">
+        <div class="row images-head" *ngFor="let item of image">
+          <div class="col-lg-11 al-center">
+            <p class="content">
+              {{ item.name }}
+            </p>
+          </div>
+          <div class="col-lg-1 images-check" style="text-align: right">
+            <input type="checkbox" name="selected" #selected [(ngModel)]="item.selected"
+              class="largerCheckbox customeCheckbox"  (change)="checkboxCheck($event.target.checked,item.selected)" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row add-part">
+    <!-- [disabled]="stubNumber.value == ''" -->
+    <div class="text-center">
+      <button (click)="buttonDisable ? '' : add(setPrefix, setNumber, NoOfStubs)" value="submit" 
+        style="color: #a4a426; font-size: 18px; font-weight: bold; border: none;background-color: transparent;">
+        Add
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="loader" class="image_part1">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>

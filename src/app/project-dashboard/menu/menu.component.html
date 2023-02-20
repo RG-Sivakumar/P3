@@ -1,0 +1,80 @@
+<div></div>
+
+<div class="color">
+    <div class=" filter dialog-header-box col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <span class="head" >{{project}}</span>
+        <span class="close" (click)="onclose()"><img class="close-img"
+                src="assets/images/P3_Close-Cancel_Blue.png"></span>
+    </div>
+
+    <!-- <div style="font-style: italic;" class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <span style="font-style: italic;">Created:{{date1| date:'yyyy/MM/dd'}}</span><span
+            *ngIf="date1==undefined">{{date2|date:'yyyy/MM/dd'}}</span>
+    </div>
+    <div style="font-style: italic;" class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <span>Last Modified:{{date2|date:'yyyy/MM/dd'}}</span>
+    </div>
+    <div style="padding-left:9px;">
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <p>Tags : <span *ngFor="let option of taglist; let i=index">{{option['project_tag_name']}}<span
+                        *ngIf="taglist.length-1!==i">, </span></span></p>
+        </div>
+    </div> -->
+</div>
+
+<div style="padding-left: 8px; padding-right: 8px;">
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 cursorType" (click)="userRoleGlobal.userRol=='view'?userRoleGlobal.permissionCheck():Addfavourite()">
+        <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <img src="assets/images/P3_Design_MainDashboard_MorePopup_FavProj.png" width="30px"></div> -->  
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover" *ngIf="status==1">Add to Favorite</span>
+            <span class="headSec hover" *ngIf="status==3">Remove from Favorite</span>
+            <span class="headSec hover" *ngIf="status==2">Add to Favorite</span>
+
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 cursorType" (click)="userRoleGlobal.userRol=='view'?userRoleGlobal.permissionCheck():RenameProject()">
+        <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <img src="assets/images/P3_Design_MainDashboard_MorePopup_RenameProj.png" width="30px"></div> -->
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover">Rename Project</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 cursorType" (click)="userRoleGlobal.userRol=='view'?userRoleGlobal.permissionCheck():Tags()">
+        <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <img src="assets/images/P3_Design_MainDashboard_MorePopup_AddTagsProj.png" width="30px"></div> -->
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover">Manage Tags</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 cursorType" (click)="projectinformation()">
+        <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <img src="assets/images/P3_Design_MainDashboard_MorePopup_ProjInfo.png" width="30px"></div> -->
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover">Project Information</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 cursorType" (click)="userRoleGlobal.userRol=='admin'?hide():userRoleGlobal.permissionCheck()">
+        <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <img src="assets/images/P3_Design_MainDashboard_MorePopup_HiddenProj (1).png" width="30px"></div> -->
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover" *ngIf="status==1">Hide</span>
+            <span class="headSec hover" *ngIf="status==3">Hide</span>
+            <span class="headSec hover" *ngIf="status==2">Unhide</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 cursorType" (click)="manageuser()">
+        <!-- <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <img src="assets/images/P3_Design_MainDashboard_MorePopup_MangeUsers.png" width="30px"></div> -->
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+            <span class="headSec hover ">Manage Users </span>
+        </div>
+    </div>
+    <div *ngIf="show" class="loader">
+        <img src="assets/images/spin.gif" width="300px" alt="..." />
+    </div>

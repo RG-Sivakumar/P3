@@ -1,0 +1,23 @@
+<div class="more_information_section">
+  <div class="content-area" id="style-1">
+    <div class="row content-head-section" *ngFor="let toolbarvalue of toolbarListData; let indexValue = index">
+      <div class="col-lg-8 pd-row" (click)="toggleVisibility($event, toolbarvalue, indexValue)">
+        <p class="content-heading">{{ toolbarvalue["toolbar_name"] }}</p>
+      </div>
+      <div class="col-lg-2 checkbox-part pd-row" (click)="goToolbarSection(toolbarvalue.project_id,toolbarvalue.toolbar_name,toolbarvalue.toolbar_id)">
+        <p class="edit-button">Edit</p>
+      </div>
+      <div class="col-lg-2 checkbox-part pd-row">
+        <img *ngIf="indexValue == getIndex" src="assets/images/P3_CheckBoxTick_Blue.png" class="tick-img" alt="close"/>
+        <!-- <input type="checkbox" name="toolbar_name" [checked]="indexValue == getIndex" class="toolbar-selected toolbar-checkbox"
+          (click)="toggleVisibility($event, toolbarvalue, indexValue)" /> -->
+      </div>
+    </div>
+  </div>
+  <div class="crnForm" (click)="userRoleGlobal.userRol=='view' || isReadonly?'':createNewToolbar()">
+    <span class="crnForm1">Create New Toolbar</span>
+  </div>
+</div>
+<!-- <div *ngIf="show" class="image_part1">
+  <img src="assets/images/spin.gif" width="300px" alt="..." />
+</div> -->

@@ -1,0 +1,209 @@
+<!-- <div class="row myprofile-header">
+    <div class="img-head-part d-flex col-lg-1 col-md-1">
+        <img class="left-arrow" src="assets/images/Faq/P3_ArrowLeft_Blue.png" alt="left-arrow" (click)="goBack()">
+    </div>
+    <div class="head-text-part col-lg-10 col-md-10">
+        <h3 class="myprofile-heading">Frequently Asked Questions</h3>
+    </div>
+</div> -->
+<div class="content-area">
+  <mat-accordion>
+    <mat-expansion-panel class="total-place">
+      <mat-expansion-panel-header (click)="imgfunc(1)">
+        <mat-panel-title class="row content-header">
+          <div class="col-lg-1 col-md-1 img-part">
+            <img
+              class="down-arrow"
+              [src]="
+                imgclick1
+                  ? 'assets/images/Faq/P3_ArrowTop_Blue.png'
+                  : 'assets/images/Faq/P3_ArrowDown_Blue.png'
+              "
+              alt="down-up-arrow"
+            />
+          </div>
+
+          <!-- <mat-icon>{{icon  ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</mat-icon> -->
+          <div class="col-lg-10 col-md-10">
+            <h3 class="content-heading">Manual Sync</h3>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-panel-description class="expand-body">
+        <p class="expand-area-text">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+      </mat-panel-description>
+    </mat-expansion-panel>
+
+    <hr class="m-adjust" />
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header (click)="imgfunc(2)">
+        <mat-panel-title class="content-header">
+          <div class="col-lg-1 col-md-1 img-part">
+            <img
+              class="down-arrow"
+              [src]="
+                imgclick2
+                  ? 'assets/images/Faq/P3_ArrowTop_Blue.png'
+                  : 'assets/images/Faq/P3_ArrowDown_Blue.png'
+              "
+              alt="down-up-arrow"
+            />
+          </div>
+
+          <div class="col-lg-10 col-md-10">
+            <h3 class="content-heading">Question 2</h3>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-panel-description class="expand-body">
+        <p class="expand-area-text">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+      </mat-panel-description>
+    </mat-expansion-panel>
+
+    <hr class="m-adjust" />
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header (click)="imgfunc(3)">
+        <mat-panel-title class="content-header">
+          <div class="col-lg-1 col-md-1 img-part">
+            <img
+              class="down-arrow"
+              [src]="
+                imgclick3
+                  ? 'assets/images/Faq/P3_ArrowTop_Blue.png'
+                  : 'assets/images/Faq/P3_ArrowDown_Blue.png'
+              "
+              alt="down-up-arrow"
+            />
+          </div>
+
+          <div class="col-lg-10 col-md-10">
+            <h3 class="content-heading">Question 3</h3>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-panel-description class="expand-body">
+        <p class="expand-area-text">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+      </mat-panel-description>
+    </mat-expansion-panel>
+
+    <hr class="m-adjust" />
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header (click)="imgfunc(4)">
+        <mat-panel-title class="content-header">
+          <div class="col-lg-1 col-md-1 img-part">
+            <img
+              class="down-arrow"
+              [src]="
+                imgclick4
+                  ? 'assets/images/Faq/P3_ArrowTop_Blue.png'
+                  : 'assets/images/Faq/P3_ArrowDown_Blue.png'
+              "
+              alt="down-up-arrow"
+            />
+          </div>
+
+          <div class="col-lg-10 col-md-10">
+            <h3 class="content-heading">Question 4</h3>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-panel-description class="expand-body">
+        <p class="expand-area-text">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+      </mat-panel-description>
+    </mat-expansion-panel>
+
+    <hr class="m-adjust" />
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header (click)="imgfunc(5)">
+        <mat-panel-title class="content-header">
+          <div class="col-lg-1 col-md-1 img-part">
+            <img
+              class="down-arrow"
+              [src]="
+                imgclick5
+                  ? 'assets/images/Faq/P3_ArrowTop_Blue.png'
+                  : 'assets/images/Faq/P3_ArrowDown_Blue.png'
+              "
+              alt="down-up-arrow"
+            />
+          </div>
+
+          <div class="col-lg-10 col-md-10">
+            <h3 class="content-heading">Question 5</h3>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-panel-description class="expand-body">
+        <p class="expand-area-text">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+      </mat-panel-description>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <hr class="m-adjust" />
+</div>

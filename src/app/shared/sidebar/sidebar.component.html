@@ -1,0 +1,150 @@
+<nav class="sidebar-nav">
+  <!-- <i class="ti-menu nav-link sidebartoggler waves-effect waves-light"(click)="toggleSidebar.emit()"></i>  -->
+  <ul id="sidebarnav">
+    <!-- First level menu -->
+    <div class="first-one">
+      <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title"
+        *ngFor="let sidebarnavItem of sidebarnavItems"
+        [ngClass]="{disabled:sidebarnavItem.title=='Forms',disabled:sidebarnavItem.title=='Toolbar'}"
+        [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
+        <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">
+          <!-- <i [ngClass]="[sidebarnavItem.icon]"></i> -->
+          <span class="hide-menu" style="font-weight: 500;">{{ sidebarnavItem.title }}</span>
+        </div>
+        <a class="sidebar-link waves-effect waves-dark {{sidebarnavItem.labelClass}}"
+          [style.background]="sidebarnavItem.class=='disabled'?'none':''"
+          [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null" (click)="ready(sidebarnavItem.path)"
+          [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink"
+          (click)="addExpandClass(sidebarnavItem.title)"
+          [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
+          <div class="imgPart">
+            <img class="justify-content-center img-responsive" style="object-fit: contain;"
+              [src]="[sidebarnavItem.icon]"
+              [ngStyle]="{width: sidebarnavItem.width + 'px',height: sidebarnavItem.height + 'px'}" />
+          </div>
+          <div class="side-title">
+            <span class="hide-menu" style="padding-left: 10px;">{{ sidebarnavItem.title }}
+              <span *ngIf="sidebarnavItem.label != ''" [ngClass]="[sidebarnavItem.labelClass]">{{ sidebarnavItem.label
+                }}</span>
+            </span>
+          </div>
+        </a>
+        <!-- Second level menu -->
+        <ul aria-expanded="false" class="collapse first-level" *ngIf="sidebarnavItem.submenu.length > 0"
+          [ngClass]="{ in: showMenu === sidebarnavItem.title }">
+          <li class="sidebar-item" *ngFor="let sidebarnavSubItem of sidebarnavItem.submenu"
+            [class.active]="showSubMenu === sidebarnavSubItem.title" [routerLinkActive]="
+            sidebarnavSubItem.submenu.length > 0 ? '' : 'active'
+          ">
+            <a class="sidebar-link" [routerLink]="sidebarnavSubItem.submenu.length > 0? null: [sidebarnavSubItem.path]"
+              [routerLinkActive]="
+              sidebarnavSubItem.submenu.length > 0 ? '' : 'router-link-active'
+            " [ngClass]="[sidebarnavSubItem.class]" *ngIf="!sidebarnavSubItem.extralink"
+              (click)="addActiveClass(sidebarnavSubItem.title)">
+              <img [src]="[sidebarnavSubItem.icon]" />
+              <span class="hide-menu">{{ sidebarnavSubItem.title }}</span>
+            </a>
+
+            <!-- Third level menu -->
+            <ul aria-expanded="false" class="collapse Second-level" *ngIf="sidebarnavSubItem.submenu.length > 0"
+              [ngClass]="{ in: showSubMenu === sidebarnavSubItem.title }">
+              <li class="sidebar-item" *ngFor="let sidebarnavSubsubItem of sidebarnavSubItem.submenu"
+                routerLinkActive="active" [ngClass]="[sidebarnavSubsubItem.class]">
+                <a class="sidebar-link" [routerLink]="[sidebarnavSubsubItem.path]"
+                  *ngIf="!sidebarnavSubsubItem.extralink" [routerLinkActive]="
+                  sidebarnavSubsubItem.submenu.length > 0
+                    ? ''
+                    : 'router-link-active'
+                ">
+                  <img [src]="[sidebarnavSubsubItem.icon]" />
+                  <span class="hide-menu">{{ sidebarnavSubsubItem.title }}</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <div *ngIf="addSupportKey" class="second-one">
+      <hr class="supportHr">
+      <li class="sidebar-item sidebar-item1" [class.active]="showMenu === sidebarnavItem.title"
+        *ngFor="let sidebarnavItem of sidebarnavItems1"
+        [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
+        <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">
+          <!-- <i [ngClass]="[sidebarnavItem.icon]"></i> -->
+          <span class="hide-menu" style="font-weight: 500;">{{ sidebarnavItem.title }}</span>
+        </div>
+        <a class="sidebar-link waves-effect waves-dark {{sidebarnavItem.labelClass}}"
+          [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null" [ngClass]="[sidebarnavItem.class]"
+          *ngIf="!sidebarnavItem.extralink" (click)="addExpandClass(sidebarnavItem.title)"
+          [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
+          <div class="imgPart">
+            <img class="justify-content-center img-responsive" style="object-fit: contain;"
+              [src]="[sidebarnavItem.icon]"
+              [ngStyle]="{width: sidebarnavItem.width + 'px',height: sidebarnavItem.height + 'px'}" />
+          </div>
+          <div class="side-title">
+            <span class="hide-menu" style="padding-left: 10px;">{{ sidebarnavItem.title }}
+              <span *ngIf="sidebarnavItem.label != ''" [ngClass]="[sidebarnavItem.labelClass]">{{ sidebarnavItem.label
+                }}</span>
+            </span>
+          </div>
+        </a>
+        <!-- Second level menu -->
+        <ul aria-expanded="false" class="collapse first-level" *ngIf="sidebarnavItem.submenu.length > 0"
+          [ngClass]="{ in: showMenu === sidebarnavItem.title }">
+          <li class="sidebar-item sidebar-item1" *ngFor="let sidebarnavSubItem of sidebarnavItem.submenu"
+            [class.active]="showSubMenu === sidebarnavSubItem.title" [routerLinkActive]="
+            sidebarnavSubItem.submenu.length > 0 ? '' : 'active'
+          ">
+            <a class="sidebar-link" [routerLink]="sidebarnavSubItem.submenu.length > 0? null: [sidebarnavSubItem.path]"
+              [routerLinkActive]="
+              sidebarnavSubItem.submenu.length > 0 ? '' : 'router-link-active'
+            " [ngClass]="[sidebarnavSubItem.class]" [style.background]="sidebarnavItem.class=='disabled'?'none':''"
+              *ngIf=" !sidebarnavSubItem.extralink" (click)="addActiveClass(sidebarnavSubItem.title)">
+              <img [src]="[sidebarnavSubItem.icon]" />
+              <span class="hide-menu">{{ sidebarnavSubItem.title }}</span>
+            </a>
+
+            <!-- Third level menu -->
+            <ul aria-expanded="false" class="collapse Second-level" *ngIf="sidebarnavSubItem.submenu.length > 0"
+              [ngClass]="{ in: showSubMenu === sidebarnavSubItem.title }">
+              <li class="sidebar-item sidebar-item1" *ngFor="let sidebarnavSubsubItem of sidebarnavSubItem.submenu"
+                routerLinkActive="active" [ngClass]="[sidebarnavSubsubItem.class]">
+                <a class="sidebar-link" [routerLink]="[sidebarnavSubsubItem.path]"
+                  *ngIf="!sidebarnavSubsubItem.extralink" [routerLinkActive]="
+                  sidebarnavSubsubItem.submenu.length > 0
+                    ? ''
+                    : 'router-link-active'
+                ">
+                  <img [src]="[sidebarnavSubsubItem.icon]" />
+                  <span class="hide-menu">{{ sidebarnavSubsubItem.title }}</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </div>
+  </ul>
+  <!-- <i class="ti-menu" style="margin-left: 20px;"  [attr.data-sidebartype]="options.sidebartype"></i> -->
+  <!-- <ul *ngIf="addprojectbutton">
+        <li class="button-part">
+            <button class="btn btn-block addbutton" (click)="getvalue(value)">
+                <i class="mdi mdi-plus plusicon"></i><span class="hide-menu text-add">Add Project</span>
+            </button>
+        </li>
+    </ul> -->
+  <ul class="navbar-nav float-left mr-auto arrow-dynamic">
+    <li class="nav-item d-none d-md-block" (click)="arrowChange()">
+      <a (click)="toggleSidebar.emit()" class="nav-link sidebartoggler arrow-head waves-effect waves-light"
+        href="javascript:void(0)">
+        <img [style.margin]="changeArrow == false?'0px 3px 0px 0px':'0px 0px 0px 3px'" [src]="
+            changeArrow == false
+              ? 'assets/images/P3_ArrowLeft_White.png'
+              : 'assets/images/P3_ArrowRight_White.png'
+          " class="arrow-mark" alt="left-arrow" />
+      </a>
+    </li>
+  </ul>
+</nav>

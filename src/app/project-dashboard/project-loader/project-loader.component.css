@@ -1,0 +1,21 @@
+.image_part{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index:99999;
+     height:100% !important;
+     margin-left: 240px !important;
+ width:100% !important;
+ 
+}
+
+.image_part1{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left:-135.5px;
+    margin-top:-135.5px;
+    z-index: 99999;
+    user-select: none;
+}
+

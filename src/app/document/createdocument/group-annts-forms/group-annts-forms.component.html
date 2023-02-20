@@ -1,0 +1,18 @@
+<div>
+    <div class="row header container-fluid">
+        <div class="col-lg-12">
+            <p class="content-heading-header">Forms</p>
+        </div>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="content-head-section style-1">
+          <div *ngFor="let index of formlist" class="row col-lg-12">
+              <p (click)="selectForm(index,index.form_id)" class="content-heading col-lg-12">{{ index.name }} </p>
+              <hr class="hr-area " style="width: 100%;" />
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,108 @@
+<!-- <div>
+  <div style="background-color: #e8e8e8;">
+    <div class="text-center headSec" style="background-color: #e8e8e8; padding-top: 20px; padding-bottom: 4px;">
+      <span style="background-color: #e8e8e8; color: #002e5f; padding-left: 50px;"><b>Rename</b></span><span
+        class="close" style="float: right; padding-right: 24px;" (click)="onclose()"><img
+          src="assets/images/P3_Close-Cancel_Blue.png" width="25px" /></span>
+    </div>
+    <hr style="background-color: #e8e8e8;" />
+  </div>
+  <div class="text-center txtclr">
+    <span style="color: #807f83; font-size: 17px; color: #002e5f;">Please enter a new name</span>
+  </div>
+  <div>
+    <form #form autocomplete="off" class="form">
+      <div class="input-group mb-12">
+        <div class="input-group-prepend">
+          <span class="text-center bg-none" id="basic-addon1"><img src="assets/images/document/rename.png" width="40px"
+              style="margin-left: 25px; padding-top: 6px;" /></span>
+        </div>
+        <input class="form-control bg-none" aria-describedby="basic-addon1" style="margin-left: 2px; border: none;"
+          placeholder="{{ pageName }}" name="filenames" [(ngModel)]="filename" required #filenames autocomplete="off" />
+      </div>
+      <hr style="
+          margin-top: 1.5rem;
+          width: 90%;
+          background-color: #e8e8e8;
+          margin-top: 0.5rem;
+        " />
+      <div style="background-color: #e8e8e8; padding-bottom: 28px;">
+        <hr style="
+            background-color: #e8e8e8;
+            margin-bottom: 24px;
+            margin-top: 24px;
+          " />
+        <div class="text-center">
+          <button [disabled]="filenames.value == ''" value="submit" (click)="rename(filename)" style="
+              color: #a4a426;
+              font-size: 18px;
+              font-weight: bold;
+              border: none;
+              background: transparent;
+            ">
+            Rename
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<!-- Add Rename section Start -->
+<div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1">Rename</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">
+      Please enter a new name
+    </p>
+  </div>
+  <div class="input-group input-field-head">
+    <!-- <div class="input-group-prepend">
+      <span class="text-center bg-none" id="basic-addon1"><img src="assets/images/document/P3_Documents_RenameIcon.png"
+          width="35px" /></span>
+    </div> -->
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1"
+      style="margin-left: 2px; border: none;" placeholder="{{ placeholderValue }}" name="filenames"
+      [(ngModel)]="filename" (ngModelChange)="firstLetterCapital(filename)" required #filenames autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="filename == ''" (click)="rename(filename)">
+      Rename
+    </button>
+  </div>
+</div>
+
+<!-- <div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading1">Rename</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="heading">
+    <p class="heading_text">
+      Please enter a new name uu
+    </p>
+  </div>
+  <div class="input-group input-field-head">
+    <div class="input-group-prepend">
+      <span class="text-center bg-none" id="basic-addon1"><img src="assets/images/document/P3_Documents_RenameIcon.png"
+          width="35px" /></span>
+    </div> 
+    <input class="form-control bg-none input-field" aria-describedby="basic-addon1"
+      style="border: none;" placeholder="{{ placeholderValue }}" name="filenames"
+      [(ngModel)]="filename" (ngModelChange)="firstLetterCapital(filename)" required #filenames autocomplete="off" />
+  </div>
+  <hr class="hr-area" />
+  <div class="footer">
+    <button type="button" class="add-button" [disabled]="filename == ''" (click)="rename(filename)">
+      Rename
+    </button>
+  </div>
+</div>  -->

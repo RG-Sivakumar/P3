@@ -1,0 +1,33 @@
+<div *ngIf="successMessage" class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">Document exported successfully</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+        </div>
+    </div>
+    <div class="heading">
+        <p class="heading_text">Copy the document URL to the clipboard.</p>
+    </div>
+    <div class="input-field-head">
+        <input #userInput readonly class="form-control bg-none input-field" aria-describedby="basic-addon1" style="margin-left: 2px"
+            name="urlautocad" [ngModel]="fileURL" autofocus />
+    </div>
+    <hr class="hr-area" />
+    <div class="footer">
+        <button type="button" class="add-button" (click)="copyInputMessage(userInput)">{{copybuttonValue}}</button>
+    </div>
+</div>
+<div *ngIf="!successMessage" class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading1">Error!</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel.png" class="img-close" alt="close" (click)="closeBox()" />
+        </div>
+    </div>
+    <div class="heading unsuccess">
+        <p class="heading_text1">Internal Server Error.</p>
+    </div>
+    <div class="footer">
+        <button type="button" class="add-button1" (click)="closeBox()">Ok</button>
+    </div>
+</div>

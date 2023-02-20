@@ -1,0 +1,70 @@
+<div class="row tophead align-items-center">
+  <div class="col-xl-1 col-lg-1 col-xs-12 col-md-1 d-flex justify-content-center">
+    <span *ngIf="hidearrow" style="cursor: pointer"><img (click)="clickarrow()"
+        src="assets/images/P3_ArrowLeft_Blue.png" height="20px" width="13px" /></span>
+    <span *ngIf="hidearrow1" style="cursor: pointer"><img (click)="clickarrow1()"
+        src="assets/images/P3_ArrowLeft_Blue.png" height="20px" width="13px" /></span>
+  </div>
+  <div class="col-xl-9 col-lg-9 col-xs-9 col-md-9 d-flex justify-content-center">
+    <h3 class="heading-support d-flex justify-content-center">{{ heading }}</h3>
+  </div>
+  <!-- <div class="col-xl-1 col-lg-1 col-xs-12 col-md-1"></div> -->
+  <!-- <div class="col-xl-12 col-lg-12 col-xs-12 col-md-12">
+  </div> -->
+  <!-- <div class="col-xl-2 col-lg-2 col-xs-2 col-md-2"></div> -->
+</div>
+<div *ngIf="supportOption">
+  <a target="_blank" routerLink="/p3/userguidehome" class="row tag">
+
+    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+      <span class="font">User Guide and FAQs</span>
+    </div>
+    <!-- <div class="col-xl-4 col-lg-4 col-xs-4 col-md-4 d-flex justify-content-end">
+      <span class="right-arrow" (click)="userGuideGo()"><img src="assets/images/P3_ArrowRight_Blue.png"
+          class="arrow-img" /></span>
+    </div> -->
+  </a>
+  <hr />
+  <!-- <div class="row tag" (click)="tutorialGo()">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-2 image-part-support">
+      <img
+        class="image-part"
+        src="assets/images/setting/P3_Design_MainDashboard_Sidepanel_Settings_Support_TutorialsIcon.png"
+      />
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+      <span class="font">Tutorials and Tips & Tricks Videos </span>
+    </div>
+  </div>
+  <hr />
+  <div class="row tag" (click)="faqGo()">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-2 image-part-support">
+      <img
+        class="image-part-1"
+        src="assets/images/setting/P3_Design_MainDashboard_Sidepanel_Settings_Support_FAQIcon.png"
+      />
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+      <span class="font">Frequently Asked Questions</span>
+    </div>
+  </div>
+  <hr /> -->
+  <div class="row tag1" (click)="supportRequestGo()">
+    <a class="col-lg-10 col-md-10 col-sm-10 col-10 linkAddress">
+      <span class="font"> Submit a Support Request</span>
+    </a>
+  </div>
+  <hr />
+</div>
+<div *ngIf="submitRequest">
+  <app-support-request></app-support-request>
+</div>
+<div *ngIf="userGuide">
+  <app-user-guide></app-user-guide>
+</div>
+<!-- <div *ngIf="faq">
+  <app-faq></app-faq>
+</div>
+<div *ngIf="tutorialTips">
+  <app-tutorial-tips></app-tutorial-tips>
+</div> -->

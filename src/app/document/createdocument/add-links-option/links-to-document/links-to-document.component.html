@@ -1,0 +1,35 @@
+<div *ngIf="linkDocument" class="app-project-head">
+  <div class="row header container-fluid">
+    <div class="col-lg-12">
+      <p class="content-heading-header">Link to Document</p>
+    </div>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="search-area">
+      <div class="col-lg-12 sear-area-head">
+        <div class="input-group">
+          <div class="input-group-prepand prepand-head">
+            <img src="assets/images/P3_SearchIcon _Grey.png" class="search-img-section" alt="search-icon" />
+          </div>
+          <input type="text" name="search-text" class="form-control search-text-Pl" placeholder="Search"
+            [(ngModel)]="searhWorkLinktoDocument" (ngModelChange)="firstLetterCapital(searhWorkLinktoDocument)" />
+        </div>
+      </div>
+    </div>
+    <div class="row content-head-section style-1">
+      <div *ngFor="let projectFolder of documentList |filter:searhWorkLinktoDocument" class="col-lg-12 details-section"
+        (click)="openDocumentPages(projectFolder)">
+        <p class="content-heading">{{ projectFolder["folder_name"] }} <span> ({{ projectFolder["totalPages"] }}
+            pages)</span>
+        </p>
+        <p class="content-sub-text">
+         {{projectFolder["Location"]}}
+        </p>
+        <hr class="hr-area" />
+      </div>
+    </div>
+  </div>
+</div>

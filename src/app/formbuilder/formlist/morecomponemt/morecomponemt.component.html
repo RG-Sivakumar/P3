@@ -1,0 +1,72 @@
+<div></div>
+
+<div class="color" style="padding-left: 8px; padding-top: 5%; ">
+    <div class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <span class="head">{{formname}}</span>
+    </div>
+    <div style="font-style: italic;" class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <span>Created:</span><span style="margin-left:3px;">{{date2}}</span><span class="close"
+            style="float: right; padding-right: 10px;" (click)="onclose()"><img
+                src="assets/images/P3_Close-Cancel_Blue.png" width="25px"></span>
+    </div>
+    <div style="font-style: italic;" class=" filter col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <span>Last Modified:</span><span style="margin-left:3px;" *ngIf="date1==undefined">{{date2}}</span>
+        <span style="margin-left:3px;">{{date1}}</span>
+    </div>
+    <div style="padding-left:9px; font-style: italic;">
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <p>Tags:
+                <span *ngFor="let option of taglist;let i=index">{{option['form_tag_name']}}<span
+                        *ngIf="taglist.length-1!==i">, </span></span>
+            </p>
+        </div>
+    </div>
+</div>
+<hr style="margin-top:0rem">
+<div style="padding-left: 8px; padding-right: 8px;">
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12" style="padding-bottom: 1%;">
+        <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <img src="assets/images/P3_FormsEditIcon_Blue.png" width="35px">
+        </div>
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+
+            <span class="headSec hover" (click)="edit()">Edit</span>
+
+        </div>
+    </div>
+    <hr>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+            <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                <span class="headSec hover" (click)="Rename()">Rename</span>
+            </div>
+        </div>
+        <hr>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+                <img src="assets/images/P3_FormsTagsIcon_Blue.png" width="35px">
+            </div>
+            <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                <span class="headSec hover" (click)="Tag()">Manage Tag</span>
+            </div>
+        </div>
+        <hr>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+                <img src="assets/images/P3_FormsInfoIcon_Blue.png" width="35px">
+            </div>
+            <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                <span class="headSec hover" (click)="MoreInformation()">More Information</span>
+            </div>
+        </div>
+        <hr>
+        <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+                <img src="assets/images/icons/P3WebIcon_45List.png" width="35px">
+            </div>
+            <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10" style="padding-bottom: 20px;">
+                <span class="headSec hover" (click)="unhide()">UnHide</span>
+
+
+            </div>
+        </div>

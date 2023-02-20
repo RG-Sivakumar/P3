@@ -1,0 +1,67 @@
+<div class="app-project-head">
+  <div class="header container-fluid">
+    <h3 class="header-heading justify-content-center">Media Options</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="row content-head-section" (click)="rename()">
+      <!-- <div class="col-lg-2"> -->
+        <!-- <img class="img-part" src="assets/images/document/rename.png" /> -->
+      <!-- </div> -->
+      <div class="col-lg-8">
+        <p class="content-heading">Rename</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div class="row content-head-section" (click)="tag()">
+      <!-- <div class="col-lg-2"> -->
+        <!-- <img class="img-part" src="assets/images/document/tag.png" /> -->
+      <!-- </div> -->
+      <div class="col-lg-8">
+        <p class="content-heading">Add/Remove/Edit Tags</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <!--  image -->
+    <div *ngIf="mediaUrl == ''" class="row content-head-section" (click)="imageStubs()">
+      <!-- <div class="col-lg-2"> -->
+        <!-- <img class="img-part" src="assets/images/projectdetails/P3_ImageIcon_Blue.png" /> -->
+      <!-- </div> -->
+      <div class="col-lg-8">
+        <p class="content-heading">Add image to stub</p>
+      </div>
+    </div>
+    <!-- document -->
+    <hr  *ngIf="mediaUrl == ''"  class="hr-area" />
+    <div *ngIf="mediaUrl != ''" class="row content-head-section" (click)="addasDocName()">
+      <!-- <div class="col-lg-2"> -->
+        <!-- <img class="img-part" src="assets/images/projectdetails/P3_ImageIcon_Blue.png" /> -->
+      <!-- </div> -->
+      <div class="col-lg-8">
+        <p class="content-heading">Add as New Document</p>
+      </div>
+    </div>
+    <hr class="hr-area" />
+    <div *ngIf="mediaUrl == ''" class="row content-head-section" (click)="delete()">
+      <!-- <div class="col-lg-2"> -->
+        <!-- <img class="img-part" src="assets/images/icons/P3WebIcon_15Trash.png" /> -->
+      <!-- </div> -->
+      <div class="col-lg-8">
+        <p class="content-heading">Delete</p>
+      </div>
+    </div>
+    <div *ngIf="mediaUrl != ''" class="row content-head-section" (click)="delete1()">
+      <!-- <div class="col-lg-2"> -->
+        <!-- <img class="img-part" src="assets/images/icons/P3WebIcon_15Trash.png" /> -->
+      <!-- </div> -->
+      <div class="col-lg-8">
+        <p class="content-heading">Delete</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="shows" class="loader">
+  <img src="assets/images/spin.gif" width="300px" alt="..." />
+</div>

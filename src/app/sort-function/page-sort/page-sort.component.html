@@ -1,0 +1,58 @@
+<div class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading">Sort By</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="row content-head-section" (click)="ascendingSort()">
+            <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_SortIconA-Z_Blue.png">
+            </div>
+            <div class="col-lg-8">
+                <p class="content-heading">Name (A to Z)</p>
+            </div>
+            <div [hidden]="ascendingPage" class="col-lg-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="descendingSort()">
+            <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_SortIconZ-A_Blue.png">
+            </div>
+            <div class="col-lg-8">
+                <p class="content-heading">Name (Z to A)</p>
+            </div>
+            <div [hidden]="descendingPage" class="col-lg-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="dateCreatedOldToRecent()">
+            <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_DateCreatedO-R_Blue.png">
+            </div>
+            <div class="col-lg-8">
+                <p class="content-heading">Page Number (1 - 5)</p>
+            </div>
+            <div [hidden]="ascendingPageNumber" class="col-lg-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+        <div class="row content-head-section" (click)="dateCreatedRecentToOld()">
+            <div class="col-lg-2">
+                <img class="img-part" src="assets/images/Sort/P3_Popup_DateCreatedR-O-Blue.png">
+            </div>
+            <div class="col-lg-8">
+                <p class="content-heading">Page Number (5 - 1)</p>
+            </div>
+            <div [hidden]="descendingPageNumber" class="col-lg-2 right-tick">
+                <img class="tick-mark" src="assets/images/Sort/P3_CheckBoxTick_Orange.png">
+            </div>
+        </div>
+        <hr class="hr-area">
+    </div>
+</div>

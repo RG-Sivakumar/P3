@@ -1,0 +1,21 @@
+.anchorStyle{
+    color: #fdc07e;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    cursor: pointer;
+}
+.anchorStyle:hover{
+    color: #1a7846;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.table thead th {
+    
+    font-weight: bolder;
+}
+.table th {
+    font-weight: bolder;
+}
+  

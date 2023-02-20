@@ -1,0 +1,98 @@
+<!-- header section-->
+<div style="height:100vh;overflow: hidden;">
+  <div class="row" style="min-height: 60px;">
+    <div class="headerS row col-12">
+      <div class="col-3">
+        
+        <img *ngIf="!iPad" (click)="backClicked()" src="assets/images/P3_ArrowLeft_White.png" alt="homepage"
+          class="dark-logo goback-img ng-star-inserted" style="width: 11px; height: 21px; cursor: pointer" />
+      </div>
+      <div class="col-6" style="display: flex; justify-content: center; align-items: center">
+        <h1 class="heading" style="text-align: center; color: #fff; margin: 0px">
+          {{ filename }}
+        </h1>
+      </div>
+      <div class="col-3" style="display: flex; justify-content: flex-end; align-items: center">
+        <div *ngIf="!iPad" class="tags-head hvlcenter headerHover" (click)="(userRoleGlobal.userRol=='view'|| isReadonly || disablemode_noMedia) ?'':tagsPage()">
+          <p class="header-text">Tags</p>
+        </div>
+        <div [style.pointerEvents]="userRoleGlobal.disableMode ? 'none' : 'auto'" *ngIf="!iPad" class="share-head hvlcenter headerHover" (click)="(userRoleGlobal.userRol=='view'|| isReadonly || disablemode_noMedia) ?'':openShare()">
+          <img src="assets/images/header/P3_Documents_Upload-White02.png" class="share-img" alt="share" />
+        </div>
+        <div [style.pointerEvents]="userRoleGlobal.disableMode ? 'none' : 'auto'"  *ngIf="!iPad" class="annotate-head hvlcenter headerHover" (click)="(this.img_url==''||userRoleGlobal.userRol=='view'|| isReadonly || disablemode_noMedia) ?'':addAsNewDocument()">
+          <p class="header-text">Annotate</p>
+        </div>
+        <div  *ngIf="!iPad" class="delete-head hvlcenter headerHover" (click)="(userRoleGlobal.userRol=='view'|| isReadonly || disablemode_noMedia) ?'':deleteImage()">
+          <img class="share-img" src="assets/images/P3_DeleteIcon_White.png" />
+        </div>
+        <!-- <img (click)="addAsNewDocument()" src="assets/images/icons/P3WebIcon_29Copy.png" alt="homepage"
+      class="dark-logo goback-img ng-star-inserted" style="height: 30px; cursor: pointer" /> -->
+        <!-- </div> -->
+      </div>
+    </div>
+
+    <div class="zoom-head">
+      <div class="plus-part" (mousedown)="zoomOut($event)">
+        <button type="button" class="zoom-buttons">&#8722;</button>
+      </div>
+      <div class="plus-part" (mousedown)="zoomIn($event)">
+        <button type="button" class="zoom-buttons-plus"></button>
+      </div>
+  
+    </div>
+    <div class="col-12 gesture__zone">
+      <div *ngIf="show" class="image_part_loading">
+        
+      </div>
+      <swiper [config]="config" #usefulSwiper>
+        <div class="swiper-wrapper" id="swipeSection">
+          <div class="swiper-slide1" *ngFor="let imageOne of imageset;let indexValue=index" [@slide]="swipeSide"
+            [ngClass]="{'fullwidthheight':indexValue==activeIndex}" [attr.id]="'imageheadpreview'+indexValue">
+            <img *ngIf="indexValue==activeIndex && imageOne.media_url == ''" class="main-image" id="getOne"
+              [lazyLoad]="'assets/images/projectdetails/P3_ImageIcon_Blue600.png'" [defaultImage]="'assets/images/document/P3_Documents_PhotoIcon.png'"/>
+            <img *ngIf="indexValue==activeIndex && imageOne.media_url != ''" id="getOne" class="main-image slideSetup photo-icon" [defaultImage]="'assets/images/document/P3_Documents_PhotoIcon.png'"
+              [lazyLoad]="baseUrl+imageOne.media_url+sKey1+sKey2" (onStateChange)="myCallbackFunction($event,'imageheadpreview'+indexValue,'getOne',imageOne.media_url)"/>
+          </div>
+        </div>
+       
+      </swiper>
+      
+      <div class="comment" style="padding-top: 5px;">
+        <!-- -->
+        <textarea class="comment-text"  [readOnly]="userRoleGlobal.userRol=='view'|| isReadonly" rows="4" [(ngModel)]="comments" (change)="commentUpdate(comments)"></textarea>
+      </div>
+      <!-- swiper -->
+
+      <!-- <swiper class="swiper-container" [config]="config"> -->
+      <div class="row items addedOne" style="padding:9px 0px; background-color: white;">
+        <div (click)="hidePrevious()" class="upArrow-head">
+        <img class="upArrow-img" src="assets/images/Faq/P3_ArrowLeft_Blue.png" alt="upArrowImage">
+        </div>
+        <div #widgetsContent class="footerHead direcitionChange">
+          <div *ngFor="let element of imageset;let i=index" class="swiper-slide imageSlideOne">
+            <div class="image-title-head col-lg-12" [ngClass]="{ active: imgstubid==element.stub_id}">
+              <div class="img-part" [attr.id]="'imageviewerScrollHead'+i">
+                <img *ngIf="element.media_url==''" class="img-area-footer" [defaultImage]="'assets/images/document/P3_Documents_PhotoIcon.png'"
+                  [lazyLoad]="'assets/images/projectdetails/P3_ImageIcon_Blue600.png'" (click)="imageClick1(i)" />
+                <img [attr.id]="'imageviewerScroll'+i" *ngIf="element.media_url!=''" class="img-area-footer bg-img" 
+                [lazyLoad]="baseUrl+element.media_url+sKey1+sKey2" [defaultImage]="'assets/images/document/P3_Documents_PhotoIcon.png'"
+                  (click)="imageClick1(i)" (onStateChange)="myCallbackFunction($event,'imageviewerScrollHead'+i,'imageviewerScroll'+i,element.media_url)"/>
+              </div>
+              <div class="title-part">
+                <p class="photo-name" [ngClass]="{'size1':14>element.media_name.length,'size2':element.media_name.length>13,
+                'size3':element.media_name.length>28,'size4':element.media_name.length>41}">{{ element.media_name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div (click)="hidePreviousRight()" class="upArrow-head">
+          <img class="upArrow-img" src="assets/images/Faq/P3_ArrowRight_Blue.png" alt="upArrowImage">
+        </div>
+      </div>
+      <!-- </swiper> -->
+    </div>
+  </div>
+
+  <div *ngIf="show" class="image_part1">
+    <img src="assets/images/spin.gif" alt="..." />
+  </div>

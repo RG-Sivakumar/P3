@@ -1,0 +1,874 @@
+<article class="docs-article" id="section-4">
+	<header class="docs-header">
+		<h1 class="docs-heading">4.0 Projects
+			<span class="docs-time">Last updated:{{lastModifiedDate}}</span>
+		</h1>
+		<section class="docs-intro">
+			<p>The Project Dashboard is the entry point into Plannotate project content &#40;documents, images, etc.&#41;.  Users can tap on the name of any available project in the <a href="/p3/userguide/chapter-3?id=section-3&target=section-3" class="anchorStyle"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','section-3')">Project Management Dashboard</a> in order to enter the Project screen.</p>
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Dashboard on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/project-dashboard.jpg')">
+				<a data-title="Project Dashboard" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/project-dashboard.jpg" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Dashboard on iPad</figcaption>
+			</figure>
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Dashboard on Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/project-dashboard-web.png')">
+				<a data-title="Project Dashboard" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/project-dashboard-web.png" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Dashboard on Web</figcaption>
+			</figure>
+			
+			
+			
+			<ol>
+				<li><b>Project Title</b> –References the name of the currently selected project.</li>
+				<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-1" scrollTo scrollTargetSelector="#item-4-1" (click)="activeVistionSend('section-4','item-4-1')">Documents</a> – Provides a list of all content within the project.  </li>
+				<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-2" scrollTo scrollTargetSelector="#item-4-2" (click)="activeVistionSend('section-4','item-4-2')">Forms</a> – The forms screen is the entry way to the <a href="/p3/userguide/chapter-4?id=section-5&target=section-5"  (click)="goPickedchapterSidebar($event,'chapter-5','section-5','section-5')">Form Builder</a> and displays a list of all the forms available for use within the project.</li>
+				<li><a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-3" scrollTo scrollTargetSelector="#item-4-3"
+					(click)="activeVistionSend('section-4','item-4-3')">Toolbars</a> – The Toolbars screen is the entry way to the <a href="/p3/userguide/chapter-6?id=section-6&target=section-6"
+					(click)="goPickedchapterSidebar($event,'chapter-6','section-6','section-6')">Toolbar Builder</a> and displays a list of all the toolbars available for use within the project.</li>
+				<li><a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-4" scrollTo scrollTargetSelector="#item-4-4"
+					(click)="activeVistionSend('section-4','item-4-4')">Hidden Content</a> – Provides a list of all content which you have designated as hidden.</li>
+				<li><a href="/p3/userguide/chapter-3?id=section-3&target=item-3-2-6" scrollTo scrollTargetSelector="#item-3-2-6"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-2-6')">Manage Users</a> – Add, modify, and remove user access to the project.</li>
+				<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-5" scrollTo scrollTargetSelector="#item-4-5"
+					(click)="activeVistionSend('section-4','item-4-5')">Sidebar Expand / Collapse</a> – The Plannotate sidebar on the Project Dashboard can be expanded and collapsed to maximize real estate. </li>
+				<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-6" scrollTo scrollTargetSelector="#item-4-6"
+					(click)="activeVistionSend('section-4','item-4-6')">Support</a> – Provides Plannotate support videos, documentation, and support ticket creation.</li>
+				<li><a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=section-3" (click)="goPickedchapterSidebar($event,'chapter-3','section-3','section-3')">Dashboard</a> – Allows you to exit the project and return to the <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=section-3"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','section-3')">Project Management Dashboard</a>.</li>
+				<li><b>Project Content</b> – This is the space where the documents and folders will be displayed based what has been created within the project. Note that each project comes with a root folder denoted with the text &quot;&#47;&quot;. This default value can be changed using <a href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-1-1" scrollTo
+					scrollTargetSelector="#item-4-1-1-1"
+					(click)="activeVistionSend('section-4','item-4-1-1-1')">Rename Folder</a></li>
+				<li><b>Search</b> – Enables you to search the displayed list of content based on several search criteria. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-8"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">Project Management Search</a> for more information.</li>
+				<li><b>Sort</b> – Enables you to sort the displayed list of content based on several sort options. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-9"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">Project Management Sort</a> for more information. </li>
+				<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-8" scrollTo scrollTargetSelector="#item-4-8"
+					(click)="activeVistionSend('section-4','item-4-8')">Export</a> – Allows users to export project content to a variety of formats.</li>
+				<li><b>Manual Sync</b> – Initiates a synchronization of data with the Plannotate cloud, which uploads all new data since the last sync, and downloads any new data from the Plannotate cloud. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-10"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-10')">Project Management Manual Sync</a> for more information. This icon is available only on Plannotate for the iPad, as the web client version is communicating real time with the Plannotate cloud.  Plannotate on web client has an Apple icon in the top right corner to allow users to install Plannotate on their iPad.</li>
+				<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-7" scrollTo scrollTargetSelector="#item-4-7"
+					(click)="activeVistionSend('section-4','item-4-7')">Add</a> – Provides the ability to add new content.</li>
+				<li><a class="anchorStyle" href="/p3/userguide/chapter-8?id=section-8&target=item-8-8-4-1"
+					(click)="goPickedchapterSidebar($event,'chapter-8','section-8','item-8-8-4-1')">Reconcile Stub Photos</a> – Provides the ability to reconcile stub photos that were taken on an iPad.</li>
+			</ol>
+					
+		</section><!--//docs-intro-->
+		<section class="docs-section" id="item-4-1">
+			<h2 class="section-heading">4.1 Project Documents</h2>
+			<p>The Documents area of a project provides a list of all content created within the project. This includes folders, subfolders, and documents.  Refer to the <a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-7"
+				scrollTo scrollTargetSelector="#item-4-7" (click)="activeVistionSend('section-4','item-4-7')">Add Content</a> section for more information.</p>
+			
+			<p>When you first open a project, you will not have any project content. Once you have added to your first document or folder, it will appear in a list view.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Documents - No Content','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/documents-empty.png')">
+				<a data-title="Project Documents - No Content" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/documents-empty.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Documents - No Content</figcaption>
+			</figure>
+			
+			<p>Once project content has been added, it will either show in a blue or orange color. The list will default in alphabetical order, and can be <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-8" class="anchorStyle"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">searched</a> and <a  class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-9"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<ul>
+						<li>Project content will have a download icon if the project has been created on any other device and not yet downloaded to the device being used.</li>
+						<li>Project content will show in an orange color if it has been created or modified on your device and has not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a  class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3"
+							(click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Project content will show in a blue color if it has been fully syncrhonized to the Plannotate cloud.</li>
+				</ul>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Documents Displaying Content','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/documents.png')">
+				<a data-title="Project Documents Displaying Content" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/documents.png"
+						loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Documents Displaying Content</figcaption>
+			</figure>
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-1">
+			<h2 class="section-heading">4.1.1 Folder Options</h2>
+			<p>There are two actions that can be performed on folders and subfolders within a project.</p>
+			
+			<ul>
+				<li><b>Single tap</b> – Selects and expands the folder.</li>
+				<li><b>Long hold</b> – Opens a menu of options.</li>
+				</ul>
+				<div class="alert alert-success" role="alert">
+					On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+				</div>
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Folder Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/folder-options.jpg')">
+					<a data-title="Folder Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+							src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/folder-options.jpg" loading="lazy" alt=""
+							style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Folder Options</figcaption>
+				</figure>
+			
+				<ol>
+					<li>The <b>name</b> of the folder that was selected.</li>
+					<li><b>Cancel out</b> of this screen. You can also select anywhere off the menu to close the menu.</li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-1-1" scrollTo scrollTargetSelector="#item-4-1-1-1"
+						(click)="activeVistionSend('section-4','item-4-1-1-1')">Renames</a> the folder.</li>
+					<li>Opens the <a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-1-2" scrollTo
+						scrollTargetSelector="#item-4-1-1-2" (click)="activeVistionSend('section-4','item-4-1-1-2')">Manage Tags</a> screen.</li>
+					<li>Displays folder <a href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-1-3" scrollTo
+						scrollTargetSelector="#item-4-1-1-3"
+						(click)="activeVistionSend('section-4','item-4-1-1-3')">metadata / details</a>.</li>
+					<li>Enables the folder to be hidden from the Documents screens.  See <a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-4" scrollTo scrollTargetSelector="#item-4-4"
+						(click)="activeVistionSend('section-4','item-4-4')">Hidden Content</a>.</li>
+				</ol>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-1-1">
+			<h2 class="section-heading">4.1.1.1 Rename A Folder</h2>
+			<p>The user that initially creates a folder will assign a name to the folder.  In the event this name needs to change, this option can be selected.</p>
+			
+			<p>When the <b>Rename</b> option is selected, the current name of the folder will appear, and by tapping on the data entry line, you will be able to modify or enter a new name.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Rename A Folder','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/rename.png')">
+				<a data-title="Rename A Folder" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/rename.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Rename A Folder</figcaption>
+			</figure>
+			
+			
+				<ul>
+					<li>Select <b>Rename</b> to change the name of the folder.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the folder name unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-1-2">
+			<h2 class="section-heading">4.1.1.2 Manage Tags</h2>
+			<p>Tags are metadata assigned to a Plannotate object like a project, document, annotation, etc. By adding meaningful tags, users will be able to search for content more effectively.</p>
+			
+			<p>When the <b>Manage Tags</b> option is selected, a popup will appear displaying any tags that have been assigned to the folder.  These will show up in orange, for example &quot;Concrete&quot;.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Manage Tags','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/tags.png')">
+				<a data-title="Manage Tags" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/tags.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Manage Tags</figcaption>
+			</figure>
+			
+				<ul>
+					<li><b>Enter any number of tags</b> on the data entry line, separated by a comma, and hit the enter key on your iPad keyboard to record them.</li>
+					<li>Select the <b>X</b> next to any tags in orange to remove them.</li>
+					<li>Select <b>Save</b> to save all the changes that were made.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the tags unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-1-3">
+			<h2 class="section-heading">4.1.1.3 Folder Information</h2>
+			<p>The <b>More Information</b> screen shows metadata information associated with the folder and its contents.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Folder Information','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/information.png')">
+				<a data-title="Folder Information" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/information.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Folder Information</figcaption>
+			</figure>
+			
+				<ul>
+					<li>The <b>top section</b> shows the folder name, created data, last modification date and the tags associated with the folder.</li>
+					<li>The <b>main body</b> of the screen shows how many occurrences of the various types of objects exist within the folder.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-2">
+			<h2 class="section-heading">4.1.2 Document Options</h2>
+			<p>There are two actions that can be performed on documents within a project.</p>
+			
+			<ul>
+				<li><b>Single tap</b> – Opens the document.</li>
+				<li><b>Long hold</b> – Opens a menu of options.</li>
+				</ul>
+				<div class="alert alert-success" role="alert">
+					On the web client, a left click on your mouse button is used as a single tap, and a right click on your mouse button is used for a long hold.
+				</div>
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Document Options','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/document-options.jpg')">
+					<a data-title="Document Options" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+							src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/document-options.jpg" loading="lazy" alt=""
+							style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Document Options</figcaption>
+				</figure>
+			
+				<ol>
+					<li>The <b>name of the document</b> that was selected.
+					<li><b>Cancel out</b> of this screen. You can also select anywhere off the menu to close the screen.</li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-2-1" scrollTo scrollTargetSelector="#item-4-1-2-1"
+						(click)="activeVistionSend('section-4','item-4-1-2-1')">Renames</a> the document.</li>
+					<li>Opens the <a href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-2-2" scrollTo
+						scrollTargetSelector="#item-4-1-2-2" (click)="activeVistionSend('section-4','item-4-1-2-2')">Manage Tags</a> screen.</li>
+					<li>Displays document <a href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-2-3" scrollTo
+						scrollTargetSelector="#item-4-1-2-3" (click)="activeVistionSend('section-4','item-4-1-2-3')">metadata / details</a>.</li>
+					<li>Enables the document to be hidden from the Documents screens.  See <a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-4" scrollTo scrollTargetSelector="#item-4-4"
+						(click)="activeVistionSend('section-4','item-4-4')">Hidden Content</a>.</li>
+					<li>Makes an exact <a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-2-4" scrollTo
+						scrollTargetSelector="#item-4-1-2-4"
+						(click)="activeVistionSend('section-4','item-4-1-2-4')">copy of the document with annotations</a>, forms, images, etc.</li>
+					<li>Makes a <a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-2-5" scrollTo
+						scrollTargetSelector="#item-4-1-2-5" (click)="activeVistionSend('section-4','item-4-1-2-5')">copy of the document without any of the annotations</a>, forms, images, etc.</li>
+				</ol>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-2-1">
+			<h2 class="section-heading">4.1.2.1 Rename A Document</h2>
+			<p>The user that initially creates a document will assign a name to the document.  In the event this name needs to change, this option can be selected.</p>
+			
+			<p>When the <b>Rename</b> option is selected, the current name of the document will appear, and by tapping on the data entry line, you will be able to modify or enter a new name.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Rename a Document','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/rename-doc.png')">
+				<a data-title="Rename a Document" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/rename-doc.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Rename a Document</figcaption>
+			</figure>
+			
+				<ul>
+					<li>Select <b>Rename</b> to change the name of the document.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the document name unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-2-2">
+			<h2 class="section-heading">4.1.2.2 Manage Tags</h2>
+			<p>Tags are metadata assigned to a Plannotate object like a project, document, annotation, etc. By adding meaningful tags, users will be able to search for content more effectively.</p>
+			
+			<p>When the <b>Manage Tags</b> option is selected, a popup will appear displaying any tags that have been assigned to the document.  These will show up in orange, for example &quot;Concrete&quot;.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Manage Tags','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/tags.png')">
+				<a data-title="Manage Tags" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/tags.png" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Manage Tags</figcaption>
+			</figure>
+				<ul>
+					<li><b>Enter any number of tags</b> on the data entry line, separated by a comma, and hit the enter key on your iPad keyboard to record them.</li>
+					<li>Select the <b>X</b> next to any tags in orange to remove them.</li>
+					<li>Select <b>Save</b> to save all the changes that were made.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen, leaving the tags unchanged.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-2-3">
+			<h2 class="section-heading">4.1.2.3 Document Information</h2>
+			<p>The <b>More Information</b> screen shows metadata information associated with the document and its contents.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Document Information','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/doc-information.png')">
+				<a data-title="Document Information" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/doc-information.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Document Information</figcaption>
+			</figure>
+			
+				<ul>
+					<li>The <b>top section</b> shows the document name, created data, last modification date and the tags associated with the document.</li>
+					<li>The <b>main body</b> of the screen shows how many occurrences of the various types of objects exist within the document.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+				</ul>
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-2-4">
+			<h2 class="section-heading">4.1.2.4 Copy Document With Annotations</h2>
+			<p>The copy document with annotations screen allows you to provide a name for the new document.</p>
+			
+			<p>Once completed, an exact copy of the document will be made.  This includes all annotations, links, forms and form data.</p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>If you wish to make a copy of the document only, not including the annotations, forms, images and links along with the document itself, you will want to select <a   href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-2-5" scrollTo
+						scrollTargetSelector="#item-4-1-2-5"
+						(click)="activeVistionSend('section-4','item-4-1-2-5')">Copy Without Annotations</a> from the menu.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Document Copy With Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/copy-with-annotations.gif')">
+				<a data-title="Document Copy With Annotations" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/copy-with-annotations.gif" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Document Copy With Annotations</figcaption>
+			</figure>	
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-2-5">
+			<h2 class="section-heading">4.1.2.5 Copy Document Without Annotations</h2>
+			<p>The copy document without annotations screen allows you to provide a name for the new document.</p>
+			
+			<p>Once completed, an exact copy of the document itself will be made. The new document will <b>not</b> include the annotations, forms, images, etc.</p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>If you wish to make an exact copy of the document including annotations, forms, images and links along with the document itself, you will want to select <a  href="/p3/userguide/chapter-4?id=section-4&target=item-4-1-2-4" scrollTo
+						scrollTargetSelector="#item-4-1-2-4"
+						(click)="activeVistionSend('section-4','item-4-1-2-4')">Copy With Annotations</a> from the menu.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Document Copy Without Annotations','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/copy-without-annotations.gif')">
+				<a data-title="Document Copy Without Annotations" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/copy-without-annotations.gif" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Document Copy Without Annotations</figcaption>
+			</figure>	
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-1-3">
+			<h2 class="section-heading">4.1.3 Moving Content</h2>
+			<p>In order to move folders or documents to another location within the project tree, simply tap and hold on the three lines to the right of the object to move and drag with your finger. Once you've located the desired spot, let go of your finger to place the object in the desired location.</p>
+			
+			<div class="alert alert-success" role="alert">
+				On the web client, long hold the left button on the mouse to initiate the move.
+			</div>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<ul>
+						<li>Folders can be nested underneath another folder.</li>
+						<li>Documents can be placed under the Root or within any folder.</li>
+					</ul>
+					
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Move Documents and Folders','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/move.gif')">
+				<a data-title="Move Documents and Folders" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/move.gif"
+						loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Move Documents and Folders</figcaption>
+			</figure>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>When moving a folder or document to another folder, you must drop the source folder or document on top of the target folder. If you drop it somewhere within the folder, it will not move the object.</p>
+					
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		   
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-2">
+			<h2 class="section-heading">4.2 Forms</h2>
+			<p>The forms screen is the entry way to the <a class="anchorStyle"
+				href="/p3/userguide/chapter-5?id=section-5&target=section-5"
+				(click)="goPickedchapterSidebar($event,'chapter-5','section-5','section-5')">Form Builder</a> and displays a list of all the forms available for use within the project.  Refer to the <a  class="anchorStyle"
+				href="/p3/userguide/chapter-5?id=section-5&target=section-5"
+				(click)="goPickedchapterSidebar($event,'chapter-5','section-5','section-5')">Form Builder</a> section for detailed information on adding, removing and editing project forms.</p>
+			
+			<p>When you first open a project, you will automatically have a <b>Default</b> form. As you add more forms, they will appear in a list view.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Forms','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/forms.jpg')">
+				<a data-title="Project Forms" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/forms.jpg" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Forms</figcaption>
+			</figure>
+			
+			<p>Once additional forms have been added, they will either show in a blue or orange color. The list will default in alphabetical order, and can be <a class="anchorStyle"
+				href="/p3/userguide/chapter-3?id=section-3&target=item-3-8"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">searched</a> and <a
+				class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-9"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<ul>
+						<li>Forms will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3"
+							(click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Forms will show in a blue color if they have been fully syncrhonized to the Plannotate cloud.</li>
+				</ul>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<ol>
+				<li><b>Project Title</b> – References the name of the currently selected project.</li>
+				<li><b>Forms</b> – Each new project comes standard with a Default form that can be renamed, edited and / or hidden. Other custom forms can be created, copied or imported.</li>
+				<li><b>Forms Dashboard</b> – This is the space where the list of forms will appear.</li>
+				<li><b>Search</b> – Enables you to search the displayed list of forms based on several search criteria. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-8"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">Project Management Search</a> for more information.</li>
+				<li><b>Sort</b> – Enables you to sort the displayed list of forms based on several sort options. See <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-9"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">Project Management Sort</a> for more information. </li>
+				<li><b>Export</b> – Allows users to export project content to a variety of formats. See <a href="/p3/userguide/chapter-4?id=section-4&target=item-4-8" scrollTo scrollTargetSelector="#item-4-8"
+					(click)="activeVistionSend('section-4','item-4-8')">Project Export</a> for more information</li>
+				<li><b>Manual Sync</b> – Initiates a synchronization of data with the Plannotate cloud, which uploads all new data since the last sync, and downloads any new data from the Plannotate cloud. See <a class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-10"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-10')">Project Management Manual Sync</a> for more information.</li>
+				<li><b>Add</b> – Provides the ability to add new forms.</li>
+			</ol>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>The web client version of Plannotate has an icon for reconciling stub photos and downloading to the iPad.  See <a class="anchorStyle" href="/p3/userguide/chapter-4?id=section-4&target=section-4"
+						(click)="goPickedchapterSidebar($event,'chapter-4','section-4','section-4')">4.0 Projects</a> for more information.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-3">
+			<h2 class="section-heading">4.3 Toolbars</h2>
+			<p>The toolbars screen is the entry way to the <a class="anchorStyle" href="/p3/userguide/chapter-6?id=section-6&target=section-6"
+                (click)="goPickedchapterSidebar($event,'chapter-6','section-6','section-6')">Toolbar Builder</a> and displays a list of all the toolbars available for use within the project.  Refer to the <a href="chapter-6.php#section-6">Toolbar Builder</a> section for detailed information on adding, removing and editing project toolbars.</p>
+			
+			<p>When you first open a project, you will automatically have a <b>Default</b> toolbar. As you add more toolbars, they will appear in a list view.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Toolbars','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/toolbars.jpg')">
+				<a data-title="Project Toolbars" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/toolbars.jpg" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Toolbars</figcaption>
+			</figure>
+			
+			<p>Once additional toolbars have been added, they will either show in a blue or orange color. The list will default in alphabetical order, and can be <a  class="anchorStyle"
+				href="/p3/userguide/chapter-3?id=section-3&target=item-3-8"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">searched</a> and <a
+				class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-9"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<ul>
+						<li>Toolbars will show in an orange color if they have been created or modified on your device and have not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3"
+							(click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+						<li>Toolbars will show in a blue color if they have been fully syncrhonized to the Plannotate cloud.</li>
+				</ul>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<ol>
+				<li><b>Project Title</b> – References the name of the currently selected project.</li>
+				<li><b>Toolbars</b> – Each new project comes standard with a Default toolbar that can be renamed, edited and / or deleted. Other custom toolbars can be created, copied or imported.</li>
+				<li><b>Toolbars Dashboard</b> – This is the space where the list of toolbars will be.</li>
+				<li><b>Search</b> – Enables you to search the displayed list of toolbars based on several search criteria. See <a  class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-8"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">Project Management Search</a> for more information.</li>
+				<li><b>Sort</b> – Enables you to sort the displayed list of toolbars based on several sort options. See <a href="/p3/userguide/chapter-3?id=section-3&target=item-3-9"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">Project Management Sort</a> for more information. </li>
+				<li><b>Export</b> – Allows users to export project content to a variety of formats. See <a   href="/p3/userguide/chapter-4?id=section-4&target=item-4-8" scrollTo scrollTargetSelector="#item-4-8"
+					(click)="activeVistionSend('section-4','item-4-8')">Project Export</a> for more information</li>
+				<li><b>Manual Sync</b> – Initiates a synchronization of data with the Plannotate cloud, which uploads all new data since the last sync, and downloads any new data from the Plannotate cloud. See <a  class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-10"
+					(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-10')">Project Management Manual Sync</a> for more information.</li>
+				<li><b>Add</b> – Provides the ability to add new toolbars.</li>
+			</ol>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>The web client version of Plannotate has an icon for reconciling stub photos and downloading to the iPad.  See <a   href="/p3/userguide/chapter-4?id=section-4&target=item-4" scrollTo scrollTargetSelector="#item-4"
+						(click)="activeVistionSend('section-4','item-4')">4.0 Projects</a> for more information.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+		
+		
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-4">
+			<h2 class="section-heading">4.4 Hidden Content</h2>
+			<p>Hidden content provides an area for users to place folders, documents, toolbars and forms that they do not want included in the project any longer.  This content is not deleted from the Plannotate cloud. </p>
+			
+			<p>When you first log into Plannotate, you will not have any content in the Hidden Content area. Once you designate content as hidden, it will appear in a list view.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Hidden Content - No Content','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/hidden-empty.png')">
+				<a data-title="Hidden Content - No Content" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/hidden-empty.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Hidden Content - No Content</figcaption>
+			</figure>
+			
+			<p>Once content has been designated as hidden, it will be denoted with a special icon and will either show in a blue or orange color. The list will default in alphabetical order, and can be <a class="anchorStyle"
+				href="/p3/userguide/chapter-3?id=section-3&target=item-3-8"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-8')">searched</a> and <a
+				class="anchorStyle" href="/p3/userguide/chapter-3?id=section-3&target=item-3-9"
+				(click)="goPickedchapterSidebar($event,'chapter-3','section-3','item-3-9')">sorted</a> to change the order displayed. </p>
+				<ul>
+					<li>Content will show in an orange color if it has been created or modified on your device and has not yet been synchronized to the Plannotate cloud.  Note that this is only relevant to Plannotate on the iPad, as the web client version is communicating real time with the Plannotate cloud. This allows users to work “offline” and sync to the Plannotate cloud at any time when they are back online, manually or on a schedule.  See <a  class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-3"
+						(click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-3')">Sync Settings</a> for more information.</li>
+					<li>Content will show in a blue color if it has been fully synchronized to the Plannotate cloud.</li>
+				</ul>
+					
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Hidden Content Displaying Content','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/hidden.png')">
+					<a data-title="Hidden Content Displaying Content" data-toggle="lightbox"><img
+							class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/hidden.png"
+							loading="lazy" alt="" style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Hidden Content Displaying Content</figcaption>
+				</figure>
+				
+				<div class="callout-block callout-block-warning">
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-bullhorn"></i>
+							</span><!--//icon-holder-->
+							Warning
+						</h4>
+						<p>Content is hidden globally within a project, and therefore any items hidden by one user will be hidden for all users of the project.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-5">
+			<h2 class="section-heading">4.5 Project Sidebar</h2>
+			<p>The Plannotate sidebar on the Project Dashboard screen can be expanded and collapsed to maximize real estate. This is useful when looking at content or folders with long names.</p>
+			
+			<p>By default the sidebar will be expanded, showing both an icon and text description.  Selecting the orange arrow icon will allow users to shink and expand the sidebar.</p>
+			
+			<figure class="figure docs-figure py-3" (click)="openImage('Project Dashboard Sidebar','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/sidebar.gif')">
+				<a data-title="Project Dashboard Sidebar" data-toggle="lightbox"><img
+						class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/sidebar.gif"
+						loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Project Dashboard Sidebar</figcaption>
+			</figure>
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-6">
+			<h2 class="section-heading">4.6 Support</h2>
+			<p>The Support section of Project Dashboard provides access to Plannotate support videos, documentation and support ticket creation.  See <a  class="anchorStyle" href="/p3/userguide/chapter-2?id=section-2&target=item-2-4"
+				(click)="goPickedchapterSidebar($event,'chapter-2','section-2','item-2-4')">Support</a> for more information.</p>
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-7">
+			<h2 class="section-heading">4.7 Adding Project Content</h2>
+			<p>The Add Content section of Project Documents allows you to create new folders and documents.  Any user with access to Plannotate can create a new project, add content, and add other users. By default, the user who created the project will have administrator rights to the project.</p>
+			<p>After tapping the <b>+</b> at the bottom right corner of the screen, a popup screen will appear allowing you to select the type of content to add. </p>
+			
+			
+				 <figure class="figure docs-figure py-3" (click)="openImage('Add Project Content on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-content.jpg')">
+					<a data-title="Add Project Content" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+							src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-content.jpg" loading="lazy" alt=""
+							style="width: 600px;"></a>
+					<figcaption class="figure-caption mt-3">Add Project Content on iPad</figcaption>
+				</figure>
+				<figure class="figure docs-figure py-3" (click)="openImage('Add Project Content on Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-content-web.png')">
+					<a data-title="Add Project Content" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-content-web.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				
+					<figcaption class="figure-caption mt-3">Add Project Content on Web</figcaption>
+				</figure>
+			
+				<ol>
+					<li>The <b>title</b> of the menu.</li>
+					<li><b>Cancel out</b> of this screen. You can also select anywhere off the menu to close the screen.</li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-7-1" scrollTo scrollTargetSelector="#item-4-7-1"
+						(click)="activeVistionSend('section-4','item-4-7-1')">New Folder</a> - Add a new folder to the project.</li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-7-2" scrollTo scrollTargetSelector="#item-4-7-2"
+						(click)="activeVistionSend('section-4','item-4-7-2')">New Document from Device</a> - Add a new PDF document from your iPad or cloud server to the project.</li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-7-3" scrollTo scrollTargetSelector="#item-4-7-3"
+						(click)="activeVistionSend('section-4','item-4-7-3')">New Document from Photo</a> - Add a new PDF document from your iPad’s camera. Once a picture is taken and approved, it will be converted to a PDF document for annotating. This option is available only on Plannotate for the iPad.</li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-7-4" scrollTo scrollTargetSelector="#item-4-7-4"
+						(click)="activeVistionSend('section-4','item-4-7-4')">New Document from Camera Roll</a> - Add a new PDF document from your iPad’s camera roll. Once a picture is selected, it will be converted to a PDF document for annotating. This option is available only on Plannotate for the iPad.</li>
+					<li><a href="/p3/userguide/chapter-4?id=section-4&target=item-4-7-5" scrollTo scrollTargetSelector="#item-4-7-5"
+						(click)="activeVistionSend('section-4','item-4-7-5')">New Field Sheet</a> - Add a new document from the WJE Field Sheet template &#40;portrait or landscape&#41;.</li>
+				</ol>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>If a document or folder is created with the same name as an existing document or folder, the name will be appended with a number, incremented by 1 each time this happens.  For example, if a folder named &#34;Project ABC&#34; exists and is created for a 2nd time, it will receive the name &#34;Project ABC &#40;1&#41;&#34;.  If this were to be added again, it would be given a name &#34;Project ABC &#40;2&#41;&#34; and so on.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-7-1">
+			<h2 class="section-heading">4.7.1 Adding Project Folders</h2>
+			<p>After creating a project, you may want to create new folders to organize your documents and subfolders.</p>
+			
+			<p>As folders are added, they can be placed at the root or nested undeneath an existing folder. </p>
+			
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Add Project Folders','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-folders.gif')">
+					<a data-title="Add Project Folders" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-folders.gif" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				
+					<figcaption class="figure-caption mt-3">Add Project Folders</figcaption>
+				</figure>
+				
+				<ul>
+					<li><b>Provide a name</b> for the new folder.</li>
+					<li>Select <b>Add</b> to create the folder.</li>
+					<li>Select the <b>X</b> in the top right corner to cancel out of this screen.</li>
+					<li>You will be presented with a tree view of the existing folders and subfolders in the project.  <b>Tap the desired folder</b> to place the new folder into.</li>
+				</ul>
+				
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-7-2">
+			<h2 class="section-heading">4.7.2 Adding Documents From a Device</h2>
+			<p>Documents make up the main content within a Plannotate project. Any existing PDF document can be imported into the project.</p>
+		
+			<p>When adding a new document from your iPad, you can locate any PDF document on your iPad’s storage or any other cloud location that you have connected to your iPad, such as iCloud, Google Drive, Dropbox, etc.<p>
+			
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Add Documents From a Device on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-docs-from-device.gif')">
+					<a data-title="Add Documents From a Device on iPad" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-docs-from-device.gif" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				
+					<figcaption class="figure-caption mt-3">Add Documents From a Device on iPad</figcaption>
+				</figure>
+				
+			
+				<figure class="figure docs-figure py-3" (click)="openImage('Add Documents From a Device on Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-document-from-device-web.png')">
+					<a data-title="Add Documents From a Device on Web" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-document-from-device-web.png" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				
+					<figcaption class="figure-caption mt-3">Add Documents From a Device on Web</figcaption>
+				</figure>
+				
+				<ul>
+					<li><b>Navigate</b> to the desired document.</li>
+					<li><b>Tap</b> on the PDF document image.</li>
+					<li><b>Provide a name</b> for the selected document. By default, the name will be the same name as how it is represented on your device or cloud storage location.</li>
+					<li>Select <b>Add</b> to import the document.</li>
+					<li>You will be presented with a tree view of the existing folders and subfolders in the project.  <b>Tap the desired folder</b> to nest the new document into.</li>
+				</ul>
+				
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<ul>
+						<li>The locations available for selecting a document depend on each iPad.  iPad users can add any number of cloud drives such as Dropbox, OneDrive, Google Drive, etc. Any 3rd party cloud drives that are added to the iPad will be made available as a location when adding a new document.</li>
+						<li>You may select any PDF, JPG or PNG file to use as a new document</li>
+					</ul>
+					
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<div class="callout-block callout-block-warning">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-bullhorn"></i>
+						</span><!--//icon-holder-->
+						Warning
+					</h4>
+					<p>Once a document is added to the project, it will no longer be connected to the original document that was located on your device or cloud drive.  That means that any updates to the document in Plannotate will not be reflected in your cloud drive, and any updates to the document in your cloud drive will not have any impact on the document in Plannotate.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-7-3">
+			<h2 class="section-heading">4.7.3 Adding Documents From a Photo</h2>
+			<p>In addition to adding a PDF file as a new document, you can use your iPad’s camera to take a picture and import that as a new document.  Images from your camera will be converted to a PDF file when imported as a new document.</p>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>This option is only available on Plannotate for iPad.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+				
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Add Documents From Your Camera','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-docs-from-photo.gif')">
+					<a data-title="Add Documents From Your Camera" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-docs-from-photo.gif" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				
+					<figcaption class="figure-caption mt-3">Add Documents From Your Camera</figcaption>
+				</figure>
+				
+				<ul>
+					<li><b>Take a picture</b> using your iPad’s camera.</li>
+					<li>Once taken, you can select <b>Retake</b> or <b>Use Photo</b>. </li>
+					<li>Once you have selected <b>Use Photo</b>, provide a name for the new photo. By default, the name will be the name assigned by your device, and you can select and change it.</li>
+					<li>Select <b>Add</b> to convert the image to a PDF and import the new document.</li>
+					<li>You will be presented with a tree view of the existing folders and subfolders in the project.  <b>Tap the desired folder</b> to add the new document into.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-7-4">
+			<h2 class="section-heading">4.7.4 Adding Documents From Camera Roll</h2>
+			<p>Similar to adding a document from your iPad’s camera, you can use your iPad’s camera roll to select a picture and import it as a new document.  Images from your camera roll will be converted to a PDF file when imported as a new document.</p>
+				
+				
+				<figure class="figure docs-figure py-3" (click)="openImage('Add Documents From Your Camera','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-doc-from-camera-roll.gif')">
+					<a data-title="Add Documents From Your Camera" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-doc-from-camera-roll.gif" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				
+					<figcaption class="figure-caption mt-3">Add Documents From Your Camera</figcaption>
+				</figure>
+				
+				<div class="callout-block callout-block-info">
+									
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-info-circle"></i>
+							</span><!--//icon-holder-->
+							Note
+						</h4>
+						<p>This option is only available on Plannotate for iPad.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+				
+				<ul>
+					<li><b>Locate</b> the image you would like to add.</li>
+					<li>Once you have selected, <b>provide a name</b> for the new document. By default, the name will be the name assigned by your device, and you can select and change it.</li>
+					<li>Select <b>Add</b> to convert the image to a PDF and import the new document.</li>
+					<li>You will be presented with a tree view of the existing folders and subfolders in the project.  <b>Tap the desired folder</b> to add the new document into.</li>
+				</ul>
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-7-5">
+			<h2 class="section-heading">4.7.5 Adding a New WJE Field Sheet</h2>
+			<p>Plannotate also makes available a portrait and landscape copy of the standard WJE Field Sheet template for you to add to any project. </p>
+				
+			
+				 <figure class="figure docs-figure py-3" (click)="openImage('Add a New WJE Field Sheet','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-field-sheet.gif')">
+					<a data-title="Add a New WJE Field Sheet" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+						src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/add-field-sheet.gif" loading="lazy" alt=""
+						style="width: 600px;"></a>
+				
+					<figcaption class="figure-caption mt-3">Add a New WJE Field Sheet</figcaption>
+				</figure>
+				<ul>
+					<li><b>Enter a name</b> for the new field sheet document.</li>
+					<li><b>Specify how many pages</b> you would like the blank field sheet template to contain. 
+					<li>Select whether you would like the <b>Portrait or Landscape</b> version of the template.
+					<li>Select <b>Add</b> to import the new document.
+					<li>You will be presented with a tree view of the existing folders and subfolders in the project.  <b>Tap the desired folder</b> to nest the new document into.</li>
+				</ul>
+				
+				<div class="callout-block callout-block-warning">
+					<div class="content">
+						<h4 class="callout-title">
+							<span class="callout-icon-holder mr-1">
+								<i class="fas fa-bullhorn"></i>
+							</span><!--//icon-holder-->
+							Warning
+						</h4>
+						<p>Though there is a placeholder in the number of pages to add, you must enter in a number or you will not be able to add the document.</p>
+					</div><!--//content-->
+				</div><!--//callout-block-->
+			
+		</section><!--//section-->
+		<section class="docs-section" id="item-4-8">
+			<h2 class="section-heading">4.8 Export</h2>
+			<p>Plannotate projects and project content can be exported to a variety of formats, and this can be done directly from the project dashboard or within any project document. When exporting from the project dashboard, users have the option to export the project contents to a CSV file (in two ways) as well as export photos to CSV. On the web client, users have an additional option to download all of the project photos.</p>
+			<figure class="figure docs-figure py-3" (click)="openImage('Export Options on iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/export.png')">
+				<a data-title="Export Options on iPad" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+					src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/export.png" loading="lazy" alt=""
+					style="width: 600px;"></a>
+			
+				<figcaption class="figure-caption mt-3">Export Options on iPad</figcaption>
+			</figure>
+			<figure class="figure docs-figure py-3" (click)="openImage('Export Options on Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/export-web.png')">
+				<a data-title="Export Options on Web" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded"
+					src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-4/export-web.png" loading="lazy" alt=""
+					style="width: 600px;"></a>
+			
+				<figcaption class="figure-caption mt-3">Export Options on Web</figcaption>
+			</figure>
+				
+				
+			
+				<ol>
+					<li><b>Export Project as CSV</b> will generate a CSV file containing metadata information from the project, including document information, pages, annotations, etc.  This output will match the CSV export option from previous versions of Plannotate.</li>
+					
+					<li><b>Export Project as Reporting CSV</b> will generate a CSV file containing metadata information from the project, including document information, pages, annotations, etc. pivoted so that the project contents can be easily accessed using Pivot Tables in Excel. A video with instructions as well as a reporting template can be found on the Plannotate User Community within Microsoft Teams, or on Sharepoint <a href="https://wjeonline.sharepoint.com/sites/PlannotateUserCommunity/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fsites%2FPlannotateUserCommunity%2FShared%20Documents%2FGeneral%2FReporting&FolderCTID=0x012000196114B789A52948AD7E7B039092FD4F" target="_blank">HERE</a>.</li>
+					
+					<li><b>Export Photo</b> will generate a CSV file containing a listing of all photos within the project as well as the URL to access the photo within the Plannotate Viewer.</li>
+					
+					<li><b>Download Media</b> allows Plannotate users to download all project photos to a local drive for access outside of Plannotate.  This option is available only on Plannotate for web.</li>
+					
+				</ol>
+		
+		</section><!--//section-->
+	</header>
+</article>

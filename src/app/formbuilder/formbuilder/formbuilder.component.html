@@ -1,0 +1,2990 @@
+<div class="row col-12 col-md-12 col-lg-12 header-part">
+  <!-- overlay drop disable method -->
+  <div *ngIf="overlay" id="overlay">
+    <div class="text-center" style="font-size: 21px; color: #fff;">
+      <b class="closeText">Your form is now available for use within the project</b><br><br><br>
+      <span>
+        <button class="button1" (click)="closeBoxOverlay()">OK</button></span>
+    </div>
+    <div class="text-center" style=" color: #fff">
+      <br>
+
+    </div>
+    <!-- <div class="image_close">
+      <img src="assets/images/P3_Close-Cancel_White.png" class="img_close" alt="close" (click)="closeBoxOverlay()" />
+    </div> -->
+  </div>
+  <div class="col-3 col-md-3 col-lg-3 row pr-0 form_elements" [ngClass]="{'my-class': permissionDisable}" id="FAQ">
+    <nav id="sidebar " class="col-lg-12 sidebar-nav navbar-white bg-white form_ele" id="style-1">
+      <!--a draggable element-->
+      <div class="fields" *ngFor="let item of fieldModel" [ngClass]="{'my-class':this.userrole == 'view'|| isReadonly || (item.element_type == 'group_field' && groupingFieldPresent)}">
+        <div class="row field pointer shadow-bg" [dndDraggable]="item" [dndEffectAllowed]="'copy'"
+          (dndEnd)="onDragEnd($event, item.element_data.label_text, item)"
+          (click)="this.userrole == 'view'|| isReadonly?'':formelementClick(item, item.element_data.label_text)">
+          <div class="tool-place"  [ngClass]="{'my-class':this.userrole == 'view'|| isReadonly}">
+            <!-- <img [src]="item.icon"> -->
+            <img class="field-img" [src]="icon_object.geticon(item.element_id)" />
+          </div>
+          <div class="col-9">
+            <h5>{{ item.element_name }}</h5>
+          </div>
+        </div>
+      </div>
+      <hr class="hr-area" />
+      <div class="fields row field pointer shadow-bg" (click)="supportPage()">
+        <div class="support-img">
+          <!-- <img [src]="item.icon"> -->
+          <img class="field-img" src="assets/images/icons/P3WebIcon_6Question.png" />
+        </div>
+        <div class="col-9">
+          <h5>Support</h5>
+        </div>
+      </div>
+      <div class="fields row field pointer shadow-bg" (click)="exitPage()">
+        <div class="exit-part">
+          <!-- <img [src]="item.icon"> -->
+          <img class="exit-img" src="assets/images/P3_ArrowLeft.png" />
+        </div>
+        <div class="col-9">
+          <h5>Exit</h5>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div *ngIf="Builder" class="col-5 col-md-5 col-lg-5" style="margin-top: 10px" id="style-1">
+    <div class="row col-12 col-md-12 col-lg-12 dndDroprowArea builder-head">
+
+      <div [ngClass]="{'col-6 col-md-6 col-lg-6': is_extend , 'col-12 col-md-12 col-lg-12': !is_extend  }"
+        class="dndDropAreaouter">
+        <div *ngIf="model.attributes.length == 0" class="row">
+          <div class="empty-area col-lg-12">
+            <div class="img-part col-lg-12">
+              <img class="empty-img" src="assets/images/P3_DragIcon_Grey.png" alt="empty-box" />
+            </div>
+            <div class="text-area col-lg-12">
+              <p class="emptyText">Tap an element to add to the form</p>
+            </div>
+          </div>
+        </div>
+        <section dndDropzone (dndDragover)="this.userrole == 'view'|| isReadonly?'':onDragover($event)"
+          (dndDrop)="this.userrole == 'view'|| isReadonly?'':onDrop($event, model.attributes,extend_model.attributes)"
+          class="dndDropArea" [ngClass]="{ empty: model.attributes.length == 0 }"
+          [style.backgroundColor]="model.theme.bgColor" [style.color]="model.theme.textColor">
+          <div class="field_form example-custom-placeholder"
+            *ngFor="let item of model.attributes; let k = index;let last = last;"
+            (dndStart)="this.userrole == 'view'|| isReadonly?'':onDragStart($event , item)"
+            (dndCanceled)="this.userrole == 'view'|| isReadonly?'':onDragCanceled($event)"
+            (dndMoved)="this.userrole == 'view'|| isReadonly?'':onDragged(item, model.attributes,extend_model.attributes, 'move')"
+            [dndEffectAllowed]="this.userrole == 'view'|| isReadonly?'':'all'"
+            [dndDraggable]="this.userrole == 'view'|| isReadonly?'':item"
+            (click)="this.userrole == 'view'|| isReadonly ?'':showProperties(item, k)"
+            [dndDisableIf]="item.element_type=='uti-entry-field-TIMBER'">
+            <div class="row form-group form-element-main main-content col-12" *ngIf="item.is_removed== false"
+              [ngClass]="{ active: item.toggle && closeBox1} ">
+              <div class="col-lg-12 col-md-12 form-element-sub">
+                <!-- text -->
+                <div *ngIf="item.element_type == 'single_line_text' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <input readonly type="text" class="form-control form-element-text" id="{{ item.name }}"
+                    value="{{ item.element_data.default_value }}" placeholder="{{
+                  item.element_data.default_value == ''||!item.element_data.default_value
+                    ? item.element_data.placeholder_text
+                    : item.element_data.default_value
+                }}" />
+                </div>
+                <!-- label -->
+                <div *ngIf="item.element_type == 'text_label' && item.is_removed== false"
+                  [style.height]="item.height + 'px'">
+                  <label class="form-text lebel-text-main">{{
+                    item.element_data.label_text
+                    }}</label>
+                </div>
+                <!-- label -->
+                <div *ngIf="item.element_type == 'text' && item.is_removed== false" [style.height]="item.height + 'px'">
+                  <label class="form-text lebel-text-main">{{
+                    item.element_data.label_text
+                    }}</label>
+                </div>
+                <!-- number  -->
+                <div *ngIf="item.element_type == 'number'&& item.is_removed== false" [style.height]="item.height + 'px'"
+                  [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <input readonly class="form-control form-element-text" id="{{ item.name }}" min="{{ item.min }}"
+                    max="{{ item.max }}" value="{{ item.element_data.default_value }}" placeholder="{{
+                  item.element_data.default_value == ''||!item.element_data.default_value
+                    ? item.element_data.placeholder_text
+                    : item.element_data.default_value
+                }}" />
+                </div>
+                <!-- dropdown -->
+                <div *ngIf="item.element_type == 'dropdown' && item.is_removed== false" [style.height]="item.height + 'px'" [ngClass]="{
+                                alignment_header: item.element_data.label_align === 'Left'
+                              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                                  alignment: item.element_data.label_align === 'Left'
+                                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                
+                  <select #dropdownselect readonly disabled class="form-control  dropdown-select selectBox-space"
+                    id="{{ item.element_data.name }}" [ngClass]="changeDropdownStyle(item.element_data.options)">
+                    <option class="dropdown-option" value=''>Select an option</option>
+                    <option hidden style="display: none;" class="invisible dropdown-option dropdown-text"
+                      *ngFor="let v of item.element_data.options" [selected]="v.default" [(value)]="v.default">{{ v.name
+                      }}
+                    </option>
+                    <!-- [ngClass]="{'dropdown-text':getdropdownvalue(dropdownselect.value)}" -->
+                    <!-- [ngClass]="{'dropdown-text':dropdownselect.value!='Select an option','dropdown-textcolor':dropdownselect.value==''}"  -->
+                    <!-- <option class="dropdown-option" >Select an option</option> -->
+                  </select>
+                  <!-- <small class="form-text text-muted">{{item.description}}</small> -->
+                
+                </div>
+                <!-- Grouping Field -->
+                <div *ngIf="item.element_type == 'group_field' && item.is_removed== false" [style.height]="item.height + 'px'"
+                [ngClass]="{
+                  alignment_header: item.element_data.label_align === 'Left'
+                }">
+                  <label class="lebel-text-main" [ngClass]="{
+                                    alignment: item.element_data.label_align === 'Left'
+                                  }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <select #dropdownselect readonly disabled class="form-control  dropdown-select selectBox-space"
+                    id="{{ item.element_data.name }}" [ngClass]="changeDropdownStyle(item.element_data.options)">
+                    <option class="dropdown-option" value=''>Select an option</option>
+                    <option hidden style="display: none;" class="invisible dropdown-option dropdown-text"
+                      *ngFor="let v of item.element_data.options" [selected]="v.default" [(value)]="v.default">{{ v.name
+                      }}
+                    </option>
+                  </select>
+                </div>
+                <!-- date -->
+                <div (click)="dateOnly('date')" *ngIf="item.element_type == 'date' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <div class="date-picker-part">
+                    <input readonly class="date-field datepicker" matInput [matDatepicker]="picker"
+                      placeholder="YYYY-MM-DD" [value]="getCurrentDate(item.element_data.default_date_time)" />
+                    <mat-datepicker-toggle class="picker-part" disabled matSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker disabled></mat-datepicker>
+                  </div>
+                </div>
+                <!-- textarea {{ item.element_data.placeholder_text }}-->
+                <div *ngIf="item.element_type == 'text_area' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <textarea readonly class="form-element-text textArea-Text" rows="5"
+                    value="{{ item.element_data.default_value }}" placeholder="{{ item.element_data.placeholder_text }}"
+                    style="resize: none;"></textarea>
+                </div>
+                <!-- checkbox -->
+                <div *ngIf="item.element_type == 'multiple_choice'&& item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">
+                    {{ item.element_data.label_text }}</label>
+                  <div [ngClass]="{
+                  'text-center': item.element_data.label_align === 'Left'
+                }">
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label class="cust-check-bx" *ngIf="v.is_removed==false">
+                        <input readonly disabled type="checkbox" class="multiple-checkbox1"
+                          name="{{ item.element_data.name }}" (click)="toggleValue(v)" [checked]="v.default"
+                          [(ngModel)]="v.default" />
+                        <span class="multiple-name">{{ v.name }}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- radio -->
+                <div [style.height]="item.height + 'px'"
+                  *ngIf="item.element_type == 'single_choice' && item.is_removed== false" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">{{ item.element_data.label_text }}</label>
+                  <div readonly [ngClass]="{
+                  'text-center': item.element_data.label_align === 'Left'
+                }">
+                    <div *ngFor="
+                    let v of item.element_data.options;
+                    let valueIndex = index
+                  " class="inline-form-group">
+                      <label class="cust-check-bx" *ngIf="v.is_removed== false">
+                        <input class="radio-select-option" type="radio" readonly disabled [checked]="v.default"
+                          [(value)]="v.default" (change)="togglevisibility(valueIndex,$event)"
+                          name="{{ item.element_data.name }}" />
+                        {{ v.name }}
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Calculator -->
+                <div *ngIf="item.element_type == 'calculation' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <input readonly type="text" class="form-control form-element-text" id="{{ item.name }}" #filterName
+                    [(ngModel)]="item.element_data.calculation_display_value" placeholder="x + y = z"
+                    (change)="getAnswer()" />
+                </div>
+                <!-- Address -->
+                <div *ngIf="item.element_type == 'address' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <div class="" [ngClass]="{align:item.element_data.label_align === 'Left' && !is_extend }">
+                    <input readonly type="text" class="form-control form-element-text" placeholder="Street" />
+                    <input readonly type="text" class="form-control form-element-text" placeholder="City"
+                      style="margin-top: 4px" />
+                    <div class="row" *ngIf="item.element_data.label_align === 'Top'">
+                      <div class="col-6" style="margin-top: 4px">
+                        <input readonly type="text" class="form-control form-element-text" placeholder="State" />
+                      </div>
+                      <div class="col-6" style="margin-top: 4px">
+                        <input readonly type="text" class="form-control form-element-text" placeholder="Postal Code" />
+                      </div>
+                    </div>
+                    <div *ngIf="item.element_data.label_align === 'Left'">
+                      <input readonly type="text" class="form-control form-element-text" placeholder="State"
+                        style="margin-top: 4px" />
+                      <input readonly type="text" class="form-control form-element-text" placeholder="Postal Code"
+                        style="margin-top: 4px" />
+                    </div>
+                    <input readonly type="text" class="form-control form-element-text" placeholder="Country"
+                      style="margin-top: 4px" />
+                  </div>
+                </div>
+                <!-- divider -->
+                <div *ngIf="item.element_type == 'Divider' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" class="divider-header">
+                  <hr class="divider-hr"
+                    [style.opacity]="item.element_data.opacity==undefined ? 1 : item.element_data.opacity"
+                    [style.BorderWidth.px]="item.element_data.line_width==undefined ?2 : (item.element_data.line_width*2)">
+                </div>
+                <!-- Single checkbox -->
+                <div *ngIf="item.element_type == 'checkbox'&& item.is_removed== false && !item.element_uuid.includes('errorCheckbox')" [style.height]="item.height + 'px'" [ngClass]="{
+                              alignment_header: item.element_data.label_align === 'Left'
+                               }">
+                  <div [ngClass]="{
+                                'text-center': item.element_data.label_align === 'Left'
+                                }">
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label class="cust-check-bx" *ngIf="v.is_removed==false">
+                        <input readonly disabled type="checkbox" class="multiple-checkbox1" name="{{ item.element_data.name }}"
+                          (click)="toggleValue(v)" [checked]="v.default" [(ngModel)]="v.default" />
+                        <span class="multiple-name">{{ v.name }}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Html Forms -->
+                <div *ngIf="item.element_type == 'uti-entry-field'  && item.is_removed== false"
+                  [style.height]="item.height + 'px'">
+                  <div style="background-color: #fff; padding: 5px;">
+                    <div class="row header-table-part1 mb-2">
+                      <div *ngFor="let item of item.element_data.fields;" class="col-lg-2 col-sm-2 table-lable-head">
+                        <div class="form-group mycontrol dropdown-label">
+                          <label class="label-cl1">{{item.element_name}}</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button (click)="custom_form_click()" class="col-lg-12 htmlAddbtn">+ ADD</button>
+                    <label style="padding:5px">Assigned Quantities</label>
+                    <div class="LabelDis b-g">
+                      <ng-container *ngFor="let item1 of item.element_data.fields;">
+                        <div *ngIf="item1.element_type=='single_choice'" style="display: flex;width: 100%">
+                          <div *ngFor="let item2 of item1.element_data.options;" class="table-lable-head2">
+                            <label class="label-cl1">{{item2.name}}</label>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <hr style="margin:3px 0px">
+                    <div class="LabelDis">
+                      <ng-container *ngFor="let item1 of item.element_data.fields;">
+                        <div *ngIf="item1.element_type=='single_choice'" style="display: flex;width: 100%">
+                          <div *ngFor="let item2 of item1.element_data.options;" class="table-lable-head2">
+                            <label class="label-cl1">0</label>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <label style="padding:5px">Unrated Quantity</label>
+                  </div>
+                </div>
+                <!-- Html Forms WMATA -->
+                <div *ngIf="item.element_type == 'uti-entry-field-WMATA'  && item.is_removed== false"
+                  [style.height]="item.height + 'px'">
+                  <div style="background-color: #fff; padding: 5px;">
+                    <!-- <div class="row header-table-part1 mb-2">
+                  <div *ngFor="let item of item.element_data.fields;" [ngClass]="{'col-lg-1':item.element_name=='Decibels' || item.element_name=='Comment' || item.element_name=='Flag for Review?',
+                  'col-lg-2':item.element_name=='Location Depth (inches)' || item.element_name=='Previous Condition?' || item.element_name=='Condition'}"
+                   class="col-lg-2 col-sm-2 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl1">{{item.element_name}}</label>
+                    </div>
+                  </div>
+                </div> -->
+                    <button class="col-lg-12 htmlAddbtn">+ ADD</button>
+                    <!-- <label style="padding:5px">Assigned Quantities</label>
+                <div class="LabelDis b-g">
+                  <ng-container *ngFor="let item1 of item.element_data.fields;">
+                    <div *ngIf="item1.element_type=='single_choice'" style="display: flex;width: 100%">
+                      <div *ngFor="let item2 of item1.element_data.options;" class="table-lable-head2">
+                        <label class="label-cl1">{{item2.name}}</label>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <hr style="margin:3px 0px">
+                <div class="LabelDis">
+                  <ng-container *ngFor="let item1 of item.element_data.fields;">
+                    <div *ngIf="item1.element_type=='single_choice'" style="display: flex;width: 100%">
+                      <div *ngFor="let item2 of item1.element_data.options;" class="table-lable-head2">
+                        <label class="label-cl1">0</label>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <label style="padding:5px">Unrated Quantity</label> -->
+                  </div>
+                </div>
+                <!-- empty cell -->
+                <div [style.height]="item.height + 'px'" style="cursor: default;"
+                  *ngIf="item.element_type == 'empty_cell' && item.is_removed== false">
+                </div>
+                <!-- HTML forms timber -->
+                <div *ngIf="item.element_type == 'uti-entry-field-TIMBER' && item.is_removed== false"
+                  class="timber-form-head-parent">
+                  <app-timberform name="formbuilder" [custom_form_timber]="timber_form_datas"></app-timberform>
+                </div>
+                <!-- HTML forms WMATA_WELD -->
+                <div *ngIf="item.element_type=='uti-entry-field-WMATA_WELD' && item.is_removed == false && item.is_hidden==0"
+                  class="timber-form-head-parent">
+                  <div style="padding-top: 10px;" class="row">
+                    <div class="col-lg-12">
+                      <table id="myList" class="leftSideTable">
+                        <thead class="head">
+                          <tr>
+                            <th class="tablehead">Weld Id</th>
+                            <th class="tablehead">Repair Type</th>
+                            <th class="tablehead">Entire</th>
+                          </tr>
+                        </thead>
+                        <tbody class="body" id="left">
+                          <tr *ngFor="let item of formContentleft;let i = index" [attr.id]="idkey + i">
+                            <td>
+                              <p>
+                                {{item.Weld}}
+                              </p>
+                            </td>
+                            <td>
+                              <p>
+                                {{item.Repair}}
+                              </p>
+                            </td>
+                            <td>
+                              <p>
+                                {{item.Entire}}
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div *ngIf="!formShow">
+                    <button (click)="add()" class="col-lg-12 htmlAddbtn"> ADD</button>
+                  </div>
+                  <div *ngIf="formShow">
+                    <form [formGroup]="weld_FormStructure" (ngSubmit)="onSubmit(weldform)" #weldform="ngForm">
+                      <div class="row" style="margin-left: 0px">
+                        <div class="form-row col-lg-12">
+                          <label class="weldlabel" style="font-size:14px" for="weld">(16)Weld ID</label>
+                          <br>
+                          <input type="text" class="col-lg-12 inputfield" id="weld" formControlName="weldId" name="weldname">
+                        </div>
+                        <div style="margin-left:1px;" class="form-row vertical-align">
+                          <label class="weldlabel" for="entire" class="col-lg-12">
+                            <input type="checkbox" id="entire" formControlName="areaEntire" name="areaEntire">
+                            (18A)Area Examined - Entire
+                          </label>
+                        </div>
+                        <div style="margin-left:6px" class="form-row">
+                          <hr class="divider-hr-weld">
+                        </div>
+                        <div style="margin-left:-10px" class="form-row col-lg-12">
+                          <div class="mudiyala col-lg-12">
+                            <label class="weldlabel">(19) Interpretation</label>
+                            <select class="inputfield selectweld" formControlName="interpretation" name="intervalue">
+                              <option value="Accept">Accept</option>
+                              <option value="Reject">Reject</option>
+                            </select>
+                          </div>
+                        </div>
+                        <button class="col-lg-12 htmlAddbtn"> Done</button>
+                      </div>
+                    </form>
+                  </div>
+                
+                </div>
+              </div>
+              <!-- <div class="col-lg-1 col-md-1 threeline" *ngIf="item.element_type != 'empty_cell'">
+            <a><i class="fas fa-bars"></i></a>
+          </div> -->
+              <!--optional placeholder element for dropzone-->
+              <!--will be removed from DOM on init-->
+            </div>
+          </div>
+          <!-- <div class="row form-group form-element-main main-content col-lg-11 col-md-11form-element-sub">
+        <div class="col-lg-12 col-md-12">
+                <div class="row header-table-part4">
+                  <div class="col-lg-2 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Location<br>Depth<br>(inches)</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Decibels</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Previous<br />Condition?</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Flag for<br>Review?</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Condition</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Comment</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Edit</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 table-lable-head">
+                    <div class="form-group mycontrol dropdown-label">
+                      <label class="label-cl">Delete</label>
+                    </div>
+                  </div>
+                </div>
+        </div>
+       </div> -->
+          <div class="dndPlaceholder" dndPlaceholderRef></div>
+        </section>
+      </div>
+      <div *ngIf="is_extend" class="col-6 col-md-6 col-lg-6 dndDropAreaouter_extend">
+        <div *ngIf="extend_model.attributes.length == 0" class="row">
+          <div class="empty-area col-lg-12">
+            <div class="img-part col-lg-12">
+              <img class="empty-img" src="assets/images/P3_DragIcon_Grey.png" alt="empty-box" />
+            </div>
+            <div class="text-area col-lg-12">
+              <p class="emptyText">Tap an element to add to the form</p>
+            </div>
+          </div>
+        </div>
+        <section dndDropzone (dndDragover)="this.userrole == 'view'|| isReadonly?'':onDragover($event)"
+          (dndDrop)="this.userrole == 'view'|| isReadonly?'':extend_onDrop($event, model.attributes,extend_model.attributes)"
+          class="dndDropArea" [ngClass]="{ empty: extend_model.attributes.length == 0 }"
+          [style.backgroundColor]="extend_model.theme.bgColor" [style.color]="extend_model.theme.textColor">
+          <div class="field_form example-custom-placeholder" *ngFor="let item of extend_model.attributes; let k = index"
+            (dndStart)="this.userrole == 'view'|| isReadonly?'':onDragStart($event , item)"
+            (dndCanceled)="this.userrole == 'view'|| isReadonly?'':onDragCanceled($event)"
+            (dndMoved)="this.userrole == 'view'|| isReadonly?'':extend_onDragged(item, model.attributes,extend_model.attributes, 'move')"
+            [dndEffectAllowed]="this.userrole == 'view'|| isReadonly?'':'all'"
+            [dndDraggable]="this.userrole == 'view'|| isReadonly?'':item"
+            (click)="this.userrole == 'view'|| isReadonly ?'':extend_showProperties(item, k)">
+            <div class="row form-group form-element-main main-content col-12" *ngIf="item.is_removed== false"
+              [ngClass]="{ active: item.toggle && closeBox2} ">
+              <div class=" col-lg-12 col-md-12 form-element-sub">
+                <!-- text -->
+                <div [style.height]="item.height + 'px'"
+                  *ngIf="item.element_type == 'single_line_text' && item.is_removed== false" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <input readonly type="text" class="form-control form-element-text" id="{{ item.name }}"
+                    value="{{ item.element_data.default_value }}" placeholder="{{
+                  item.element_data.default_value == ''||!item.element_data.default_value
+                    ? item.element_data.placeholder_text
+                    : item.element_data.default_value
+                }}" />
+                </div>
+                <!-- label -->
+                <div *ngIf="item.element_type == 'text_label' && item.is_removed== false"
+                  [style.height]="item.height + 'px'">
+                  <label class="form-text lebel-text-main">{{
+                    item.element_data.label_text
+                    }}</label>
+                </div>
+                <!-- label -->
+                <div *ngIf="item.element_type == 'text' && item.is_removed== false" [style.height]="item.height + 'px'">
+                  <label class="form-text lebel-text-main">{{
+                    item.element_data.label_text
+                    }}</label>
+                </div>
+                <!-- number  -->
+                <div *ngIf="item.element_type == 'number'&& item.is_removed== false" [style.height]="item.height + 'px'"
+                  [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <input readonly class="form-control form-element-text" id="{{ item.name }}" min="{{ item.min }}"
+                    max="{{ item.max }}" value="{{ item.element_data.default_value }}" placeholder="{{
+                  item.element_data.default_value == ''||!item.element_data.default_value
+                    ? item.element_data.placeholder_text
+                    : item.element_data.default_value
+                }}" />
+                </div>
+                <!-- dropdown -->
+                <div *ngIf="item.element_type == 'dropdown' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+
+                  <select #dropdownselect readonly disabled class="form-control  dropdown-select selectBox-space"
+                    id="{{ item.element_data.name }}" [ngClass]="changeDropdownStyle(item.element_data.options)">
+                    <option class="dropdown-option" value=''>Select an option</option>
+                    <option hidden style="display: none;" class="invisible dropdown-option dropdown-text"
+                      *ngFor="let v of item.element_data.options" [selected]="v.default" [(value)]="v.default">{{ v.name
+                      }}
+                    </option>
+                    <!-- [ngClass]="{'dropdown-text':getdropdownvalue(dropdownselect.value)}" -->
+                    <!-- [ngClass]="{'dropdown-text':dropdownselect.value!='Select an option','dropdown-textcolor':dropdownselect.value==''}"  -->
+                    <!-- <option class="dropdown-option" >Select an option</option> -->
+                  </select>
+                  <!-- <small class="form-text text-muted">{{item.description}}</small> -->
+
+                </div>
+                <!-- Grouping Field -->
+                <div *ngIf="item.element_type == 'group_field' && item.is_removed== false" [style.height]="item.height + 'px'"
+                [ngClass]="{
+                  alignment_header: item.element_data.label_align === 'Left'
+                }">
+                  <label class="lebel-text-main" [ngClass]="{
+                                    alignment: item.element_data.label_align === 'Left'
+                                  }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <select #dropdownselect readonly disabled class="form-control  dropdown-select selectBox-space"
+                    id="{{ item.element_data.name }}" [ngClass]="changeDropdownStyle(item.element_data.options)">
+                    <option class="dropdown-option" value=''>Select an opion</option>
+                    <option hidden style="display: none;" class="invisible dropdown-option dropdown-text"
+                      *ngFor="let v of item.element_data.options" [selected]="v.default" [(value)]="v.default">{{ v.name
+                      }}
+                    </option>
+                  </select>
+                </div>
+                <!-- date -->
+                <div (click)="dateOnly('date')" *ngIf="item.element_type == 'date' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <div class="date-picker-part">
+                    <input readonly class="date-field datepicker" matInput [matDatepicker]="picker"
+                      placeholder="YYYY-MM-DD" [value]="getCurrentDate(item.element_data.default_date_time)" />
+                    <mat-datepicker-toggle class="picker-part" disabled matSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker disabled></mat-datepicker>
+                  </div>
+                </div>
+                <!-- textarea {{ item.element_data.placeholder_text }}-->
+                <div id="textes" *ngIf="item.element_type == 'text_area' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <textarea readonly class="form-element-text textArea-Text" rows="5"
+                    value="{{ item.element_data.default_value }}" placeholder="{{ item.element_data.placeholder_text }}"
+                    style="resize: none;"></textarea>
+                </div>
+                <!-- checkbox -->
+                <div *ngIf="item.element_type == 'multiple_choice'&& item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label class="lebel-text-main" [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">
+                    {{ item.element_data.label_text }}</label>
+                  <div [ngClass]="{
+                  'text-center': item.element_data.label_align === 'Left'
+                }">
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label class="cust-check-bx" *ngIf="v.is_removed==false">
+                        <input readonly disabled type="checkbox" class="multiple-checkbox1"
+                          name="{{ item.element_data.name }}" (click)="toggleValue(v)" [checked]="v.default"
+                          [(ngModel)]="v.default" />
+                        <span class="multiple-name">{{ v.name }}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- radio -->
+                <div *ngIf="item.element_type == 'single_choice' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">{{ item.element_data.label_text }}</label>
+                  <div readonly [ngClass]="{
+                  'text-center': item.element_data.label_align === 'Left'
+                }">
+                    <div *ngFor="
+                    let v of item.element_data.options;
+                    let valueIndex = index
+                  " class="inline-form-group">
+                      <label class="cust-check-bx" *ngIf="v.is_removed== false">
+                        <input class="radio-select-option" type="radio" readonly disabled [checked]="v.default"
+                          [(value)]="v.default" (change)="extend_togglevisibility(valueIndex,$event)"
+                          name="{{ item.element_data.name }}" />
+                        {{ v.name }}
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Calculator -->
+                <div *ngIf="item.element_type == 'calculation' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <input readonly type="text" class="form-control form-element-text" id="{{ item.name }}" #filterName
+                    [(ngModel)]="item.element_data.calculation_display_value" placeholder="x + y = z"
+                    (change)="getAnswer()" />
+                </div>
+                <!-- Address -->
+                <div *ngIf="item.element_type == 'address' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+                alignment_header: item.element_data.label_align === 'Left'
+              }">
+                  <label [ngClass]="{
+                  alignment: item.element_data.label_align === 'Left'
+                }" class="lebel-text-main pl-0">{{ item.element_data.label_text }}</label>
+                  <label *ngIf="item.required" class="text-danger">*</label>
+                  <div class="" [ngClass]="{align:item.element_data.label_align === 'Left' && !is_extend }">
+                    <input readonly type="text" class="form-control form-element-text" placeholder="Street" />
+                    <input readonly type="text" class="form-control form-element-text" placeholder="City"
+                      style="margin-top: 4px" />
+                    <div class="row" *ngIf="item.element_data.label_align === 'Top'">
+                      <div class="col-6" style="margin-top: 4px">
+                        <input readonly type="text" class="form-control form-element-text" placeholder="State" />
+                      </div>
+                      <div class="col-6" style="margin-top: 4px">
+                        <input readonly type="text" class="form-control form-element-text" placeholder="Postal Code" />
+                      </div>
+                    </div>
+                    <div *ngIf="item.element_data.label_align === 'Left'">
+                      <input readonly type="text" class="form-control form-element-text" placeholder="State"
+                        style="margin-top: 4px" />
+                      <input readonly type="text" class="form-control form-element-text" placeholder="Postal Code"
+                        style="margin-top: 4px" />
+                    </div>
+                    <input readonly type="text" class="form-control form-element-text" placeholder="Country"
+                      style="margin-top: 4px" />
+                  </div>
+                </div>
+                <!-- divider -->
+                <div *ngIf="item.element_type == 'Divider' && item.is_removed== false"
+                  [style.height]="item.height + 'px'" class="divider-header">
+                  <hr class="divider-hr"
+                    [style.opacity]="item.element_data.opacity==undefined ? 1 : item.element_data.opacity"
+                    [style.BorderWidth.px]="item.element_data.line_width==undefined ?2 : (item.element_data.line_width*2)">
+                </div>
+                <!-- Single checkbox -->
+                <div *ngIf="item.element_type == 'checkbox'&& item.is_removed== false && !item.element_uuid.includes('errorCheckbox')"
+                  [style.height]="item.height + 'px'" [ngClass]="{
+              alignment_header: item.element_data.label_align === 'Left'
+            }">
+                  <div [ngClass]="{
+                'text-center': item.element_data.label_align === 'Left'
+              }">
+                    <div *ngFor="let v of item.element_data.options" class="inline-form-group">
+                      <label class="cust-check-bx" *ngIf="v.is_removed==false">
+                        <input readonly disabled type="checkbox" class="multiple-checkbox1"
+                          name="{{ item.element_data.name }}" (click)="toggleValue(v)" [checked]="v.default"
+                          [(ngModel)]="v.default" />
+                        <span class="multiple-name">{{ v.name }}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Html Forms -->
+                <div *ngIf="item.element_type == 'uti-entry-field' && item.is_removed== false"
+                  [style.height]="item.height + 'px'">
+                  <div style="background-color: #fff; padding: 5px;">
+                    <div class="row header-table-part1 mb-2">
+                      <div *ngFor="let item of item.element_data.fields;" class="col-lg-2 col-sm-2 table-lable-head">
+                        <div class="form-group mycontrol dropdown-label">
+                          <label class="label-cl1">{{item.element_name}}</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="col-lg-12 htmlAddbtn">+ ADD</button>
+                    <label style="padding:5px">Assigned Quantities</label>
+                    <div class="LabelDis b-g">
+                      <ng-container *ngFor="let item1 of item.element_data.fields;">
+                        <div *ngIf="item1.element_type=='single_choice'" style="display: flex;width: 100%">
+                          <div *ngFor="let item2 of item1.element_data.options;" class="table-lable-head2">
+                            <label class="label-cl1">{{item2.name}}</label>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <hr style="margin:3px 0px">
+                    <div class="LabelDis">
+                      <ng-container *ngFor="let item1 of item.element_data.fields;">
+                        <div *ngIf="item1.element_type=='single_choice'" style="display: flex;width: 100%">
+                          <div *ngFor="let item2 of item1.element_data.options;" class="table-lable-head2">
+                            <label class="label-cl1">0</label>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <label style="padding:5px">Unrated Quantity</label>
+                  </div>
+                </div>
+                <!-- HTML forms WMATA_WELD -->
+                <div *ngIf="item.element_type=='uti-entry-field-WMATA_WELD' && item.is_removed == false && item.is_hidden==0"
+                  class="timber-form-head-parent">
+                  <div style="padding-top: 10px;" class="row">
+                    <div class="col-lg-12">
+                      <table id="right" class="rightSideTable">
+                        <thead class="head">
+                          <tr>
+                            <th class="tablehead">Specific</th>
+                            <th class="tablehead">Interpretation</th>
+                            <th class="tablehead">Remarks</th>
+                          </tr>
+                        </thead>
+                        <tbody class="body">
+                          <tr *ngFor="let item of formContentright; let i = index" [attr.id]="idkey + i">
+                            <td>
+                              <p>
+                                {{item.Specific}}
+                              </p>
+                            </td>
+                            <td>
+                              <p>
+                                {{item.Interpretation}}
+                              </p>
+                            </td>
+                            <td>
+                              <p>
+                                {{item.Remarks}}
+                              </p>
+                            </td>
+                            <td style="background-color: #e8e8e8;border: none;">
+                              <img src="assets/images/P3_Close-Cancel_Blue.png" style="cursor: pointer;" class="imgclose" alt="close"
+                                (click)="deleterow(i)" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div style="margin-left: -9px;" *ngIf="formShow">
+                    <form [formGroup]="weld_FormStructure" (ngSubmit)="onSubmit(weldform)" #weldform="ngForm">
+                      <div class="row" style="margin-left: 0px">
+                        <div class="form-row col-lg-12">
+                          <label for="repair" class="weldlabel">(17)Repair Type</label>
+                          <br>
+                          <input type="text" class="col-lg-12 inputfield" id="repair" formControlName="repairType" name="repairname">
+                        </div>
+                        <div class="form-row col-lg-12">
+                          <label for="areaspec" class="weldlabel">(18B)Area Examined - Specific</label>
+                          <br>
+                          <input type="text" class="col-lg-12 inputfield" id="areaspec" formControlName="areaSpecific" name="specname">
+                        </div>
+                        <div class="form-row hrmargin">
+                          <hr class="divider-hr-weld">
+                        </div>
+                        <div class="form-row col-lg-12">
+                          <label for="rem" class="weldlabel">(20) Remarks</label>
+                          <br>
+                          <input type="text" class="col-lg-12 inputfield" id="rem" formControlName="remarks" name="remname">
+                        </div>
+                        <!-- <button class="col-lg-12 htmlAddbtn"> Done</button> -->
+                      </div>
+                    </form>
+                  </div>
+                
+                </div>
+                <div [style.height]="item.height + 'px'" style="cursor: default;  "
+                  *ngIf="item.element_type == 'empty_cell' && item.is_removed== false">
+
+                </div>
+
+                <!-- [style.visibility]="item.element_type == 'empty_cell' ? visible : ''" -->
+              </div>
+              <!-- <div *ngIf="item.element_type != 'empty_cell'" class="col-lg-2 col-md-2 threeline">
+            <a><i class="fas fa-bars"></i></a>
+          </div> -->
+              <!--optional placeholder element for dropzone-->
+              <!--will be removed from DOM on init-->
+            </div>
+          </div>
+          <div class="dndPlaceholder" dndPlaceholderRef></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!closeBox1 && Builder && !closeBox2" class="col-lg-4 col-md-4 dummy-setting-head">
+    <div *ngIf="custom_forms && !support" class="custom-form" (click)="custom_form_click()"></div>
+  </div>
+
+  <div *ngIf="closeBox1 || closeBox2" class="col-4 col-md-4 col-lg-4 settings_portion setting-head-cus">
+    <div *ngIf="custom_forms && !support" class="custom-form" (click)="custom_form_click()"></div>
+    <div *ngIf="closeBox1" [ngClass]="{'my-class': permissionDisable}"
+      class="row col-12 col-md-12 col-lg-12 setting-head" style="margin-top: 10px"
+      [ngClass]="{ 'border-set': setBorder }">
+      <nav id="sidebar" class="navbar-light settings">
+        <div class="header container-fluid">
+          <h3 class="header-heading">Settings</h3>
+          <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox(item)" />
+          </div>
+        </div>
+      <mat-dialog-content class="content-adjust">
+        <div class="content-area" id="style-1">
+          <div class="field_form" *ngFor="let item of model.attributes; let i = index">
+            <div *ngIf="item.toggle" class="toggle-Wrapper">
+              <div *ngIf="item.element_type != 'Divider'" class="form-group mycontrol">
+                <label>Label Text</label>
+                <input class="form-control propinp placeholderColor font-weight-setting" type="text" (paste)="myFunction($event)" 
+                   placeholder="{{ labelText }}" [(ngModel)]="labelText" (change)="labelnewUpdateAuc(item)" (click)="checkfocus(labelText,item)"
+                  (ngModelChange)="firstLetterCapitalLabel(labelText,item)" (paste)="onPaste(labelText,$event)"/>
+              </div> 
+              <div style="margin-top: 10px">
+              <div *ngIf="item.element_type != 'Divider' && item.element_type != 'checkbox' && item.element_type != 'group_field'"
+                class="form-group mycontrol">
+                <label>Label Align</label>
+                <mat-button-toggle-group name="fontStyle" class="mat-toggle-group" aria-label="Font Style"
+                  [(ngModel)]="item.element_data.label_align" #group="matButtonToggleGroup" [value]="item.element_data.label_align"
+                  (change)="onValChange(group.value,item)">
+                  <mat-button-toggle style="line-height: 0px" [ngClass]="{
+                                    'bg-set': item.element_data.label_align == 'Top'
+                                  }" aria-checked="true" value="Top" class="lineadjust col-6">Top
+                  </mat-button-toggle>
+                  <mat-button-toggle style="line-height: 0px" [ngClass]="{
+                                    'bg-set': item.element_data.label_align == 'Left'
+                                  }" class="lineadjust col-6" value="Left">
+                    Left</mat-button-toggle>
+                </mat-button-toggle-group>
+              </div>
+                </div>
+                <div *ngIf="item.element_type != 'Divider'" style="margin-top: 10px">
+                  <!-- Commented the below excel column name due to P31-202 ticket -->
+                  <!-- <div class="form-group mycontrol">
+                  <label>Excel Column Name</label>
+                  <input class="form-control propinp placeholderColor font-weight-setting" type="text"
+                    placeholder="{{ item.element_data.element_name_alias }}"
+                    [(ngModel)]="item.element_data.element_name_alias"
+                    (ngModelChange)="exelColumNameChange(item.element_data.element_name_alias,item)" />
+                </div> -->
+                  <div *ngIf="item.element_type == 'date' && item.is_removed== false" class="mt-2">
+                    <label>Default Date </label>
+                  </div>
+                  <mat-button-toggle-group *ngIf="item.element_type == 'date' && item.is_removed== false"
+                    name="fontStyle" class="mat-toggle-group mt-1" aria-label="Font Style" #defaultTime="ngModel"
+                    [(ngModel)]="item.element_data.default_date_time">
+                    <div class="buttongroup top-but col-6" (click)="dateNone(item.element_data,item)"
+                      [ngClass]="{'stopTrigger': defaultTime.value != 'current' }">
+                      <mat-button-toggle style="line-height: 0px"
+                        [ngClass]="{ 'bg-set': defaultTime.value != 'current', 'stopTrigger': defaultTime.value != 'current' }"
+                        [checked]="defaultTime.value != 'current'" value="none" class="lineadjust">None
+                      </mat-button-toggle>
+                    </div>
+                    <div class="buttongroup left-but col-6" (click)="hideDefault(item.element_data)">
+                      <mat-button-toggle style="line-height: 0px"
+                        [ngClass]="{ 'bg-set': defaultTime.value == 'current' }" class="lineadjust"
+                        [checked]="defaultTime.value == 'current'" value="current">
+                        Current</mat-button-toggle>
+                    </div>
+                  </mat-button-toggle-group>
+                  <div *ngIf="DateDefault">
+                    <div *ngIf="item.element_type == 'date' && item.is_removed== false" class="mt-2">
+                      <label>Default Value </label>
+                    </div>
+                    <div *ngIf="item.element_type == 'date' && item.is_removed== false">
+                      <div class="date-picker-part">
+                        <input readonly class="date-field" #ref (click)="picker.open()" matInput
+                          [matDatepicker]="picker" placeholder="YYYY-MM-DD"
+                          (dateChange)="changedateLocal(item,ref.value)"
+                          [value]="getCurrentDate(item.element_data.default_date_time)" />
+                        <div matSuffix class="image-close">
+                          <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close"
+                            (click)="clearDate(item)" />
+                        </div>
+                        <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+                        <mat-datepicker #picker></mat-datepicker>
+                      </div>
+                      <!-- <input
+                    type="date"
+                    class="form-control"
+                    placeholder="yyyy-MM-dd"
+                    placeholder=""
+                  /> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group mycontrol mt-2" *ngIf="
+                  item.element_type == 'number' ||
+                  item.element_type == 'single_line_text' ||
+                  item.element_type == 'text_area'
+                ">
+                <label>Placeholder Text (Optional)</label>
+                <input class="form-control propinp placeholderColor font-weight-setting" type="text"
+                (keyup)="valueupdateplaceholderText($event)" placeholder="{{ placeholderText }}" (click)="checkfocus_placeholder(placeholderText)"
+                  [(ngModel)]="placeholderText" (ngModelChange)="firstLetterCapitalPlaceholdertext(placeholderText,item)" />
+              </div>
+                <div class="form-group mycontrol" *ngIf="
+                  item.element_type == 'text_area' ||
+                 
+                  item.element_type == 'single_line_text'
+                " style="margin-top: 10px">
+                  <label>Default Value (Optional)</label>
+                  <input class="form-control propinp default-value-field placeholderColor" type="text"
+                    [(ngModel)]="item.element_data.default_value" (paste)="myFunction($event)"
+                    (change)="defaultValueChange($event,item)" #inputText />
+                </div>
+                <div class="form-group mycontrol" *ngIf="
+                  item.element_type == 'number'||
+                 
+                  item.element_type == 'Number'" style="margin-top: 10px">
+                  <label>Default Value (Optional)</label>
+                  <input id="inputBox" type="text" (click)="defaultValue()"
+                    class="form-control propinp default-value-field placeholderColor"
+                    [(ngModel)]="item.element_data.default_value" (change)="defaultValueChange($event,item)"
+                    #inputText />
+                </div>
+                <!-- <hr *ngIf="item.element_type=='single_line_text'">  (keydown)="checkNumbersOnly($event,inputText, item)"-->
+                <!-- number -->
+                <div *ngIf="item.element_type == 'number' && item.is_removed== false" class="row"
+                  style="margin-top: 10px">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label>Minimum Value (Optional)</label>
+                      <input class="form-control placeholderColor" id="inputBox1" type="number" (click)="minimumvalue()"
+                        placeholder="0.0" (change)="minValueCheck($event, inputText,item)"
+                        [(ngModel)]="item.element_data.minimum_value" #inputText />
+                    </div>
+                    <!-- (keydown)="checkLength2($event, inputText,item)" -->
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group placeholderColor">
+                      <label>Maximum Value (Optional)</label>
+                      <input class="form-control" type="number" (change)="maxValueCheck($event, inputText,item)"
+                        placeholder="10000.0" [(ngModel)]="item.element_data.maximum_value" #inputText />
+                    </div>
+                  </div>
+                </div>
+                <div class="row form-group mycontrol" *ngIf="
+                  item.element_type == 'dropdown' ||
+                  item.element_type == 'single_choice' ||
+                  item.element_type == 'multiple_choice' ||
+                  item.element_type == 'checkbox'
+                " style="margin-top: 20px">
+                  <div class="col-8"><label>Use Calculated Values :</label></div>
+                  <div class="col-4 checkbox">
+                    <!-- <mat-checkbox></mat-checkbox> -->
+                    <!-- <input
+                    type="checkbox"
+                    name="useclculatedvalue"
+                    class="usecondition-checkbox"
+                  /> -->
+                    <mat-slide-toggle (change)="getResult($event, item)"
+                      [checked]="item.element_data.use_calculated_values"></mat-slide-toggle>
+                  </div>
+                  <hr>
+                </div>
+                <!-- <hr
+                class="calculated-hr"
+                *ngIf="item.element_type == 'dropdown' || 'single_choice'"
+              /> -->
+                <hr *ngIf="item.element_type == 'dropdown'">
+                <div class="row form-group mycontrol" *ngIf="
+                                          item.element_type == 'dropdown'" style="margin-top: 20px">
+                  <div class="col-8"><label>Blank Option </label></div>
+                  <div class="col-4 checkbox">
+                    <mat-slide-toggle (change)="getIs_blank_opion($event, item)"
+                      [checked]="item.element_data.hasOwnProperty('is_blank_option') ? getblankoption(item) : false">
+                    </mat-slide-toggle>
+                  </div>
+                </div>
+                <!-- aaaaaaaaaaaa -->
+                <!-- radio || checkbox || autocomplete -->
+                <div *ngIf="
+              item.element_type == 'single_choice' ||
+              item.element_type == 'multiple_choice' ||
+              item.element_type == 'dropdown' ||item.element_type == 'checkbox' && item.is_removed== false
+            " class="row col-lg-12">
+                  <label>Options</label>
+                </div>
+                <!-- <div *ngIf="item.element_type == 'dropdown' && item.is_removed== false" class="blank-option-head">
+                <input type="radio" id="blankoption" name="blankoptioninput" class="blank-option" value="true">
+                <label for="blankoption">Required blank option?(Optional)</label>
+              </div> -->
+                <div class="table-section" *ngIf="
+                  item.element_type == 'single_choice' ||
+                  item.element_type == 'multiple_choice' ||
+                  item.element_type == 'dropdown' || item.element_type == 'checkbox'  && item.is_removed== false
+                ">
+                  <div class="row header-table-part mb-2">
+                    <div class="col-lg-4 col-sm-4 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Options</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2 pl-0 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Default</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-3 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Calculated<br />Values</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Attributes</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div cdkDropList [cdkDropListData]="item.element_data.options" (cdkDropListDropped)="drop($event)">
+                    <ng-container *ngFor="let i of item.element_data.options;let valueIndex = index">
+                      <div class="row table-value-head example-list" *ngIf="i.is_removed== false" cdkDrag>
+                        <div class="col-lg-4">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="form-control propinp input-field empty-field" type="text"
+                              [placeholder]="firstLetterCapitaldefaultValue(valueIndex,i.name,i,item)"
+                              [ngModel]="validateOptionText(i.name,i.element_uuid)"
+                              (ngModelChange)="firstLetterCapitalOptionName(i.name,i,$event,item)"
+                              [disabled]="i.hasOwnProperty('is_blank_field')" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'multiple_choice'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="input-field multiple-checkbox" type="checkbox" #checkReasult
+                              aria-checked="i.default" [(ngModel)]="i.default" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'checkbox'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="input-field multiple-checkbox" type="checkbox" #checkReasult
+                              aria-checked="i.default" [(ngModel)]="i.default" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'single_choice'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="propinp input-field dropdown-checkbox-single" type="checkbox" #checkReasult1
+                              aria-checked="i.default" [(ngModel)]="i.default"
+                              (change)="togglevisibility(valueIndex,$event)" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'dropdown'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="propinp input-field dropdown-checkbox-dropdown" type="checkbox" #checkReasult1
+                              aria-checked="i.default" [(ngModel)]="i.default"
+                              (change)="togglevisibility(valueIndex,$event)" />
+                          </div>
+                        </div>
+                        <div class="col-lg-2 pr-0" [ngClass]="{
+                      optionAccessStop: !item.element_data.use_calculated_values
+                    }">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <!-- [(ngModel)]="i.value" -->
+                            <input [ngClass]="{ borderC: item.element_data.use_calculated_values == true }"
+                              class="form-control propinp input-field" placeholder="123" type="number"
+                              (change)="ChnageClaculateValue(item,i.element_uuid,i.calculated_value)"
+                              [(ngModel)]="i.calculated_value" />
+                          </div>
+                        </div>
+                        <div>
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <button class="add-button" [ngClass]="{ addGreen: i.attributes == true }"
+                              (click)="addOption(item,valueIndex,i.element_uuid)" *ngIf="item.is_removed== false"
+                              [disabled]="item.element_type == 'multiple_choice' ? true : false">
+                              {{ i.attributes != true ? "Add" : "Edit" }}
+                            </button>
+                            <!--[disabled]="item.element_type == 'multiple_choice'"-->
+                          </div>
+                        </div>
+                        <div class="col-lg-1">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <!-- <label
+                        (click)="
+                          item.element_data.options.splice(valueIndex, 1)
+                        "
+                        > -->
+                            <label *ngIf="item.element_type != 'checkbox'" (click)="deleteOption(item, valueIndex)"
+                              [style.pointerEvents]="i.hasOwnProperty('is_blank_field') ? 'none' : 'auto'">
+                              <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close1"
+                                alt="close" /></label>
+                          </div>
+                        </div>
+                        <div class="threeline" *ngIf="i.is_removed== false" cdkDragHandle>
+                          <a><i class="fas fa-bars"></i></a>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="pt-3" *ngIf="item.element_type == 'group_field'">
+                  <ng-container class="container">
+                    <div class="row col-12 errorBox pb-2">
+                      <div class="col-lg-6 icon-head">
+                        <label class="style-label">Not Started</label>
+                      </div>
+                      <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                        <input class="input-field multiple-checkbox" type="checkbox"
+                        (click)="checkbox_grouping(item,$event.target.checked,0)" [checked]="notStartedDefault" />
+                      </div>
+                      <div class="col-lg-5 select-box-head-grouping">
+                        <select class="select-box selectBox-space" aria-placeholder="No Change"
+                          (change)="attributeUpdate_Group(item,$event.target.value,'not_started')">
+                          <option class="icon-clr" *ngFor="let fill of fillColor
+                                              let i = index" [selected]="fill == selectionNSvalue" [(value)]="fillColor[i]">
+                            {{ fill }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container class="container">
+                    <div class="row col-12 errorBox pb-2">
+                      <div class="col-lg-6 icon-head">
+                        <label class="style-label">In Progress</label>
+                      </div>
+                      <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                        <input class="input-field multiple-checkbox" type="checkbox" 
+                        (click)="checkbox_grouping(item,$event.target.checked,1)" [checked]="inProgressDefault" />
+                      </div>
+                      <div class="col-lg-5 select-box-head-grouping">
+                        <select class="select-box selectBox-space" aria-placeholder="No Change"
+                          (change)="attributeUpdate_Group(item,$event.target.value,'inprogress')">
+                          <option class="icon-clr" *ngFor="let fill of fillColor
+                                              let i = index" [selected]="fill == selectionIPvalue" [(value)]="fillColor[i]">
+                            {{ fill }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container class="container">
+                    <div class="row col-12 errorBox pb-2">
+                      <div class="col-lg-6 icon-head">
+                        <label class="style-label">Completed</label>
+                      </div>
+                      <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                        <input class="input-field multiple-checkbox" type="checkbox"
+                        (click)="checkbox_grouping(item,$event.target.checked,2)" [checked]="completedDefault" />
+                      </div>
+                      <div class="col-lg-5 select-box-head-grouping">
+                        <select class="select-box selectBox-space" aria-placeholder="No Change"
+                          (change)="attributeUpdate_Group(item,$event.target.value,'completed')">
+                          <option class="icon-clr" *ngFor="let fill of fillColor
+                                               let i = index" [selected]="fill == selectionCompvalue" [(value)]="fillColor[i]">
+                            {{ fill }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container class="container">
+                    <div class="row col-12 errorBox pb-2">
+                      <div class="col-lg-6 icon-head">
+                        <label class="style-label">Error</label>
+                      </div>
+                      <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                        <input class="input-field multiple-checkbox" type="checkbox"
+                        (click)="checkbox_grouping(item,$event.target.checked,3)" [checked]="errorDefault"/>
+                      </div>
+                      <div class="col-lg-5 select-box-head-grouping">
+                        <select class="select-box selectBox-space" aria-placeholder="No Change"
+                          (change)="attributeUpdate_Group(item,$event.target.value,'error')">
+                          <option class="icon-clr" *ngFor="let fill of fillColor
+                                              let i = index" [selected]="fill == selectionErrvalue" [(value)]="fillColor[i]">
+                            {{ fill }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="row" *ngIf="item.element_type == 'group_field'">
+                  <div class="col-lg-8 pl-2">
+                    <mat-slider #linewidthgrouping min="1.00" step="0.01" max="10"
+                      (change)="changelinewidthgrouping(linewidthgrouping.value,i)"
+                      [(ngModel)]="linewidthvaluegrouping" class="slider" style="width: 250px" id="myRangeto">
+                    </mat-slider>
+                  </div>
+                  <div class="col-lg-3  input-part-opacity">
+                    <input id="linemappingdivider" name="linewidth" type="number" min="1" max="10"
+                      class="input-field opacity-area" [(ngModel)]="linewidthvaluegrouping" [value]=""
+                      (focusout)="novalueOut1Grouping($event,linewidthgrouping.value,i)"
+                      (keydown)="stop($event,linewidthgrouping.value)"
+                      (keyup)="checklineWidthforgroupingBox($event,linewidthvaluegrouping,i)" />
+                  </div>
+                </div>
+                <div *ngIf="
+                  item.element_type === 'dropdown' ||
+                  item.element_type === 'single_choice' ||
+                  item.element_type === 'multiple_choice'  && item.is_removed== false 
+                ">
+                  <div class="row mt-2">
+                    <div class="col-lg-5">
+                      <button class="btn btn-block add-button" (click)="addValue(item.element_data.options)">
+                        Add More
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="addPositiveValues">
+                  <div class="row mt-5">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Option:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <input readonly class="form-control propinp input-field style-label12" type="text"
+                        [(ngModel)]="OptionName" (change)="attributeUpdate(item,$event.target.value,'shape')" />
+                    </div>
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Icon:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate(item,$event.target.value,'icon')">
+                        <option class="icon-clr" *ngFor="let icon of iconShape; let i = index" [(value)]="icon.Shape"
+                          [selected]="icon.Shape == selectionIconValue">
+                          {{ icon.Shape }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Fill Color:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate(item,$event.target.value,'fill')">
+                        <!-- #fillColor="ngModel" [ngModel]="item.element_data.options.fill_color" -->
+                        <!-- <option class="icon-clr" selected value="">No Changes</option> -->
+                        <!-- <option class="icon-clr" *ngFor="let fillColor of fillColorPart"
+                        [selected]="showOptions.fill_color == fillColor"> -->
+                        <option class="icon-clr" *ngFor="let fill of fillColor
+                        let i = index" [selected]="fill == selectionFillValue" [(value)]="fillColor[i]">
+                          {{ fill }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Stroke Color:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate(item,$event.target.value,'stroke')">
+                        <!-- <option selected value="">No Changes</option> -->
+                        <!-- <option class="icon-clr" *ngFor="let strokeColor of strokeColorPart"
+                        [selected]="showOptions.stroke_color == strokeColor"> -->
+                        <option class="icon-clr" *ngFor="let stroke of strokeColor
+                        let i = index" [selected]="stroke==selectionStrokeValue" [(value)]="strokeColor[i]">
+                          {{ stroke }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Opacity</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+                        <mat-slider min="0" step="0.01" max="1" [(ngModel)]="showOptions.opacity" class="slider"
+                          style="width: 275px"></mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+                      <input class="input-field opacity-area" placeholder="0" name="opacity" [value]="ngModel"
+                        [(ngModel)]="showOptions.opacity" />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Line Width</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+                        <!-- <mat-slider min="1" max="25" [(ngModel)]="showOptions.line_width" [value]="showOptions.line_width"
+                        class="slider" style="width: 275px" id="myRange"></mat-slider> -->
+                        <mat-slider #linewidthslider min="1" max="50" (change)="changeLineWidth(linewidthslider.value)"
+                          [(ngModel)]="lineWidthValue" class="slider" style="width: 275px" id="myRange"></mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+                      <!-- <input readonly class="input-field opacity-area" placeholder="0" name="linewidth" [value]="ngModel"
+                      [(ngModel)]="showOptions.line_width" type="text" /> -->
+                      <input id="linemapping" name="linewidth" type="number" min="1.0" max="50.0"
+                        class="input-field opacity-area" [(ngModel)]="lineWidthbox"
+                        (focusout)="novalueOut($event,linewidthslider.value)"
+                        (keydown)="stop($event,linewidthslider.value)" placeholder="0"
+                        (ngModelChange)="checklineWidth($event,linewidthslider.value)" />
+                    </div>
+                  </div>
+                </div>
+                <!-- <div *ngIf="
+                  item.element_type == 'single_choice' ||
+                  item.element_type == 'multiple_choice'
+                " class="row mt-2">
+                <div class="col-lg-6 icon-head pr-0">
+                  <lable class="style-label">Number of Columns :</lable>
+                </div>
+                <div class="col-lg-6 select-box-head">
+                  <select class="select-box" aria-placeholder="No Change">
+                    <option disabled selected>No Changes</option>
+                    <option *ngFor="let indexBase of columnsAdd">
+                      {{ indexBase }}
+                    </option>
+                  </select>
+                </div>
+              </div> -->
+                <!-- Calculator -->
+                <div *ngIf="item.element_type == 'calculation'" class="row">
+                  <div class="col-12">
+                    <div class="form-group mb-0">
+                      <label (click)="getAnswer()">Calculation</label>
+                      <!-- <input class="form-control" type="text" [(ngModel)]="item.min" /> -->
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-12 base mb-2">
+                        <div class="maindisplay cursor">
+                          <!-- <input id="text-element" type="text" name="calculated_value"
+                          class="form-control calculation-field" (keydown)="movekeyUp($event)"
+                          (keyup)="insertCharKeyPad($event.target.value,$event)" placeholder="Calculation Area"
+                          [(ngModel)]="item.element_data.calculation_display_value" autocomplete="off" /> -->
+                          <input id="text-element" type="text" name="calculated_value"
+                            class="form-control calculation-field" (keydown)="movekeyUp($event)"
+                            (keyup)="insertChar1('')" placeholder="Calculation Area"
+                            [(ngModel)]="item.element_data.calculation_display_value" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-warning btn-block calcultor-button" (click)="insertChar1('1')">
+                          1
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('2')">
+                          2
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('3')">
+                          3
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('4')">
+                          4
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('5')">
+                          5
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('6')">
+                          6
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('7')">
+                          7
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('8')">
+                          8
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('9')">
+                          9
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('0')">
+                          0
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button [disabled]="disable_calculation_seperator"
+                          class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('+')">
+                          +
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button [disabled]="disable_calculation_seperator"
+                          class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('-')">
+                          &#8722;
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-2">
+                        <button [disabled]="disable_calculation_seperator"
+                          class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('*')">
+                          &lowast;
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button [disabled]="disable_calculation_seperator"
+                          class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('/')">
+                          /
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('(')">
+                          &#10088;
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1(')')">
+                          &#10089;
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('.')">
+                          .
+                        </button>
+                      </div>
+
+                      <!-- <div class="dropdown">
+                                            <button type="button" class="btn btn-secondary dropdown-toggle btn-block calcultor-button" 
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                >&#8230;</button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">Abs()</a>
+                                                    <a class="dropdown-item" href="#">floor()</a>
+                                                    <a class="dropdown-item" href="#">ceil()</a>
+                                                    <a class="dropdown-item" href="#">max()</a>
+                                                    <a class="dropdown-item" href="#">min()</a>
+                                                </div>
+                                        </div> -->
+                      <!-- <div ngbDropdown class="col-2 d-inline-block dropdown-head">
+                      <button
+                        class="btn btn-secondary calcultor-button dropdowndot"
+                        id="dropdownMenuButton"
+                        ngbDropdownToggle
+                      >
+                        &#8230;
+                      </button>
+                      <div
+                        class="dropdown-set"
+                        ngbDropdownMenu
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <button
+                          ngbDropdownItem
+                          class="math-fu nction"
+                          (click)="insertChar('Abs()')"
+                        >
+                          Abs()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('floor()')"
+                        >
+                          floor()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('ceil()')"
+                        >
+                          ceil()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('max()')"
+                        >
+                          max()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('min()')"
+                        >
+                          min()
+                        </button>
+                      </div>
+                    </div> -->
+
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="buttonClear()">
+                          &#8592;
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-2">
+                        <button [disabled]="disable_calculation_seperator"
+                          class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('^')">
+                          ^
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('√')">
+                          <img class="size-level" src="assets/images/icons/icons8-square-root-100.png">
+                          <!-- <span>√</span> -->
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div ngbDropdown class="col-12">
+                        <button class="btn btn-block Add_Button" (click)="openNumberField()">
+                          Add Field
+                        </button>
+                        <div class="dropdown-set-field" ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                          <button ngbDropdownItem class="btn-value-des" *ngFor="let lablefield; of"
+                            (click)="insertChar1(lablefield)">
+                            {{ lablefield }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Number of Decimal Start-->
+                <div *ngIf="item.element_type == 'calculation'" class="row noofdecial-head">
+                  <div class="col-lg-6">
+                    <label fpr="noOfDecimal" class="decimal-label">Number of Decimals</label>
+                  </div>
+                  <div class="col-lg-6">
+
+                    <input type="text" name="noofdecimal" id="noOfDecimal" maxlength="10" placeholder="1"
+                      [(ngModel)]="defaultDecimal"
+                      (keydown)="changeDecimalValue($event.target.value,$event,noofdecimal)" (change)="emptyDrop()"
+                      class="form-control placeholderColor" #noofdecimal />
+
+                  </div>
+                </div>
+                <!-- Number of Decimal End-->
+                <!-- Use Condition -->
+                <div class="row form-group mycontrol" *ngIf="item.element_type == 'text_area'
+              ||item.element_type == 'single_line_text'
+              ||item.element_type == 'number'
+              ||item.element_type == 'dropdown'
+              ||item.element_type == 'multiple_choice'
+              ||item.element_type == 'single_choice'
+              ||item.element_type == 'date'
+              ||item.element_type == 'calculation'
+              ||item.element_type == 'divider'
+              ||item.element_type == 'checkbox' " style="margin-top:6px;">
+                  <div class="col-8"><label>Use Conditions :</label>
+                  </div>
+                  <div class="col-4 checkbox">
+                    <!-- <input
+                                      type="checkbox"
+                                      class="usecondition-checkbox"
+                                      name="usecondition"
+                                      aria-checked="useCondition.value"
+                                      (click)="togglevar(useCondition.value)"
+                                      #useCondition="ngModel"
+                                      [(ngModel)]="useConditionIntialCheck"
+                                    /> -->
+                    <mat-slide-toggle name="usecondition" aria-checked="useCondition.value"
+                      (click)="togglevar(item.element_data.use_conditions,item.element_data)" #useCondition="ngModel"
+                      [(ngModel)]="item.element_data.use_conditions">
+                    </mat-slide-toggle>
+                    <!-- [(ngModel)]="item.element_data.use_conditions" -->
+                  </div>
+                  <ng-container *ngIf="item.element_type == 'checkbox'">
+                    <div class="col-8"><label>Grouping Enable :</label></div>
+                  <div class="col-4 checkbox">
+                    <mat-slide-toggle name="groupAnnotations" 
+                    (change)="grpAnnsCheck($event, item)" [disabled] = "groupAnnAlreadyEnabled" [checked]="item.element_data.grouping_enable">
+                    </mat-slide-toggle>
+                  </div>
+                  </ng-container>
+                  <div *ngIf="useCondition.value" class="col-12">
+                    <div class="row mb-4">
+                      <div class="col-lg-12 select-box-head">
+                        <select class="select-box-condition" [(ngModel)]="item.element_data.if_condition"
+                          (change)="useConditionOption(item.element_data.if_condition,item.element_data)"
+                          aria-placeholder="No Change">
+                          <option value="" disabled selected hidden>
+                            Select a Field
+                          </option>
+                          <option disabled value="">
+                            Select
+                          </option>
+
+                          <ng-container *ngFor="let item of useconditionlist;">
+
+                            <option
+                              *ngIf="item.is_removed== false && (item.element_type!='Divider') && (item.element_type!='text_label') && item.element_name!='Multiple Choice' && item.element_type!='multiple_choice'"
+                              [value]=" item.element_uuid" [selected]="item.default == true">
+                              {{ item.element_data.label_text }}
+
+                            </option>
+                            <option
+                              *ngIf="item.element_name=='Multiple Choice' || item.element_type=='multiple_choice' && item.is_removed== false"
+                              [value]=" item.element_uuid" [selected]="item.default == true">
+                              {{ item.element_data.options[0].name}}
+
+                            </option>
+                          </ng-container>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-4">
+                      <div class="col-lg-12 select-box-head">
+                        <select class="select-box-condition" #fieldState="ngModel"
+                          (change)="conditionChange($event.target.value,item)" [(ngModel)]="item.element_data.if_state"
+                          aria-placeholder="No Change">
+                          <option value="" disabled selected hidden>
+                            Select a Field State
+                          </option>
+                          <option disabled value="">
+                            Select
+                          </option>
+                          <option *ngIf="addressCheck!='address'" value="is equal to"
+                            [selected]="fieldState.value == 'is equal to'">
+                            is Equal To
+                          </option>
+                          <option *ngIf="addressCheck!='address'" value="is not equal to"
+                            [selected]="fieldState.value == 'is not equal to'">
+                            is Not Equal To
+                          </option>
+                          <option value="is empty" [selected]="fieldState.value == 'is empty'">
+                            is Empty
+                          </option>
+                          <option value="is filled" [selected]="fieldState.value == 'is filled'">
+                            is Filled
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row mb-4"
+                      *ngIf="selected_feld_state=='is equal to'||selected_feld_state=='is not equal to'">
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="selectedItem_element_type=='text_area'|| selectedItem_element_type=='single_line_text' ||selectedItem_element_type=='text_label'||selectedItem_element_type=='calculation'||selectedItem_element_type=='address'">
+                        <input type="text" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="selectedItem_element_type=='date'">
+                        <!-- <div class="date-picker-part">
+                        <input readonly class="date-field" #ref (click)="picker.open()" matInput [matDatepicker]="picker"
+                          placeholder="YYYY-MM-DD" (dateChange)="changedateLocal(item,ref.value)"
+                          [value]="getCurrentDate(item.element_data.default_date_time)" />
+                          <div matSuffix class="image-close">
+                            <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close" (click)="clearDate(item)" />
+                          </div>
+                          <<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> 
+                       <mat-datepicker #picker></mat-datepicker> -->
+
+                        <div class="date-picker-part-If w-100">
+
+                          <input style="border: none" readonly class="date-field" matInput (click)="picker2.open()"
+                            [matDatepicker]="picker2" placeholder="Select a Value"
+                            value="{{ item.element_data.default_value }}" [(ngModel)]="item.element_data.if_value"
+                            (change)="saveSelectValue($event.target.value,item)" />
+                          <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+                          <div matSuffix class="image-close">
+                            <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close"
+                              (click)="clearDateIf(item)" />
+                          </div>
+                          <mat-datepicker #picker2></mat-datepicker>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="selectedItem_element_type=='number'">
+                        <input type="number" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="selectedItem_element_type=='single_choice'||selectedItem_element_type=='dropdown'||selectedItem_element_type=='multiple_choice'||selectedItem_element_type=='checkbox'">
+                        <select class="form-control form-element-text dropdown-select selectBox-space"
+                          [(ngModel)]="item.element_data.if_value">
+                          <option class="dropdown-option" value="">Select an option</option>
+                          <!-- <option hidden style="display: none;" class="invisible dropdown-option"
+                      *ngFor="let v of selectOptions" >{{ v.name }}
+                      </option> -->
+                          <option *ngFor="let v of selectOptions; let k = index" [value]="v.element_uuid"
+                            [selected]="k == 0">
+                            {{ v.name }}
+                          </option>
+                        </select>
+                      </div>
+
+                    </div>
+                    <!------------------------------------------------------------------------------>
+
+                    <!-- <div class="row mb-4" *ngIf="selected_feld_state=='is empty'||selected_feld_state=='is filled'"> -->
+                    <div class="row mb-4" style="display: none;">
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="pickedItem_element_type=='text_area'|| pickedItem_element_type=='single_line_text' ||pickedItem_element_type=='text_label'||pickedItem_element_type=='calculation'||pickedItem_element_type=='address'">
+                        <input type="text" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="pickedItem_element_type=='date'">
+                        <mat-form-field appearance="fill" class="form-control">
+                          <input style="border: none" matInput [matDatepicker]="picker" placeholder="YYYY-MM-DD "
+                            value="{{ item.element_data.default_value }}" [(ngModel)]="item.element_data.if_value"
+                            (change)="saveSelectValue($event.target.value,item)" />
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="pickedItem_element_type=='number'">
+                        <input type="number" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="pickedItem_element_type=='single_choice'||pickedItem_element_type=='dropdown'||pickedItem_element_type=='multiple_choice'||pickedItem_element_type=='checkbox'">
+                        <select class="form-control form-element-text dropdown-select selectBox-space"
+                          [(ngModel)]="item.element_data.if_value" (change)="hide(item)">
+                          <option class="dropdown-option" value="" disabled selected hidden>Select a Value</option>
+                          <option class="dropdown-option" value="" disabled>Select</option>
+                          <!-- <option hidden style="display: none;" class="invisible dropdown-option"
+                      *ngFor="let v of selectOptions" >{{ v.name }}
+                      </option> -->
+                          <option *ngFor="let v of pickedItem_selectOption; let k = index" [value]="v.element_uuid"
+                            [selected]="k == 0">
+                            {{ v.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!------------------------------------------------------------------------------>
+                    <div class="row">
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="selected_feld_state=='is equal to' ||selected_feld_state=='is not equal to' || selected_feld_state=='is empty'||selected_feld_state=='is filled'">
+                        <select class="select-box-condition" #hideShow="ngModel" [(ngModel)]="item.element_data.if_do"
+                          (change)="hide(item)" aria-placeholder="No Change">
+                          <option value="" disabled selected hidden>
+                            Select a Condition Action
+                          </option>
+                          <option value="" disabled>Select</option>
+                          <option value='hide'>
+                            Hide
+                          </option>
+                          <option value='show'>
+                            Show
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr *ngIf="item.element_type == 'text_area'
+              ||item.element_type == 'single_line_text'
+              ||item.element_type == 'number'
+              ||item.element_type == 'dropdown'
+              ||item.element_type == 'multiple_choice'
+              ||item.element_type == 'single_choice'
+              ||item.element_type == 'date'
+              ||item.element_type == 'calculation'
+              ||item.element_type == 'checkbox' 
+              " class="line-adjust hr-value" />
+                <div *ngIf="item.element_type =='Divider'">
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Opacity</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+                        <mat-slider #opacitydivider min="0.10" step="0.01" max="1" [(ngModel)]="opacitydividervalue"
+                          class="slider" style="width: 275px" (change)="changeopacitydivider(opacitydivider.value,i)">
+                        </mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+                      <input id="opacitymappingdivider" name="opacity" type="number" min="1" max="10"
+                        class="input-field opacity-area" [(ngModel)]="opacitydividervalue"
+                        (focusout)="novalueOut2($event,opacitydivider.value,i)"
+                        (keydown)="stop($event,opacitydivider.value)"
+                        (keyup)="opacity1($event,opacitydivider.value,i)" />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Line Width</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+
+                        <mat-slider #linewidthdivider min="1.00" step="0.01" max="10"
+                          (change)="changelinewidthdivider(linewidthdivider.value,i)"
+                          [(ngModel)]="linewidthvaluedivider" class="slider" style="width: 275px" id="myRangeto">
+                        </mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+
+                      <input id="linemappingdivider" name="linewidth" type="number" min="1" max="10"
+                        class="input-field opacity-area" [(ngModel)]="linewidthvaluedivider" [value]=""
+                        (focusout)="novalueOut1($event,linewidthdivider.value,i)"
+                        (keydown)="stop($event,linewidthdivider.value)"
+                        (keyup)="checklineWidthfordivider($event,linewidthvaluedivider,i)" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-dialog-content>
+        <!-- delete and copy -->
+        <!-- <div class="footerSection">
+        <div class="copy-img-head">
+          <img class="copy-img" src="assets/images/icons/P3WebIcon_29Copy.png" (click)="copy()" />
+        </div>
+        <div class="delete-img-head">
+          <img class="delete-img" src="assets/images/icons/P3WebIcon_15Trash.png" (click)="removeField(item)" />
+        </div>
+      </div> -->
+        <div class="footerS container-fluid">
+          <div>
+            <img class="copy-img" src="assets/images/icons/P3WebIcon_29Copy.png" class="img-copy" (click)="copy()" />
+          </div>
+          <div>
+            <img class="delete-img" src="assets/images/icons/P3WebIcon_15Trash.png" class="img-delete"
+              (click)="removeField()" />
+          </div>
+        </div>
+    </nav>
+  </div>
+ 
+  <div *ngIf="closeBox2" [ngClass]="{'my-class': permissionDisable}" class="row col-12 col-md-12 col-lg-12 extend_setting-head"
+    style="margin-top: 10px" [ngClass]="{ 'border-set': setBorder }">
+    <nav id="sidebar" class="navbar-light settings">
+      <div class="header container-fluid">
+        <h3 class="header-heading">Settings</h3>
+        <div class="image-close">
+          <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox(item)" />
+        </div>
+      </div>
+      <mat-dialog-content class="content-adjust">
+        <div class="content-area" id="style-1">
+          <div class="field_form" *ngFor="let item of extend_model.attributes; let i = index">
+            <div *ngIf="item.toggle"  class="toggle-Wrapper">
+              <div *ngIf="item.element_type != 'Divider'" class="form-group mycontrol">
+                <label>Label Text</label>
+                <input class="form-control propinp placeholderColor" type="text" (paste)="myFunction($event)" 
+                   placeholder="{{ labelText }}" [(ngModel)]="labelText" (change)="labelnewUpdateAuc(item)" (click)="checkfocus(labelText,item)"
+                  (ngModelChange)="firstLetterCapitalLabel(labelText,item)" (paste)="onPaste(labelText,$event)"/>
+              </div>
+              <div class="pt-3" *ngIf="item.element_type == 'group_field'">
+                <ng-container class="container">
+                  <div class="row col-12 errorBox pb-2">
+                    <div class="col-lg-6 icon-head">
+                      <label class="style-label">Not Started</label>
+                    </div>
+                    <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                      <input class="input-field multiple-checkbox" type="checkbox"
+                      (click)="checkbox_grouping(item,$event.target.checked,0)" [checked]="notStartedDefault" />
+                    </div>
+                    <div class="col-lg-5 select-box-head-grouping">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate_Group(item,$event.target.value,'not_started')">
+                        <option class="icon-clr" *ngFor="let fill of fillColor
+                            let i = index" [selected]="fill == selectionNSvalue" [(value)]="fillColor[i]">
+                          {{ fill }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container class="container">
+                  <div class="row col-12 errorBox pb-2">
+                    <div class="col-lg-6 icon-head">
+                      <label class="style-label">In Progress</label>
+                    </div>
+                    <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                      <input class="input-field multiple-checkbox" type="checkbox" 
+                      (click)="checkbox_grouping(item,$event.target.checked,1)" [checked]="inProgressDefault" />
+                    </div>
+                    <div class="col-lg-5 select-box-head-grouping">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate_Group(item,$event.target.value,'inprogress')">
+                        <option class="icon-clr" *ngFor="let fill of fillColor
+                            let i = index" [selected]="fill == selectionIPvalue" [(value)]="fillColor[i]">
+                          {{ fill }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container class="container">
+                  <div class="row col-12 errorBox pb-2">
+                    <div class="col-lg-6 icon-head">
+                      <label class="style-label">Completed</label>
+                    </div>
+                    <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                      <input class="input-field multiple-checkbox" type="checkbox"
+                      (click)="checkbox_grouping(item,$event.target.checked,2)" [checked]="completedDefault" />
+                    </div>
+                    <div class="col-lg-5 select-box-head-grouping">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate_Group(item,$event.target.value,'completed')">
+                        <option class="icon-clr" *ngFor="let fill of fillColor
+                             let i = index" [selected]="fill == selectionCompvalue" [(value)]="fillColor[i]">
+                          {{ fill }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container class="container">
+                  <div class="row col-12 errorBox pb-2">
+                    <div class="col-lg-6 icon-head">
+                      <label class="style-label">Error</label>
+                    </div>
+                    <div class="col-lg-1 mycontrol1 pt-3 form-group dropdown-value">
+                      <input class="input-field multiple-checkbox" type="checkbox"
+                      (click)="checkbox_grouping(item,$event.target.checked,3)" [checked]="errorDefault"/>
+                    </div>
+                    <div class="col-lg-5 select-box-head-grouping">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate_Group(item,$event.target.value,'error')">
+                        <option class="icon-clr" *ngFor="let fill of fillColor
+                            let i = index" [selected]="fill == selectionErrvalue" [(value)]="fillColor[i]">
+                          {{ fill }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="row" *ngIf="item.element_type == 'group_field'">
+                <div class="col-lg-8 pl-2">
+                  <mat-slider #linewidthgrouping min="1.00" step="0.01" max="10"
+                    (change)="changelinewidthgrouping(linewidthgrouping.value,i)"
+                    [(ngModel)]="linewidthvaluegrouping" class="slider" style="width: 250px" id="myRangeto">
+                  </mat-slider>
+                </div>
+                <div class="col-lg-3  input-part-opacity">
+                  <input id="linemappingdivider" name="linewidth" type="number" min="1" max="10"
+                    class="input-field opacity-area" [(ngModel)]="linewidthvaluegrouping" [value]=""
+                    (focusout)="novalueOut1Grouping($event,linewidthgrouping.value,i)"
+                    (keydown)="stop($event,linewidthgrouping.value)"
+                    (keyup)="checklineWidthforgroupingBox($event,linewidthvaluegrouping,i)" />
+                </div>
+              </div>
+              <div style="margin-top: 10px">
+              <div *ngIf="item.element_type != 'Divider' && item.element_type != 'checkbox' && item.element_type != 'group_field'" class="form-group mycontrol" >
+                    <label>Label Align</label>
+                    <mat-button-toggle-group name="fontStyle" class="mat-toggle-group" aria-label="Font Style"
+                      [(ngModel)]="item.element_data.label_align" #group="matButtonToggleGroup"
+                      [value]="item.element_data.label_align" (change)="onValChange(group.value,item)">
+                      <mat-button-toggle style="line-height: 0px" [ngClass]="{
+                      'bg-set': item.element_data.label_align == 'Top'
+                    }" aria-checked="true" value="Top" class="lineadjust col-6">Top
+                      </mat-button-toggle>
+                      <mat-button-toggle style="line-height: 0px" [ngClass]="{
+                      'bg-set': item.element_data.label_align == 'Left'
+                    }" class="lineadjust col-6" value="Left">
+                        Left</mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <hr />
+                  </div>
+                </div>
+                <div *ngIf="item.element_type != 'Divider'">
+                  <!-- <div class="form-group mycontrol">
+                  <label>Excel Column Name</label>
+                  <input class="form-control propinp placeholderColor" type="text"
+                    placeholder="{{ item.element_data.element_name_alias }}"
+                    [(ngModel)]="item.element_data.element_name_alias"
+                    (ngModelChange)="exelColumNameChange(item.element_data.element_name_alias,item)" />
+                </div> -->
+                  <div *ngIf="item.element_type == 'date' && item.is_removed== false" class="mt-2">
+                    <label>Default Date </label>
+                  </div>
+                  <mat-button-toggle-group *ngIf="item.element_type == 'date' && item.is_removed== false"
+                    name="fontStyle" class="mat-toggle-group mt-1" aria-label="Font Style" #defaultTime="ngModel"
+                    [(ngModel)]="item.element_data.default_date_time">
+                    <div class="buttongroup top-but col-6" (click)="dateNone(item.element_data,item)"
+                      [ngClass]="{'stopTrigger': defaultTime.value != 'current' }">
+                      <mat-button-toggle style="line-height: 0px"
+                        [ngClass]="{ 'bg-set': defaultTime.value != 'current', 'stopTrigger': defaultTime.value != 'current' }"
+                        [checked]="defaultTime.value != 'current'" value="none" class="lineadjust">None
+                      </mat-button-toggle>
+                    </div>
+                    <div class="buttongroup left-but col-6" (click)="hideDefault(item.element_data)">
+                      <mat-button-toggle style="line-height: 0px"
+                        [ngClass]="{ 'bg-set': defaultTime.value == 'current' }" class="lineadjust"
+                        [checked]="defaultTime.value == 'current'" value="current">
+                        Current</mat-button-toggle>
+                    </div>
+                  </mat-button-toggle-group>
+                  <div *ngIf="DateDefault">
+                    <div *ngIf="item.element_type == 'date' && item.is_removed== false" class="mt-2">
+                      <label>Default Value </label>
+                    </div>
+                    <div *ngIf="item.element_type == 'date' && item.is_removed== false">
+                      <div class="date-picker-part">
+                        <input readonly class="date-field" #ref (click)="picker.open()" matInput
+                          [matDatepicker]="picker" placeholder="YYYY-MM-DD"
+                          (dateChange)="changedateLocal(item,ref.value)"
+                          [value]="getCurrentDate(item.element_data.default_date_time)" />
+                        <div matSuffix class="image-close">
+                          <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close"
+                            (click)="clearDate(item)" />
+                        </div>
+                        <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+                        <mat-datepicker #picker></mat-datepicker>
+                      </div>
+                      <!-- <input
+                    type="date"
+                    class="form-control"
+                    placeholder="yyyy-MM-dd"
+                    placeholder=""
+                  /> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group mycontrol mt-2" *ngIf="
+                  item.element_type == 'number' ||
+                  item.element_type == 'single_line_text' ||
+                  item.element_type == 'text_area'
+                ">
+                <label>Placeholder Text (Optional)</label>
+                <input class="form-control propinp placeholderColor" type="text"
+                (keyup)="valueupdateplaceholderText($event)" placeholder="{{ placeholderText }}" (click)="checkfocus_placeholder(placeholderText)"
+                  [(ngModel)]="placeholderText" (ngModelChange)="firstLetterCapitalPlaceholdertext(placeholderText,item)" />
+              </div>
+
+                <div class="form-group mycontrol" *ngIf="
+                  item.element_type == 'text_area' ||
+                 
+                  item.element_type == 'single_line_text'
+                " style="margin-top: 10px">
+                  <label>Default Value (Optional)</label>
+                  <input class="form-control propinp default-value-field placeholderColor" type="text"
+                    (paste)="myFunction($event)" [(ngModel)]="item.element_data.default_value"
+                    (change)="defaultValueChange($event,item)" #inputText />
+                </div>
+                <div class="form-group mycontrol" *ngIf="
+                  item.element_type == 'number'||
+                 
+                  item.element_type == 'Number'" style="margin-top: 10px">
+                  <label>Default Value (Optional)</label>
+                  <input id="inputBox" type="text" (click)="defaultValue()"
+                    class="form-control propinp default-value-field placeholderColor"
+                    [(ngModel)]="item.element_data.default_value" (change)="defaultValueChange($event,item)"
+                    #inputText />
+                </div>
+                <!-- <hr *ngIf="item.element_type=='single_line_text'">  (keydown)="checkNumbersOnly($event,inputText, item)"-->
+                <!-- number -->
+                <div *ngIf="item.element_type == 'number' && item.is_removed== false" class="row"
+                  style="margin-top: 10px">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label>Minimum Value (Optional)</label>
+                      <input class="form-control placeholderColor" id="inputBox1" type="number" (click)="minimumvalue()"
+                        placeholder="0.0" (change)="minValueCheck($event, inputText,item)"
+                        [(ngModel)]="item.element_data.minimum_value" #inputText />
+                    </div>
+                    <!-- (keydown)="checkLength2($event, inputText,item)" -->
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group placeholderColor">
+                      <label>Maximum Value (Optional)</label>
+                      <input class="form-control" type="number" (change)="maxValueCheck($event, inputText,item)"
+                        placeholder="10000.0" [(ngModel)]="item.element_data.maximum_value" #inputText />
+                    </div>
+                  </div>
+                </div>
+                <div class="row form-group mycontrol" *ngIf="
+                  item.element_type == 'dropdown' ||
+                  item.element_type == 'single_choice' ||
+                  item.element_type == 'multiple_choice' ||
+                  item.element_type == 'checkbox'
+                " style="margin-top: 20px">
+                  <div class="col-8"><label>Use Calculated Values :</label></div>
+                  <div class="col-4 checkbox">
+                    <!-- <mat-checkbox></mat-checkbox> -->
+                    <!-- <input
+                    type="checkbox"
+                    name="useclculatedvalue"
+                    class="usecondition-checkbox"
+                  /> -->
+                    <mat-slide-toggle (change)="getResult($event, item)"
+                      [checked]="item.element_data.use_calculated_values"></mat-slide-toggle>
+                  </div>
+                </div>
+                <!-- <hr
+                class="calculated-hr"
+                *ngIf="item.element_type == 'dropdown' || 'single_choice'"
+              /> -->
+
+                <!-- radio || checkbox || autocomplete -->
+                <hr *ngIf="item.element_type == 'dropdown'">
+                <div class="row form-group mycontrol" *ngIf="
+                                          item.element_type == 'dropdown'" style="margin-top: 20px">
+                  <div class="col-8"><label>Blank Option </label></div>
+                  <div class="col-4 checkbox">
+                    <mat-slide-toggle (change)="getIs_blank_opion($event, item)"
+                      [checked]="item.element_data.hasOwnProperty('is_blank_option') ? getblankoption(item) : false">
+                    </mat-slide-toggle>
+                  </div>
+                </div>
+                <div *ngIf="
+              item.element_type == 'single_choice' ||
+              item.element_type == 'multiple_choice' ||
+              item.element_type == 'dropdown' ||item.element_type == 'checkbox' && item.is_removed== false"
+                  class="row col-lg-12">
+                  <label>Options</label>
+                </div>
+                <div class="table-section" *ngIf="
+                  item.element_type == 'single_choice' ||
+                  item.element_type == 'multiple_choice' ||
+                  item.element_type == 'dropdown' ||item.element_type == 'checkbox' && item.is_removed== false
+                ">
+                  <div class="row header-table-part mb-2">
+                    <div class="col-lg-4 col-sm-4 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Options</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2 pl-0 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Default</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-3 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Calculated<br />Values</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 table-lable-head">
+                      <div class="form-group mycontrol dropdown-label">
+                        <label class="label-cl">Attributes</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div cdkDropList [cdkDropListData]="item.element_data.options" (cdkDropListDropped)="drop($event)">
+                    <ng-container *ngFor="let i of item.element_data.options; let valueIndex = index">
+                      <div class="row table-value-head example-list" *ngIf="i.is_removed== false" cdkDrag>
+                        <div class="col-lg-4">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="form-control propinp input-field empty-field" type="text"
+                              [placeholder]="firstLetterCapitaldefaultValue(valueIndex,i.name,i,item)"
+                              [ngModel]="validateOptionText(i.name,i.element_uuid)"
+                              (ngModelChange)="firstLetterCapitalOptionName(i.name,i,$event,item)"
+                              [disabled]="i.hasOwnProperty('is_blank_field')" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'multiple_choice'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="input-field multiple-checkbox" type="checkbox" #checkReasult
+                              aria-checked="i.default" [(ngModel)]="i.default" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'checkbox'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="input-field multiple-checkbox" type="checkbox" #checkReasult
+                              aria-checked="i.default" [(ngModel)]="i.default" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'single_choice'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="propinp input-field dropdown-checkbox-single" type="checkbox" #checkReasult1
+                              aria-checked="i.default" [(ngModel)]="i.default"
+                              (change)="extend_togglevisibility(valueIndex,$event)" />
+                          </div>
+                        </div>
+                        <div *ngIf="item.element_type == 'dropdown'" class="col-lg-1 p-0">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <input class="propinp input-field dropdown-checkbox-dropdown" type="checkbox" #checkReasult1
+                              aria-checked="i.default" [(ngModel)]="i.default"
+                              (change)="extend_togglevisibility(valueIndex,$event)" />
+                          </div>
+                        </div>
+                        <div class="col-lg-2 pr-0" [ngClass]="{
+                      optionAccessStop: !item.element_data.use_calculated_values
+                    }">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <!-- [(ngModel)]="i.value" -->
+                            <input [ngClass]="{ borderC: item.element_data.use_calculated_values == true }"
+                              class="form-control propinp input-field" placeholder="123" type="number"
+                              (change)="ChnageClaculateValue(item,i.element_uuid,i.calculated_value)"
+                              [(ngModel)]="i.calculated_value" />
+                          </div>
+                        </div>
+                        <div>
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <button class="add-button" [ngClass]="{ addGreen: i.attributes == true }"
+                              (click)="addOption(item,valueIndex,i.element_uuid)" *ngIf="item.is_removed== false"
+                              [disabled]="item.element_type == 'multiple_choice' ? true : false">
+                              {{ i.attributes != true ? "Add" : "Edit" }}
+                            </button>
+                            <!--[disabled]="item.element_type == 'multiple_choice'"-->
+                          </div>
+                        </div>
+                        <div class="col-lg-1">
+                          <div class="form-group mycontrol1 dropdown-value" *ngIf="i.is_removed== false">
+                            <!-- <label
+                        (click)="
+                          item.element_data.options.splice(valueIndex, 1)
+                        "
+                        > -->
+                            <label *ngIf="item.element_type != 'checkbox'" (click)="deleteOption(item, valueIndex)"
+                              [style.pointerEvents]="i.hasOwnProperty('is_blank_field') ? 'none' : 'auto'">
+                              <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close1"
+                                alt="close" /></label>
+                          </div>
+                        </div>
+                        <div class="threeline" *ngIf="i.is_removed== false" cdkDragHandle>
+                          <a><i class="fas fa-bars"></i></a>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+                <div *ngIf="
+                  item.element_type === 'dropdown' ||
+                  item.element_type === 'single_choice' ||
+                  item.element_type === 'multiple_choice'  && item.is_removed== false 
+                ">
+                  <div class="row mt-2">
+                    <div class="col-lg-5">
+                      <button class="btn btn-block add-button" (click)="addValue(item.element_data.options)">
+                        Add More
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="addPositiveValues">
+                  <div class="row mt-5">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Option:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <input readonly class="form-control propinp input-field style-label12" type="text"
+                        [(ngModel)]="OptionName" (change)="attributeUpdate(item,$event.target.value,'shape')" />
+                    </div>
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Icon:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate(item,$event.target.value,'icon')">
+                        <option class="icon-clr" *ngFor="let icon of iconShape; let i = index" [(value)]="icon.Shape"
+                          [selected]="icon.Shape == selectionIconValue">
+                          {{ icon.Shape }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Fill Color:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate(item,$event.target.value,'fill')">
+                        <!-- #fillColor="ngModel" [ngModel]="item.element_data.options.fill_color" -->
+                        <!-- <option class="icon-clr" selected value="">No Changes</option> -->
+                        <!-- <option class="icon-clr" *ngFor="let fillColor of fillColorPart"
+                        [selected]="showOptions.fill_color == fillColor"> -->
+                        <option class="icon-clr" *ngFor="let fill of fillColor
+                        let i = index" [selected]="fill == selectionFillValue" [(value)]="fillColor[i]">
+                          {{ fill }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-6 icon-head">
+                      <lable class="style-label">Stroke Color:</lable>
+                    </div>
+                    <div class="col-lg-6 select-box-head">
+                      <select class="select-box selectBox-space" aria-placeholder="No Change"
+                        (change)="attributeUpdate(item,$event.target.value,'stroke')">
+                        <!-- <option selected value="">No Changes</option> -->
+                        <!-- <option class="icon-clr" *ngFor="let strokeColor of strokeColorPart"
+                        [selected]="showOptions.stroke_color == strokeColor"> -->
+                        <option class="icon-clr" *ngFor="let stroke of strokeColor
+                        let i = index" [selected]="stroke==selectionStrokeValue" [(value)]="strokeColor[i]">
+                          {{ stroke }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Opacity</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+                        <mat-slider #opacityslider min="0" step="0.01" max="1" [(ngModel)]="showOptions.opacity"
+                          class="slider" style="width: 275px"></mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+                      <input type="number" id="opacityId" class="input-field opacity-area" placeholder="0"
+                        name="opacity" [value]="ngModel" (ngModelChange)="this.userrole=='view'?'':checkOpacity()"
+                        [(ngModel)]="showOptions.opacity" />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Line Width</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+                        <!-- <mat-slider min="1" max="25" [(ngModel)]="showOptions.line_width" [value]="showOptions.line_width"
+                        class="slider" style="width: 275px" id="myRange"></mat-slider> -->
+                        <mat-slider #linewidthslider min="1" max="50" (change)="changeLineWidth(linewidthslider.value)"
+                          [(ngModel)]="lineWidthValue" class="slider" style="width: 275px" id="myRange"></mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+                      <!-- <input readonly class="input-field opacity-area" placeholder="0" name="linewidth" [value]="ngModel"
+                      [(ngModel)]="showOptions.line_width" type="text" /> -->
+                      <input id="linemapping" name="linewidth" type="number" min="1.0" max="50.0"
+                        class="input-field opacity-area" (ngModelChange)="checklineWidth()" [(ngModel)]="lineWidthbox"
+                        placeholder="0" />
+
+                    </div>
+                  </div>
+                </div>
+                <!-- <div *ngIf="
+                  item.element_type == 'single_choice' ||
+                  item.element_type == 'multiple_choice'
+                " class="row mt-2">
+                <div class="col-lg-6 icon-head pr-0">
+                  <lable class="style-label">Number of Columns :</lable>
+                </div>
+                <div class="col-lg-6 select-box-head">
+                  <select class="select-box" aria-placeholder="No Change">
+                    <option disabled selected>No Changes</option>
+                    <option *ngFor="let indexBase of columnsAdd">
+                      {{ indexBase }}
+                    </option>
+                  </select>
+                </div>
+              </div> -->
+                <!-- Calculator -->
+                <div *ngIf="item.element_type == 'calculation'" class="row">
+                  <div class="col-12">
+                    <div class="form-group mb-0">
+                      <label (click)="getAnswer()">Calculation</label>
+                      <!-- <input class="form-control" type="text" [(ngModel)]="item.min" /> -->
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-12 base mb-2">
+                        <div class="maindisplay cursor">
+                          <!-- <input id="text-element" type="text" name="calculated_value"
+                          class="form-control calculation-field" (keydown)="movekeyUp($event)"
+                          (keyup)="insertCharKeyPad($event.target.value,$event)" placeholder="Calculation Area"
+                          [(ngModel)]="item.element_data.calculation_display_value" autocomplete="off" /> -->
+                          <input id="text-element" type="text" name="calculated_value"
+                            class="form-control calculation-field" (keydown)="movekeyUp($event)"
+                            (keyup)="insertChar1('')" placeholder="Calculation Area"
+                            [(ngModel)]="item.element_data.calculation_display_value" autocomplete="off" />
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-warning btn-block calcultor-button" (click)="insertChar1('1')">
+                          1
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('2')">
+                          2
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('3')">
+                          3
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('4')">
+                          4
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('5')">
+                          5
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('6')">
+                          6
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('7')">
+                          7
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('8')">
+                          8
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('9')">
+                          9
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('0')">
+                          0
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('+')">
+                          +
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('-')">
+                          &#8722;
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('*')">
+                          &lowast;
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('/')">
+                          /
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('(')">
+                          &#10088;
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1(')')">
+                          &#10089;
+                        </button>
+                      </div>
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="insertChar1('.')">
+                          .
+                        </button>
+                      </div>
+
+                      <!-- <div class="dropdown">
+                                            <button type="button" class="btn btn-secondary dropdown-toggle btn-block calcultor-button" 
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                >&#8230;</button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">Abs()</a>
+                                                    <a class="dropdown-item" href="#">floor()</a>
+                                                    <a class="dropdown-item" href="#">ceil()</a>
+                                                    <a class="dropdown-item" href="#">max()</a>
+                                                    <a class="dropdown-item" href="#">min()</a>
+                                                </div>
+                                        </div> -->
+                      <!-- <div ngbDropdown class="col-2 d-inline-block dropdown-head">
+                      <button
+                        class="btn btn-secondary calcultor-button dropdowndot"
+                        id="dropdownMenuButton"
+                        ngbDropdownToggle
+                      >
+                        &#8230;
+                      </button>
+                      <div
+                        class="dropdown-set"
+                        ngbDropdownMenu
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <button
+                          ngbDropdownItem
+                          class="math-fu nction"
+                          (click)="insertChar('Abs()')"
+                        >
+                          Abs()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('floor()')"
+                        >
+                          floor()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('ceil()')"
+                        >
+                          ceil()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('max()')"
+                        >
+                          max()
+                        </button>
+                        <button
+                          ngbDropdownItem
+                          class="math-function"
+                          (click)="insertChar('min()')"
+                        >
+                          min()
+                        </button>
+                      </div>
+                    </div> -->
+
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-block calcultor-button" (click)="buttonClear()">
+                          &#8592;
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div ngbDropdown class="col-12">
+                        <button class="btn btn-block Add_Button" (click)="openNumberField()">
+                          Add Field
+                        </button>
+                        <div class="dropdown-set-field" ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                          <button ngbDropdownItem class="btn-value-des" *ngFor="let lablefield; of"
+                            (click)="insertChar1(lablefield)">
+                            {{ lablefield }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Number of Decimal Start-->
+                <div *ngIf="item.element_type == 'calculation'" class="row noofdecial-head">
+                  <div class="col-lg-6">
+                    <label fpr="noOfDecimal" class="decimal-label">Number of Decimals</label>
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="text" name="noofdecimal" id="noOfDecimal" placeholder="1" [(ngModel)]="defaultDecimal"
+                      (keyup)="changeDecimalValue($event.target.value)" (change)="emptyDrop()"
+                      class="form-control placeholderColor" />
+                  </div>
+                </div>
+                <!-- Number of Decimal End-->
+                <!-- Use Condition -->
+                <div class="row form-group mycontrol" *ngIf="item.element_type == 'text_area'
+              ||item.element_type == 'single_line_text'
+              ||item.element_type == 'number'
+              ||item.element_type == 'dropdown'
+              ||item.element_type == 'multiple_choice'
+              ||item.element_type == 'single_choice'
+              ||item.element_type == 'date'
+              ||item.element_type == 'calculation'
+              ||item.element_type == 'divider'
+              ||item.element_type == 'checkbox' " style="margin-top:6px;">
+                  <div class="col-8"><label>Use Conditions :</label></div>
+                  <div class="col-4 checkbox">
+                    <!-- <input
+                    type="checkbox"
+                    class="usecondition-checkbox"
+                    name="usecondition"
+                    aria-checked="useCondition.value"
+                    (click)="togglevar(useCondition.value)"
+                    #useCondition="ngModel"
+                    [(ngModel)]="useConditionIntialCheck"
+                  /> -->
+                    <mat-slide-toggle name="usecondition" aria-checked="useCondition.value"
+                      (click)="togglevar(item.element_data.use_conditions,item.element_data)" #useCondition="ngModel"
+                      [(ngModel)]="item.element_data.use_conditions">
+                    </mat-slide-toggle>
+                    <!-- [(ngModel)]="item.element_data.use_conditions" -->
+                  </div>
+                  <ng-container *ngIf="item.element_type == 'checkbox'">
+                    <div class="col-8"><label>Grouping Enable :</label></div>
+                  <div class="col-4 checkbox">
+                    <mat-slide-toggle name="groupAnnotations" 
+                    (change)="grpAnnsCheck($event, item)" [disabled] = "groupAnnAlreadyEnabled" [checked]="item.element_data.grouping_enable">
+                    </mat-slide-toggle>
+                  </div>
+                  </ng-container>
+                  <ng-container class="container" *ngIf="item.element_data.grouping_enable">
+                    <div class="row col-12 errorBox pb-2" *ngFor="let item of groupFieldValues">
+                      <div class="col-lg-6 icon-head">
+                        <lable class="style-label">{{item.name}}</lable>
+                      </div>
+                      <div class="col-lg-6 select-box-head">
+                        <select class="select-box selectBox-space" aria-placeholder="No Change"
+                          (change)="attributeUpdate(item,$event.target.value,'fill')">
+                          <option class="icon-clr" *ngFor="let fill of fillColor
+                                let i = index" [selected]="fill == selectionFillValue" [(value)]="fillColor[i]">
+                            {{ fill }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <div *ngIf="useCondition.value" class="col-12">
+                    <div class="row mb-4">
+                      <div class="col-lg-12 select-box-head">
+                        <select class="select-box-condition" [(ngModel)]="item.element_data.if_condition"
+                          (change)="useConditionOption(item.element_data.if_condition,item.element_data)"
+                          aria-placeholder="No Change">
+                          <option value="" disabled selected hidden>
+                            Select a Field
+                          </option>
+                          <option disabled value="">
+                            Select
+                          </option>
+
+                          <ng-container *ngFor="let item of useconditionlist;">
+
+                            <option
+                              *ngIf="item.is_removed== false && (item.element_type!='Divider') && (item.element_type!='text_label')"
+                              [value]=" item.element_uuid" [selected]="item.default == true">
+                              {{ item.element_data.label_text }}
+
+                            </option>
+                          </ng-container>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-4">
+                      <div class="col-lg-12 select-box-head">
+                        <select class="select-box-condition" #fieldState="ngModel"
+                          (change)="conditionChange($event.target.value,item)" [(ngModel)]="item.element_data.if_state"
+                          aria-placeholder="No Change">
+                          <option value="" disabled selected hidden>
+                            Select a Field State
+                          </option>
+                          <option disabled value="">
+                            Select
+                          </option>
+                          <option *ngIf="addressCheck!='address'" value="is equal to"
+                            [selected]="fieldState.value == 'is equal to'">
+                            is Equal To
+                          </option>
+                          <option *ngIf="addressCheck!='address'" value="is not equal to"
+                            [selected]="fieldState.value == 'is not equal to'">
+                            is Not Equal To
+                          </option>
+                          <option value="is empty" [selected]="fieldState.value == 'is empty'">
+                            is Empty
+                          </option>
+                          <option value="is filled" [selected]="fieldState.value == 'is filled'">
+                            is Filled
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row mb-4"
+                      *ngIf="selected_feld_state=='is equal to'||selected_feld_state=='is not equal to'">
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="selectedItem_element_type=='text_area'|| selectedItem_element_type=='single_line_text' ||selectedItem_element_type=='text_label'||selectedItem_element_type=='calculation'||selectedItem_element_type=='address'">
+                        <input type="text" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="selectedItem_element_type=='date'">
+                        <!-- <div class="date-picker-part">
+                        <input readonly class="date-field" #ref (click)="picker.open()" matInput [matDatepicker]="picker"
+                          placeholder="YYYY-MM-DD" (dateChange)="changedateLocal(item,ref.value)"
+                          [value]="getCurrentDate(item.element_data.default_date_time)" />
+                          <div matSuffix class="image-close">
+                            <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close" (click)="clearDate(item)" />
+                          </div>
+                          <<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> 
+                       <mat-datepicker #picker></mat-datepicker> -->
+
+                        <div class="date-picker-part-If w-100">
+
+                          <input style="border: none" readonly class="date-field" matInput (click)="picker2.open()"
+                            [matDatepicker]="picker2" placeholder="Select a Value"
+                            value="{{ item.element_data.default_value }}" [(ngModel)]="item.element_data.if_value"
+                            (change)="saveSelectValue($event.target.value,item)" />
+                          <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+                          <div matSuffix class="image-close">
+                            <img src="assets/images/P3_Close-Cancel_Blue.png" class="date-clear" alt="close"
+                              (click)="clearDateIf(item)" />
+                          </div>
+                          <mat-datepicker #picker2></mat-datepicker>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="selectedItem_element_type=='number'">
+                        <input type="number" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="selectedItem_element_type=='single_choice'||selectedItem_element_type=='dropdown'||selectedItem_element_type=='multiple_choice'||selectedItem_element_type=='checkbox'">
+                        <select class="form-control form-element-text dropdown-select selectBox-space"
+                          [(ngModel)]="item.element_data.if_value">
+                          <option class="dropdown-option" value="">Select an option</option>
+                          <!-- <option hidden style="display: none;" class="invisible dropdown-option"
+                      *ngFor="let v of selectOptions" >{{ v.name }}
+                      </option> -->
+                          <option *ngFor="let v of selectOptions; let k = index" [value]="v.element_uuid"
+                            [selected]="k == 0">
+                            {{ v.name }}
+                          </option>
+                        </select>
+                      </div>
+
+                    </div>
+                    <!------------------------------------------------------------------------------>
+
+                    <!-- <div class="row mb-4" *ngIf="selected_feld_state=='is empty'||selected_feld_state=='is filled'"> -->
+                    <div class="row mb-4" style="display: none;">
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="pickedItem_element_type=='text_area'|| pickedItem_element_type=='single_line_text' ||pickedItem_element_type=='text_label'||pickedItem_element_type=='calculation'||pickedItem_element_type=='address'">
+                        <input type="text" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="pickedItem_element_type=='date'">
+                        <mat-form-field appearance="fill" class="form-control">
+                          <input style="border: none" matInput [matDatepicker]="picker" placeholder="YYYY-MM-DD "
+                            value="{{ item.element_data.default_value }}" [(ngModel)]="item.element_data.if_value"
+                            (change)="saveSelectValue($event.target.value,item)" />
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-12 select-box-head" *ngIf="pickedItem_element_type=='number'">
+                        <input type="number" placeholder="Select a Value" name="value" class="select-Value"
+                          [(ngModel)]="item.element_data.if_value"
+                          (change)="saveSelectValue($event.target.value,item)" />
+                      </div>
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="pickedItem_element_type=='single_choice'||pickedItem_element_type=='dropdown'||pickedItem_element_type=='multiple_choice'||pickedItem_element_type=='checkbox'">
+                        <select class="form-control form-element-text dropdown-select selectBox-space"
+                          [(ngModel)]="item.element_data.if_value" (change)="hide(item)">
+                          <option class="dropdown-option" value="" disabled selected hidden>Select a Value</option>
+                          <option class="dropdown-option" value="" disabled>Select</option>
+                          <!-- <option hidden style="display: none;" class="invisible dropdown-option"
+                      *ngFor="let v of selectOptions" >{{ v.name }}
+                      </option> -->
+                          <option *ngFor="let v of pickedItem_selectOption; let k = index" [value]="v.element_uuid"
+                            [selected]="k == 0">
+                            {{ v.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!------------------------------------------------------------------------------>
+                    <div class="row">
+                      <div class="col-lg-12 select-box-head"
+                        *ngIf="selected_feld_state=='is equal to' ||selected_feld_state=='is not equal to' || selected_feld_state=='is empty'||selected_feld_state=='is filled'">
+                        <select class="select-box-condition" #hideShow="ngModel" [(ngModel)]="item.element_data.if_do"
+                          (change)="hide(item)" aria-placeholder="No Change">
+                          <option value="" disabled selected hidden>
+                            Select a Condition Action
+                          </option>
+                          <option value="" disabled>Select</option>
+                          <option value='hide'>
+                            Hide
+                          </option>
+                          <option value='show'>
+                            Show
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr *ngIf="item.element_type == 'text_area'
+              ||item.element_type == 'single_line_text'
+              ||item.element_type == 'number'
+              ||item.element_type == 'dropdown'
+              ||item.element_type == 'multiple_choice'
+              ||item.element_type == 'single_choice'
+              ||item.element_type == 'date'
+              ||item.element_type == 'calculation'
+              ||item.element_type == 'checkbox' 
+              " class="line-adjust hr-value" />
+                <div *ngIf="item.element_type =='Divider'">
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Opacity</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+                        <mat-slider #opacitydivider min="0.10" step="0.01" max="1" [(ngModel)]="opacitydividervalue"
+                          class="slider" style="width: 275px" (change)="changeopacitydivider(opacitydivider.value,i)">
+                        </mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+                      <input id="opacitymappingdivider" name="opacity" type="number" min="1" max="10"
+                        class="input-field opacity-area" [(ngModel)]="opacitydividervalue"
+                        (focusout)="novalueOut2($event,opacitydivider.value,i)"
+                        (keydown)="stop($event,opacitydivider.value)"
+                        (keyup)="opacity1($event,opacitydivider.value,i)" />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-9">
+                      <div class="col-lg-12 p-0">
+                        <label class="style-label">Line Width</label>
+                      </div>
+                      <div class="col-lg-12 p-0">
+
+                        <mat-slider #linewidthdivider min="1.00" step="0.01" max="10"
+                          (change)="changelinewidthdivider(linewidthdivider.value,i)"
+                          [(ngModel)]="linewidthvaluedivider" class="slider" style="width: 275px" id="myRangeto">
+                        </mat-slider>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 input-part-opacity">
+
+                      <input id="linemappingdivider" name="linewidth" type="number" min="1" max="10"
+                        class="input-field opacity-area" [(ngModel)]="linewidthvaluedivider" [value]=""
+                        (focusout)="novalueOut1($event,linewidthdivider.value,i)"
+                        (keydown)="stop($event,linewidthdivider.value)"
+                        (keyup)="checklineWidthfordivider($event,linewidthvaluedivider,i)" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-dialog-content>
+        <!-- delete and copy -->
+        <!-- <div class="footerSection">
+        <div class="copy-img-head">
+          <img class="copy-img" src="assets/images/icons/P3WebIcon_29Copy.png" (click)="copy()" />
+        </div>
+        <div class="delete-img-head">
+          <img class="delete-img" src="assets/images/icons/P3WebIcon_15Trash.png" (click)="removeField(item)" />
+        </div>
+      </div> -->
+        <div class="footerS container-fluid">
+          <div>
+            <img class="copy-img" src="assets/images/icons/P3WebIcon_29Copy.png" class="img-copy"
+              (click)="extend_copy()" />
+          </div>
+          <div>
+            <img class="delete-img" src="assets/images/icons/P3WebIcon_15Trash.png" class="img-delete"
+              (click)="extend_removeField()" />
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div *ngIf="addFieldPart" class="file-upload-section">
+    <div class="header1 container-fluid">
+      <h3 class="header-heading1">Select</h3>
+      <div class="image-close">
+        <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBoxAddField()" />
+      </div>
+    </div>
+    <div class="row add-file-area" id="style-1">
+      <div class="col-lg-12 numberFieldSty" *ngFor="let numberField of calculationAddFieldValue1"
+        (click)="insertChar1(numberField.element_uuid)">
+        {{ numberField.element_data.label_text }}
+      </div>
+    </div>
+  </div>
+  <div class="support-page-head" *ngIf="support">
+    <app-support-option> </app-support-option>
+  </div>
+</div>
+<div *ngIf="closeBox1" class="overlay-setting" (click)="closeBox()"></div>
+<div *ngIf="closeBox2" class="overlay-setting" (click)="closeBox()"></div>

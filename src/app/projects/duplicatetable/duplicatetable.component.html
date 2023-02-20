@@ -1,0 +1,27 @@
+
+<div>
+<!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" cdkDropList (cdkDropListDropped)="drop($event)">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding cdkDrag [cdkDragData]="node" matTreeNodePaddingIndent="15"
+  (mouseenter)="dragHover(node)" (mouseleave)="dragHoverEnd()" (cdkDragStarted)="dragStart()" (cdkDragReleased)="dragEnd()">
+    <button mat-icon-button disabled></button>
+    {{node.filename}} : {{node.type}}
+    <div class="threeline">
+        <a><i class="fas fa-bars"></i></a>
+      </div>
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding cdkDrag [cdkDragData]="node" matTreeNodePaddingIndent="15"
+  (mouseenter)="dragHover(node)" (mouseleave)="dragHoverEnd()" (cdkDragStarted)="dragStart()" (cdkDragReleased)="dragEnd()">
+    <button mat-icon-button matTreeNodeToggle (click)="expansionModel.toggle(node.id)"
+            [attr.aria-label]="'toggle ' + node.filename">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    {{node.filename}} : {{node.type}}
+    <div cdkDragHandle class="threeline">
+        <a><i class="fas fa-bars"></i></a>
+      </div>
+  </mat-tree-node>
+</mat-tree> -->
+</div>

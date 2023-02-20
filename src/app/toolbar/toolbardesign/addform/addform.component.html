@@ -1,0 +1,23 @@
+<div class="app-project-head">
+    <div class="header container-fluid">
+        <h3 class="header-heading">Add Forms</h3>
+        <div class="image-close">
+            <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()">
+        </div>
+    </div>
+    <div class="head-heading">
+        Please select the form(s) to add<br> to this annotation
+    </div>
+    <div class="scrollHeight">
+        <div class="content-area" *ngFor="let option of formlist| sortBy:'asc':'form_name'"
+            (click)="copyelement(option.form_id,option.form_name)">
+            <hr class="hr-area">
+            <div class="row content-head-section">
+
+                <div class="col-lg-10">
+                    <p class="content-heading">{{option['form_name']}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

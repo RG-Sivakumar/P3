@@ -1,0 +1,217 @@
+<article class="docs-article" id="section-2">
+<header class="docs-header">
+    <h1 class="docs-heading">2.0 Application Settings
+        <span class="docs-time">Last updated:{{lastModifiedDate}}</span>
+    </h1>
+	<section class="docs-intro">
+		<p>Plannotate includes a number of application settings and options that are configurable per user. </p>
+		
+		<figure class="figure docs-figure py-3"  (click)="openImage('Project Management Dashboard','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/pm-dashboard.jpg')">
+			<a  data-title="Project Management Dashboard" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/pm-dashboard.jpg" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Project Management Dashboard</figcaption>
+		</figure>
+		
+		<ol>
+			<li><a href="/p3/userguide/chapter-2?id=section-2&target=item-2-1" scrollTo scrollTargetSelector="#item-2-1" (click)="activeVistionSend('section-2','item-2-1')">My Profile</a> – Allows you to modify your personal profile settings.</li>
+			<li><a href="/p3/userguide/chapter-2?id=section-2&target=item-2-2" scrollTo scrollTargetSelector="#item-2-2" (click)="activeVistionSend('section-2','item-2-2')">Security</a> – Allows you to modify your Plannotate security settings on the iPad (not applicable for Plannotate web client).</li>
+			<li><a href="/p3/userguide/chapter-2?id=section-2&target=item-2-3" scrollTo scrollTargetSelector="#item-2-3" (click)="activeVistionSend('section-2','item-2-3')">Sync</a> – Allows you to application product online / offline synchronization settings on the iPad (not applicable for Plannotate web client).</li>
+			<li><a href="/p3/userguide/chapter-2?id=section-2&target=item-2-4" scrollTo scrollTargetSelector="#item-2-4" (click)="activeVistionSend('section-2','item-2-4')">Support</a> – Provides Plannotate support videos, documentation, and support ticket creation.</li>
+			<li><a href="/p3/userguide/chapter-2?id=section-2&target=item-2-5" scrollTo scrollTargetSelector="#item-2-5" (click)="activeVistionSend('section-2','item-2-5')">About</a> – Provides information on the current release of Plannotate.</li>
+			<li><a href="/p3/userguide/chapter-2?id=section-2&target=item-2-6" scrollTo scrollTargetSelector="#item-2-6" (click)="activeVistionSend('section-2','item-2-6')">Sign Out</a> – Enables you to log out of Plannotate.</li>
+		</ol>
+				
+	</section><!--//docs-intro-->
+	<section class="docs-section" id="item-2-1">
+		<h2 class="section-heading">2.1 My Profile Settings</h2>
+		<p>The My Profile section of Project Management Dashboard Settings allows <b>external users</b> to change their personal information, including First Name, Last Name, Email Address and Password. </p>
+							 
+		 <div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>As Plannotate leverages WJE’s Active Directory Server for internal employee information, WJE employees will not be able to make changes on this screen. For WJE employees, any desired changes will require you to follow the IT policies and procedures.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<p>Non-WJE employees may modify their First Name, Last Name and &#47; or password by selecting the edit icon to the right of any of those three options.</p>
+			
+		<figure class="figure docs-figure py-3" (click)="openImage('My Profile Settings','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/my-profile.png')">
+			<a  data-title="My Profile Settings" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/my-profile.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">My Profile Settings</figcaption>
+		</figure>
+	   
+	</section><!--//section-->
+	<section class="docs-section" id="item-2-2">
+		<h2 class="section-heading">2.2 Security Settings</h2>
+		<p>The Security section of Project Management Dashboard Settings on the iPad (not applicable for Plannotate web client) allows you to modify your Plannotate security settings.  Security Settings differ from authentication / sign in to the application.  Within the Security settings, users have the option to set an optional timeout period.  If set, when the timeout period is reached, the application will require either Touch ID or Face Recognition to regain access to Plannotate.</p>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<ul>
+					<li>If your device has touch id capabilities, the toggle switch for this option will be enabled. </li>
+					<li>If your device has face recognition capabilities, the toggle switch for this option will be enabled.</li>
+				</ul>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<figure class="figure docs-figure py-3"  (click)="openImage('Plannotate Security Settings','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/security.png')">
+			<a data-title="Plannotate Security Settings" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/security.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Plannotate Security Settings</figcaption>
+		</figure>
+		
+		<p>There are two options for setting a timeout requiring you to unlock Plannotate.</p>
+		
+		<ul>
+			<li><b>Enable Touch ID</b> – Toggle this option to allow Plannotate to be unlocked with Touch ID.  This applies to iPads that are Touch ID capable &#40;such as the one shown in the image above&#41;.  If the device does not have this capability or if this capability is not enabled on the device, the toggle will be disabled and a message will indicate that the feature is not enabled or configured.</li>
+			<li><b>Enable Face Recognition</b> – Toggle this option to allow Plannotate to be unlocked with Face Recognition.  This applies to iPads that are Facial Recognition capable. If the device does not have this capability or if this capability is not enabled on the device &#40;such as the one shown in the image above&#41;, the toggle will be disabled and a message will indicate that the feature is not enabled or configured.</li>
+			<li><b>Require After Duration</b> – This setting allows a user to decide whether they want the application to lock after a specified period.  The choices available include:</li>
+	
+			<ul>
+				<li>Every 30 Minutes</li>
+				<li>Every Hour</li>
+				<li>Every 12 Hours</li>
+				<li>Every 24 Hours</li>
+				<li>Never</li>
+			</ul>
+		</ul>
+		
+		<div class="callout-block callout-block-info">
+								
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-info-circle"></i>
+					</span><!--//icon-holder-->
+					Note
+				</h4>
+				<p>The default option is Never.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-2-3">
+		<h2 class="section-heading">2.3 Sync Settings</h2>
+		<p>The Sync section of Project Management Dashboard Settings on the iPad (not applicable for Plannotate web client) allows you to modify the application online / offline synchronization settings. Synchronization is one of the main features in Plannotate, and it allows users to sync their local copy of Plannotate with the Plannotate cloud. This process uploads all new data since the last sync to the Plannotate cloud, and downloads any new data to the iPad from the Plannotate cloud. Everything related to the project such as documents, toolbars, annotations, forms, form data, etc. will be synchronized when this process runs. This not only ensures that the information is safely stored on the Plannotate cloud, but also that it is available to any other Plannotate user on whatever device they are using from anywhere in the world.</p>
+		
+		<figure class="figure docs-figure py-3"  (click)="openImage('Plannotate Sync Settings','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/sync.png')">
+			<a  data-title="Plannotate Sync Settings" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/sync.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Plannotate Sync Settings</figcaption>
+		</figure>
+		
+		<ol>
+			<li><b>Manual Sync</b> – Toggle this option on to allow Plannotate to sync only when manually triggered by selecting the Manual Sync option available throughout the application. When this option is toggled to on, the Wi-Fi Only and Wi-Fi + Cellular Network options will be toggled to off automatically.</li>
+			<li><b>Wi-Fi Only</b> – Toggle this option on to allow Plannotate to sync on a defined interval automatically whenever the device is connected to a Wi-Fi network. This will be transparent to the user. When this option is on, you may also perform a Manual Sync any time you desire. When this option is toggled to on, the Manual and Wi-Fi + Cellular Network options will be toggled to off automatically.</li>
+			<li><b>Wi-Fi + Cellular Network</b> – Toggle this option on to allow Plannotate to sync on a defined interval automatically whenever the device is connected to either a Wi-Fi or Cellular network. This will be transparent to the user. When this option is on, you may also perform a Manual Sync any time you desire. When this option is toggled to on, the Manual and Wi-Fi Only options will be toggled to off automatically.</li>
+			<li><b>Sync Interval</b> – This option is applicable when either the Wi-Fi Only or Wi-Fi + Cellular Network options is toggled to on. </li>
+		
+			<ul>
+				<li>Every 30 Minutes</li>
+				<li>Every Hour</li>
+				<li>Every 2 Hours</li>
+				<li>Every 8 Hours</li>
+				<li>Every 24 Hours</li>
+			</ul>
+			
+			<div class="callout-block callout-block-info">
+									
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder mr-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Note
+					</h4>
+					<p>The default option is Every 30 Minutes.</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
+			<li><b>Sync Photos and Videos on Wi-Fi Only</b> – By default, photos and videos are synchronized along with all other content when a manual or scheduled sync occurs. When this setting is toggled to on, any newly added photos or videos will only be synchronized when on a Wi-Fi network.  If the device is connected to a cellular network, photos and videos will remain on the device or on the Plannotate server but will not sync between until the device is connected to Wi-Fi and a sync occurs.  This is useful in situations where you would like to sync data collected in the field but do not want the photo or video files to slow down the process.</li>
+		</ol>
+			
+	
+	</section><!--//section-->
+	<section class="docs-section" id="item-2-4">
+		<h2 class="section-heading">2.4 Support</h2>
+		<p>The Support section of Project Management Dashboard Settings provides access to Plannotate support videos, documentation and support ticket creation.</p>
+		
+		<p>There are also several built in methods of sending information on the iPad (not applicable for Plannotate web client) to the support team.</p>
+		
+		<ul>
+			<li><b>Submit Log Files</b> - Selecting this option will result in the log files from your local instance of Plannotate being sent to support for evaluation.</li>
+			<li><b>Submit Database Files</b> - Selecting this option will result in the local Plannotate database being sent to support for evaluation.</li>
+			<li><b>Analyze / Troubleshoot</b> - Selecting this option will result in an exact copy of your local Plannotate environment and data being sent to support for evaluation.</li>
+		</ul>
+		
+		<div class="callout-block callout-block-warning">
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder mr-1">
+						<i class="fas fa-bullhorn"></i>
+					</span><!--//icon-holder-->
+					Warning
+				</h4>
+				<p>These three options should only be selected if they are requested by the Plannotate support team in response to an open support ticket.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<p>It is important that you report any issues that you encounter so that we can reproduce and resolve as quickly as possible.  We’d also like your feedback on enhancements or any other comments you may have throughout your use of the application.</p>
+	
+		<p>In order to expedite the resolution of issues, we have integrated a support system so that you can send a support ticket right from the Plannotate App under <b>Settings</b> > <b>Support</b> > <b>Submit A Support Request</b>.  You can also email <a href="mailto:support@wje.zendesk.com?subject=Plannotate%20Support&amp;body=%0D%0DPlease%20include%20the%20following%20information%3A%0DFirst%20Name%3A%0DLast%20Name%3A%0DTelephone%3A%0D" target="_blank">support@wje.zendesk.com</a>.
+		</p>
+			<figure class="figure docs-figure py-3"  (click)="openImage('Plannotate Application Support','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/support.gif')">
+				<a data-title="Plannotate Application Support" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/support.gif" loading="lazy" alt="" style="width: 600px;"></a>
+				<figcaption class="figure-caption mt-3">Plannotate Application Support</figcaption>
+			</figure>
+		
+	</section><!--//section-->
+	<section class="docs-section" id="item-2-5">
+		<h2 class="section-heading">2.5 About Plannotate</h2>
+		<p>The About section of Project Management Dashboard Settings provides information on the installed version of the Plannotate software. This is useful when support requests are submitted so that the application support team can determine if you are on the latest release of the software.</p>
+		<figure class="figure docs-figure py-3" (click)="openImage('About Plannotate','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/about.png')">
+			<a  data-title="About Plannotate" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/about.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">About Plannotate</figcaption>
+		</figure>
+		
+	</section><!--//section-->
+	<section class="docs-section" id="item-2-6">
+		<h2 class="section-heading">2.6 Sign Out of Plannotate</h2>
+		<p>The Sign Out section of Project Dashboard allows you to log out of the application.  This is useful if the device is shared among users, as actions performed within Plannotate are logged to the user that performs them.  Therefore, it is beneficial for users to log on as themselves when using the application.</p>
+		
+		
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Sign Out of Plannotate for iPad','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/sign-out.png')">
+			<a  data-title="Sign Out of Plannotate" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/sign-out.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Sign Out of Plannotate for iPad</figcaption>
+		</figure>
+		
+		<figure class="figure docs-figure py-3" (click)="openImage('Sign Out of Plannotate for Web','https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/sign-out-web.png')">
+			<a  data-title="Sign Out of Plannotate" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="https://plannotate3userguide.s3.amazonaws.com/Userguide/section-2/sign-out-web.png" loading="lazy" alt="" style="width: 600px;"></a>
+			<figcaption class="figure-caption mt-3">Sign Out of Plannotate for Web</figcaption>
+		</figure>
+		
+		<div class="callout-block callout-block-danger mr-1">
+			<div class="content">
+				<h4 class="callout-title">
+					<span class="callout-icon-holder">
+						<i class="fas fa-exclamation-triangle"></i>
+					</span><!--//icon-holder-->
+					Danger
+				</h4>
+				<p>iPad users have the choice of keeping any local work that has not been synchronized with the Plannotate cloud or deleting the unsynchronized work. It may be desirable to remove the local work that has not been synchronized if you do not wish to save any of your changes. If this option is selected, the work will not be recoverable.</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+	</section>
+	</header></article>

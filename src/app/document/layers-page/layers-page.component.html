@@ -1,0 +1,453 @@
+<div class="app-project-head" id="style-1" [ngClass]="{rightAni:changeViewWidth=='730px'}"
+  [style.width]="changeViewWidth">
+  <div class="header container-fluid">
+    <h3 class="header-heading-layer">Layer Manager</h3>
+    <div class="image-close">
+      <img src="assets/images/P3_Close-Cancel_Blue.png" class="img-close" alt="close" (click)="closeBox()" />
+    </div>
+  </div>
+  <div class="row content-area">
+    <div class="left-area-head" [style.flex-basis]="column ? '100%' : '52%'" id="resizersLayer">
+      <div class="arrow-dynamic resizerLayer bottom-right" *ngIf="changeArrow" (click)="collapse()">
+        <a class="arrow-head">
+          <img [style.margin]="changeArrow ? '0px 3px 0px 0px':'0px 0px 0px 3px'"
+            [src]="changeArrow ? 'assets/images/P3_ArrowLeft_White.png' : 'assets/images/P3_ArrowRight_White.png'"
+            class="arrow-mark-details" alt="left-arrow" />
+        </a>
+      </div>
+      <div class="col-lg-12 left-part-layer" id="style-1">
+        <!-- <div
+          class="col-lg-12 content-area-left"
+          *ngFor="let layerData of layerDatas; let indexLayer = index"
+          [ngClass]="{ addActive: layerData['is_active_flag'] == true }"
+        >
+          <div class="col-lg-2">
+            <img
+              class="img-partlock"
+              src="assets/images/document/blackArrow.png"
+            />
+          </div>
+      
+        </div> -->
+        
+        <div class="col-lg-12 layerDetails-head " id="style-1">
+          <div class="head-layer">
+            <div style="background-color: rgba(203, 214, 223, 0.4)" class="card"
+              *ngFor="let layerdetails of showUILayerDatas; let indexValue = index;trackBy:trackByFn_layer"
+              [attr.id]="'accordion' + indexValue">
+            <div *ngIf="getlayeravailable(layerdetails)">
+              <div style="padding: 10px" class="col-12 row expandHead" [ngClass]="checkchecked(layerdetails)? 'addActive': 'card-header'
+                " id="headingOne">
+                <div class="col-2 hvcenter expandHead-first" (click)="checkExpand(layerdetails.layer_id,$event)">
+                  <button class="btn btn-link layer-name-toggle btn-block itemsGraped" data-toggle="collapse"
+                    name="test{{ layerdetails.layer_id }}" [attr.data-target]="'#test' + layerdetails.layer_id" aria-expanded="false"
+                    aria-controls="collapseOne">
+                    <img class="img-toggle setSrc" [src]="getExpand(layerdetails.layer_id)">
+                    <!-- <img class="img-toggle setSrc" *ngIf="!firstTime" src="" /> -->
+                    <!-- assets/images/Faq/P3_ArrowTop_Blue.png -->
+                    <!-- <img *ngIf="arrowChangeToggle==indexValue"
+                      class="img-toggle"
+                      src="assets/images/Faq/P3_ArrowDown_Blue.png" 
+                    />
+                    <img *ngIf="arrowChangeToggle!=indexValue&&arrowChangeToggle!=-1"
+                      class="img-toggle"
+                      src="assets/images/Faq/P3_ArrowTop_Blue.png"
+                    /> -->
+                  </button>
+                </div>
+                <div class="col-4 layer-row">
+                  <p class="layer-name-text">
+                    {{ layerdetails["layer_name"] }}
+                  </p>
+                </div>
+                <div class="col-lg-6 options-layer text-center pr-0" [ngClass]="{'hiddenView':userRoleGlobal.userRol=='view'}">
+                <span *ngFor="let option of layerdetails['associated_pages']">
+                  <ng-container *ngIf="option.page_id==this.selectedPageId">
+                    <span>
+                      <img class="img-partlock" *ngIf="option.is_lock==true" src="assets/images/document/P3_Documents_LockIcon.png"  />
+                    </span>
+                    <span>
+                      <img class="img-part eye-icon" matTooltip="Hide/Unhide Layer"
+                      matTooltipHideDelay="300" matTooltipClass="tooltipstyle"
+                        (click)="(userRoleGlobal.userRol=='view' || rotate_and_resize || isReadonly_layer)?'':check(layerdetails['associated_pages'],layerdetails['layer_id'],layerdetails)"
+                        [src]="checkLayerVisible(layerdetails['associated_pages'],layerdetails)" />
+                    </span>
+                  </ng-container>
+                </span>
+                
+                <div class="btn-group">
+                
+                  <img *ngIf="userRoleGlobal.userRol!='view' && !isReadonly_layer" class="img-partdot" data-toggle="dropdown"
+                    (click)="(userRoleGlobal.userRol=='view' || isReadonly_layer)?'':givenOptions(layerdetails,layerdetails['layer_id'],layerdetails['associated_pages'])"
+                    src="assets/images/P3_MoreIcon_Blue.png" matTooltip="More Options"
+                    matTooltipHideDelay="300" matTooltipClass="tooltipstyle" />
+                  <img *ngIf="userRoleGlobal.userRol=='view' || isReadonly_layer" class="img-partdot sdsff"
+                    (click)="(userRoleGlobal.userRol=='view' || isReadonly_layer)?'':givenOptions(layerdetails,layerdetails['layer_id'],layerdetails['associated_pages'])"
+                    src="assets/images/P3_MoreIcon_Blue.png" matTooltip="More Options"
+                    matTooltipHideDelay="300" matTooltipClass="tooltipstyle" />
+                
+                  <div class="dropdown-menu dropdown-menu-center">
+                    <!-- <span class="dropdown-item" style="background-color: grey;margin-top:-9px;color:black;">Select Options</span> -->
+                    <button class="dropdown-item" (click)="setLockUnlock()" type="button">
+                      <span class="fnt-16" *ngIf="!lock">Lock Layer</span>
+                      <span class="fnt-16" *ngIf="lock">Unlock Layer</span>
+                    </button>
+                    <button class="dropdown-item"
+                      (click)="userRoleGlobal.userRol=='view'?userRoleGlobal.permissionCheck():renameLayerAuc()" type="button">Rename
+                      Layer</button>
+                    <button class="dropdown-item" type="button"
+                      (click)="userRoleGlobal.userRol=='view'?userRoleGlobal.permissionCheck():deleteLayerAuc()">Delete Layer</button>
+                  </div>
+                </div>
+                
+                <input type="checkbox" name="layer_name" [ngClass]="{'hiddenView':userRoleGlobal.userRol=='view'}"
+                    [disabled]="checkchecked(layerdetails) || isReadonly_layer"
+                    class="layer-name multiple-checkbox" [checked]="checkchecked(layerdetails)"
+                    (click)="(userRoleGlobal.userRol=='view' || isReadonly_layer) ? '' : setActiveLayer($event, layerdetails['layer_id'], indexLayer)" />
+                </div>
+              </div>
+              <div *ngFor="let annotationDetails of layerdetails?.annotations; let last = last;trackBy:trackByFn;"
+              [ngStyle]="{'display':collpaseView(layerdetails.layer_id) === true ? 'none' : 'block'}">
+              <div *ngIf="ngForCallback(layerdetails.layer_id,last)"></div>
+                <div class="card-body">
+                  <div class="col-lg-2 layer-details-lefthead">
+                    <input class="layer-details-check multiple-checkbox" [attr.type]="(!layerPage_multiple_on_off && (!layerdetails['associated_pages'][0].is_hidden && !layerdetails['associated_pages'][0].is_lock)?'radio':layerPage_multiple_on_off && (!layerdetails['associated_pages'][0].is_hidden && !layerdetails['associated_pages'][0].is_lock)?'checkbox':'')" name="layer-details" [readOnly]="true"
+                    [checked]="layerPage_multiple_on_off ? layerPage_check_ids.includes(annotationDetails.annotation_id) : layerPage_single_select.includes(annotationDetails.annotation_id)" 
+                      (change)="annotationChecked(annotationDetails['annotation_id'],$event,annotationDetails)" />
+                    <!-- <img
+                      class="layer-details-img"
+                      src="assets/images/document/P3_SelectionCircle_Blue.png"
+                      alt="circle"
+                    /> -->
+                  </div>
+                  <div class="col-lg-2 hvcenter" [attr.id]="annotationDetails['annotation_id'] + '1'">
+                    <ng-container *ngIf="annotationDetails.hasOwnProperty('annotation_data_svg')">
+                      <svg [attr.viewBox]="annotationDetails.viewbox" xmlns="http://www.w3.org/2000/svg"
+                      class="img-responsive svg-header-annotation" width="40" height="40" [attr.transform]="annotationDetails?.transform"
+                      [ngClass]="{'round-line':(annotationDetails.toolbar_element_id==12 || annotationDetails.toolbar_element_id==17)}">
+                      <g *ngIf="!annotationDetails.isEllipse && !annotationDetails.isRectangle"
+                        [style.opacity]="annotationDetails?.opacity">
+                        <path [attr.d]="annotationDetails.annotation_data_svg" [attr.stroke]="annotationDetails.stroke_color"
+                          [attr.fill]="annotationDetails.fill_color" [attr.stroke-width]="annotationDetails.linewidth">
+                        </path>
+                        <text *ngIf="annotationDetails.toolbar_element_id==11 && annotationDetails.breaktexts.length==1"
+                          [style.fontSize]="annotationDetails.textfontSize + 'px'" class="svg-font-size"
+                          [attr.x]="annotationDetails.textshapetextx" [attr.y]="annotationDetails.textshapetexty"
+                          [attr.fill]="annotationDetails.stroke_color">
+                          <tspan *ngFor="let breaktext of annotationDetails.breaktexts;let textindex = index"
+                            [attr.x]="annotationDetails.textshapetextx" [attr.y]="annotationDetails.textshapetexty"
+                            [style.fontSize]="annotationDetails.textfontSize + 'px'">
+                            {{breaktext}}
+                          </tspan>
+                        </text>
+                        <text *ngIf="annotationDetails.toolbar_element_id==11 && annotationDetails.breaktexts.length>1"
+                          [style.fontSize]="annotationDetails.textfontSize + 'px'" class="svg-font-size"
+                          [attr.x]="annotationDetails.textshapetextx" [attr.y]="annotationDetails.textshapetexty"
+                          [attr.fill]="annotationDetails.stroke_color">
+                          <tspan *ngFor="let breaktext of annotationDetails.breaktexts;let textindex = index"
+                            [attr.x]="annotationDetails.textshapetextx"
+                            [attr.y]="(annotationDetails.textshapetexty + (annotationDetails.textfontSize * (textindex+1)))"
+                            [style.fontSize]="annotationDetails.textfontSize + 'px'">
+                            {{breaktext}}
+                          </tspan>
+                        </text>
+                      </g>
+                      <g *ngIf="annotationDetails.isEllipse" [style.opacity]="annotationDetails?.opacity">
+                        <ellipse [attr.cx]="annotationDetails.ellipse.cx" [attr.cy]="annotationDetails.ellipse.cy"
+                          [attr.rx]="annotationDetails.ellipse.rx" [attr.ry]="annotationDetails.ellipse.ry"
+                          [attr.fill]="annotationDetails.fill_color" [attr.stroke-width]="annotationDetails.linewidth"
+                          [attr.stroke]="annotationDetails.stroke_color"></ellipse>
+                      </g>
+                      <g *ngIf="annotationDetails.isRectangle" [style.opacity]="annotationDetails?.opacity">
+                        <rect [attr.x]="annotationDetails.rectangle.x" [attr.y]="annotationDetails.rectangle.y"
+                          [attr.width]="annotationDetails.rectangle.width" [attr.height]="annotationDetails.rectangle.height"
+                          [attr.fill]="annotationDetails.fill_color" [attr.stroke-width]="annotationDetails.linewidth"
+                          [attr.stroke]="annotationDetails.stroke_color"></rect>
+                      </g>
+                      </svg>
+                      <ng-container *ngIf="annotationDetails?.toolbar_element_id!=11">
+                        <p *ngIf="annotationDetails?.annotation_label!=undefined && annotationDetails?.annotation_label!=''" 
+                        class="preview-svg-annot" [style.opacity]="annotationDetails.opacity" [style.color]="annotationDetails.stroke_color" [style.transform]="annotationDetails?.transform">{{annotationDetails.annotation_label}}</p>
+                      </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="!annotationDetails.hasOwnProperty('annotation_data_svg')">
+                      <svg [attr.viewBox]="annotationDetails.viewbox" xmlns="http://www.w3.org/2000/svg"
+                      class="img-responsive svg-header-annotation" width="40" height="40" [attr.transform]="annotationDetails?.transform"
+                      [ngClass]="{'round-line':(annotationDetails.toolbar_element_id==12 || annotationDetails.toolbar_element_id==17)}">
+                      <g *ngIf="annotationDetails.isEllipse" [style.opacity]="annotationDetails?.opacity">
+                        <ellipse [attr.cx]="annotationDetails.ellipse.cx" [attr.cy]="annotationDetails.ellipse.cy"
+                          [attr.rx]="annotationDetails.ellipse.rx" [attr.ry]="annotationDetails.ellipse.ry"
+                          [attr.fill]="annotationDetails.fill_color" [attr.stroke-width]="annotationDetails.linewidth"
+                          [attr.stroke]="annotationDetails.stroke_color"></ellipse>
+                      </g>
+                      <g *ngIf="annotationDetails.isRectangle" [style.opacity]="annotationDetails?.opacity">
+                        <rect [attr.x]="annotationDetails.rectangle.x" [attr.y]="annotationDetails.rectangle.y"
+                          [attr.width]="annotationDetails.rectangle.width" [attr.height]="annotationDetails.rectangle.height"
+                          [attr.fill]="annotationDetails.fill_color" [attr.stroke-width]="annotationDetails.linewidth"
+                          [attr.stroke]="annotationDetails.stroke_color"></rect>
+                      </g>
+                      </svg>
+                      <ng-container *ngIf="annotationDetails?.toolbar_element_id!=11">
+                        <p *ngIf="annotationDetails?.annotation_label!=undefined && annotationDetails?.annotation_label!=''" 
+                        class="preview-svg-annot" [style.opacity]="annotationDetails.opacity" [style.color]="annotationDetails.stroke_color" [style.transform]="annotationDetails?.transform">{{annotationDetails.annotation_label}}</p>
+                      </ng-container>
+                    </ng-container>
+                  </div>
+                  <div class="col-lg-8">
+                    <h3 class="layer-details-body layer-details-heading">
+                      {{ annotationDetails["annotation_name"] }}
+                    </h3>
+                    <p class="layer-details-body">
+                      Created: 
+                      {{
+                      annotationDetails["created_date"] | date: "MM/dd/yyyy"
+                      }} at {{
+                        annotationDetails["created_date"] | date: "hh:mm aa"
+                        }}
+                      <!-- by {{ mailid }} -->
+                    </p>
+                    <p class="layer-details-body">
+                      Modified: 
+                      {{
+                      annotationDetails["last_updated_date"]
+                      | date: "MM/dd/yyyy"  
+                      }} at {{
+                        annotationDetails["last_updated_date"]
+                        | date: "hh:mm aa"  
+                        }}
+                      <!-- by {{ mailid }} -->
+                    </p>
+                    <p class="layer-details-body count-section">
+                      Media ({{ annotationDetails["annotation_media"] }})
+                      Forms ({{ annotationDetails["annotation_forms"] }})
+                      Links ({{ annotationDetails["annotation_links"] }})
+                    </p>
+                    <p *ngIf="annotationDetails['toolbar_element_id']==5||annotationDetails['toolbar_element_id']==7||annotationDetails['toolbar_element_id']==8||annotationDetails['toolbar_element_id']==9"
+                      style="visibility: hidden;padding:0px;" class="layer-details-body-1 metadata-dates">Length = {{getScaleValueForAnnotation(annotationDetails,"radius")}}
+                      Area = {{getScaleValueForAnnotation(annotationDetails,"area")}}</p>
+                    <p class="layer-details-body-1">
+
+                      <span *ngIf="annotationDetails['toolbar_element_id']==4" class="metadata-dates">Base:
+                        {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span *ngIf="annotationDetails['toolbar_element_id']==4" class="metadata-dates">Height:
+                        {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span *ngIf="annotationDetails['toolbar_element_id']=='1'" class="metadata-dates">Radius:
+                        {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span
+                        *ngIf="annotationDetails['toolbar_element_id']==2||annotationDetails['toolbar_element_id']==3||annotationDetails['toolbar_element_id']==20||annotationDetails['toolbar_element_id']==15||annotationDetails['toolbar_element_id']==16"
+                        class="metadata-dates">Length: {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span *ngIf="annotationDetails['toolbar_element_id']==6" class="metadata-dates">Diagonal 1:
+                        {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span *ngIf="annotationDetails['toolbar_element_id']==6" class="metadata-dates">Diagonal 2:
+                        {{getScaleValueForAnnotation(annotationDetails,"")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span
+                        *ngIf="annotationDetails['toolbar_element_id']==12||annotationDetails['toolbar_element_id']==17"
+                        class="metadata-dates">Length:
+                        {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <span *ngIf="annotationDetails['toolbar_element_id']==19" class="metadata-dates">Axis 1:
+                        {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span *ngIf="annotationDetails['toolbar_element_id']==19" class="metadata-dates">Axis 2:
+                        {{getScaleValueForAnnotation(annotationDetails,"")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span
+                        *ngIf="annotationDetails['toolbar_element_id']==20||annotationDetails['toolbar_element_id']==17"
+                        class="metadata-dates">Width:
+                        {{getScaleValueForAnnotation(annotationDetails,"height")}}</span>
+                      <!-- {{ initialHeight }} -->
+                      <span
+                        *ngIf="annotationDetails['toolbar_element_id']==13||annotationDetails['toolbar_element_id']==14"
+                        class="metadata-dates">Total Length: {{getScaleValueForAnnotation(annotationDetails,"radius")}}</span>
+                      <!-- {{ areaValue }} -->
+                      <span
+                        *ngIf="annotationDetails['toolbar_element_id']==1||annotationDetails['toolbar_element_id']==2||annotationDetails['toolbar_element_id']==3||annotationDetails['toolbar_element_id']==4||
+                    annotationDetails['toolbar_element_id']==6||annotationDetails['toolbar_element_id']==19||annotationDetails['toolbar_element_id']==20||annotationDetails['toolbar_element_id']==17"
+                        class="metadata-dates">Area: {{getScaleValueForAnnotation(annotationDetails,"area")}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 btn-part">  
+        <button class="col-lg-11 btn btn-block addLayer-btn" (click)="(userRoleGlobal.userRol=='view' || isReadonly_layer)?'':addNewLayerAuc()">
+          Add a New Layer
+        </button>
+      </div>
+    </div>
+
+    
+    <div *ngIf="addNewLayer" class="addnewLayer-head">
+      <div class="row col-lg-12 addAction-btn-head">
+        <button class="col-lg-8 btn btn-block addAction-btn addAction-dis addLayer-heading"
+          (click)="(userRoleGlobal.userRol=='view' || isReadonly_layer) ? '' : addLayerAuc(layerNameValue)" [ngClass]="{disabledStyle:layerNameValue == '' || show || selectedPages.length==0}">
+          Add Layer
+        </button>
+      </div>
+      <!-- <div class="addLayer-head-part">
+        <button
+          class="col-lg-12 addlayer-headingcur btn btn-block addLayer-heading">
+          Add a New Layer
+        </button>
+      </div> -->
+      <hr />
+      <div class="addLayer-content-area" id="style-1">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-4 col-form-label label-name">Layer Name</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control-plaintext input-field" id="staticEmail" name="layerName"
+              placeholder="Layer Name" [(ngModel)]="layerNameValue" (ngModelChange)="firstLetterCapital(layerNameValue)"
+              autocomplete="off" />
+          </div>
+        </div>
+        <hr />
+        <div *ngIf="false" class="row">
+          <div class="col-lg-12">
+            <form class="radio-part">
+              <label class="col-lg-4 radio-inline text-center label-radio">
+                <input type="radio" name="optradio" class="radio-btn" [(ngModel)]="layer_type" value="blank" />Blank
+              </label>
+              <label class="col-lg-4 radio-inline text-center label-radio link-label">
+                <input type="radio" class="radio-btn" name="optradio" [(ngModel)]="layer_type" value="grid" />Grid
+              </label>
+            </form>
+          </div>
+        </div>
+        <div class="row pages-head">
+          <div class="col-lg-8">
+            <p class="pages-heading">All Pages</p>
+          </div>
+          <div class="col-lg-4 text-right checkbox-head-1">
+            <input class="multiple-checkbox" name="pagename" type="checkbox" [disabled]="documentDetails.length==1 || allPagesSelected"
+              [checked]="allPagesSelected" (click)="deselectAllPages($event)" />
+          </div>
+        </div>
+        <hr />
+        <div class="row pages-head1" *ngFor="let document of documentDetails">
+          <div class="col-lg-8">
+            <p class="pages-heading" appSpecialcharater> {{ document["page_name"] }}</p>
+          </div>
+          <div class="col-lg-4 text-right checkbox-head-1">
+            <input class="multiple-checkbox checkbox-get" name="pagename" [checked]="checkPageId(document.page_id)"
+              [disabled]="documentDetails.length==1" type="checkbox"
+              (change)="toggleVisibility($event, document.page_id)" />
+          </div>
+          <hr class="line" />
+        </div>
+        <!-- <div class="row pages-head1">
+          <div class="col-lg-8">
+            <p class="pages-heading"></p>
+            <p></p>
+          </div>
+          <div class="col-lg-4 text-right checkbox-head-1">
+            <input
+              class="dummy-list multiple-checkbox"
+              name="pagename"
+              [checked]="selectNeededOnly"
+              type="text"
+            />
+          </div>
+          <hr class="line" />
+        </div> -->
+      </div>
+    </div>
+    <div *ngIf="deleteLayer" class="deleteLayer-head">
+      <div class="addLayer-head-part hvcenter">
+        <button class="col-lg-8 btn btn-block addLayer-heading" 
+          (click)="(userRoleGlobal.userRol=='view' || isReadonly_layer) ? '' :deleteLayerAPI(selectedValue)">
+          Delete Layer
+        </button>
+      </div>
+      <div class="deleteLayer-content-area">
+        <div class="form-group row align-items-center">
+          <label for="staticEmail" class="col-sm-8 col-form-label label-name">Keep Annotations</label>
+          <div class="col-sm-4 delete-checkbox-head">
+            <input type="checkbox" class="delete-checkbox multiple-checkbox-delete" name="delete-Layer"
+              (click)="keepAnnotationToggle($event)" />
+          </div>
+        </div>
+        <hr />
+        <div class="form-group row selectLayerHead" *ngIf="keepAnnotation">
+          <label for="layerNames" class="col-sm-4 col-form-label label-name">Move to Layer</label>
+          <div class="col-sm-6 selectLayerDiv">
+            <select name="layerNames" [(ngModel)]="selectedValue" [value]="selectedValue" id="layerNames"
+              class="layersselecthead">
+              <option disbaled value="noValue" class="layeroptionname">
+                Select Layer
+              </option>
+              <ng-container *ngFor="let layerNameoption of showUILayerDatas">
+                <option *ngIf="selectedLayer.layer_id != layerNameoption.layer_id" class="layeroptionname"
+                  [value]="layerNameoption.layer_id">
+                  {{ layerNameoption["layer_name"] }}
+                </option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row col-lg-12 addAction-btn-head">
+        <button class="col-lg-4 btn btn-block addAction-btn deleteAction-dis" [disabled]="show"
+          (click)="deleteLayerAPI(selectedValue)">
+          Delete
+        </button>
+      </div> -->
+    </div>
+    <div *ngIf="renameLayer" class="renameLayer-head">
+      <div class="addLayer-head-part hvcenter">
+        <button class="col-lg-8 btn btn-block addLayer-heading" [ngClass]="{'disabledStyle':reNameValue == '' || show}"
+          (click)="(userRoleGlobal.userRol=='view' || isReadonly_layer) ? '' : reNameAPI(reNameValue)">
+          Rename Layer
+        </button>
+      </div>
+      <div class="rename-layer-content-area">
+        <div class="form-group row">
+          <label for="renameEmail" class="col-sm-4 col-form-label label-name">New Name</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control-plaintext input-field" id="renameEmail" name="reName"
+              placeholder="Layer Name" [(ngModel)]="reNameValue" (ngModelChange)="firstLetterCapitalRename(reNameValue)"
+              autocomplete="off" />
+          </div>
+        </div>
+        <hr />
+        <div class="row pages-head">
+          <div class="col-lg-8">
+            <p class="pages-heading">Current Page</p>
+          </div>
+          <div class="col-lg-4 text-right checkbox-head-1">
+            <input class="rename-checkbox multiple-checkbox" name="pagename" type="checkbox" />
+          </div>
+          <!-- [checked]="reNameSelectPageCheck" (click)="currentPageSelect($event)" -->
+        </div>
+        <hr />
+        <div class="row pages-head">
+          <div class="col-lg-8">
+            <p class="pages-heading">All</p>
+          </div>
+          <div class="col-lg-4 text-right checkbox-head-1">
+            <input class="rename-checkbox multiple-checkbox" name="pagename" type="checkbox" disabled [checked]="true"
+              (click)="selectAllPages($event)" />
+          </div>
+        </div>
+        <!-- <div class="row col-lg-12 addAction-btn-head">
+          <button class="col-lg-4 btn btn-block addAction-btn renameAction-dis" [disabled]="reNameValue == '' || show"
+            (click)="reNameAPI(reNameValue)">
+            Rename
+          </button>
+        </div> -->
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="show" class="image_part1">
+  <img src="assets/images/spin.gif" alt="..." />
+</div>

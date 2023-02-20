@@ -1,0 +1,137 @@
+<!-- <app-hiddenlist></app-hiddenlist> -->
+<div class="table-head">
+    <div class="projectdetails_section" style="padding-left:0px;padding-right:0px;">
+        <!-- <div class="row project-header">
+            <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-12">
+                <h3 class="project-heading">
+                    <p class="data_before"></p>Name
+                </h3>
+            </div>
+        </div> -->
+        
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" [attr.id]="node.folder_id" matTreeNodePadding matTreeNodePaddingIndent="15"
+              class="mat_tree_section" (contextmenu)="
+                onContextMenu(
+                  $event,
+                  node.item,
+                  node.created_date,
+                  node.modified_date,
+                  node.folder_id,
+                  node.parent_folder_id,
+                  node.folder_level,
+                  node.is_folder_flag,
+                  node.is_hidden,
+                  node
+                )
+              " [longPress]="2000" (onRelease)="onVeryLongPress( $event,
+              node.item,
+              node.created_date,
+              node.modified_date,
+              node.folder_id,
+              node.parent_folder_id,
+              node.folder_level,
+              node.is_folder_flag,
+              node.is_hidden,
+              node)" matTreeNodeOutlet [ngClass]="getStyle(node)" (click)="showChildren(node)">
+              <div class="whole_div col-lg-12">
+                <div class="top_head col-lg-12 col-md-12 col-sm-12 col-12" (click)="getNodes(node)">
+                  <img  class="dynamic-Arrow" [ngClass]="{hideOption : node.is_folder_flag==0}"
+                    [src]="treeControl.isExpanded(node) ? 'assets/images/projectdetails/P3_ArrowDown_Blue.png' : 'assets/images/projectdetails/P3_ArrowRight_Blue.png'">
+                  <!-- <button class="right_arrow">
+                    <mat-icon class="mat-icon-rtl-mirror icon-arrow">
+                      {{
+                        treeControl.isExpanded(node) ? "expand_more" : "chevron_right"
+                      }}
+                    </mat-icon>
+                  </button> -->
+                  <div class="image-part">
+                    <img  [src]="getfoldericon(node)" alt="File" [attr.class]="iconChange" />
+                  </div>
+                  <div class="checklist-leaf-node col-lg-9 col-md-9 col-sm-9 col-9 folder-name">
+                    <p class="nodeContent" [ngClass]="{ 'drag-start': dragNode === node }">
+                      {{ node.item }}
+                    </p>
+                    <p class="annot_count">Created : {{node.created_date | date : "MM/dd/yyyy 'at' hh:mm a"}}</p>
+                    <p class="annot_count">Modified : {{node.modified_date | date : "MM/dd/yyyy 'at' hh:mm a"}}</p>
+                  </div>
+                </div>
+              </div>
+            </mat-tree-node>
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle [attr.id]="node.folder_id" matTreeNodePadding matTreeNodePaddingIndent="15"
+              class="mat_tree_section" [attr.aria-label]="'toggle ' + node.item" (click)="
+                document(
+                  node.item,
+                  node.folder_id,
+                  node.is_folder_flag,
+                  node.folder_level,
+                  node.parent_folder_id
+                )
+              " (contextmenu)="
+                onContextMenu(
+                  $event,
+                  node.item,
+                  node.created_date,
+                  node.modified_date,
+                  node.folder_id,
+                  node.parent_folder_id,
+                  node.folder_level,
+                  node.is_folder_flag,
+                  node.is_hidden,
+                  node
+                )
+              " [longPress]="2000" (onRelease)="onVeryLongPress($event,
+              node.item,
+              node.created_date,
+              node.modified_date,
+              node.folder_id,
+              node.parent_folder_id,
+              node.folder_level,
+              node.is_folder_flag,
+              node.is_hidden,
+              node)" [ngClass]="getStyle(node)">
+              <div class="whole_div col-lg-12">
+                <div class="top_head col-lg-12 col-md-12 col-sm-12 col-12 line-branch" (click)="getNodes(node)">
+                  <img  class="dynamic-Arrow hideOption"
+                    [src]="treeControl.isExpanded(node) ? 'assets/images/projectdetails/P3_ArrowDown_Blue.png' : 'assets/images/projectdetails/P3_ArrowRight_Blue.png'">
+                  <!-- <button class="right_arrow invisible">
+                    <mat-icon class="mat-icon-rtl-mirror icon-arrow">
+                      {{
+                        treeControl.isExpanded(node) ? "expand_more" : "chevron_right"
+                      }}
+                    </mat-icon>
+                  </button> -->
+                  <div class="image-part">
+                    <img  [src]="getfoldericon(node)" alt="File" [attr.class]="iconChange" />
+                  </div>
+                  <div class="checklist-leaf-node child_text_area col-lg-9 col-md-9 col-sm-9 col-9">
+                    <p class="nodeContent" [ngClass]="{ 'drag-start': dragNode === node }">
+                      {{ node.item }}
+                    </p>
+                    <p class="annot_count">Annotations : {{node.annotation_count}}</p>
+                    <p class="annot_count">Created : {{node.created_date | date : "MM/dd/yyyy 'at' hh:mm a"}}</p>
+                    <p class="annot_count">Modified : {{node.modified_date | date : "MM/dd/yyyy 'at' hh:mm a"}}</p>
+                  </div>
+                </div>
+              </div>
+            </mat-tree-node>
+        
+          </mat-tree>
+
+
+
+        <span #emptyItem></span>
+
+        <!-- <img src="assets/images/P3_AddProject_bg.png" (click)="addContent()" class="justify-content-end hover add-image"  alt="..."> -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <app-hiddenlists></app-hiddenlists>
+        </div>    
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <app-hiddenlist></app-hiddenlist>
+        </div>    
+    </div>
+    <app-grand-loader *ngIf="showLoader"></app-grand-loader>

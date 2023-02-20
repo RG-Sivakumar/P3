@@ -1,0 +1,36 @@
+<div class="color">
+    <div class=" filter dialog-header-box col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <span class="head">{{formname}}</span>
+        <span class="close" (click)="onclose()"><img class="close-img"
+                src="assets/images/P3_Close-Cancel_Blue.png"></span>
+    </div>
+</div>
+
+<div>
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 pointerMove" (click)="this.userrole=='view'?userRoleGlobal.permissionCheck():Rename()">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <span class="headSec hover">Rename</span>
+        </div>
+    </div>
+    <hr class="hr-area ar" />
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 pointerMove" (click)="this.userrole=='view'?userRoleGlobal.permissionCheck():Tag()">
+
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <span class="headSec hover">Manage Tags</span>
+        </div>
+    </div>
+    <hr class="hr-area ar" />
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 pointerMove" (click)="MoreInformation()">
+
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <span class="headSec hover">More Information</span>
+        </div>
+    </div>
+    <hr class="hr-area ar" />
+    <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12 pointerMove" (click)="this.userrole=='admin'?hide():userRoleGlobal.permissionCheck()">
+
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <span class="headSec hover">Hide</span>
+        </div>
+    </div>
+</div>

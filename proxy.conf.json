@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+      "target": "https://plannotate3devbucket.s3.amazonaws.com", 
+      "secure": false,
+      "logLevel": "debug"
+  }
+}

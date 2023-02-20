@@ -1,0 +1,14 @@
+<div *ngFor="let toolbarfeature of tool">
+  <div class="row col-lg-12 col-md-12 col-sm-12 box" (contextmenu)="onContextMenu($event,toolbarfeature.toolbar_id,toolbarfeature.toolbar_name,toolbarfeature.created_date,
+    toolbarfeature.last_updated_date,toolbarfeature.is_hidden)"
+    [longPress]="2000" (onRelease)="onVeryLongPress($event,toolbarfeature.toolbar_id,toolbarfeature.toolbar_name,toolbarfeature.created_date,
+    toolbarfeature.last_updated_date,toolbarfeature.is_hidden)">
+    <div class="top_head col-lg-6 col-md-9 col-sm-5 col-6 p-0">
+      <img style="margin-right:20px;margin-left:30px; width: 28px;" class="toolbar-img"
+        src="assets/images/icons/P3WebIcon_51Toolbar.png">
+      <span style="font-size:17px;font-weight:500;color:#00447c;"> {{toolbarfeature['toolbar_name']}} </span>
+    </div>
+  </div>
+  <hr>
+</div>
+<app-grand-loader *ngIf="showLoader"></app-grand-loader>

@@ -1,0 +1,27 @@
+.objectValue{
+    width:100%;
+    min-height:calc(100vh - 7px);
+}
+.addExit:hover, .card:hover{
+    cursor:pointer;
+}
+.card .card-title{
+    font-weight: 600 !important;
+}
+.card{
+    margin-bottom: 0px !important;
+}
+.logo-icon{
+    height:44px;
+}
+.image_part{
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-left:-135px;
+    margin-top:-135px;
+    z-index: 999;
+}
+.site-logo:hover{
+    cursor:pointer;
+}
